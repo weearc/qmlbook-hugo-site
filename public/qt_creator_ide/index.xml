@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qt_creator_ides on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/</link>
+    <description>Recent content in Qt_creator_ides on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/debugging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/debugging/</guid>
+      <description>调试（Debugging） #  Qt Creator支持C++与QML代码调试。
+注意
+嗯，我才意识到我还没有使用过调试。这是一个好的现象。我需要有人对此提出问题，查看 Qt Creator documentation来获得更多的帮助吧。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/locator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/locator/</guid>
+      <description>定位器（Locator） #  定位器是Qt Creaotor中心的一个组件。它可以让开发者迅速的找到指定代码的位置，或者获得帮助。使用Ctrl+K来打开定位器。
+ 左边底部可以显示弹出一系列的选项。如果你只是想搜索你项目中的一个文件，你只需要给出文件第一个字母提示就可以了。定位器也接收通配符，比如*main.qml也可以查找。你也可以通过前缀搜索来搜索指定内容的类型。
+ 试试它，例如寻找一个QML矩形框的帮助，输入?rectangle。定位器会不停的更新它的建议直到你找到你想要的参考文档。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/managing_projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/managing_projects/</guid>
+      <description>项目管理（Managing Projects） #  Qt Creator在项目中管理你的源代码。你可以使用File-&amp;gt;New File或者Project来创建一个新项目。当你创建一个项目时，你可以选择多种应用程序模板。Qt Creator 能够创建桌面，手机应用程序。这些应用程序使用窗口部件（Widgets）或者QtQuick或者控制台，甚至可以是更加简单的项目。当然也支持HTML5与python的项目。对于一个新手是很难选择的，所以我们为你选择了三种类型的项目。
+  应用程序/QtQuick2.0用户界面：这将会为你创建一个QML/JS的项目，不需要使用任何的C++代码。使用这个你可以迅速的创建一个新的用户界面或者计划创建一个基于本地插件的现代的用户界面应用程序。
+  库/Qt Quick2.0扩展插件：使用这个安装引导能够创建一个你自己的Qt Quick用户界面插件。这个插件被用来扩展Qt Quick的本地元素。
+  其它项目/空的Qt项目：只是一个项目的骨架。如果你想从头使用C++来编写你的应用程序，你可以使用这种方式。你需要知道你在这里能做什么。
+  注意
+在这本书的前面部分我们主要使用QtQuick 2.0用户界面项目。在后面我们会使用空的Qt项目或者类似的项目描述一些C++方面的使用。为了使用我们自己的本地插件来扩展QtQuick，我们将会使用Qt Quick2.0扩展插件安装引导项目。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/</guid>
+      <description>注册你的Qt工具箱（Registering your Qt Kit） #  最开始使用Qt Creator时最困难的部分可能是Qt Kit。一个Qt Kit由Qt的版本，编译系统和设备等等其它设置来配置它。它使用唯一标识的工具组合来构建你的项目。一个典型的桌面kit（工具箱）可能包含一个GCC编译程序，一个Qt版本库（比如Qt5.1.1）和一个设备（”桌面“）。在你创建好你的项目后你需要为项目指定一个kit（工具箱）来构建项目。在你创建一个kit（工具箱）之前你需要先安装一个编译程序并注册一个Qt版本。Qt版本的注册由指定qmake的执行路径完成。Qt Creator通过查询qmake的信息来获取Qt的版本标识。
+添加kit（工具箱）与注册Qt版本在Settings-&amp;gt;Bulild &amp;amp; Run entry中完成，在这里你也可以查看有哪些编译程序已经被注册了的。
+注意
+请首先确保你的Qt Creator中已经注册了正确的Qt版本，并且确保一个Kit（工具箱）指定了一个编译程序与Qt版本和设备的组合。你无法离开Kit（工具箱）来构建一个项目。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/README/</guid>
+      <description>Qt Creator集成开发环境（Qt Creator IDE） #  Qt Creator是Qt默认的集成开发环境。它由Qt的开发者们编写提供的。这个集成开发环境能够在大多数的桌面开发平台上使用，例如 Windows/Mac/Linux。我们也已经看到有些用户在嵌入式设备上使用Qt Creator。Qt Creator有着精简的用户界面，可以帮助开发者们高效的完成开发生产。Qt Creator 能够启动你的QtQuick用户界面，也可以用来编译c++代码到你的主机系统或者使用交叉编译到你的设备系统上。
+ 注意
+这章的源代码能够在 assetts folder找到。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/shortcuts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/shortcuts/</guid>
+      <description>快捷键（Shortcuts） #  在好使用的系统中和专业系统中，快捷键是不同的。作为专业的开发人员，你也许会在你的应用程序上花很多时间，每一个快捷键都能使你的工作效率得到提高。Qt Creator的开发者也这样想，并且在应用程序中加入了许许多多的快捷键。
+我们列出了一些基本的快捷键操作：
+  Ctrl+B - 构建项目
+  Ctrl+R - 运行项目
+  Ctrl+Tab - 切换已打开的文档
+  Ctrl+k - 打开定位器
+  Esc - 返回
+  F2 - 查找对应的符号解释。
+  F4 - 在头文件与源文件之间切换（只对c++代码有效）
+  这些快捷键的定义来自 Qt Creator shortcuts这个文档。
+注意
+你可以使用设置窗口来编辑你的快捷键。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/the_user_interface/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/the_user_interface/</guid>
+      <description>用户界面（The User Interface） #  当你启动Qt Creator时，你可以看到一个欢迎画面。在这里你可以找到怎样在Qt Creator中继续的重要提示，或者你最近使用的项目。你可以看到一个会话列表，你可以看到是一个空的。一个会话是供你参考使用的一堆项目的集合。当你在同时拥有几个客户的大项目时，这个功能非常有用。
+你可以在左边看到模式选择。模式选择包含了你典型的工作步骤。
+  欢迎模式：你目前所在的位置。
+  编辑模式：专注于编码。
+  设计模式：专注于用户界面设计。
+  调试模式：获取当前运行程序的相关信息。
+  项目模式：修改你的项目编译运行配置。
+  分析模式：检查内存泄露并剖析。
+  帮助模式：阅读Qt的帮助文档。
+  在模式选择下面你可以找到项目配置选择与执行/调试。
+ 你应该大多数时间都处于编辑模式的中央面板中的代码编辑器编辑你的代码。当你需要配置你的项目时，你将不时的访问项目模式。当你点击Run（运行）。Qt Creator会先确保充分的构建你的项目后再运行它。
+在最下面的输出窗是错误信息，应用程序信息，编译信息和其它的信息。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/using_the_editor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/using_the_editor/</guid>
+      <description>使用编辑器（Using the Editor） #  当你打开一个项目或者创建一个新的项目后，Qt Creator将会转换到编辑模式下。你应该可以在左边看到你的项目文件，在中央区域看到代码编辑器。左边选中的文件将会被编辑器打开。编辑器提供了语法高亮，代码补全和智能纠错的功能。也提供几种代码重构的命令。当你使用这个编辑器工作时你会觉得它的响应非常的迅速。这感谢与Qt Creaotor的开发者将这个工具做的如此杰出。
+ </description>
+    </item>
+    
+  </channel>
+</rss>

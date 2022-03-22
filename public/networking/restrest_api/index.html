@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="REST接口（REST API） #  为了使用web服务，我们首先需要创建它。我们使用Flask（http://flask.pocoo.org），一个基于python创建简单的颜色web服务的HTTP服务器应用。你也可以使用其它的web服务器，只要它接收和返回JSON数据。通过web服务来管理一组已经命名的颜色。在这个例子中，管理意味着CRUD（创建-读取-更新-删除）。
+在Flask中一个简单的web服务可以写入一个文件。我们使用一个空的服务器.py文件开始，在这个文件中我们创建一些规则并且从额外的JSON文件中加载初始颜色。你可以查看Flask文档获取更多的帮助。
+from flask import Flask, jsonify, request import json colors = json.load(file(&#39;colors.json&#39;, &#39;r&#39;)) app = Flask(__name__) # ... service calls go here if __name__ == &#39;__main__&#39;: app.run(debug = True) 当你运行这个脚本后，它会在http://localhost:5000。
+我们开始添加我们的CRUD（创建，读取，更新，删除）到我们的web服务。
+11.5.1 读取请求（Read Request） #  从web服务读取数据，我们提供GET方法来读取所有的颜色。
+@app.route(&#39;/colors&#39;, methods = [&#39;GET&#39;]) def get_colors(): return jsonify( { &#34;colors&#34; : colors }) 这将会返回‘/colors’下的颜色。我们使用curl来创建一个http请求测试。
+curl -i -GET http://localhost:5000/colors 这将会返回给我们JSON数据的颜色链表。
+11.5.2 读取接口（Read Entry） #  为了通过名字读取颜色，我们提供更加详细的后缀，定位在‘/colors/&lsquo;下。名称是后缀的参数，用来识别一个独立的颜色。
+@app.route(&#39;/colors/&lt;name&gt;&#39;, methods = [&#39;GET&#39;]) def get_color(name): for color in colors: if color[&#34;name&#34;] == name: return jsonify( color ) 我们再次使用curl测试，例如获取一个红色的接口。">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="REST接口（REST API） #  为了使用web服务，我们首先需要创建它。我们使用Flask（http://flask.pocoo.org），一个基于python创建简单的颜色web服务的HTTP服务器应用。你也可以使用其它的web服务器，只要它接收和返回JSON数据。通过web服务来管理一组已经命名的颜色。在这个例子中，管理意味着CRUD（创建-读取-更新-删除）。
+在Flask中一个简单的web服务可以写入一个文件。我们使用一个空的服务器.py文件开始，在这个文件中我们创建一些规则并且从额外的JSON文件中加载初始颜色。你可以查看Flask文档获取更多的帮助。
+from flask import Flask, jsonify, request import json colors = json.load(file(&#39;colors.json&#39;, &#39;r&#39;)) app = Flask(__name__) # ... service calls go here if __name__ == &#39;__main__&#39;: app.run(debug = True) 当你运行这个脚本后，它会在http://localhost:5000。
+我们开始添加我们的CRUD（创建，读取，更新，删除）到我们的web服务。
+11.5.1 读取请求（Read Request） #  从web服务读取数据，我们提供GET方法来读取所有的颜色。
+@app.route(&#39;/colors&#39;, methods = [&#39;GET&#39;]) def get_colors(): return jsonify( { &#34;colors&#34; : colors }) 这将会返回‘/colors’下的颜色。我们使用curl来创建一个http请求测试。
+curl -i -GET http://localhost:5000/colors 这将会返回给我们JSON数据的颜色链表。
+11.5.2 读取接口（Read Entry） #  为了通过名字读取颜色，我们提供更加详细的后缀，定位在‘/colors/&lsquo;下。名称是后缀的参数，用来识别一个独立的颜色。
+@app.route(&#39;/colors/&lt;name&gt;&#39;, methods = [&#39;GET&#39;]) def get_color(name): for color in colors: if color[&#34;name&#34;] == name: return jsonify( color ) 我们再次使用curl测试，例如获取一个红色的接口。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mirrors.cqu.edu.cn/qmlbook/networking/restrest_api/" /><meta property="article:section" content="networking" />
+
+
+
+<title>Restrest API | Qml Book</title>
+<link rel="manifest" href="/qmlbook/manifest.json">
+<link rel="icon" href="/qmlbook/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/qmlbook/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css" integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin="anonymous">
+  <script defer src="/qmlbook/flexsearch.min.js"></script>
+  <script defer src="/qmlbook/en.search.min.7eaa324ae4aad96718321da9bf7ce2963bf997813e848e1e16bcc0e89048af9b.js" integrity="sha256-fqoySuSq2WcYMh2pv3ziljv5l4E&#43;hI4eFrzA6JBIr5s=" crossorigin="anonymous"></script>
+
+  <script defer src="/qmlbook/sw.min.c5fd65d1492edd0e92acb72a8983e44a68ad14c15883246783ed1d96f25e6858.js" integrity="sha256-xf1l0Uku3Q6SrLcqiYPkSmitFMFYgyRng&#43;0dlvJeaFg=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/qmlbook/"><span>Qml Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 id="summary">
+  Summary
+  <a class="anchor" href="#summary">#</a>
+</h1>
+<ul>
+<li>
+  <a href="/qmlbook/README/">Introduction</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/README/">Qt5概述</a>
+<ul>
+<li>
+  <a href="/qmlbook/meet_qt_5/preface/">序</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt5_introduction/">Qt5介绍</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_building_blocks/">Qt构建模块（Qt Building Blocks）</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_project/">Qt项目（Qt Project）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/get_start/README/">开始学习（Get Start）</a>
+<ul>
+<li>
+  <a href="/qmlbook/get_start/qt5installing_qt_5_sdk/">安装Qt5软件工具包（Installing Qt 5 SDK）</a></li>
+<li>
+  <a href="/qmlbook/get_start/hello_world/">你好世界（Hello World）</a></li>
+<li>
+  <a href="/qmlbook/get_start/application_types/">应用程序类型（Application Types）</a></li>
+<li>
+  <a href="/qmlbook/get_start/summary/">总结（ Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/README/">Qt Creator集成开发环境（Qt Creator IDE）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_creator_ide/the_user_interface/">用户界面（The User Interface）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/">注册你的Qt工具箱（Registering your Qt Kit）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/managing_projects/">项目管理（Managing Projects）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/using_the_editor/">使用编辑器（Using the Editor）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/locator/">定位器（Locator）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/debugging/">调试（Debugging）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/shortcuts/">快捷键（Shortcuts）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/quick_starter/README/">QML快速入门（Quick Starter）</a>
+<ul>
+<li>
+  <a href="/qmlbook/quick_starter/qmlqml_syntax/">QML语法（QML Syntax）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/basic_elements/">基本元素（Basic Elements）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/compontents/">组件（Compontents）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/simple_transformations/">简单的转换（Simple Transformations）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/positioning_element/">定位元素（Positioning Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/layout_items/">布局元素（Layout Items）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/input_element/">输入元素（Input Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/advanced_techniques/"> 高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/fluid_elements/README/">动态元素（Fluid Elements）</a>
+<ul>
+<li>
+  <a href="/qmlbook/fluid_elements/animations/">动画（Animations）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/states_and_transitions/">状态与过渡（States and Transitions）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/model-view-delegate/README/">模型-视图-代理（Model-View-Delegate）</a>
+<ul>
+<li>
+  <a href="/qmlbook/model-view-delegate/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/basic_model/">基础模型（Basic Model）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/dynamic_views/">动态视图（Dynamic Views）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/delegate/">代理（Delegate）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/canvas_element/README/">画布元素（Canvas Element）</a>
+<ul>
+<li>
+  <a href="/qmlbook/canvas_element/convenient_api/">便捷的接口（Convenient API）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/gradients/">渐变（Gradients）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/shadows/">阴影（Shadows）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/images/">图片（Images）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/transformation/">转换（Transformation）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/composition_mode/">组合模式（Composition Mode）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/pixels_buffer/">像素缓冲（Pixels Buffer）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/canvas_paint/">画布绘制（Canvas Paint）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/html5porting_from_html5_canvas/">HTML5画布移植（Porting from HTML5 Canvas）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/particle_simulations/README/">粒子模拟（Particle Simulations）</a>
+<ul>
+<li>
+  <a href="/qmlbook/particle_simulations/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/simple_simulation/">简单的模拟（Simple Simulation）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_parameters/">粒子参数（Particle Parameters）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/directed_particle/">粒子方向（Directed Particle）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_painter/">粒子画笔（Particle Painter）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/affecting_particles/">粒子控制（Affecting Particles）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_group/">粒子组（Particle Group）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/shader_effect/README/">着色器效果（Shader Effect）</a>
+<ul>
+<li>
+  <a href="/qmlbook/shader_effect/openglopengl_shader/">OpenGL着色器（OpenGL Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/shader_elements/">着色器元素（Shader Elements）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/fragement_shader/">片段着色器（Fragement Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/wave_effect/">波浪效果（Wave Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/vertex_shader/">顶点着色器（Vertex Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/curtain_effect/">剧幕效果（Curtain Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/qtqt_graphicseffect_library/">Qt图像效果库（Qt GraphicsEffect Library）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/multimedia/README/">多媒体（Multimedia）</a>
+<ul>
+<li>
+  <a href="/qmlbook/multimedia/playing_media/">媒体播放（Playing Media）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/sounds_effects/">声音效果（Sounds Effects）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/video_streams/">视频流（Video Streams）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/capturing_images/">捕捉图像（Capturing Images）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/networking/README/">网络（Networking）</a>
+<ul>
+<li>
+  <a href="/qmlbook/networking/httpuiserving_ui_via_http/">通过HTTP服务用户界面（Serving UI via HTTP）</a></li>
+<li>
+  <a href="/qmlbook/networking/templating/">模板（Templating）</a></li>
+<li>
+  <a href="/qmlbook/networking/httphttp_requests/">HTTP请求（HTTP Requests）</a></li>
+<li>
+  <a href="/qmlbook/networking/local_files/">本地文件（Local files）</a></li>
+<li>
+  <a href="/qmlbook/networking/restrest_api/"class=active>REST接口（REST API）</a></li>
+<li>
+  <a href="/qmlbook/networking/authentication_using_oauth/">使用开放授权登陆验证（Authentication using OAuth）</a></li>
+<li>
+  <a href="/qmlbook/networking/engine_io/">云服务（Engine IO）</a></li>
+<li>
+  <a href="/qmlbook/networking/web_sockets/">Web Sockets</a></li>
+<li>
+  <a href="/qmlbook/networking/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/storage/README/">存储（Storage）</a>
+<ul>
+<li>
+  <a href="/qmlbook/storage/settings/">配置（Settings）</a></li>
+<li>
+  <a href="/qmlbook/storage/local_storage_-_sql/">本地存储 - SQL（Local Storage - SQL）</a></li>
+<li>
+  <a href="/qmlbook/storage/other_storage_apis/">其它存储接口（Other Storage APIs）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/README/">动态QML（Dynamic QML）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/loading_components_dynamically/">动态加载组件（Loading Components Dynamically）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/connecting_indirectly/">间接连接（Connecting Indirectly）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/binding_indirectly/">间接绑定（Binding Indirectly）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/creating_and_destroying_objects/">创建与销毁对象（Creating and Destroying Objects）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/">动态加载和实例化项（Dynamically Loading and Instantiating Items）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/">从文本中动态实例化项（Dynamically Instantiating Items from Text）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/managing_dynamically_created_elements/">管理动态创建的元素（Managing Dynamically Created Elements）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/tracking_dynamic_objects/">跟踪动态对象（Tracking Dynamic Objects）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/javascript/README/">JavaScript</a>
+<ul>
+<li>
+  <a href="/qmlbook/javascript/browserhtml_vs_qtquickqml/">浏览器/HTML与QtQuick/QML对比（Browser/HTML vs QtQuick/QML）</a></li>
+<li>
+  <a href="/qmlbook/javascript/the_language/">JavaScript语法（The Language）</a></li>
+<li>
+  <a href="/qmlbook/javascript/js_objects/">JS对象（JS Objects）</a></li>
+<li>
+  <a href="/qmlbook/javascript/creating_a_js_console/">创建JS控制台（Creating a JS Console）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/README/">Qt and C++</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/">演示程序（A Boilerplate Application）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/the_qobject/">Qt对象（The QObject）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/build_systems/">编译系统（Build Systems）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qmake/">QMake</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/cmake/">CMake</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/">Qt通用类（Common Qt Classes）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qstring/">QString</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/sequential_containers/">顺序容器（Sequential Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/associative_containers/">组合容器（Associative Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/file_io/">文件IO（File IO）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/">C++数据模型（Models in C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_simple_model/">一个简单的模型（A simple model）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/more_complex_data/">更复杂的数据（More Complex Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/dynamic_data/">动态数据（Dynamic Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/">进阶技巧（Advanced Techniques）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/README/">C++扩展QML（Extending QML with C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/">理解QML运行环境（Understanding the QML Run-time）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/">插件内容（Plugin Content）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/">创建插件（Creating the plugin）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/">FileIO实现（FileIO Implementation）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/">使用FileIO（Using FileIO）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/">应用程序窗口（The Application Window）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/">使用动作（Using Actions）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/">格式化表格（Formatting the Table）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/">读取数据（Reading Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/">写入数据（Writing Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/">收尾工作（Finishing Touch）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/other/README/">其它（Other）</a>
+<ul>
+<li>
+  <a href="/qmlbook/other/assets/">示例源码</a></li>
+<li>
+  <a href="/qmlbook/other/enginsh_to_chinses/">术语英汉对照表</a></li>
+<li>
+  <a href="/qmlbook/other/book_format/">格式定义</a></li>
+<li>
+  <a href="/qmlbook/other/collaboration_correction/">协作校正</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/cwc1987/QmlBook-In-Chinese" target="_blank" rel="noopener">
+        QmlBook In Chinese
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/qmlbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Restrest API</strong>
+
+  <label for="toc-control">
+    
+    <img src="/qmlbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#rest接口rest-api">REST接口（REST API）</a>
+      <ul>
+        <li><a href="#1151-读取请求read-request">11.5.1 读取请求（Read Request）</a></li>
+        <li><a href="#1152-读取接口read-entry">11.5.2 读取接口（Read Entry）</a></li>
+        <li><a href="#1153-创建接口create-entry">11.5.3 创建接口（Create Entry）</a></li>
+        <li><a href="#1154-更新接口update-entry">11.5.4 更新接口（Update Entry）</a></li>
+        <li><a href="#1155-删除接口delete-entry">11.5.5 删除接口（Delete Entry）</a></li>
+        <li><a href="#1156-rest客户端rest-client">11.5.6 REST客户端（REST Client）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="rest接口rest-api">
+  REST接口（REST API）
+  <a class="anchor" href="#rest%e6%8e%a5%e5%8f%a3rest-api">#</a>
+</h1>
+<p>为了使用web服务，我们首先需要创建它。我们使用Flask（http://flask.pocoo.org），一个基于python创建简单的颜色web服务的HTTP服务器应用。你也可以使用其它的web服务器，只要它接收和返回JSON数据。通过web服务来管理一组已经命名的颜色。在这个例子中，管理意味着CRUD（创建-读取-更新-删除）。</p>
+<p>在Flask中一个简单的web服务可以写入一个文件。我们使用一个空的服务器.py文件开始，在这个文件中我们创建一些规则并且从额外的JSON文件中加载初始颜色。你可以查看Flask文档获取更多的帮助。</p>
+<pre tabindex="0"><code>from flask import Flask, jsonify, request
+import json
+
+colors = json.load(file(&#39;colors.json&#39;, &#39;r&#39;))
+
+app = Flask(__name__)
+
+# ... service calls go here
+
+if __name__ == &#39;__main__&#39;:
+    app.run(debug = True)
+</code></pre><p>当你运行这个脚本后，它会在http://localhost:5000。</p>
+<p>我们开始添加我们的CRUD（创建，读取，更新，删除）到我们的web服务。</p>
+<h2 id="1151-读取请求read-request">
+  11.5.1 读取请求（Read Request）
+  <a class="anchor" href="#1151-%e8%af%bb%e5%8f%96%e8%af%b7%e6%b1%82read-request">#</a>
+</h2>
+<p>从web服务读取数据，我们提供GET方法来读取所有的颜色。</p>
+<pre tabindex="0"><code>@app.route(&#39;/colors&#39;, methods = [&#39;GET&#39;])
+def get_colors():
+    return jsonify( { &#34;colors&#34; :  colors })
+</code></pre><p>这将会返回‘/colors’下的颜色。我们使用curl来创建一个http请求测试。</p>
+<pre tabindex="0"><code>curl -i -GET http://localhost:5000/colors
+</code></pre><p>这将会返回给我们JSON数据的颜色链表。</p>
+<h2 id="1152-读取接口read-entry">
+  11.5.2 读取接口（Read Entry）
+  <a class="anchor" href="#1152-%e8%af%bb%e5%8f%96%e6%8e%a5%e5%8f%a3read-entry">#</a>
+</h2>
+<p>为了通过名字读取颜色，我们提供更加详细的后缀，定位在‘/colors/&lsquo;下。名称是后缀的参数，用来识别一个独立的颜色。</p>
+<pre tabindex="0"><code>@app.route(&#39;/colors/&lt;name&gt;&#39;, methods = [&#39;GET&#39;])
+def get_color(name):
+    for color in colors:
+        if color[&#34;name&#34;] == name:
+            return jsonify( color )
+</code></pre><p>我们再次使用curl测试，例如获取一个红色的接口。</p>
+<pre tabindex="0"><code>curl -i -GET http://localhost:5000/colors/red
+</code></pre><p>这将返回一个JSON数据的颜色。</p>
+<h2 id="1153-创建接口create-entry">
+  11.5.3 创建接口（Create Entry）
+  <a class="anchor" href="#1153-%e5%88%9b%e5%bb%ba%e6%8e%a5%e5%8f%a3create-entry">#</a>
+</h2>
+<p>目前我们仅仅使用了HTTP GET方法。为了在服务器端创建一个接口，我们使用POST方法，并且将新的颜色信息发使用POST数据发送。后缀与获取所有颜色相同，但是我们需要使用一个POST请求。</p>
+<pre tabindex="0"><code>@app.route(&#39;/colors&#39;, methods= [&#39;POST&#39;])
+def create_color():
+    color = {
+        &#39;name&#39;: request.json[&#39;name&#39;],
+        &#39;value&#39;: request.json[&#39;value&#39;]
+    }
+    colors.append(color)
+    return jsonify( color ), 201
+</code></pre><p>curl非常灵活，允许我们使用JSON数据作为新的接口包含在POST请求中。</p>
+<pre tabindex="0"><code>curl -i -H &#34;Content-Type: application/json&#34; -X POST -d &#39;{&#34;name&#34;:&#34;gray1&#34;,&#34;value&#34;:&#34;#333&#34;}&#39; http://localhost:5000/colors
+</code></pre><h2 id="1154-更新接口update-entry">
+  11.5.4 更新接口（Update Entry）
+  <a class="anchor" href="#1154-%e6%9b%b4%e6%96%b0%e6%8e%a5%e5%8f%a3update-entry">#</a>
+</h2>
+<p>我们使用PUT HTTP方法来添加新的update接口。后缀与取得一个颜色接口相同。当颜色更新后，我们获取更新后JSON数据的颜色。</p>
+<pre tabindex="0"><code>@app.route(&#39;/colors/&lt;name&gt;&#39;, methods= [&#39;PUT&#39;])
+def update_color(name):
+    for color in colors:
+        if color[&#34;name&#34;] == name:
+            color[&#39;value&#39;] = request.json.get(&#39;value&#39;, color[&#39;value&#39;])
+            return jsonify( color )
+</code></pre><p>在curl请求中，我们用JSON数据来定义更新值，后缀名用来识别哪个颜色需要更新。</p>
+<pre tabindex="0"><code>curl -i -H &#34;Content-Type: application/json&#34; -X PUT -d &#39;{&#34;value&#34;:&#34;#666&#34;}&#39; http://localhost:5000/colors/red
+</code></pre><h2 id="1155-删除接口delete-entry">
+  11.5.5 删除接口（Delete Entry）
+  <a class="anchor" href="#1155-%e5%88%a0%e9%99%a4%e6%8e%a5%e5%8f%a3delete-entry">#</a>
+</h2>
+<p>使用DELETE HTTP来完成删除接口。使用与颜色相同的后缀，但是使用DELETE HTTP方法。</p>
+<pre tabindex="0"><code>@app.route(&#39;/colors/&lt;name&gt;&#39;, methods=[&#39;DELETE&#39;])
+def delete_color(name):
+    success = False
+    for color in colors:
+        if color[&#34;name&#34;] == name:
+            colors.remove(color)
+            success = True
+    return jsonify( { &#39;result&#39; : success } )
+</code></pre><p>这个请求看起来与GET请求一个颜色类似。</p>
+<pre tabindex="0"><code>curl -i -X DELETE http://localhost:5000/colors/red
+</code></pre><p>现在我们能够读取所有颜色，读取指定颜色，创建新的颜色，更新颜色和删除颜色。我们知道使用HTTP后缀来访问我们的接口。</p>
+<table>
+<thead>
+<tr>
+<th>动作</th>
+<th>HTTP协议</th>
+<th>后缀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读取所有</td>
+<td>GET</td>
+<td>http://localhost:5000/colors</td>
+</tr>
+<tr>
+<td>创建接口</td>
+<td>POST</td>
+<td>http://localhost:5000/colors</td>
+</tr>
+<tr>
+<td>读取接口</td>
+<td>GET</td>
+<td>http://localhost:5000/colors/name</td>
+</tr>
+<tr>
+<td>更新接口</td>
+<td>PUT</td>
+<td>http://localhost:5000/colors/name</td>
+</tr>
+<tr>
+<td>删除接口</td>
+<td>DELETE</td>
+<td>http://localhost:500/colors/name</td>
+</tr>
+</tbody>
+</table>
+<p>REST服务已经完成，我们现在只需要关注QML和客户端。为了创建一个简单好用的接口，我们需要映射每个动作为一个独立的HTTP请求，并且给我们的用户提供一个简单的接口。</p>
+<h2 id="1156-rest客户端rest-client">
+  11.5.6 REST客户端（REST Client）
+  <a class="anchor" href="#1156-rest%e5%ae%a2%e6%88%b7%e7%ab%afrest-client">#</a>
+</h2>
+<p>为了展示REST客户端，我们写了一个小的颜色表格。这个颜色表格显示了通过HTTP请求从web服务取得的颜色。我们的用户界面提供以下命令：</p>
+<ul>
+<li>
+<p>获取颜色链表</p>
+</li>
+<li>
+<p>创建颜色</p>
+</li>
+<li>
+<p>读取最后的颜色</p>
+</li>
+<li>
+<p>更新最后的颜色</p>
+</li>
+<li>
+<p>删除最后的颜色</p>
+</li>
+</ul>
+<p>我们将我们的接口包装在一个JS文件中，叫做colorservice.js，并将它导入到我们的UI中作为服务（Service）。在服务模块中，我们创建了帮助函数来为我们构造HTTP请求：</p>
+<pre tabindex="0"><code>// colorservice.js
+function request(verb, endpoint, obj, cb) {
+    print(&#39;request: &#39; + verb + &#39; &#39; + BASE + (endpoint?&#39;/&#39; + endpoint:&#39;&#39;))
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        print(&#39;xhr: on ready state change: &#39; + xhr.readyState)
+        if(xhr.readyState === XMLHttpRequest.DONE) {
+            if(cb) {
+                var res = JSON.parse(xhr.responseText.toString())
+                cb(res);
+            }
+        }
+    }
+    xhr.open(verb, BASE + (endpoint?&#39;/&#39; + endpoint:&#39;&#39;));
+    xhr.setRequestHeader(&#39;Content-Type&#39;, &#39;application/json&#39;);
+    xhr.setRequestHeader(&#39;Accept&#39;, &#39;application/json&#39;);
+    var data = obj?JSON.stringify(obj):&#39;&#39;
+    xhr.send(data)
+}
+</code></pre><p>包含四个参数。verb，定义了使用HTTP的动作（GET，POST，PUT，DELETE）。第二个参数是作为基础地址的后缀（例如’
+  <a href="http://localhost:5000/colors">http://localhost:5000/colors</a>&rsquo;）。第三个参数是可选对象，作为JSON数据发送给服务的数据。最后一个选项是定义当响应返回时的回调。回调接收一个响应数据的响应对象。</p>
+<p>在我们发送请求前，我们需要明确我们发送和接收的JSON数据修改的请求头。</p>
+<pre tabindex="0"><code>// colorservice.js
+function get_colors(cb) {
+    // GET http://localhost:5000/colors
+    request(&#39;GET&#39;, null, null, cb)
+}
+
+function create_color(entry, cb) {
+    // POST http://localhost:5000/colors
+    request(&#39;POST&#39;, null, entry, cb)
+}
+
+function get_color(name, cb) {
+    // GET http://localhost:5000/colors/&lt;name&gt;
+    request(&#39;GET&#39;, name, null, cb)
+}
+
+function update_color(name, entry, cb) {
+    // PUT http://localhost:5000/colors/&lt;name&gt;
+    request(&#39;PUT&#39;, name, entry, cb)
+}
+
+function delete_color(name, cb) {
+    // DELETE http://localhost:5000/colors/&lt;name&gt;
+    request(&#39;DELETE&#39;, name, null, cb)
+}
+</code></pre><p>这些代码在服务实现中。在UI中我们使用服务来实现我们的命令。我们有一个存储id的ListModel和存储数据的gridModel为GridView提供数据。命令使用Button元素来发送。</p>
+<p>读取服务器颜色链表。</p>
+<pre tabindex="0"><code>// rest.qml
+import &#34;colorservice.js&#34; as Service
+...
+// read colors command
+Button {
+    text: &#39;Read Colors&#39;;
+    onClicked: {
+        Service.get_colors( function(resp) {
+            print(&#39;handle get colors resp: &#39; + JSON.stringify(resp));
+            gridModel.clear();
+            var entries = resp.data;
+            for(var i=0; i&lt;entries.length; i++) {
+                gridModel.append(entries[i]);
+            }
+        });
+    }
+}
+</code></pre><p>在服务器上创建一个新的颜色。</p>
+<pre tabindex="0"><code>// rest.qml
+import &#34;colorservice.js&#34; as Service
+...
+// create new color command
+Button {
+    text: &#39;Create New&#39;;
+    onClicked: {
+        var index = gridModel.count-1
+        var entry = {
+            name: &#39;color-&#39; + index,
+            value: Qt.hsla(Math.random(), 0.5, 0.5, 1.0).toString()
+        }
+        Service.create_color(entry, function(resp) {
+            print(&#39;handle create color resp: &#39; + JSON.stringify(resp))
+            gridModel.append(resp)
+        });
+    }
+}
+</code></pre><p>基于名称读取一个颜色。</p>
+<pre tabindex="0"><code>// rest.qml
+import &#34;colorservice.js&#34; as Service
+...
+// read last color command
+Button {
+    text: &#39;Read Last Color&#39;;
+    onClicked: {
+        var index = gridModel.count-1
+        var name = gridModel.get(index).name
+        Service.get_color(name, function(resp) {
+            print(&#39;handle get color resp:&#39; + JSON.stringify(resp))
+            message.text = resp.value
+        });
+    }
+}
+</code></pre><p>基于颜色名称更新服务器上的一个颜色。</p>
+<pre tabindex="0"><code>// rest.qml
+import &#34;colorservice.js&#34; as Service
+...
+// update color command
+Button {
+    text: &#39;Update Last Color&#39;
+    onClicked: {
+        var index = gridModel.count-1
+        var name = gridModel.get(index).name
+        var entry = {
+            value: Qt.hsla(Math.random(), 0.5, 0.5, 1.0).toString()
+        }
+        Service.update_color(name, entry, function(resp) {
+            print(&#39;handle update color resp: &#39; + JSON.stringify(resp))
+            var index = gridModel.count-1
+            gridModel.setProperty(index, &#39;value&#39;, resp.value)
+        });
+    }
+}
+</code></pre><p>基于颜色名称删除一个颜色。</p>
+<pre tabindex="0"><code>// rest.qml
+import &#34;colorservice.js&#34; as Service
+...
+// delete color command
+Button {
+    text: &#39;Delete Last Color&#39;
+    onClicked: {
+        var index = gridModel.count-1
+        var name = gridModel.get(index).name
+        Service.delete_color(name)
+        gridModel.remove(index, 1)
+    }
+}
+</code></pre><p>在CRUD（创建，读取，更新，删除）操作使用REST接口。也可以使用其它的方法来创建web服务接口。可以基于模块，每个模块都有自己的后缀。可以使用JSON RPC（
+  <a href="http://www.jsonrpc.org/">http://www.jsonrpc.org/</a>）来定义接口。当然基于XML的接口也可以使用，但是JSON在作为JavaScript部分解析进QML/JS中更有优势。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#rest接口rest-api">REST接口（REST API）</a>
+      <ul>
+        <li><a href="#1151-读取请求read-request">11.5.1 读取请求（Read Request）</a></li>
+        <li><a href="#1152-读取接口read-entry">11.5.2 读取接口（Read Entry）</a></li>
+        <li><a href="#1153-创建接口create-entry">11.5.3 创建接口（Create Entry）</a></li>
+        <li><a href="#1154-更新接口update-entry">11.5.4 更新接口（Update Entry）</a></li>
+        <li><a href="#1155-删除接口delete-entry">11.5.5 删除接口（Delete Entry）</a></li>
+        <li><a href="#1156-rest客户端rest-client">11.5.6 REST客户端（REST Client）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

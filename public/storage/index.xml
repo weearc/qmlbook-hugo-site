@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Storages on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/storage/</link>
+    <description>Recent content in Storages on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/storage/local_storage_-_sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/storage/local_storage_-_sql/</guid>
+      <description>本地存储 - SQL（Local Storage - SQL） #  Qt Quick支持一个与浏览器由区别的本地存储编程接口。需要使用&amp;quot;import QtQuick.LocalStorage 2.0&amp;quot;语句来导入后才能使用这个编程接口。
+通常使用基于给定的数据库名称和版本号使用系统特定位置的唯一文件ID号来存储数据到一个SQLITE数据库中。无法列出或者删除已有的数据库。你可以使用QQmlEngine::offlineStoragePate()来寻找本地存储。
+使用这个编程接口你首选需要创建一个数据库对象，然后在这个数据库上创建数据库事务。每个事务可以包含一个或多个SQL查询。当一个SQL查询在事务中失败后，事务会回滚。
+例如你可以使用本地存储从一个简单的注释表中读取一个文本列：
+import QtQuick 2.2 import QtQuick.LocalStorage 2.0 Item { Component.onCompleted: { var db = LocalStorage.openDatabaseSync(&amp;#34;MyExample&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;Example database&amp;#34;, 10000); db.transaction( function(tx) { var result = tx.executeSql(&amp;#39;select * from notes&amp;#39;); for(var i = 0; i &amp;lt; result.rows.length; i++) { print(result.rows[i].text); } } }); } } 疯狂的矩形框（Crazy Rectangle） #  假设我们想要存储一个矩形在场景中的位置。
+ 下面是我们的基础代码。
+import QtQuick 2.2 Item { width: 400 height: 400 Rectangle { id: crazy objectName: &amp;#39;crazy&amp;#39; width: 100 height: 100 x: 50 y: 50 color: &amp;#34;#53d769&amp;#34; border.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/storage/other_storage_apis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/storage/other_storage_apis/</guid>
+      <description>其它存储接口（Other Storage APIs） #  直接从QML中存储信息，上面的这些方法是主要存储方法。事实上QtQuick最有效的存储方法是使用C++扩展接口调用本地存储系统或者类似Qt云存储使用网络编程接口调用远程存储系统。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/storage/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/storage/README/</guid>
+      <description>存储（Storage） #  本章将介绍在Qt5中使用QtQuick存储数据。QtQuick只提供了有限的方法来直接存储本地数据。在这样的场景下，它更多的扮演了一个浏览者的角色。在大多数项目中，存储数据由C++后端来完成，并需要将这个功能导入到QtQuick前端。QtQucik没有提供类似Qt C++的主机文件系统接口来读取和写入文件。所以后端工程师需要编写一个这样的插件或者使用网络通道与本地服务器通信来提供这些功能。
+每个应用程序都需要持续的存储少量或者大量的信息。可以存储在本地文件系统或者远程服务器上。一些信息将会被结构化、简单化例如程序配置信息，一些信息将会巨大并且复杂例如文档文件，一些信息将会巨大并且结构化需要与某种数据库连接。在这章我们将会讨论如何使用QtQuick通过网络和本地的方式存储数据。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/storage/settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/storage/settings/</guid>
+      <description>Settings #  Qt自身就提供了基于系统方式的应用程序配置（又名选项，偏好）C++类 QSettings。它使用基于当前操作系统的方式存储配置。此外，它支持通用的INI文件格式用来操作跨平台的配置文件。
+在Qt5.2中，配置（Settings）被加入到QML中。编程接口仍然在实验模块中，这意味着接口可能在未来会改变。这里需要注意。
+这里有一个小例子，对一个矩形框配置颜色。每次用户点击窗口生成一个新的随机颜色。应用程序关闭后重启你将会看到你最后看到的颜色。 默认的颜色是用来初始化根矩形框的颜色。
+import QtQuick 2.0 import Qt.labs.settings 1.0 Rectangle { id: root width: 320; height: 240 color: &amp;#39;#000000&amp;#39; Settings { id: settings property alias color: root.color } MousArea { anchors.fill: parent onClicked: root.color = Qt.hsla(Math.random(), 0.5, 0.5, 1.0); } } 每次颜色值的变化都被存储在配置中。这可能不是我们需要的。只有在要求使用标准属性的时候才存储配置。
+Rectangle { id: root color: settings.color Settings { id: settings property color color: &amp;#39;#000000&amp;#39; } function storeSettings() { // executed maybe on destruction settings.</description>
+    </item>
+    
+  </channel>
+</rss>

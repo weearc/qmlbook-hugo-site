@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="QML语法（QML Syntax） #  QML是一种描述用户界面的声明式语言。它将用户界面分解成一些更小的元素，这些元素能够结合成一个组件。QML语言描述了用户界面元素的形状和行为。用户界面能够使用JavaScript来提供修饰，或者增加更加复杂的逻辑。从这个角度来看它遵循HTML-JavaScript模式，但QML是被设计用来描述用户界面的，而不是文本文档。
+从QML元素的层次结构来理解是最简单的学习方式。子元素从父元素上继承了坐标系统，它的x,y坐标总是相对应于它的父元素坐标系统。
+ 让我们开始用一个简单的QML文件例子来解释这个语法。
+// rectangle.qml import QtQuick 2.0 // The root element is the Rectangle Rectangle { // name this element root id: root // properties: &lt;name&gt;: &lt;value&gt; width: 120; height: 240 // color property color: &#34;#D8D8D8&#34; // Declare a nested element (child of root) Image { id: rocket // reference the parent x: (parent.width - width)/2; y: 40 source: &#39;assets/rocket.png&#39; } // Another child of root Text { // un-named element // reference element by id y: rocket.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="QML语法（QML Syntax） #  QML是一种描述用户界面的声明式语言。它将用户界面分解成一些更小的元素，这些元素能够结合成一个组件。QML语言描述了用户界面元素的形状和行为。用户界面能够使用JavaScript来提供修饰，或者增加更加复杂的逻辑。从这个角度来看它遵循HTML-JavaScript模式，但QML是被设计用来描述用户界面的，而不是文本文档。
+从QML元素的层次结构来理解是最简单的学习方式。子元素从父元素上继承了坐标系统，它的x,y坐标总是相对应于它的父元素坐标系统。
+ 让我们开始用一个简单的QML文件例子来解释这个语法。
+// rectangle.qml import QtQuick 2.0 // The root element is the Rectangle Rectangle { // name this element root id: root // properties: &lt;name&gt;: &lt;value&gt; width: 120; height: 240 // color property color: &#34;#D8D8D8&#34; // Declare a nested element (child of root) Image { id: rocket // reference the parent x: (parent.width - width)/2; y: 40 source: &#39;assets/rocket.png&#39; } // Another child of root Text { // un-named element // reference element by id y: rocket." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mirrors.cqu.edu.cn/qmlbook/quick_starter/qmlqml_syntax/" /><meta property="article:section" content="quick_starter" />
+
+
+
+<title>Qmlqml Syntax | Qml Book</title>
+<link rel="manifest" href="/qmlbook/manifest.json">
+<link rel="icon" href="/qmlbook/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/qmlbook/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css" integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin="anonymous">
+  <script defer src="/qmlbook/flexsearch.min.js"></script>
+  <script defer src="/qmlbook/en.search.min.7eaa324ae4aad96718321da9bf7ce2963bf997813e848e1e16bcc0e89048af9b.js" integrity="sha256-fqoySuSq2WcYMh2pv3ziljv5l4E&#43;hI4eFrzA6JBIr5s=" crossorigin="anonymous"></script>
+
+  <script defer src="/qmlbook/sw.min.c5fd65d1492edd0e92acb72a8983e44a68ad14c15883246783ed1d96f25e6858.js" integrity="sha256-xf1l0Uku3Q6SrLcqiYPkSmitFMFYgyRng&#43;0dlvJeaFg=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/qmlbook/"><span>Qml Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 id="summary">
+  Summary
+  <a class="anchor" href="#summary">#</a>
+</h1>
+<ul>
+<li>
+  <a href="/qmlbook/README/">Introduction</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/README/">Qt5概述</a>
+<ul>
+<li>
+  <a href="/qmlbook/meet_qt_5/preface/">序</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt5_introduction/">Qt5介绍</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_building_blocks/">Qt构建模块（Qt Building Blocks）</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_project/">Qt项目（Qt Project）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/get_start/README/">开始学习（Get Start）</a>
+<ul>
+<li>
+  <a href="/qmlbook/get_start/qt5installing_qt_5_sdk/">安装Qt5软件工具包（Installing Qt 5 SDK）</a></li>
+<li>
+  <a href="/qmlbook/get_start/hello_world/">你好世界（Hello World）</a></li>
+<li>
+  <a href="/qmlbook/get_start/application_types/">应用程序类型（Application Types）</a></li>
+<li>
+  <a href="/qmlbook/get_start/summary/">总结（ Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/README/">Qt Creator集成开发环境（Qt Creator IDE）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_creator_ide/the_user_interface/">用户界面（The User Interface）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/">注册你的Qt工具箱（Registering your Qt Kit）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/managing_projects/">项目管理（Managing Projects）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/using_the_editor/">使用编辑器（Using the Editor）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/locator/">定位器（Locator）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/debugging/">调试（Debugging）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/shortcuts/">快捷键（Shortcuts）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/quick_starter/README/">QML快速入门（Quick Starter）</a>
+<ul>
+<li>
+  <a href="/qmlbook/quick_starter/qmlqml_syntax/"class=active>QML语法（QML Syntax）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/basic_elements/">基本元素（Basic Elements）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/compontents/">组件（Compontents）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/simple_transformations/">简单的转换（Simple Transformations）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/positioning_element/">定位元素（Positioning Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/layout_items/">布局元素（Layout Items）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/input_element/">输入元素（Input Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/advanced_techniques/"> 高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/fluid_elements/README/">动态元素（Fluid Elements）</a>
+<ul>
+<li>
+  <a href="/qmlbook/fluid_elements/animations/">动画（Animations）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/states_and_transitions/">状态与过渡（States and Transitions）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/model-view-delegate/README/">模型-视图-代理（Model-View-Delegate）</a>
+<ul>
+<li>
+  <a href="/qmlbook/model-view-delegate/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/basic_model/">基础模型（Basic Model）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/dynamic_views/">动态视图（Dynamic Views）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/delegate/">代理（Delegate）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/canvas_element/README/">画布元素（Canvas Element）</a>
+<ul>
+<li>
+  <a href="/qmlbook/canvas_element/convenient_api/">便捷的接口（Convenient API）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/gradients/">渐变（Gradients）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/shadows/">阴影（Shadows）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/images/">图片（Images）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/transformation/">转换（Transformation）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/composition_mode/">组合模式（Composition Mode）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/pixels_buffer/">像素缓冲（Pixels Buffer）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/canvas_paint/">画布绘制（Canvas Paint）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/html5porting_from_html5_canvas/">HTML5画布移植（Porting from HTML5 Canvas）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/particle_simulations/README/">粒子模拟（Particle Simulations）</a>
+<ul>
+<li>
+  <a href="/qmlbook/particle_simulations/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/simple_simulation/">简单的模拟（Simple Simulation）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_parameters/">粒子参数（Particle Parameters）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/directed_particle/">粒子方向（Directed Particle）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_painter/">粒子画笔（Particle Painter）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/affecting_particles/">粒子控制（Affecting Particles）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_group/">粒子组（Particle Group）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/shader_effect/README/">着色器效果（Shader Effect）</a>
+<ul>
+<li>
+  <a href="/qmlbook/shader_effect/openglopengl_shader/">OpenGL着色器（OpenGL Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/shader_elements/">着色器元素（Shader Elements）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/fragement_shader/">片段着色器（Fragement Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/wave_effect/">波浪效果（Wave Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/vertex_shader/">顶点着色器（Vertex Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/curtain_effect/">剧幕效果（Curtain Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/qtqt_graphicseffect_library/">Qt图像效果库（Qt GraphicsEffect Library）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/multimedia/README/">多媒体（Multimedia）</a>
+<ul>
+<li>
+  <a href="/qmlbook/multimedia/playing_media/">媒体播放（Playing Media）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/sounds_effects/">声音效果（Sounds Effects）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/video_streams/">视频流（Video Streams）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/capturing_images/">捕捉图像（Capturing Images）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/networking/README/">网络（Networking）</a>
+<ul>
+<li>
+  <a href="/qmlbook/networking/httpuiserving_ui_via_http/">通过HTTP服务用户界面（Serving UI via HTTP）</a></li>
+<li>
+  <a href="/qmlbook/networking/templating/">模板（Templating）</a></li>
+<li>
+  <a href="/qmlbook/networking/httphttp_requests/">HTTP请求（HTTP Requests）</a></li>
+<li>
+  <a href="/qmlbook/networking/local_files/">本地文件（Local files）</a></li>
+<li>
+  <a href="/qmlbook/networking/restrest_api/">REST接口（REST API）</a></li>
+<li>
+  <a href="/qmlbook/networking/authentication_using_oauth/">使用开放授权登陆验证（Authentication using OAuth）</a></li>
+<li>
+  <a href="/qmlbook/networking/engine_io/">云服务（Engine IO）</a></li>
+<li>
+  <a href="/qmlbook/networking/web_sockets/">Web Sockets</a></li>
+<li>
+  <a href="/qmlbook/networking/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/storage/README/">存储（Storage）</a>
+<ul>
+<li>
+  <a href="/qmlbook/storage/settings/">配置（Settings）</a></li>
+<li>
+  <a href="/qmlbook/storage/local_storage_-_sql/">本地存储 - SQL（Local Storage - SQL）</a></li>
+<li>
+  <a href="/qmlbook/storage/other_storage_apis/">其它存储接口（Other Storage APIs）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/README/">动态QML（Dynamic QML）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/loading_components_dynamically/">动态加载组件（Loading Components Dynamically）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/connecting_indirectly/">间接连接（Connecting Indirectly）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/binding_indirectly/">间接绑定（Binding Indirectly）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/creating_and_destroying_objects/">创建与销毁对象（Creating and Destroying Objects）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/">动态加载和实例化项（Dynamically Loading and Instantiating Items）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/">从文本中动态实例化项（Dynamically Instantiating Items from Text）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/managing_dynamically_created_elements/">管理动态创建的元素（Managing Dynamically Created Elements）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/tracking_dynamic_objects/">跟踪动态对象（Tracking Dynamic Objects）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/javascript/README/">JavaScript</a>
+<ul>
+<li>
+  <a href="/qmlbook/javascript/browserhtml_vs_qtquickqml/">浏览器/HTML与QtQuick/QML对比（Browser/HTML vs QtQuick/QML）</a></li>
+<li>
+  <a href="/qmlbook/javascript/the_language/">JavaScript语法（The Language）</a></li>
+<li>
+  <a href="/qmlbook/javascript/js_objects/">JS对象（JS Objects）</a></li>
+<li>
+  <a href="/qmlbook/javascript/creating_a_js_console/">创建JS控制台（Creating a JS Console）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/README/">Qt and C++</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/">演示程序（A Boilerplate Application）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/the_qobject/">Qt对象（The QObject）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/build_systems/">编译系统（Build Systems）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qmake/">QMake</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/cmake/">CMake</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/">Qt通用类（Common Qt Classes）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qstring/">QString</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/sequential_containers/">顺序容器（Sequential Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/associative_containers/">组合容器（Associative Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/file_io/">文件IO（File IO）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/">C++数据模型（Models in C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_simple_model/">一个简单的模型（A simple model）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/more_complex_data/">更复杂的数据（More Complex Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/dynamic_data/">动态数据（Dynamic Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/">进阶技巧（Advanced Techniques）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/README/">C++扩展QML（Extending QML with C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/">理解QML运行环境（Understanding the QML Run-time）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/">插件内容（Plugin Content）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/">创建插件（Creating the plugin）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/">FileIO实现（FileIO Implementation）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/">使用FileIO（Using FileIO）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/">应用程序窗口（The Application Window）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/">使用动作（Using Actions）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/">格式化表格（Formatting the Table）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/">读取数据（Reading Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/">写入数据（Writing Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/">收尾工作（Finishing Touch）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/other/README/">其它（Other）</a>
+<ul>
+<li>
+  <a href="/qmlbook/other/assets/">示例源码</a></li>
+<li>
+  <a href="/qmlbook/other/enginsh_to_chinses/">术语英汉对照表</a></li>
+<li>
+  <a href="/qmlbook/other/book_format/">格式定义</a></li>
+<li>
+  <a href="/qmlbook/other/collaboration_correction/">协作校正</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/cwc1987/QmlBook-In-Chinese" target="_blank" rel="noopener">
+        QmlBook In Chinese
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/qmlbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Qmlqml Syntax</strong>
+
+  <label for="toc-control">
+    
+    <img src="/qmlbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#qml语法qml-syntax">QML语法（QML Syntax）</a>
+      <ul>
+        <li><a href="#411-属性properties">4.1.1 属性（Properties）</a></li>
+        <li><a href="#412-脚本scripting">4.1.2 脚本（Scripting）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="qml语法qml-syntax">
+  QML语法（QML Syntax）
+  <a class="anchor" href="#qml%e8%af%ad%e6%b3%95qml-syntax">#</a>
+</h1>
+<p>QML是一种描述用户界面的声明式语言。它将用户界面分解成一些更小的元素，这些元素能够结合成一个组件。QML语言描述了用户界面元素的形状和行为。用户界面能够使用JavaScript来提供修饰，或者增加更加复杂的逻辑。从这个角度来看它遵循HTML-JavaScript模式，但QML是被设计用来描述用户界面的，而不是文本文档。</p>
+<p>从QML元素的层次结构来理解是最简单的学习方式。子元素从父元素上继承了坐标系统，它的x,y坐标总是相对应于它的父元素坐标系统。</p>
+<p>
+  <img src="http://qmlbook.org/_images/scene.png" alt="" /></p>
+<p>让我们开始用一个简单的QML文件例子来解释这个语法。</p>
+<pre tabindex="0"><code>// rectangle.qml
+
+import QtQuick 2.0
+
+// The root element is the Rectangle
+Rectangle {
+    // name this element root
+    id: root
+
+    // properties: &lt;name&gt;: &lt;value&gt;
+    width: 120; height: 240
+
+    // color property
+    color: &#34;#D8D8D8&#34;
+
+    // Declare a nested element (child of root)
+    Image {
+    	id: rocket
+
+        // reference the parent
+        x: (parent.width - width)/2; y: 40
+
+        source: &#39;assets/rocket.png&#39;
+    }
+
+    // Another child of root
+    Text {
+        // un-named element
+
+        // reference element by id
+        y: rocket.y + rocket.height + 20
+
+        // reference root element
+        width: root.width
+
+        horizontalAlignment: Text.AlignHCenter
+        text: &#39;Rocket&#39;
+    }
+}
+</code></pre><ul>
+<li>
+<p>import声明导入了一个指定的模块版本。一般来说会导入QtQuick2.0来作为初始元素的引用。</p>
+</li>
+<li>
+<p>使用//可以单行注释，使用/**/可以多行注释，就像C/C++和JavaScript一样。</p>
+</li>
+<li>
+<p>每一个QML文件都需要一个根元素，就像HTML一样。</p>
+</li>
+<li>
+<p>一个元素使用它的类型声明，然后使用{}进行包含。</p>
+</li>
+<li>
+<p>元素拥有属性，他们按照name:value的格式来赋值。</p>
+</li>
+<li>
+<p>任何在QML文档中的元素都可以使用它们的id进行访问（id是一个任意的标识符）。</p>
+</li>
+<li>
+<p>元素可以嵌套，这意味着一个父元素可以拥有多个子元素。子元素可以通过访问parent关键字来访问它们的父元素。</p>
+</li>
+</ul>
+<p><strong>建议</strong></p>
+<p><strong>你会经常使用id或者关键字parent来访问你的父对象。有一个比较好的方法是命名你的根元素对象id为root（id:root），这样就不用去思考你的QML文档中的根元素应该用什么方式命名了。</strong></p>
+<p><strong>提示</strong></p>
+<p><strong>你可以在你的操作系统命令行模式下使用QtQuick运行环境来运行这个例子，比如像下面这样：</strong></p>
+<pre tabindex="0"><code>$ $QTDIR/bin/qmlscene rectangle.qml
+</code></pre><p>将$QTDIR替换为你的Qt的安装路径。qmlscene会执行Qt Quick运行环境初始化，并且解释这个QML文件。</p>
+<p>在Qt Creator中你可以打开对应的项目文件然后运行rectangle.qml文档。</p>
+<h2 id="411-属性properties">
+  4.1.1 属性（Properties）
+  <a class="anchor" href="#411-%e5%b1%9e%e6%80%a7properties">#</a>
+</h2>
+<p>元素使用他们的元素类型名进行声明，使用它们的属性或者创建自定义属性来定义。一个属性对应一个值，例如 width:100，text: &lsquo;Greeting&rsquo;, color: &lsquo;#FF0000&rsquo;。一个属性有一个类型定义并且需要一个初始值。</p>
+<pre tabindex="0"><code>    Text {
+        // (1) identifier
+        id: thisLabel
+
+        // (2) set x- and y-position
+        x: 24; y: 16
+
+        // (3) bind height to 2 * width
+        height: 2 * width
+
+        // (4) custom property
+        property int times: 24
+
+        // (5) property alias
+        property alias anotherTimes: thisLabel.times
+
+        // (6) set text appended by value
+        text: &#34;Greetings &#34; + times
+
+        // (7) font is a grouped property
+        font.family: &#34;Ubuntu&#34;
+        font.pixelSize: 24
+
+        // (8) KeyNavigation is an attached property
+        KeyNavigation.tab: otherLabel
+
+        // (9) signal handler for property changes
+        onHeightChanged: console.log(&#39;height:&#39;, height)
+
+        // focus is neeed to receive key events
+        focus: true
+
+        // change color based on focus value
+        color: focus?&#34;red&#34;:&#34;black&#34;
+    }
+</code></pre><p>让我们来看看不同属性的特点：</p>
+<ol>
+<li>
+<p>id是一个非常特殊的属性值，它在一个QML文件中被用来引用元素。id不是一个字符串，而是一个标识符和QML语法的一部分。一个id在一个QML文档中是唯一的，并且不能被设置为其它值，也无法被查询（它的行为更像C++世界里的指针）。</p>
+</li>
+<li>
+<p>一个属性能够设置一个值，这个值依赖于它的类型。如果没有对一个属性赋值，那么它将会被初始化为一个默认值。你可以查看特定的元素的文档来获得这些初始值的信息。</p>
+</li>
+<li>
+<p>一个属性能够依赖一个或多个其它的属性，这种操作称作属性绑定。当它依赖的属性改变时，它的值也会更新。这就像订了一个协议，在这个例子中height始终是width的两倍。</p>
+</li>
+<li>
+<p>添加自己定义的属性需要使用property修饰符，然后跟上类型，名字和可选择的初始化值（property <type> <name> : <value>）。如果没有初始值将会给定一个系统初始值作为初始值。<strong>注意如果属性名与已定义的默认属性名不重复，使用default关键字你可以将一个属性定义为默认属性。这在你添加子元素时用得着，如果他们是可视化的元素，子元素会自动的添加默认属性的子类型链表（children property list）</strong>。</p>
+</li>
+<li>
+<p>另一个重要的声明属性的方法是使用alias关键字（property alias <name> : <reference>）。alias关键字允许我们转发一个属性或者转发一个属性对象自身到另一个作用域。我们将在后面定义组件导出内部属性或者引用根级元素id会使用到这个技术。一个属性别名不需要类型，它使用引用的属性类型或者对象类型。</p>
+</li>
+<li>
+<p>text属性依赖于自定义的timers（int整型数据类型）属性。int整型数据会自动的转换为string字符串类型数据。这样的表达方式本身也是另一种属性绑定的例子，文本结果会在times属性每次改变时刷新。</p>
+</li>
+<li>
+<p>一些属性是按组分配的属性。当一个属性需要结构化并且相关的属性需要联系在一起时，我们可以这样使用它。另一个组属性的编码方式是 font{family: &ldquo;UBuntu&rdquo;; pixelSize: 24 }。</p>
+</li>
+<li>
+<p>一些属性是元素自身的附加属性。这样做是为了全局的相关元素在应用程序中只出现一次（例如键盘输入）。编码方式<element>.<property>: <value> 。</p>
+</li>
+<li>
+<p>对于每个元素你都可以提供一个信号操作。这个操作在属性值改变时被调用。例如这里我们完成了当height（高度）改变时会使用控制台输出一个信息。</p>
+</li>
+</ol>
+<p><strong>警告</strong></p>
+<p><strong>一个元素id应该只在当前文档中被引用。QML提供了动态作用域的机制，后加载的文档会覆盖之前加载文档的元素id号，这样就可以引用已加载并且没有被覆盖的元素id，这有点类似创建全局变量。但不幸的是这样的代码阅读性很差。目前这个还没有办法解决这个问题，所以你使用这个机制的时候最好仔细一些甚至不要使用这种机制。如果你想向文档外提供元素的调用，你可以在根元素上使用属性导出的方式来提供。</strong></p>
+<h2 id="412-脚本scripting">
+  4.1.2 脚本（Scripting）
+  <a class="anchor" href="#412-%e8%84%9a%e6%9c%acscripting">#</a>
+</h2>
+<p>QML与JavaScript是最好的配合。在JavaScrpit的章节中我们将会更加详细的介绍这种关系，现在我们只需要了解这种关系就可以了。</p>
+<pre tabindex="0"><code>    Text {
+        id: label
+
+        x: 24; y: 24
+
+        // custom counter property for space presses
+        property int spacePresses: 0
+
+        text: &#34;Space pressed: &#34; + spacePresses + &#34; times&#34;
+
+        // (1) handler for text changes
+        onTextChanged: console.log(&#34;text changed to:&#34;, text)
+
+        // need focus to receive key events
+        focus: true
+
+        // (2) handler with some JS
+        Keys.onSpacePressed: {
+            increment()
+        }
+
+        // clear the text on escape
+        Keys.onEscapePressed: {
+            label.text = &#39;&#39;
+        }
+
+        // (3) a JS function
+        function increment() {
+            spacePresses = spacePresses + 1
+        }
+    }
+</code></pre><ol>
+<li>
+<p>文本改变操作onTextChanged会将每次空格键按下导致的文本改变输出到控制台。</p>
+</li>
+<li>
+<p>当文本元素接收到空格键操作（用户在键盘上点击空格键），会调用JavaScript函数increment()。</p>
+</li>
+<li>
+<p>定义一个JavaScript函数使用这种格式function (){&hellip;.}，在这个例子中是增加spacePressed的计数。每次spacePressed的增加都会导致它绑定的属性更新。</p>
+</li>
+</ol>
+<p><strong>注意</strong></p>
+<p><strong>QML的：（属性绑定）与JavaScript的=（赋值）是不同的。绑定是一个协议，并且存在于整个生命周期。然而JavaScript赋值（=）只会产生一次效果。当一个新的绑定生效或者使用JavaScript赋值给属性时，绑定的生命周期就会结束。例如一个按键的操作设置文本属性为一个空的字符串将会销毁我们的增值显示：</strong></p>
+<pre tabindex="0"><code>Keys.onEscapePressed: {
+    label.text = &#39;&#39;
+}
+</code></pre><p><strong>在点击取消（ESC）后，再次点击空格键（space-bar）将不会更新我们的显示，之前的text属性绑定（text: &ldquo;Space pressed:&rdquo; + spacePresses + &ldquo;times&rdquo;)被销毁。</strong></p>
+<p><strong>当你对改变属性的策略有冲突时（文本的改变基于一个增值的绑定并且可以被JavaScript赋值清零），类似于这个例子，你最好不要使用绑定属性。你需要使用赋值的方式来改变属性，属性绑定会在赋值操作后被销毁（销毁协议！）。</strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#qml语法qml-syntax">QML语法（QML Syntax）</a>
+      <ul>
+        <li><a href="#411-属性properties">4.1.1 属性（Properties）</a></li>
+        <li><a href="#412-脚本scripting">4.1.2 脚本（Scripting）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

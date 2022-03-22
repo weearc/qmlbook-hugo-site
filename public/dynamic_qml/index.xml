@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dynamic_qmls on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/</link>
+    <description>Recent content in Dynamic_qmls on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/binding_indirectly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/binding_indirectly/</guid>
+      <description>（间接绑定）Binding Indirectly #  与无法直接连接动态创建元素的信号类似，也无法脱离桥接元素（bridge element）与动态创建元素绑定属性。为了绑定任意元素的属性，包括动态创建元素，需要使用绑定元素（Binding element）。
+绑定元素（Bindging element）允许你指定一个目标元素（target element），一个属性用来绑定，一个值用来绑定这个属性。通过使用绑定元素（Binding elelemt），例如，绑定一个动态加载元素（dynamically loaded element）的属性。在这个章节中有个入门实例如下所示。
+ Loader { id: dialLoader anchors.left: parent.left anchors.right: parent.right anchors.top: parent.top anchors.bottom: analogButton.top onLoaded: { binder.target = dialLoader.item; } } Binding { id: binder property: &amp;#34;speed&amp;#34; value: speed } 通常不会设置一个绑定的目标元素，或者不会有一个给定的属性。当绑定激活时使用绑定元素的属性来限制时间。例如，它可以用来限制用户界面的特定模式。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/connecting_indirectly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/connecting_indirectly/</guid>
+      <description>间接连接（Connecting Indirectly） #  动态创建QML元素时，无法使用onSignalName静态配置来连接信号。必须使用连接元素（Connection element）来完成连接信号。它可以连接一个目标元素任意数量的信号。
+通过设置连接元素（Connection element）的目标属性，信号可以像正常的方法连接。也就是使用onSignalName方法。不管怎样，通过改变目标属性可以在不同的时间监控不同的元素。
+ 在上面这个例子中，用户界面由两个可点击区域组成。当其中一个区域点击后，会使用一个闪烁的动画。左边区域的代码段如下所示。在鼠标区域（MouseArea）中，左点击动画（leftClickedAnimation）被触发，导致区域闪烁。
+ Rectangle { id: leftRectangle width: 290 height: 200 color: &amp;#34;green&amp;#34; MouseArea { id: leftMouseArea anchors.fill: parent onClicked: leftClickedAnimation.start(); } Text { anchors.centerIn: parent font.pixelSize: 30 color: &amp;#34;white&amp;#34; text: &amp;#34;Click me!&amp;#34; } } 除了两个可点击区域，还使用了一个连接元素（Connection element）。当状态为激活时会触发第三个动画，即元素的目标。
+ Connections { id: connections onClicked: activeClickedAnimation.start(); } 为了确定鼠标区域的目标，定义了两种状态。注意我们无法使用属性改变元素（PropertyChanges element）来设置目标属性，因为它已经包含了一个目标属性。利用状态改变脚本（StateChangeScript）来完成。
+ states: [ State { name: &amp;#34;left&amp;#34; StateChangeScript { script: connections.target = leftMouseArea } }, State { name: &amp;#34;right&amp;#34; StateChangeScript { script: connections.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/creating_and_destroying_objects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/creating_and_destroying_objects/</guid>
+      <description>创建与销毁对象（Creating and Destroying Objects） #  加载元素使得动态填充用户界面成为可能。但是接口的结构仍然是静态的。通过JavaScript可以更近一步的完成QML元素的动态实例化。
+在我们深入讨论动态创建元素的细节之前，我们需要明白工作的流程。当从一个文件或者网络加载一块QML时，组件已经被创建。组件封装了解释执行的QML代码用来创建项。这意味着一块QML代码和实例化项是分为两个步骤进行的。首先在组件中解释执行QML代码，然后组件被用来实例化创建项对象。
+除了从存储在文件或者服务器上的QML代码创建元素，也可以直接从包含QML代码的文本字符串中创建QML对象。动态创建项也类似的方式再处理一次就可以了。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/</guid>
+      <description>从文本中动态实例化项（Dynamically Instantiating Items from Text） #  有时，可以很方便的从QML文本字符串中实例化一个对象。别的不说，这比将代码从源文件中分离后拿出来快。为了实现这个功能，需要使用Qt.createQmlObject函数。
+这个函数接受三个参数：qml，parent和filepath。qml参数包含了用来实例化的QML代码字符串。parent参数为新创建的对象提供了一个父对象。filepath参数用于存储创建对象时的错误报告。这个函数的结果返回一个新的对象或者一个NULL。
+警告
+createQmlObject函数通常会立即返回结果。为了成功调用这个函数，所有的依赖调用需要保证已经被加载。这意味着如果函数调用了未加载的组件，这个调用就会失败并且返回null。为了更好的处理这个问题，必须使用createComponent/createObject方法。
+使用Qt.createQmlObject函数创建对象与其它的动态创建对象类似。这说明与其它创建的QML对象一样，也没有id。在下面的例子中，当根元素创建完成后，从内联QML代码中实例化了一个新的矩形元素（Rectangle element）。
+import QtQuick 2.0 Item { id: root width: 1024 height: 600 function createItem() { Qt.createQmlObject(&amp;#34;import QtQuick 2.0; Rectangle { x: 100; y: 100; width: 100; height:100; color: \&amp;#34;blue\&amp;#34; }&amp;#34;, root, &amp;#34;dynamicItem&amp;#34;); } Component.onCompleted: root.createItem(); } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/</guid>
+      <description>（动态加载和实例化项）Dynamically Loading and Instantiating Items #  加载一块QML代码时，它首先会被解释执行为一个组件。这一步包含了加载依赖和验证代码。QML的来源可以是本地文件，Qt资源文件，或者一个指定的URL网络地址。这意味着加载时间不确定。例如一个不需要加载任何依赖位于内存（RAM）中的Qt资源文件加载非常快，或者一个需要加载多种依赖位于一个缓慢的服务器中加载需要很长的时间。
+创建一个组件的状态可以用来跟踪它的状态属性。可以使用的状态值包括组件为空（Component.NULL）、组件加载中（Component.Loading）、组件可用（Component.Ready）和组件错误（Component.Error）。从空（NULL）状态到加载中（Loading）再到可用（Ready）通常是一个工作流。在任何一个阶段状态都可以变为错误（Error）。在这种情况下，组件无法被用来创建新的对象实例。Component.errorString()函数用来检索用户可读的错误描述。
+当加载连接缓慢的组件时，可以使用进度（progress）属性。它的范围从0.0意味着为加载任何东西，到1.0表明加载已完成。当组件的状态改变为可用（Ready）时，组件可以用实例化对象。下面的代码演示了如何实现这样的方法，考虑组件变为可用或者创建失败，同时组件加载时间可能会比较慢。
+var component; function createImageObject() { component = Qt.createComponent(&amp;#34;dynamic-image.qml&amp;#34;); if (component.status === Component.Ready || component.status === Component.Error) finishCreation(); else component.statusChanged.connect(finishCreation); } function finishCreation() { if (component.status === Component.Ready) { var image = component.createObject(root, {&amp;#34;x&amp;#34;: 100, &amp;#34;y&amp;#34;: 100}); if (image == null) console.log(&amp;#34;Error creating image&amp;#34;); } else if (component.status === Component.Error) console.log(&amp;#34;Error loading component:&amp;#34;, component.errorString()); } 上面的代码是源文件中的JavaScript代码，来自main QML文件。
+import QtQuick 2.0 import &amp;#34;create-component.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/loading_components_dynamically/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/loading_components_dynamically/</guid>
+      <description>动态加载组件（Loading Components Dynamically） #  动态加载QML不同组成部分最简单的方法是使用加载元素项（Loader element）。它作为一个占位符项用来加载项。项的加载通过资源属性（source property）或者资源组件（sourceCompontent）属性控制。加载元素项通过给定的URL链接加载项，然后实例化一个组件。
+加载元素项（loader）作为一个占位符用于被加载项的加载。它的大小基于被加载项的大小而定，反之亦然。如果加载元素定义了大小，或者通过锚定（anchoring）定义了宽度和高度，被加载项将会被设置为加载元素项的大小。如果加载元素项没有设置大小，它将会根据被加载项的大小而定。
+下面例子演示了使用加载元素项（Loader Element）将两个分离的用户界面部分加载到一个相同的空间。这个主意是我们有一个快速拨号界面，可以是数字界面或模拟界面。如下面插图所示。表盘周围的数字不受被加载项影响。
+  首先，在应用程序中声明一个加载元素项（Loader element）。注意，资源属性（source property）已经被忽略。这是因为资源取决于当前用户界面状态。
+Loader { id: dialLoader anchors.fill: parent } 拨号加载器（dialLoader）的父项的状态属性改变元素驱动根据不同状态加载不同的QML文件。在这个例子中，资源属性（source property）是一个相对文件路径，但是它可以是一个完整的URL链接，通过网络获取加载项。
+ states: [ State { name: &amp;#34;analog&amp;#34; PropertyChanges { target: analogButton; color: &amp;#34;green&amp;#34;; } PropertyChanges { target: dialLoader; source: &amp;#34;Analog.qml&amp;#34;; } }, State { name: &amp;#34;digital&amp;#34; PropertyChanges { target: digitalButton; color: &amp;#34;green&amp;#34;; } PropertyChanges { target: dialLoader; source: &amp;#34;Digital.qml&amp;#34;; } } ] 为了使被加载项更加生动，它的速度属性必须根项的速度属性绑定。不能够使用直接绑定来绑定属性，因为项不是总在加载，并且这会随着时间而改变。需要使用一个东西来替换绑定元素（Binding Element）。绑定目标属性（target property），每次加载元素项改变时会触发已加载完成（onLoaded）信号。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/managing_dynamically_created_elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/managing_dynamically_created_elements/</guid>
+      <description>管理动态创建的元素（Managing Dynamically Created Elements） #  在QML场景下，动态创建的对象可以像其它的对象一样处理。然而，也有一些缺陷需要处理。最重要的是创建环境的概念。
+一个动态创建对象的创建环境是它被创建时的环境。这与它的父对象所在的环境不一定相同。当创建环境被销毁，会影响涉及绑定属性的对象。这意味着在对象的整个生命周期，在代码的一个地方实现动态对象创建是非常重要的。
+动态创建的对象也可以动态销毁。当这样做时，有一个法则：永远不要尝试销毁一个你没有创建的对象。这也包括你已经创建的元素，但不要使用动态机制比如Component.createObject或者createQmlObject。
+对象的销毁依赖于它的析构函数被调用。这个函数接收一个可选参数用于指定这个对象还可以存在多少毫秒后被销毁。这是非常有用的，例如让对象完成一个完整的过渡。
+item = Qt.createQmlObject(...); ... item.destroy(); 注意
+可以从一个对象内部实现销毁，例如创建一个可以自销毁的弹出窗口。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/README/</guid>
+      <description>动态QML（Dynamic QML） #  到现在，我们已经将QML作为一个工具用来构造静态场景和静态场景的导航。根据不同的状态和逻辑规则，一个实时动态的用户界面已经被创建。通过使用QML和JavaScript以更加动态的方式，进一步的扩大灵活性。组件可以在运行时加载和实例化，元素能够被销毁。动态创建的用户界面能够被存储在磁盘上，并且恢复。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/summary/</guid>
+      <description>总结（Summary） #  在这一章中，我们主要讨论了动态创建QML元素。折让我们可以自由的创建QML场景，了解了用户可配置与插件结构。
+动态加载一个QML元素最简单的方法是使用加载元素（Loader element）。它可以作为一个占位符内容被加载。
+使用一种更加动态的方法，Qt.createQmlObject方法可以用于实例化QML字符串。然后这种方法有局限性。最全面的解决方案是动态创建使用Qt.createComponent函数创建组件。然后通过调用组件的createObject函数来创建对象。
+由于绑定与信号连接依赖于对象id，或者访问实例化对象。对于动态创建的对象需要另外一种方法，为了创建绑定，需要使用绑定元素（Binding element），连接元素（Connections element）使得与动态创建对象连接信号成为可能。
+对于动态创建项，最大的挑战是跟踪它们。可以使用链表模型（ListModel）来完成这件事。有了一个模型用来跟踪动态创建项，可以实现序列化和反序列化函数，可以存储和恢复动态创建场景。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/tracking_dynamic_objects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/tracking_dynamic_objects/</guid>
+      <description>跟踪动态对象（Tracking Dynamic Objects） #  处理动态对象时，通常需要跟踪已创建的对象。另一个常见的功能是能够存储和恢复动态对象的状态。在我们动态填充时，使用链表模型（ListModel）可以非常方便的处理这些问题。
+在下面的例子中包含了两种元素，火箭和飞机，能够被用户创建和移动。为了控制整个场景动态创建元素，我们使用一个模型来跟踪项。
+待完成
+插图
+模型是一个链表模型（ListModel），用已创建的项进行填充。实例化时跟踪对象引用的资源URL。后者不是需要严格跟踪的对象，但是以后会派上用场。
+import QtQuick 2.0 import &amp;#34;create-object.js&amp;#34; as CreateObject Item { id: root ListModel { id: objectsModel } function addPlanet() { CreateObject.create(&amp;#34;planet.qml&amp;#34;, root, itemAdded); } function addRocket() { CreateObject.create(&amp;#34;rocket.qml&amp;#34;, root, itemAdded); } function itemAdded(obj, source) { objectsModel.append({&amp;#34;obj&amp;#34;: obj, &amp;#34;source&amp;#34;: source}) } 你可以从上面的例子中看到，create-object.js是一种使得JavaScript引进更加简单的、普遍的方法。创建方法使用了三个参数：一个资源URL，一个根元素和一个完成的回调函数。回调需要两个参数：一个新创建的对象引用和一个资源URL。
+这意味着每一次调用addPlanet或者addRocket时，当新建对象被创建完成后悔调用itemAdded函数。后者会将对象的引用和资源URL添加到objectsModel模型中。
+可以在很多方面使用objectsModel。在示例中，clearItems函数依赖它。这个函数证明了两个事情。首先，如何遍历模型和执行一个任务，即调用析构函数来移除每一个项。其次，它强调了模型不会更新已经销毁的对象。此外移除模型项已连接的对象问题，模型项的对象属性设置为null，为了补救这个问题，代码显式的清除了已移除对象的模型项。
+ function clearItems() { while(objectsModel.count &amp;gt; 0) { objectsModel.get(0).obj.destroy(); objectsModel.remove(0); } } 通过设置XmlListModel模型的xml属性可以处理XML文档字符串。代码如下，模型展示了反序列化函数。反序列化函数通过设置dsIndex引用模型的第一个项来启动反序列化，然后调用项的创建。然后回调dsItemAdded设置新创建对象的x,y属性，然后更新索引创建下一个对象。
+ XmlListModel { id: xmlModel query: &amp;#34;/scene/item&amp;#34; XmlRole { name: &amp;#34;source&amp;#34;; query: &amp;#34;source/string()&amp;#34; } XmlRole { name: &amp;#34;x&amp;#34;; query: &amp;#34;x/string()&amp;#34; } XmlRole { name: &amp;#34;y&amp;#34;; query: &amp;#34;y/string()&amp;#34; } } function deserialize() { dsIndex = 0; CreateObject.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fluid_elements on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/</link>
+    <description>Recent content in Fluid_elements on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/advanced_techniques/</guid>
+      <description>高级用法（Advanced Techniques） #  后续添加。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/animations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/animations/</guid>
+      <description>动画（Animations） #  动画被用于属性的改变。一个动画定义了属性值改变的曲线，将一个属性值变化从一个值过渡到另一个值。动画是由一连串的目标属性活动定义的，平缓的曲线算法能够引发一个定义时间内属性的持续变化。所有在QtQuick中的动画都由同一个计时器来控制，因此它们始终都保持同步，这也提高了动画的性能和显示效果。
+注意
+动画控制了属性的改变，也就是值的插入。这是一个基本的概念，QML是基于元素，属性与脚本的。每一个元素都提供了许多的属性，每一个属性都在等待使用动画。在这本书中你将会看到这是一个壮阔的场景，你会发现你自己在看一些动画时欣赏它们的美丽并且肯定自己的创造性想法。然后请记住：动画控制了属性的改变，每个元素都有大量的属性供你任意使用。
+ // animation.qml import QtQuick 2.0 Image { source: &amp;#34;assets/background.png&amp;#34; Image { x: 40; y: 80 source: &amp;#34;assets/rocket.png&amp;#34; NumberAnimation on x { to: 240 duration: 4000 loops: Animation.Infinite } RotationAnimation on rotation { to: 360 duration: 4000 loops: Animation.Infinite } } } 上面这个例子在x坐标和旋转属性上应用了一个简单的动画。每一次动画持续4000毫秒并且永久循环。x轴坐标动画展示了火箭的x坐标逐渐移至240，旋转动画展示了当前角度到360度的旋转。两个动画同时运行，并且在加载用户界面完成后开始。
+现在你可以通过to属性和duration属性来实现动画效果。或者你可以在opacity或者scale上添加动画作为例子，集成这两个参数，你可以实现火箭逐渐消失在太空中，试试吧!
+5.1.1 动画元素（Animation Elements） #  有几种类型的动画，每一种都在特定情况下都有最佳的效果，下面列出了一些常用的动画：
+  PropertyAnimation（属性动画）- 使用属性值改变播放的动画
+  NumberAnimation（数字动画）- 使用数字改变播放的动画
+  ColorAnimation（颜色动画）- 使用颜色改变播放的动画
+  RotationAnimation（旋转动画）- 使用旋转改变播放的动画</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/README/</guid>
+      <description>动态元素（Fluid Elements） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+到目前为止，我们已经介绍了简单的图形元素和怎样布局，怎样操作它们。这一章介绍如何控制属性值的变化，通过动画的方式在一段时间内来改变属性值。这项技术是建立一个现代化的平滑界面的基础，通过使用状态和过渡来扩展你的用户界面。每一种状态定义了属性的改变，与动画联系起来的状态改变称作过渡。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/states_and_transitions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/states_and_transitions/</guid>
+      <description>状态与过渡（States and Transitions） #  通常我们将用户界面描述为一种状态。一个状态定义了一组属性的改变，并且会在一定的条件下被触发。另外在这些状态转化的过程中可以有一个过渡，定义了这些属性的动画或者一些附加的动作。当进入一个新的状态时，动作也可以被执行。
+5.2.1 状态（States） #  在QML中，使用State元素来定义状态，需要与基础元素对象（Item）的states序列属性连接。状态通过它的状态名来鉴别，由组成它的一系列简单的属性来改变元素。默认的状态在初始化元素属性时定义，并命名为“”（一个空的字符串）。
+ Item { id: root states: [ State { name: &amp;#34;go&amp;#34; PropertyChanges { ... } }, State { name: &amp;#34;stop&amp;#34; PropertyChanges { ... } } ] } 状态的改变由分配一个元素新的状态属性名来完成。
+注意
+另一种切换属性的方法是使用状态元素的when属性。when属性能够被设置为一个表达式的结果，当结果为true时，状态被使用。
+ Item { id: root states: [ ... ] Button { id: goButton ... onClicked: root.state = &amp;#34;go&amp;#34; } }  例如一个交通信号灯有两个信号灯。上面的一个信号灯使用红色，下面的信号灯使用绿色。在这个例子中，两个信号灯不会同时发光。让我们看看状态图。
+ 当系统启动时，它会自动切换到停止模式作为默认状态。停止状态改变了light1为红色并且light2为黑色（关闭）。一个外部的事件能够触发现在的状态变换为“go”状态。在go状态下，我们改变颜色属性，light1变为黑色（关闭），light2变为绿色。
+为了实现这个方案，我们给这两个灯绘制一个用户界面的草图，为了简单起见，我们使用两个包含园边的矩形框，设置园半径为宽度的一半（宽度与高度相同）。
+ Rectangle { id: light1 x: 25; y: 15 width: 100; height: width radius: width/2 color: &amp;#34;black&amp;#34; } Rectangle { id: light2 x: 25; y: 135 width: 100; height: width radius: width/2 color: &amp;#34;black&amp;#34; } 就像在状态图中定义的一样，我们有一个“go”状态和一个“stop”状态，它们将会分别将交通灯改变为红色和绿色。我们设置state属性到stop来确保初始化状态为stop状态。</description>
+    </item>
+    
+  </channel>
+</rss>

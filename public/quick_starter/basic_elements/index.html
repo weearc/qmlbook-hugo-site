@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="基本元素（Basic Elements） #  元素可以被分为可视化元素与非可视化元素。一个可视化元素（例如矩形框Rectangle）有着几何形状并且可以在屏幕上显示。一个非可视化元素（例如计时器Timer）提供了常用的功能，通常用于操作可视化元素。
+现在我们将专注于几个基础的可视化元素，例如Item（基础元素对象），Rectangle（矩形框），Text（文本），Image（图像）和MouseArea（鼠标区域）。
+4.2.1 基础元素对象（Item Element） #  Item（基础元素对象）是所有可视化元素的基础对象，所有其它的可视化元素都继承自Item。它自身不会有任何绘制操作，但是定义了所有可视化元素共有的属性：
+   Group（分组） Properties（属性）     Geometry（几何属性） x,y（坐标）定义了元素左上角的位置，width，height（长和宽）定义元素的显示范围，z（堆叠次序）定义元素之间的重叠顺序。   Layout handling（布局操作） anchors（锚定），包括左（left），右（right），上（top），下（bottom），水平与垂直居中（vertical center，horizontal center），与margins（间距）一起定义了元素与其它元素之间的位置关系。   Key handlikng（按键操作） 附加属性key（按键）和keyNavigation（按键定位）属性来控制按键操作，处理输入焦点（focus）可用操作。   Transformation（转换） 缩放（scale）和rotate（旋转）转换，通用的x,y,z属性列表转换（transform），旋转基点设置（transformOrigin）。   Visual（可视化） 不透明度（opacity）控制透明度，visible（是否可见）控制元素是否显示，clip（裁剪）用来限制元素边界的绘制，smooth（平滑）用来提高渲染质量。   State definition（状态定义） states（状态列表属性）提供了元素当前所支持的状态列表，当前属性的改变也可以使用transitions（转变）属性列表来定义状态转变动画。    为了更好的理解不同的属性，我们将会在这章中尽量的介绍这些元素的显示效果。请记住这些基本的属性在所有可视化元素中都是可以使用的，并且在这些元素中的工作方式都是相同的。
+注意
+Item（基本元素对象）通常被用来作为其它元素的容器使用，类似HTML语言中的div元素（div element）。
+4.2.2 矩形框元素（Rectangle Element） #  Rectangle（矩形框）是基本元素对象的一个扩展，增加了一个颜色来填充它。它还支持边界的定义，使用border.color（边界颜色），border.width（边界宽度）来自定义边界。你可以使用radius（半径）属性来创建一个圆角矩形。
+ Rectangle { id: rect1 x: 12; y: 12 width: 76; height: 96 color: &#34;lightsteelblue&#34; } Rectangle { id: rect2 x: 112; y: 12 width: 76; height: 96 border.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="基本元素（Basic Elements） #  元素可以被分为可视化元素与非可视化元素。一个可视化元素（例如矩形框Rectangle）有着几何形状并且可以在屏幕上显示。一个非可视化元素（例如计时器Timer）提供了常用的功能，通常用于操作可视化元素。
+现在我们将专注于几个基础的可视化元素，例如Item（基础元素对象），Rectangle（矩形框），Text（文本），Image（图像）和MouseArea（鼠标区域）。
+4.2.1 基础元素对象（Item Element） #  Item（基础元素对象）是所有可视化元素的基础对象，所有其它的可视化元素都继承自Item。它自身不会有任何绘制操作，但是定义了所有可视化元素共有的属性：
+   Group（分组） Properties（属性）     Geometry（几何属性） x,y（坐标）定义了元素左上角的位置，width，height（长和宽）定义元素的显示范围，z（堆叠次序）定义元素之间的重叠顺序。   Layout handling（布局操作） anchors（锚定），包括左（left），右（right），上（top），下（bottom），水平与垂直居中（vertical center，horizontal center），与margins（间距）一起定义了元素与其它元素之间的位置关系。   Key handlikng（按键操作） 附加属性key（按键）和keyNavigation（按键定位）属性来控制按键操作，处理输入焦点（focus）可用操作。   Transformation（转换） 缩放（scale）和rotate（旋转）转换，通用的x,y,z属性列表转换（transform），旋转基点设置（transformOrigin）。   Visual（可视化） 不透明度（opacity）控制透明度，visible（是否可见）控制元素是否显示，clip（裁剪）用来限制元素边界的绘制，smooth（平滑）用来提高渲染质量。   State definition（状态定义） states（状态列表属性）提供了元素当前所支持的状态列表，当前属性的改变也可以使用transitions（转变）属性列表来定义状态转变动画。    为了更好的理解不同的属性，我们将会在这章中尽量的介绍这些元素的显示效果。请记住这些基本的属性在所有可视化元素中都是可以使用的，并且在这些元素中的工作方式都是相同的。
+注意
+Item（基本元素对象）通常被用来作为其它元素的容器使用，类似HTML语言中的div元素（div element）。
+4.2.2 矩形框元素（Rectangle Element） #  Rectangle（矩形框）是基本元素对象的一个扩展，增加了一个颜色来填充它。它还支持边界的定义，使用border.color（边界颜色），border.width（边界宽度）来自定义边界。你可以使用radius（半径）属性来创建一个圆角矩形。
+ Rectangle { id: rect1 x: 12; y: 12 width: 76; height: 96 color: &#34;lightsteelblue&#34; } Rectangle { id: rect2 x: 112; y: 12 width: 76; height: 96 border." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mirrors.cqu.edu.cn/qmlbook/quick_starter/basic_elements/" /><meta property="article:section" content="quick_starter" />
+
+
+
+<title>Basic Elements | Qml Book</title>
+<link rel="manifest" href="/qmlbook/manifest.json">
+<link rel="icon" href="/qmlbook/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/qmlbook/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css" integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin="anonymous">
+  <script defer src="/qmlbook/flexsearch.min.js"></script>
+  <script defer src="/qmlbook/en.search.min.7eaa324ae4aad96718321da9bf7ce2963bf997813e848e1e16bcc0e89048af9b.js" integrity="sha256-fqoySuSq2WcYMh2pv3ziljv5l4E&#43;hI4eFrzA6JBIr5s=" crossorigin="anonymous"></script>
+
+  <script defer src="/qmlbook/sw.min.c5fd65d1492edd0e92acb72a8983e44a68ad14c15883246783ed1d96f25e6858.js" integrity="sha256-xf1l0Uku3Q6SrLcqiYPkSmitFMFYgyRng&#43;0dlvJeaFg=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/qmlbook/"><span>Qml Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 id="summary">
+  Summary
+  <a class="anchor" href="#summary">#</a>
+</h1>
+<ul>
+<li>
+  <a href="/qmlbook/README/">Introduction</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/README/">Qt5概述</a>
+<ul>
+<li>
+  <a href="/qmlbook/meet_qt_5/preface/">序</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt5_introduction/">Qt5介绍</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_building_blocks/">Qt构建模块（Qt Building Blocks）</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_project/">Qt项目（Qt Project）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/get_start/README/">开始学习（Get Start）</a>
+<ul>
+<li>
+  <a href="/qmlbook/get_start/qt5installing_qt_5_sdk/">安装Qt5软件工具包（Installing Qt 5 SDK）</a></li>
+<li>
+  <a href="/qmlbook/get_start/hello_world/">你好世界（Hello World）</a></li>
+<li>
+  <a href="/qmlbook/get_start/application_types/">应用程序类型（Application Types）</a></li>
+<li>
+  <a href="/qmlbook/get_start/summary/">总结（ Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/README/">Qt Creator集成开发环境（Qt Creator IDE）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_creator_ide/the_user_interface/">用户界面（The User Interface）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/">注册你的Qt工具箱（Registering your Qt Kit）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/managing_projects/">项目管理（Managing Projects）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/using_the_editor/">使用编辑器（Using the Editor）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/locator/">定位器（Locator）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/debugging/">调试（Debugging）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/shortcuts/">快捷键（Shortcuts）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/quick_starter/README/">QML快速入门（Quick Starter）</a>
+<ul>
+<li>
+  <a href="/qmlbook/quick_starter/qmlqml_syntax/">QML语法（QML Syntax）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/basic_elements/"class=active>基本元素（Basic Elements）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/compontents/">组件（Compontents）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/simple_transformations/">简单的转换（Simple Transformations）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/positioning_element/">定位元素（Positioning Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/layout_items/">布局元素（Layout Items）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/input_element/">输入元素（Input Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/advanced_techniques/"> 高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/fluid_elements/README/">动态元素（Fluid Elements）</a>
+<ul>
+<li>
+  <a href="/qmlbook/fluid_elements/animations/">动画（Animations）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/states_and_transitions/">状态与过渡（States and Transitions）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/model-view-delegate/README/">模型-视图-代理（Model-View-Delegate）</a>
+<ul>
+<li>
+  <a href="/qmlbook/model-view-delegate/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/basic_model/">基础模型（Basic Model）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/dynamic_views/">动态视图（Dynamic Views）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/delegate/">代理（Delegate）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/canvas_element/README/">画布元素（Canvas Element）</a>
+<ul>
+<li>
+  <a href="/qmlbook/canvas_element/convenient_api/">便捷的接口（Convenient API）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/gradients/">渐变（Gradients）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/shadows/">阴影（Shadows）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/images/">图片（Images）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/transformation/">转换（Transformation）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/composition_mode/">组合模式（Composition Mode）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/pixels_buffer/">像素缓冲（Pixels Buffer）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/canvas_paint/">画布绘制（Canvas Paint）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/html5porting_from_html5_canvas/">HTML5画布移植（Porting from HTML5 Canvas）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/particle_simulations/README/">粒子模拟（Particle Simulations）</a>
+<ul>
+<li>
+  <a href="/qmlbook/particle_simulations/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/simple_simulation/">简单的模拟（Simple Simulation）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_parameters/">粒子参数（Particle Parameters）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/directed_particle/">粒子方向（Directed Particle）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_painter/">粒子画笔（Particle Painter）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/affecting_particles/">粒子控制（Affecting Particles）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_group/">粒子组（Particle Group）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/shader_effect/README/">着色器效果（Shader Effect）</a>
+<ul>
+<li>
+  <a href="/qmlbook/shader_effect/openglopengl_shader/">OpenGL着色器（OpenGL Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/shader_elements/">着色器元素（Shader Elements）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/fragement_shader/">片段着色器（Fragement Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/wave_effect/">波浪效果（Wave Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/vertex_shader/">顶点着色器（Vertex Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/curtain_effect/">剧幕效果（Curtain Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/qtqt_graphicseffect_library/">Qt图像效果库（Qt GraphicsEffect Library）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/multimedia/README/">多媒体（Multimedia）</a>
+<ul>
+<li>
+  <a href="/qmlbook/multimedia/playing_media/">媒体播放（Playing Media）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/sounds_effects/">声音效果（Sounds Effects）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/video_streams/">视频流（Video Streams）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/capturing_images/">捕捉图像（Capturing Images）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/networking/README/">网络（Networking）</a>
+<ul>
+<li>
+  <a href="/qmlbook/networking/httpuiserving_ui_via_http/">通过HTTP服务用户界面（Serving UI via HTTP）</a></li>
+<li>
+  <a href="/qmlbook/networking/templating/">模板（Templating）</a></li>
+<li>
+  <a href="/qmlbook/networking/httphttp_requests/">HTTP请求（HTTP Requests）</a></li>
+<li>
+  <a href="/qmlbook/networking/local_files/">本地文件（Local files）</a></li>
+<li>
+  <a href="/qmlbook/networking/restrest_api/">REST接口（REST API）</a></li>
+<li>
+  <a href="/qmlbook/networking/authentication_using_oauth/">使用开放授权登陆验证（Authentication using OAuth）</a></li>
+<li>
+  <a href="/qmlbook/networking/engine_io/">云服务（Engine IO）</a></li>
+<li>
+  <a href="/qmlbook/networking/web_sockets/">Web Sockets</a></li>
+<li>
+  <a href="/qmlbook/networking/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/storage/README/">存储（Storage）</a>
+<ul>
+<li>
+  <a href="/qmlbook/storage/settings/">配置（Settings）</a></li>
+<li>
+  <a href="/qmlbook/storage/local_storage_-_sql/">本地存储 - SQL（Local Storage - SQL）</a></li>
+<li>
+  <a href="/qmlbook/storage/other_storage_apis/">其它存储接口（Other Storage APIs）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/README/">动态QML（Dynamic QML）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/loading_components_dynamically/">动态加载组件（Loading Components Dynamically）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/connecting_indirectly/">间接连接（Connecting Indirectly）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/binding_indirectly/">间接绑定（Binding Indirectly）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/creating_and_destroying_objects/">创建与销毁对象（Creating and Destroying Objects）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/">动态加载和实例化项（Dynamically Loading and Instantiating Items）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/">从文本中动态实例化项（Dynamically Instantiating Items from Text）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/managing_dynamically_created_elements/">管理动态创建的元素（Managing Dynamically Created Elements）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/tracking_dynamic_objects/">跟踪动态对象（Tracking Dynamic Objects）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/javascript/README/">JavaScript</a>
+<ul>
+<li>
+  <a href="/qmlbook/javascript/browserhtml_vs_qtquickqml/">浏览器/HTML与QtQuick/QML对比（Browser/HTML vs QtQuick/QML）</a></li>
+<li>
+  <a href="/qmlbook/javascript/the_language/">JavaScript语法（The Language）</a></li>
+<li>
+  <a href="/qmlbook/javascript/js_objects/">JS对象（JS Objects）</a></li>
+<li>
+  <a href="/qmlbook/javascript/creating_a_js_console/">创建JS控制台（Creating a JS Console）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/README/">Qt and C++</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/">演示程序（A Boilerplate Application）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/the_qobject/">Qt对象（The QObject）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/build_systems/">编译系统（Build Systems）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qmake/">QMake</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/cmake/">CMake</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/">Qt通用类（Common Qt Classes）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qstring/">QString</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/sequential_containers/">顺序容器（Sequential Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/associative_containers/">组合容器（Associative Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/file_io/">文件IO（File IO）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/">C++数据模型（Models in C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_simple_model/">一个简单的模型（A simple model）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/more_complex_data/">更复杂的数据（More Complex Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/dynamic_data/">动态数据（Dynamic Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/">进阶技巧（Advanced Techniques）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/README/">C++扩展QML（Extending QML with C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/">理解QML运行环境（Understanding the QML Run-time）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/">插件内容（Plugin Content）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/">创建插件（Creating the plugin）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/">FileIO实现（FileIO Implementation）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/">使用FileIO（Using FileIO）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/">应用程序窗口（The Application Window）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/">使用动作（Using Actions）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/">格式化表格（Formatting the Table）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/">读取数据（Reading Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/">写入数据（Writing Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/">收尾工作（Finishing Touch）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/other/README/">其它（Other）</a>
+<ul>
+<li>
+  <a href="/qmlbook/other/assets/">示例源码</a></li>
+<li>
+  <a href="/qmlbook/other/enginsh_to_chinses/">术语英汉对照表</a></li>
+<li>
+  <a href="/qmlbook/other/book_format/">格式定义</a></li>
+<li>
+  <a href="/qmlbook/other/collaboration_correction/">协作校正</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/cwc1987/QmlBook-In-Chinese" target="_blank" rel="noopener">
+        QmlBook In Chinese
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/qmlbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Basic Elements</strong>
+
+  <label for="toc-control">
+    
+    <img src="/qmlbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本元素basic-elements">基本元素（Basic Elements）</a>
+      <ul>
+        <li><a href="#421-基础元素对象item-element">4.2.1 基础元素对象（Item Element）</a></li>
+        <li><a href="#422-矩形框元素rectangle-element">4.2.2 矩形框元素（Rectangle Element）</a></li>
+        <li><a href="#423-文本元素text-element">4.2.3 文本元素（Text Element）</a></li>
+        <li><a href="#424-图像元素image-element">4.2.4 图像元素（Image Element）</a></li>
+        <li><a href="#425-鼠标区域元素mousearea-element">4.2.5 鼠标区域元素（MouseArea Element）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="基本元素basic-elements">
+  基本元素（Basic Elements）
+  <a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e5%85%83%e7%b4%a0basic-elements">#</a>
+</h1>
+<p>元素可以被分为可视化元素与非可视化元素。一个可视化元素（例如矩形框Rectangle）有着几何形状并且可以在屏幕上显示。一个非可视化元素（例如计时器Timer）提供了常用的功能，通常用于操作可视化元素。</p>
+<p>现在我们将专注于几个基础的可视化元素，例如Item（基础元素对象），Rectangle（矩形框），Text（文本），Image（图像）和MouseArea（鼠标区域）。</p>
+<h2 id="421-基础元素对象item-element">
+  4.2.1 基础元素对象（Item Element）
+  <a class="anchor" href="#421-%e5%9f%ba%e7%a1%80%e5%85%83%e7%b4%a0%e5%af%b9%e8%b1%a1item-element">#</a>
+</h2>
+<p>Item（基础元素对象）是所有可视化元素的基础对象，所有其它的可视化元素都继承自Item。它自身不会有任何绘制操作，但是定义了所有可视化元素共有的属性：</p>
+<table>
+<thead>
+<tr>
+<th>Group（分组）</th>
+<th>Properties（属性）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry（几何属性）</td>
+<td>x,y（坐标）定义了元素左上角的位置，width，height（长和宽）定义元素的显示范围，z（堆叠次序）定义元素之间的重叠顺序。</td>
+</tr>
+<tr>
+<td>Layout handling（布局操作）</td>
+<td>anchors（锚定），包括左（left），右（right），上（top），下（bottom），水平与垂直居中（vertical center，horizontal center），与margins（间距）一起定义了元素与其它元素之间的位置关系。</td>
+</tr>
+<tr>
+<td>Key handlikng（按键操作）</td>
+<td>附加属性key（按键）和keyNavigation（按键定位）属性来控制按键操作，处理输入焦点（focus）可用操作。</td>
+</tr>
+<tr>
+<td>Transformation（转换）</td>
+<td>缩放（scale）和rotate（旋转）转换，通用的x,y,z属性列表转换（transform），旋转基点设置（transformOrigin）。</td>
+</tr>
+<tr>
+<td>Visual（可视化）</td>
+<td>不透明度（opacity）控制透明度，visible（是否可见）控制元素是否显示，clip（裁剪）用来限制元素边界的绘制，smooth（平滑）用来提高渲染质量。</td>
+</tr>
+<tr>
+<td>State definition（状态定义）</td>
+<td>states（状态列表属性）提供了元素当前所支持的状态列表，当前属性的改变也可以使用transitions（转变）属性列表来定义状态转变动画。</td>
+</tr>
+</tbody>
+</table>
+<p>为了更好的理解不同的属性，我们将会在这章中尽量的介绍这些元素的显示效果。请记住这些基本的属性在所有可视化元素中都是可以使用的，并且在这些元素中的工作方式都是相同的。</p>
+<p><strong>注意</strong></p>
+<p><strong>Item（基本元素对象）通常被用来作为其它元素的容器使用，类似HTML语言中的div元素（div element）。</strong></p>
+<h2 id="422-矩形框元素rectangle-element">
+  4.2.2 矩形框元素（Rectangle Element）
+  <a class="anchor" href="#422-%e7%9f%a9%e5%bd%a2%e6%a1%86%e5%85%83%e7%b4%a0rectangle-element">#</a>
+</h2>
+<p>Rectangle（矩形框）是基本元素对象的一个扩展，增加了一个颜色来填充它。它还支持边界的定义，使用border.color（边界颜色），border.width（边界宽度）来自定义边界。你可以使用radius（半径）属性来创建一个圆角矩形。</p>
+<pre tabindex="0"><code>    Rectangle {
+        id: rect1
+        x: 12; y: 12
+        width: 76; height: 96
+        color: &#34;lightsteelblue&#34;
+    }
+    Rectangle {
+        id: rect2
+        x: 112; y: 12
+        width: 76; height: 96
+        border.color: &#34;lightsteelblue&#34;
+        border.width: 4
+        radius: 8
+    }
+</code></pre><p>
+  <img src="http://qmlbook.org/_images/rectangle2.png" alt="" /></p>
+<p><strong>注意</strong></p>
+<p><strong>颜色的命名是来自SVG颜色的名称（查看
+  <a href="http://www.w3.org/TR/css3-color/#svg-color">http://www.w3.org/TR/css3-color/#svg-color</a>可以获取更多的颜色名称）。你也可以使用其它的方法来指定颜色，比如RGB字符串（&rsquo;#FF4444&rsquo;），或者一个颜色名字（例如&rsquo;white&rsquo;）。</strong></p>
+<p>此外，填充的颜色与矩形的边框也支持自定义的渐变色。</p>
+<pre tabindex="0"><code>    Rectangle {
+        id: rect1
+        x: 12; y: 12
+        width: 176; height: 96
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: &#34;lightsteelblue&#34; }
+            GradientStop { position: 1.0; color: &#34;slategray&#34; }
+        }
+        border.color: &#34;slategray&#34;
+    }
+</code></pre><p>
+  <img src="http://qmlbook.org/_images/rectangle3.png" alt="" /></p>
+<p>一个渐变色是由一系列的梯度值定义的。每一个值定义了一个位置与颜色。位置标记了y轴上的位置（0 = 顶，1 = 底）。GradientStop（倾斜点）的颜色标记了颜色的位置。</p>
+<p><strong>注意</strong></p>
+<p><strong>一个矩形框如果没有width/height（宽度与高度）将不可见。如果你有几个相互关联width/height（宽度与高度）的矩形框，在你组合逻辑中出了错后可能就会发生矩形框不可见，请注意这一点。</strong></p>
+<p><strong>注意</strong></p>
+<p><strong>这个函数无法创建一个梯形，最好使用一个已有的图像来创建梯形。有一种可能是在旋转梯形时，旋转的矩形几何结构不会发生改变，但是这会导致几何元素相同的可见区域的混淆。从作者的观点来看类似的情况下最好使用设计好的梯形图形来完成绘制。</strong></p>
+<h2 id="423-文本元素text-element">
+  4.2.3 文本元素（Text Element）
+  <a class="anchor" href="#423-%e6%96%87%e6%9c%ac%e5%85%83%e7%b4%a0text-element">#</a>
+</h2>
+<p>显示文本你需要使用Text元素（Text Element）。它最值得注意的属性时字符串类型的text属性。这个元素会使用给出的text（文本）与font（字体）来计算初始化的宽度与高度。可以使用字体属性组来（font property group）来改变当前的字体，例如font.family，font.pixelSize，等等。改变文本的颜色值只需要改变颜色属性就可以了。</p>
+<pre tabindex="0"><code>    Text {
+        text: &#34;The quick brown fox&#34;
+        color: &#34;#303030&#34;
+        font.family: &#34;Ubuntu&#34;
+        font.pixelSize: 28
+    }
+</code></pre><p>
+  <img src="http://qmlbook.org/_images/text.png" alt="" /></p>
+<p>文本可以使用horizontalAlignment与verticalAlignment属性来设置它的对齐效果。为了提高文本的渲染效果，你可以使用style和styleColor属性来配置文字的外框效果，浮雕效果或者凹陷效果。对于过长的文本，你可能需要使用省略号来表示，例如A very &hellip; long text，你可以使用elide属性来完成这个操作。elide属性允许你设置文本左边，右边或者中间的省略位置。如果你不想&rsquo;&hellip;.&lsquo;省略号出现，并且希望使用文字换行的方式显示所有的文本，你可以使用wrapMode属性（这个属性只在明确设置了宽度后才生效）：</p>
+<pre tabindex="0"><code>Text {
+    width: 40; height: 120
+    text: &#39;A very long text&#39;
+    // &#39;...&#39; shall appear in the middle
+    elide: Text.ElideMiddle
+    // red sunken text styling
+    style: Text.Sunken
+    styleColor: &#39;#FF4444&#39;
+    // align text to the top
+    verticalAlignment: Text.AlignTop
+    // only sensible when no elide mode
+    // wrapMode: Text.WordWrap
+}
+</code></pre><p>一个text元素（text element）只显示的文本，它不会渲染任何背景修饰。除了显示的文本，text元素背景是透明的。为一个文本元素提供背景是你自己需要考虑的问题。</p>
+<p><strong>注意</strong></p>
+<p><strong>知道一个文本元素（Text Element）的初始宽度与高度是依赖于文本字符串和设置的字体这一点很重要。一个没有设置宽度或者文本的文本元素（Text Element）将不可见，默认的初始宽度是0。</strong></p>
+<p><strong>注意</strong></p>
+<p><strong>通常你想要对文本元素布局时，你需要区分文本在文本元素内部的边界对齐和由元素边界自动对齐。前一种情况你需要使用horizontalAlignment和verticalAlignment属性来完成，后一种情况你需要操作元素的几何形状或者使用anchors（锚定）来完成。</strong></p>
+<h2 id="424-图像元素image-element">
+  4.2.4 图像元素（Image Element）
+  <a class="anchor" href="#424-%e5%9b%be%e5%83%8f%e5%85%83%e7%b4%a0image-element">#</a>
+</h2>
+<p>一个图像元素（Image Element）能够显示不同格式的图像（例如PNG,JPG,GIF,BMP）。想要知道更加详细的图像格式支持信息，可以查看Qt的相关文档。source属性（source property）提供了图像文件的链接信息，fillMode（文件模式）属性能够控制元素对象的大小调整行为。</p>
+<pre tabindex="0"><code>    Image {
+        x: 12; y: 12
+        // width: 48
+        // height: 118
+        source: &#34;assets/rocket.png&#34;
+    }
+    Image {
+        x: 112; y: 12
+        width: 48
+        height: 118/2
+        source: &#34;assets/rocket.png&#34;
+        fillMode: Image.PreserveAspectCrop
+        clip: true
+    }
+</code></pre><p>
+  <img src="http://qmlbook.org/_images/image.png" alt="" /></p>
+<p><strong>注意</strong></p>
+<p><strong>一个URL可以是使用&rsquo;/&lsquo;语法的本地路径（&quot;./images/home.png&quot;）或者一个网络链接（&quot;
+  <a href="http://example.org/home.png">http://example.org/home.png</a>&quot;）。</strong></p>
+<p><strong>注意</strong></p>
+<p><strong>图像元素（Image element）使用PreserveAspectCrop可以避免裁剪图像数据被渲染到图像边界外。默认情况下裁剪是被禁用的（clip:false）。你需要打开裁剪（clip:true）来约束边界矩形的绘制。这对任何可视化元素都是有效的。</strong></p>
+<p><strong>建议</strong></p>
+<p><strong>使用QQmlImageProvider你可以通过C++代码来创建自己的图像提供器，这允许你动态创建图像并且使用线程加载。</strong></p>
+<h2 id="425-鼠标区域元素mousearea-element">
+  4.2.5 鼠标区域元素（MouseArea Element）
+  <a class="anchor" href="#425-%e9%bc%a0%e6%a0%87%e5%8c%ba%e5%9f%9f%e5%85%83%e7%b4%a0mousearea-element">#</a>
+</h2>
+<p>为了与不同的元素交互，你通常需要使用MouseArea（鼠标区域）元素。这是一个矩形的非可视化元素对象，你可以通过它来捕捉鼠标事件。当用户与可视化端口交互时，mouseArea通常被用来与可视化元素对象一起执行命令。</p>
+<pre tabindex="0"><code>    Rectangle {
+        id: rect1
+        x: 12; y: 12
+        width: 76; height: 96
+        color: &#34;lightsteelblue&#34;
+        MouseArea {
+            id: area
+            width: parent.width
+            height: parent.height
+            onClicked: rect2.visible = !rect2.visible
+        }
+    }
+
+    Rectangle {
+        id: rect2
+        x: 112; y: 12
+        width: 76; height: 96
+        border.color: &#34;lightsteelblue&#34;
+        border.width: 4
+        radius: 8
+    }
+</code></pre><p>
+  <img src="http://qmlbook.org/_images/mousearea1.png" alt="" /></p>
+<p>
+  <img src="http://qmlbook.org/_images/mousearea2.png" alt="" /></p>
+<p><strong>注意</strong></p>
+<p><strong>这是QtQuick中非常重要的概念，输入处理与可视化显示分开。这样你的交互区域可以比你显示的区域大很多。</strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本元素basic-elements">基本元素（Basic Elements）</a>
+      <ul>
+        <li><a href="#421-基础元素对象item-element">4.2.1 基础元素对象（Item Element）</a></li>
+        <li><a href="#422-矩形框元素rectangle-element">4.2.2 矩形框元素（Rectangle Element）</a></li>
+        <li><a href="#423-文本元素text-element">4.2.3 文本元素（Text Element）</a></li>
+        <li><a href="#424-图像元素image-element">4.2.4 图像元素（Image Element）</a></li>
+        <li><a href="#425-鼠标区域元素mousearea-element">4.2.5 鼠标区域元素（MouseArea Element）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

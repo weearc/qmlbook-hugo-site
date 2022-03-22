@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Model-view-delegates on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/</link>
+    <description>Recent content in Model-view-delegates on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/advanced_techniques/</guid>
+      <description>高级用法（Advanced Techniques） #  6.5.1 路径视图（The PathView） #  路径视图（PathView）非常强大，但也非常复杂，这个视图由QtQuick提供。它创建了一个可以让子项沿着任意路径移动的视图。沿着相同的路径，使用缩放（scale），透明（opacity）等元素可以更加详细的控制过程。
+当使用路径视图（PathView）时，你必须定义一个代理和一个路径。在这些之上，路径视图（PathView）本身也可以自定义一些属性的区间。通常会使用pathItemCount属性，它控制了一次可见的子项总数。preferredHighLightBegin属性控制了高亮区间，preferredHighlightEnd与highlightRangeMode，控制了当前项怎样沿着路径显示。
+在关注高亮区间之前，我们必须先看看路径（path）这个属性。路径（path）属性使用一个路径（path）元素来定义路径视图（PathView）内代理的滚动路径。路径使用startx与starty属性来链接路径（path）元素，例如PathLine,PathQuad和PathCubic。这些元素都使用二维数组来构造路径。
+当路径定义好之后，可以使用PathPercent和PathAttribute元素来进一步设置。它们被放置在路径元素之间，并且为经过它们的路径和代理提供更加细致的控制。PathPercent提供了如何控制每个元素之间覆盖区域部分的路径，然后反过来控制分布在这条路径上的代理元素，它们被按比例的分布播放。
+preferredHightlightBegin与preferredHighlightEnd属性由PathView（路径视图）输入到图片元素中。它们的值在0~1之间。结束值大于等于开始值。例如设置这些属性值为0.5，当前项只会显示当前百分之50的图像在这个路径上。
+在Path中，PathAttribute元素也是被放置在元素之间的，就像PathPercent元素。它们可以让你指定属性的值然后插入的路径中去。这些属性与代理绑定可以用来控制任意的属性。
+ 下面这个例子展示了路径视图（PathView）如何创建一个卡片视图，并且用户可以滑动它。我们使用了一些技巧来完成这个例子。路径由PathLine元素组成。使用PathPercent元素，它确保了中间的元素居中，并且给其它的元素提供了足够的空间。使用PathAttribute元素来控制旋转，大小和深度值（z-value）。
+在这个路径之上（path），需要设置路径视图（PathView）的pathItemCount属性。它控制了路径的浓密度。路径视图的路径（PathView.onPath）使用preferredHighlightBegin与preferredHighlightEnd来控制可见的代理项。
+ PathView { anchors.fill: parent delegate: flipCardDelegate model: 100 path: Path { startX: root.width/2 startY: 0 PathAttribute { name: &amp;#34;itemZ&amp;#34;; value: 0 } PathAttribute { name: &amp;#34;itemAngle&amp;#34;; value: -90.0; } PathAttribute { name: &amp;#34;itemScale&amp;#34;; value: 0.5; } PathLine { x: root.width/2; y: root.height*0.4; } PathPercent { value: 0.48; } PathLine { x: root.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/basic_model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/basic_model/</guid>
+      <description>基础模型（Basic Model） #  最基本的分离数据与显示的方法是使用Repeater元素。它被用于实例化一组元素项，并且很容易与一个用于填充用户界面的定位器相结合。
+最基本的实现举例，repeater元素用于实现子元素的标号。每个子元素都拥有一个可以访问的属性index，用于区分不同的子元素。在下面的例子中，一个repeater元素创建了10个子项，子项的数量由model属性控制。对于每个子项Rectangle包含了一个Text元素，你可以将text属性设置为index的值，因此可以看到子项的编号是0~9。
+import QtQuick 2.0 Column { spacing: 2 Repeater { model: 10 Rectangle { width: 100 height: 20 radius: 3 color: &amp;#34;lightBlue&amp;#34; Text { anchors.centerIn: parent text: index } } } }  这是一个不错的编号列表，有时我们想显示一些更复杂的数据。使用一个JavaScript序列来替换整形变量model的值可以达到我们的目的。序列可以使用任何类型的内容，可以是字符串，整数，或者对象。在下面的例子中，使用了一个字符串链表。我们仍然使用index的值作为变量，并且我们也访问modelData中包含的每个元素的数据。
+import QtQuick 2.0 Column { spacing: 2 Repeater { model: [&amp;#34;Enterprise&amp;#34;, &amp;#34;Colombia&amp;#34;, &amp;#34;Challenger&amp;#34;, &amp;#34;Discovery&amp;#34;, &amp;#34;Endeavour&amp;#34;, &amp;#34;Atlantis&amp;#34;] Rectangle { width: 100 height: 20 radius: 3 color: &amp;#34;lightBlue&amp;#34; Text { anchors.centerIn: parent text: index +&amp;#34;: &amp;#34;+modelData } } } }  将数据暴露成一组序列，你可以通过标号迅速的找到你需要的信息。想象一下这个模型的草图，这是一个最简单的模型，也是通常都会使用的模型，ListModel（链表模型）。一个链表模型由许多ListElement（链表元素）组成。在每个链表元素中，可以绑定值到属性上。例如在下面这个例子中，每个元素都提供了一个名字和一个颜色。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/concept/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/concept/</guid>
+      <description>概念（Concept） #  对于开发用户界面，最重要的一方面是保持数据与可视化的分离。例如，一个电话薄可以使用一个垂直文本链表排列或者使用一个网格联系人图片排列。在这两个案例中，数据都是相同的，但是可视化效果却是不同的。这种方法通常被称作model-view（模型-视图）模式。在这种模式中，数据通常被称作model（模型），可视化处理称作view（视图）。
+在QML中，model（模型）与view（视图）都通过delegate（代理）连接起来。功能划分如下，model（模型）提供数据。对于每个数据项，可能有多个值。在上面的电话薄例子中，每个电话薄条目对应一个名字，一个图片和一个号码。显示在view（视图）中的每项数据,都是通过delegate（代理）来实现可视化。view（视图）的任务是排列这些delegate（代理），每个delegate（代理）将model item（模型项）的值显示给用户。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/delegate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/delegate/</guid>
+      <description>代理（Delegate） #  当使用模型与视图来自定义用户界面时，代理在创建显示时扮演了大量的角色。在模型中的每个元素通过代理来实现可视化，用户真实可见的是这些代理元素。
+每个代理访问到索引号或者绑定的属性，一些是来自数据模型，一些来自视图。来自模型的数据将会通过属性传递到代理。来自视图的数据将会通过属性传递视图中与代理相关的状态信息。
+通常使用的视图绑定属性是ListView.isCurrentItem和ListView.view。第一个是一个布尔值，标识这个元素是否是视图当前元素，这个值是只读的，引用自当前视图。通过访问视图，可以创建可复用的代理，这些代理在被包含时会自动匹配视图的大小。在下面这个例子中，每个代理的width（宽度）属性与视图的width（宽度）属性绑定，每个代理的背景颜色color依赖于绑定的属性ListView.isCurrentItem属性。
+import QtQuick 2.0 Rectangle { width: 120 height: 300 color: &amp;#34;white&amp;#34; ListView { anchors.fill: parent anchors.margins: 20 clip: true model: 100 delegate: numberDelegate spacing: 5 focus: true } Component { id: numberDelegate Rectangle { width: ListView.view.width height: 40 color: ListView.isCurrentItem?&amp;#34;gray&amp;#34;:&amp;#34;lightGray&amp;#34; Text { anchors.centerIn: parent font.pixelSize: 10 text: index } } } }  如果在模型中的每个元素与一个动作相关，例如点击作用于一个元素时，这个功能是代理完成的。这是由事件管理分配给视图的，这个操作控制了视图中元素的导航，代理控制了特定元素上的动作。
+最基础的方法是在每个代理中创建一个MouseArea（鼠标区域）并且响应onClicked信号。在后面章节中将会演示这个例子。
+6.4.1 动画添加与移除元素（Animating Added and Removed Items） #  在某些情况下，视图中的显示内容会随着时间而改变。由于模型数据的改变，元素会添加或者移除。在这些情况下，一个比较好的做法是使用可视化队列给用户一个方向的感觉来帮助用户知道哪些数据被加入或者移除。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/dynamic_views/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/dynamic_views/</guid>
+      <description>动态视图（Dynamic Views） #  Repeater元素适合有限的静态数据，但是在真正使用时，模型通常更加复杂和庞大，我们需要一个更加智能的解决方案。QtQuick提供了ListView和GridView元素，这两个都是基于Flickable（可滑动）区域的元素，因此用户可以放入更大的数据。同时，它们限制了同时实例化的代理数量。对于一个大型的模型，这意味着在同一个场景下只会加载有限的元素。
+  这两个元素的用法非常类似，我们由ListView开始，然后会描述GridView的模型起点来进行比较。
+ListView与Repeater元素像素，它使用了一个model，使用delegate来实例化，并且在两个delegate之间能够设置间隔sapcing。下面的列表显示了怎样设置一个简单的链表。
+import QtQuick 2.0 Rectangle { width: 80 height: 300 color: &amp;#34;white&amp;#34; ListView { anchors.fill: parent anchors.margins: 20 clip: true model: 100 delegate: numberDelegate spacing: 5 } Component { id: numberDelegate Rectangle { width: 40 height: 40 color: &amp;#34;lightGreen&amp;#34; Text { anchors.centerIn: parent font.pixelSize: 10 text: index } } } }  如果模型包含的数据比屏幕上显示的更多，ListView元素只会显示部分的链表内容。然后由于QtQuick的默认行为导致的问题，列表视图不会限制被显示的代理项（delegates）只在限制区域内显示。这意味着代理项可以在列表视图外显示，用户可以看见在列表视图外动态的创建和销毁这些代理项（delegates）。为了防止这个问题，ListView通过设置clip属性为true，来激活裁剪功能。下面的图片展示了这个结果，左边是clip属性设置为false的对比。
+ 对于用户，ListView（列表视图）是一个滚动区域。它支持惯性滚动，这意味着它可以快速的翻阅内容。默认模式下，它可以在内容最后继续伸展，然后反弹回去，这个信号告诉用户已经到达内容的末尾。
+视图末尾的行为是由到boundsBehavior属性的控制的。这是一个枚举值，并且可以配置为默认的Flickable.DragAndOvershootBounds，视图可以通过它的边界线来拖拽和翻阅，配置为Flickable.StopAtBounds，视图将不再可以移动到它的边界线之外。配置为Flickable.DragOverBounds，用户可以将视图拖拽到它的边界线外，但是在边界线上翻阅将无效。
+使用snapMode属性可以限制一个视图内元素的停止位置。默认行为下是ListView.NoSnap，允许视图内元素在任何位置停止。将snapMode属性设置为ListView.SnapToItem，视图顶部将会与元素对象的顶部对齐排列。使用ListView.SnapOneItem，当鼠标或者触摸释放时，视图将会停止在第一个可见的元素，这种模式对于浏览页面非常便利。
+6.3.1 方向（Orientation） #  默认的链表视图只提供了一个垂直方向的滚动条，但是水平滚动条也是需要的。链表视图的方向由属性orientation控制。它能够被设置为默认值ListView.Vertical或者ListView.Horizontal。下面是一个水平链表视图。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/README/</guid>
+      <description>模型-视图-代理（Model-View-Delegate） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+在QtQuick中，数据通过model-view（模型-视图）分离。对于每个view（视图），每个数据元素的可视化都分给一个代理（delegate）。QtQuick附带了一组预定义的模型与视图。想要使用这个系统，必须理解这些类，并且知道如何创建合适的代理来获得正确的显示和交互。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/summary/</guid>
+      <description>总结（Summary） #  在这个章节中，我们学习了模型，视图与代理。每个数据的入口是模型，视图通过可视化代理来实现数据的可视化。将数据从显示中分离出来。
+一个模型可以是一个整数，提供给代理使用的索引值（index ）。如果JavaScript数组被作为一个模型，模型数据变量（modelData）代表了数组的数据的当前索引。对于更加复杂的情况，每个数据项需要提供多个值，使用链表模型（ListModel）与链表元素（ListElement）是一个更好的解决办法。
+对于静态模型，一个Repeater可以被用作视图。它可以非常方便的使用行（Row），列（Column），栅格（Grid），或者流（Flow）来创建用户界面。对于动态或者大的数据模型，使用ListView或者GridView更加适合。它们会在需要时动态的创建代理，减少在场景下一次显示的元素的数量。
+在视图中的代理可以与数据模型中的属性静态绑定，或者动态绑定。使用视图的onAdd与onRemove信号，可以动态播放的它们的显示与消失。</description>
+    </item>
+    
+  </channel>
+</rss>

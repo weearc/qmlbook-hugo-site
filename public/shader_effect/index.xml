@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shader_effects on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/</link>
+    <description>Recent content in Shader_effects on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/shader_effect/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/curtain_effect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/curtain_effect/</guid>
+      <description>剧幕效果（Curtain Effect） #  在最后的自定义效果例子中，我们将带来一个剧幕效果。这个效果是2011年5月Qt实验室发布的着色器效果中的一部分。目前网址已经转到blog.qt.digia.com，不知道还能不能找到。
+ 当时我非常喜欢这些效果，剧幕效果是我最喜爱的一个。我喜欢剧幕打开然后遮挡后面的背景对象。
+我将代码移植适配到Qt5上，这非常简单。同时我做了一些简化让它能够更好的展示。如果你对整个例子有兴趣，可以访问Qt实验室的博客。
+只有一个小组件作为背景，剧幕实际上是一张图片，叫做fabric.jpg，它是ShaderEffect的资源。整个效果使用顶点着色器来摆动剧幕，使用片段着色器提供阴影的效果。下面是一个简单的图片，让你更加容易理解代码。
+ 剧幕的波形阴影通过一个在剧幕宽度上的sin曲线使用7的振幅来计算（7*PI=221.99..）另一个重要的部分是摆动，当剧幕打开或者关闭时，使用动画来播放剧幕的topWidth。bottomWidth使用SpringAnimation来跟随topWidth变化。这样我们就能创建出底部摆动的剧幕效果。计算得到的swing提供了摇摆的强度，用来对顶点的y值进行插值。
+剧幕效果放在CurtainEffect.qml组件中，fabric图像作为纹理资源。在阴影的使用上没有新的东西加入，唯一不同的是在顶点着色器中操作gl_Postion和片段着色器中操作gl_FragColor。
+import QtQuick 2.0 ShaderEffect { anchors.fill: parent mesh: GridMesh { resolution: Qt.size(50, 50) } property real topWidth: open?width:20 property real bottomWidth: topWidth property real amplitude: 0.1 property bool open: false property variant source: effectSource Behavior on bottomWidth { SpringAnimation { easing.type: Easing.OutElastic; velocity: 250; mass: 1.5; spring: 0.5; damping: 0.05 } } Behavior on topWidth { NumberAnimation { duration: 1000 } } ShaderEffectSource { id: effectSource sourceItem: effectImage; hideSource: true } Image { id: effectImage anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/fragement_shader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/fragement_shader/</guid>
+      <description>片段着色器（Fragement Shader） #  片段着色器调用每个需要渲染的像素。我们将开发一个红色透镜，它将会增加图片的红色通道的值。
+配置场景（Setting up the scene）
+首先我们配置我们的场景，在区域中央使用一个网格显示我们的源图片（source image）。
+import QtQuick 2.0 Rectangle { width: 480; height: 240 color: &amp;#39;#1e1e1e&amp;#39; Grid { anchors.centerIn: parent spacing: 20 rows: 2; columns: 4 Image { id: sourceImage width: 80; height: width source: &amp;#39;assets/tulips.jpg&amp;#39; } } }  红色着色器（A red Shader）
+下一步我们添加一个着色器，显示一个红色矩形框。由于我们不需要纹理，我们从顶点着色器中移除纹理。
+ vertexShader: &amp;#34; uniform highp mat4 qt_Matrix; attribute highp vec4 qt_Vertex; void main() { gl_Position = qt_Matrix * qt_Vertex; }&amp;#34; fragmentShader: &amp;#34; uniform lowp float qt_Opacity; void main() { gl_FragColor = vec4(1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/openglopengl_shader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/openglopengl_shader/</guid>
+      <description>OpenGL着色器（OpenGL Shader） #  OpenGL的渲染管线分为几个步骤。一个简单的OpenGL渲染管线将包含一个顶点着色器和一个片段着色器。
+ 顶点着色器接收顶点数据，并且在程序最后赋值给gl_Position。然后，顶点将会被裁剪，转换和栅格化后作为像素输出。 片段（像素）进入片段着色器，进一步对片段操作并将结果的颜色赋值给gl_FragColor。顶点着色器调用多边形每个角的点（顶点=3D中的点），负责这些点的3D处理。片段（片度=像素）着色器调用每个像素并决定这个像素的颜色。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/qtqt_graphicseffect_library/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/qtqt_graphicseffect_library/</guid>
+      <description>Qt图像效果库（Qt GraphicsEffect Library） #  图像效果库是一个着色器效果的集合，是由Qt开发者提供制作的。它是一个很好的工具，你可以将它应用在你的程序中，它也是一个学习如何创建着色器的例子。
+图像效果库附带了一个手动测试平台，这个工具可以帮助你测试发现不同的效果 测试工具在$QTDIR/qtgraphicaleffects/tests/manual/testbed下。
+ 效果库包含了大约20种效果，下面是效果列表和一些简短的描述。
+   种类 效果 描述     混合（Blend） 混合（Blend） 使用混合模式合并两个资源项   颜色（Color） 亮度与对比度（BrightnessContrast） 调整亮度与对比度    着色（Colorize） 设置HSL颜色空间颜色    颜色叠加（ColorOverlay） 应用一个颜色层    降低饱和度（Desaturate） 减少颜色饱和度    伽马调整（GammaAdjust） 调整发光度    色调饱和度（HueSaturation） 调整HSL颜色空间颜色    色阶调整（LevelAdjust） 调整RGB颜色空间颜色   渐变（Gradient） 圆锥渐变（ConicalGradient） 绘制一个圆锥渐变    线性渐变（LinearGradient） 绘制一个线性渐变    射线渐变（RadialGradient） 绘制一个射线渐变   失真（Distortion） 置换（Displace） 按照指定的置换源移动源项的像素   阴影（Drop Shadow） 阴影 （DropShadow） 绘制一个阴影    内阴影（InnerShadow） 绘制一个内阴影   模糊 （Blur） 快速模糊（FastBlur） 应用一个快速模糊效果    高斯模糊（GaussianBlur） 应用一个高质量模糊效果    蒙版模糊（MaskedBlur） 应用一个多种强度的模糊效果    递归模糊（RecursiveBlur） 重复模糊，提供一个更强的模糊效果   运动模糊（Motion Blur） 方向模糊（DirectionalBlur） 应用一个方向的运动模糊效果    放射模糊（RadialBlur） 应用一个放射运动模糊效果    变焦模糊（ZoomBlur） 应用一个变焦运动模糊效果   发光（Glow） 发光（Glow） 绘制一个外发光效果    矩形发光（RectangularGlow） 绘制一个矩形外发光效果   蒙版（Mask） 透明蒙版（OpacityMask） 使用一个源项遮挡另一个源项    阈值蒙版（ThresholdMask） 使用一个阈值，一个源项遮挡另一个源项    下面是一个使用快速模糊效果的例子：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/README/</guid>
+      <description>着色器效果（Shader Effect） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+   http://labs.qt.nokia.com/2012/02/02/qt-graphical-effects-in-qt-labs/
+   http://labs.qt.nokia.com/2011/05/03/qml-shadereffectitem-on-qgraphicsview/
+   http://qt-project.org/doc/qt-4.8/declarative-shadereffects.html
+   http://www.opengl.org/registry/doc/GLSLangSpec.4.20.6.clean.pdf
+   http://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf
+   http://www.lighthouse3d.com/opengl/glsl/
+   http://wiki.delphigl.com/index.php/Tutorial_glsl
+   Qt5Doc qtquick-shaders
+  着色器允许我们利用SceneGraph的接口直接调用在强大的GPU上运行的OpenGL来创建渲染效果。着色器使用ShaderEffect与ShaderEffectSource元素来实现。着色器本身的算法使用OpenGL Shading Language（OpenGL着色语言）来实现。
+实际上这意味着你需要混合使用QML代码与着色器代码。执行时，会将着色器代码发送到GPU，并在GPU上编译执行。QML着色器元素（Shader QML Elements）允许你与OpenGL着色器程序的属性交互。
+让我们首先来看看OpenGL着色器。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/shader_elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/shader_elements/</guid>
+      <description>着色器元素（Shader Elements） #  为了对着色器编程，Qt Quick提供了两个元素。ShaderEffectSource与ShaderEffect。ShaderEffect将会使用自定义的着色器，ShaderEffectSource可以将一个QML元素渲染为一个纹理然后再渲染这个纹理。由于ShaderEffect能够应用自定义的着色器到它的矩形几何形状，并且能够使用在着色器中操作资源。一个资源可以是一个图片，它被作为一个纹理或者着色器资源。
+默认下着色器使用这个资源并且不作任何改变进行渲染。
+import QtQuick 2.0 Rectangle { width: 480; height: 240 color: &amp;#39;#1e1e1e&amp;#39; Row { anchors.centerIn: parent spacing: 20 Image { id: sourceImage width: 80; height: width source: &amp;#39;assets/tulips.jpg&amp;#39; } ShaderEffect { id: effect width: 80; height: width property variant source: sourceImage } ShaderEffect { id: effect2 width: 80; height: width // the source where the effect shall be applied to property variant source: sourceImage // default vertex shader code vertexShader: &amp;#34; uniform highp mat4 qt_Matrix; attribute highp vec4 qt_Vertex; attribute highp vec2 qt_MultiTexCoord0; varying highp vec2 qt_TexCoord0; void main() { qt_TexCoord0 = qt_MultiTexCoord0; gl_Position = qt_Matrix * qt_Vertex; }&amp;#34; // default fragment shader code fragmentShader: &amp;#34; varying highp vec2 qt_TexCoord0; uniform sampler2D source; uniform lowp float qt_Opacity; void main() { gl_FragColor = texture2D(source, qt_TexCoord0) * qt_Opacity; }&amp;#34; } } }  在上边这个例子中，我们在一行中显示了3张图片，第一张是原始图片，第二张使用默认的着色器渲染出来的图片，第三张使用了Qt5源码中默认的顶点与片段着色器的代码进行渲染的图片。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/vertex_shader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/vertex_shader/</guid>
+      <description>顶点着色器（Vertex Shader） #  顶点着色器用来操作ShaderEffect提供的顶点。正常情况下，ShaderEffect有4个顶点（左上top-left，右上top-right，左下bottom-left，右下bottom-right）。每个顶点使用vec4类型记录。为了实现顶点着色器的可视化，我们将编写一个吸收的效果。这个效果通常被用来让一个矩形窗口消失为一个点。
+ 配置场景（Setting up the scene）
+首先我们再一次配置场景。
+import QtQuick 2.0 Rectangle { width: 480; height: 240 color: &amp;#39;#1e1e1e&amp;#39; Image { id: sourceImage width: 160; height: width source: &amp;#34;assets/lighthouse.jpg&amp;#34; visible: false } Rectangle { width: 160; height: width anchors.centerIn: parent color: &amp;#39;#333333&amp;#39; } ShaderEffect { id: genieEffect width: 160; height: width anchors.centerIn: parent property variant source: sourceImage property bool minimized: false MouseArea { anchors.fill: parent onClicked: genieEffect.minimized = !</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/wave_effect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/wave_effect/</guid>
+      <description>波浪效果（Wave Effect） #  在这个更加复杂的例子中，我们使用片段着色器创建一个波浪效果。波浪的形成是基于sin曲线，并且它影响了使用的纹理坐标的颜色。
+import QtQuick 2.0 Rectangle { width: 480; height: 240 color: &amp;#39;#1e1e1e&amp;#39; Row { anchors.centerIn: parent spacing: 20 Image { id: sourceImage width: 160; height: width source: &amp;#34;assets/coastline.jpg&amp;#34; } ShaderEffect { width: 160; height: width property variant source: sourceImage property real frequency: 8 property real amplitude: 0.1 property real time: 0.0 NumberAnimation on time { from: 0; to: Math.PI*2; duration: 1000; loops: Animation.Infinite } fragmentShader: &amp;#34; varying highp vec2 qt_TexCoord0; uniform sampler2D source; uniform lowp float qt_Opacity; uniform highp float frequency; uniform highp float amplitude; uniform highp float time; void main() { highp vec2 pulse = sin(time - frequency * qt_TexCoord0); highp vec2 coord = qt_TexCoord0 + amplitude * vec2(pulse.</description>
+    </item>
+    
+  </channel>
+</rss>

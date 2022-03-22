@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HTML5画布移植（Porting from HTML5 Canvas） #     https://developer.mozilla.org/en/Canvas_tutorial/Transformations
+   http://en.wikipedia.org/wiki/Spirograph
+  移植一个HTML5画布图像到QML画布非常简单。在成百上千的例子中，我们选择了一个来移植。
+螺旋图形（Spiro Graph）
+我们使用一个来自Mozila项目的螺旋图形例子来作为我们的基础示例。原始的HTML5代码被作为画布教程发布。
+下面是我们需要修改的代码：
+ Qt Quick要求定义变量使用，所以我们需要添加var的定义：  for (var i=0;i&lt;3;i&#43;&#43;) { ... }  修改绘制方法接收Context2D对象：  function draw(ctx) { ... }  由于不同的大小，我们需要对每个螺旋适配转换：  ctx.translate(20&#43;j*50,20&#43;i*50); 最后我们实现onPaint操作。在onPaint中我们请求一个context，并且调用我们的绘制方法。
+ onPaint: { var ctx = getContext(&#34;2d&#34;); draw(ctx); } 下面这个结果就是我们使用QML画布移植的螺旋图形。
+ 发光线（Glowing Lines）
+下面有一个更加复杂的移植来自W3C组织。 原始的发光线有些很不错的地方，这使得移植更加具有挑战性。
+ &lt;!DOCTYPE HTML&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;title&gt;Pretty Glowing Lines&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;canvas width=&#34;800&#34; height=&#34;450&#34;&gt;&lt;/canvas&gt; &lt;script&gt; var context = document.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="HTML5画布移植（Porting from HTML5 Canvas） #     https://developer.mozilla.org/en/Canvas_tutorial/Transformations
+   http://en.wikipedia.org/wiki/Spirograph
+  移植一个HTML5画布图像到QML画布非常简单。在成百上千的例子中，我们选择了一个来移植。
+螺旋图形（Spiro Graph）
+我们使用一个来自Mozila项目的螺旋图形例子来作为我们的基础示例。原始的HTML5代码被作为画布教程发布。
+下面是我们需要修改的代码：
+ Qt Quick要求定义变量使用，所以我们需要添加var的定义：  for (var i=0;i&lt;3;i&#43;&#43;) { ... }  修改绘制方法接收Context2D对象：  function draw(ctx) { ... }  由于不同的大小，我们需要对每个螺旋适配转换：  ctx.translate(20&#43;j*50,20&#43;i*50); 最后我们实现onPaint操作。在onPaint中我们请求一个context，并且调用我们的绘制方法。
+ onPaint: { var ctx = getContext(&#34;2d&#34;); draw(ctx); } 下面这个结果就是我们使用QML画布移植的螺旋图形。
+ 发光线（Glowing Lines）
+下面有一个更加复杂的移植来自W3C组织。 原始的发光线有些很不错的地方，这使得移植更加具有挑战性。
+ &lt;!DOCTYPE HTML&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;title&gt;Pretty Glowing Lines&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;canvas width=&#34;800&#34; height=&#34;450&#34;&gt;&lt;/canvas&gt; &lt;script&gt; var context = document." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mirrors.cqu.edu.cn/qmlbook/canvas_element/html5porting_from_html5_canvas/" /><meta property="article:section" content="canvas_element" />
+
+
+
+<title>Html5porting From Html5 Canvas | Qml Book</title>
+<link rel="manifest" href="/qmlbook/manifest.json">
+<link rel="icon" href="/qmlbook/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/qmlbook/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css" integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin="anonymous">
+  <script defer src="/qmlbook/flexsearch.min.js"></script>
+  <script defer src="/qmlbook/en.search.min.7eaa324ae4aad96718321da9bf7ce2963bf997813e848e1e16bcc0e89048af9b.js" integrity="sha256-fqoySuSq2WcYMh2pv3ziljv5l4E&#43;hI4eFrzA6JBIr5s=" crossorigin="anonymous"></script>
+
+  <script defer src="/qmlbook/sw.min.c5fd65d1492edd0e92acb72a8983e44a68ad14c15883246783ed1d96f25e6858.js" integrity="sha256-xf1l0Uku3Q6SrLcqiYPkSmitFMFYgyRng&#43;0dlvJeaFg=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/qmlbook/"><span>Qml Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 id="summary">
+  Summary
+  <a class="anchor" href="#summary">#</a>
+</h1>
+<ul>
+<li>
+  <a href="/qmlbook/README/">Introduction</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/README/">Qt5概述</a>
+<ul>
+<li>
+  <a href="/qmlbook/meet_qt_5/preface/">序</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt5_introduction/">Qt5介绍</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_building_blocks/">Qt构建模块（Qt Building Blocks）</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_project/">Qt项目（Qt Project）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/get_start/README/">开始学习（Get Start）</a>
+<ul>
+<li>
+  <a href="/qmlbook/get_start/qt5installing_qt_5_sdk/">安装Qt5软件工具包（Installing Qt 5 SDK）</a></li>
+<li>
+  <a href="/qmlbook/get_start/hello_world/">你好世界（Hello World）</a></li>
+<li>
+  <a href="/qmlbook/get_start/application_types/">应用程序类型（Application Types）</a></li>
+<li>
+  <a href="/qmlbook/get_start/summary/">总结（ Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/README/">Qt Creator集成开发环境（Qt Creator IDE）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_creator_ide/the_user_interface/">用户界面（The User Interface）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/">注册你的Qt工具箱（Registering your Qt Kit）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/managing_projects/">项目管理（Managing Projects）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/using_the_editor/">使用编辑器（Using the Editor）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/locator/">定位器（Locator）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/debugging/">调试（Debugging）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/shortcuts/">快捷键（Shortcuts）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/quick_starter/README/">QML快速入门（Quick Starter）</a>
+<ul>
+<li>
+  <a href="/qmlbook/quick_starter/qmlqml_syntax/">QML语法（QML Syntax）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/basic_elements/">基本元素（Basic Elements）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/compontents/">组件（Compontents）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/simple_transformations/">简单的转换（Simple Transformations）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/positioning_element/">定位元素（Positioning Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/layout_items/">布局元素（Layout Items）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/input_element/">输入元素（Input Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/advanced_techniques/"> 高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/fluid_elements/README/">动态元素（Fluid Elements）</a>
+<ul>
+<li>
+  <a href="/qmlbook/fluid_elements/animations/">动画（Animations）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/states_and_transitions/">状态与过渡（States and Transitions）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/model-view-delegate/README/">模型-视图-代理（Model-View-Delegate）</a>
+<ul>
+<li>
+  <a href="/qmlbook/model-view-delegate/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/basic_model/">基础模型（Basic Model）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/dynamic_views/">动态视图（Dynamic Views）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/delegate/">代理（Delegate）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/canvas_element/README/">画布元素（Canvas Element）</a>
+<ul>
+<li>
+  <a href="/qmlbook/canvas_element/convenient_api/">便捷的接口（Convenient API）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/gradients/">渐变（Gradients）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/shadows/">阴影（Shadows）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/images/">图片（Images）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/transformation/">转换（Transformation）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/composition_mode/">组合模式（Composition Mode）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/pixels_buffer/">像素缓冲（Pixels Buffer）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/canvas_paint/">画布绘制（Canvas Paint）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/html5porting_from_html5_canvas/"class=active>HTML5画布移植（Porting from HTML5 Canvas）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/particle_simulations/README/">粒子模拟（Particle Simulations）</a>
+<ul>
+<li>
+  <a href="/qmlbook/particle_simulations/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/simple_simulation/">简单的模拟（Simple Simulation）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_parameters/">粒子参数（Particle Parameters）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/directed_particle/">粒子方向（Directed Particle）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_painter/">粒子画笔（Particle Painter）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/affecting_particles/">粒子控制（Affecting Particles）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_group/">粒子组（Particle Group）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/shader_effect/README/">着色器效果（Shader Effect）</a>
+<ul>
+<li>
+  <a href="/qmlbook/shader_effect/openglopengl_shader/">OpenGL着色器（OpenGL Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/shader_elements/">着色器元素（Shader Elements）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/fragement_shader/">片段着色器（Fragement Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/wave_effect/">波浪效果（Wave Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/vertex_shader/">顶点着色器（Vertex Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/curtain_effect/">剧幕效果（Curtain Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/qtqt_graphicseffect_library/">Qt图像效果库（Qt GraphicsEffect Library）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/multimedia/README/">多媒体（Multimedia）</a>
+<ul>
+<li>
+  <a href="/qmlbook/multimedia/playing_media/">媒体播放（Playing Media）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/sounds_effects/">声音效果（Sounds Effects）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/video_streams/">视频流（Video Streams）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/capturing_images/">捕捉图像（Capturing Images）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/networking/README/">网络（Networking）</a>
+<ul>
+<li>
+  <a href="/qmlbook/networking/httpuiserving_ui_via_http/">通过HTTP服务用户界面（Serving UI via HTTP）</a></li>
+<li>
+  <a href="/qmlbook/networking/templating/">模板（Templating）</a></li>
+<li>
+  <a href="/qmlbook/networking/httphttp_requests/">HTTP请求（HTTP Requests）</a></li>
+<li>
+  <a href="/qmlbook/networking/local_files/">本地文件（Local files）</a></li>
+<li>
+  <a href="/qmlbook/networking/restrest_api/">REST接口（REST API）</a></li>
+<li>
+  <a href="/qmlbook/networking/authentication_using_oauth/">使用开放授权登陆验证（Authentication using OAuth）</a></li>
+<li>
+  <a href="/qmlbook/networking/engine_io/">云服务（Engine IO）</a></li>
+<li>
+  <a href="/qmlbook/networking/web_sockets/">Web Sockets</a></li>
+<li>
+  <a href="/qmlbook/networking/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/storage/README/">存储（Storage）</a>
+<ul>
+<li>
+  <a href="/qmlbook/storage/settings/">配置（Settings）</a></li>
+<li>
+  <a href="/qmlbook/storage/local_storage_-_sql/">本地存储 - SQL（Local Storage - SQL）</a></li>
+<li>
+  <a href="/qmlbook/storage/other_storage_apis/">其它存储接口（Other Storage APIs）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/README/">动态QML（Dynamic QML）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/loading_components_dynamically/">动态加载组件（Loading Components Dynamically）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/connecting_indirectly/">间接连接（Connecting Indirectly）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/binding_indirectly/">间接绑定（Binding Indirectly）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/creating_and_destroying_objects/">创建与销毁对象（Creating and Destroying Objects）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/">动态加载和实例化项（Dynamically Loading and Instantiating Items）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/">从文本中动态实例化项（Dynamically Instantiating Items from Text）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/managing_dynamically_created_elements/">管理动态创建的元素（Managing Dynamically Created Elements）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/tracking_dynamic_objects/">跟踪动态对象（Tracking Dynamic Objects）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/javascript/README/">JavaScript</a>
+<ul>
+<li>
+  <a href="/qmlbook/javascript/browserhtml_vs_qtquickqml/">浏览器/HTML与QtQuick/QML对比（Browser/HTML vs QtQuick/QML）</a></li>
+<li>
+  <a href="/qmlbook/javascript/the_language/">JavaScript语法（The Language）</a></li>
+<li>
+  <a href="/qmlbook/javascript/js_objects/">JS对象（JS Objects）</a></li>
+<li>
+  <a href="/qmlbook/javascript/creating_a_js_console/">创建JS控制台（Creating a JS Console）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/README/">Qt and C++</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/">演示程序（A Boilerplate Application）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/the_qobject/">Qt对象（The QObject）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/build_systems/">编译系统（Build Systems）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qmake/">QMake</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/cmake/">CMake</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/">Qt通用类（Common Qt Classes）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qstring/">QString</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/sequential_containers/">顺序容器（Sequential Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/associative_containers/">组合容器（Associative Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/file_io/">文件IO（File IO）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/">C++数据模型（Models in C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_simple_model/">一个简单的模型（A simple model）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/more_complex_data/">更复杂的数据（More Complex Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/dynamic_data/">动态数据（Dynamic Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/">进阶技巧（Advanced Techniques）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/README/">C++扩展QML（Extending QML with C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/">理解QML运行环境（Understanding the QML Run-time）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/">插件内容（Plugin Content）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/">创建插件（Creating the plugin）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/">FileIO实现（FileIO Implementation）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/">使用FileIO（Using FileIO）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/">应用程序窗口（The Application Window）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/">使用动作（Using Actions）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/">格式化表格（Formatting the Table）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/">读取数据（Reading Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/">写入数据（Writing Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/">收尾工作（Finishing Touch）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/other/README/">其它（Other）</a>
+<ul>
+<li>
+  <a href="/qmlbook/other/assets/">示例源码</a></li>
+<li>
+  <a href="/qmlbook/other/enginsh_to_chinses/">术语英汉对照表</a></li>
+<li>
+  <a href="/qmlbook/other/book_format/">格式定义</a></li>
+<li>
+  <a href="/qmlbook/other/collaboration_correction/">协作校正</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/cwc1987/QmlBook-In-Chinese" target="_blank" rel="noopener">
+        QmlBook In Chinese
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/qmlbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Html5porting From Html5 Canvas</strong>
+
+  <label for="toc-control">
+    
+    <img src="/qmlbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#html5画布移植porting-from-html5-canvas">HTML5画布移植（Porting from HTML5 Canvas）</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="html5画布移植porting-from-html5-canvas">
+  HTML5画布移植（Porting from HTML5 Canvas）
+  <a class="anchor" href="#html5%e7%94%bb%e5%b8%83%e7%a7%bb%e6%a4%8dporting-from-html5-canvas">#</a>
+</h1>
+<ul>
+<li>
+<p>
+  <a href="https://developer.mozilla.org/en/Canvas_tutorial/Transformations">https://developer.mozilla.org/en/Canvas_tutorial/Transformations</a></p>
+</li>
+<li>
+<p>
+  <a href="http://en.wikipedia.org/wiki/Spirograph">http://en.wikipedia.org/wiki/Spirograph</a></p>
+</li>
+</ul>
+<p>移植一个HTML5画布图像到QML画布非常简单。在成百上千的例子中，我们选择了一个来移植。</p>
+<p><strong>螺旋图形（Spiro Graph）</strong></p>
+<p>我们使用一个来自Mozila项目的螺旋图形例子来作为我们的基础示例。原始的HTML5代码被作为画布教程发布。</p>
+<p>下面是我们需要修改的代码：</p>
+<ul>
+<li>Qt Quick要求定义变量使用，所以我们需要添加var的定义：</li>
+</ul>
+<pre tabindex="0"><code>for (var i=0;i&lt;3;i++) {
+    ...
+}
+</code></pre><ul>
+<li>修改绘制方法接收Context2D对象：</li>
+</ul>
+<pre tabindex="0"><code>function draw(ctx) {
+    ...
+}
+</code></pre><ul>
+<li>由于不同的大小，我们需要对每个螺旋适配转换：</li>
+</ul>
+<pre tabindex="0"><code>ctx.translate(20+j*50,20+i*50);
+</code></pre><p>最后我们实现onPaint操作。在onPaint中我们请求一个context，并且调用我们的绘制方法。</p>
+<pre tabindex="0"><code>    onPaint: {
+        var ctx = getContext(&#34;2d&#34;);
+        draw(ctx);
+    }
+</code></pre><p>下面这个结果就是我们使用QML画布移植的螺旋图形。</p>
+<p>
+  <img src="http://qmlbook.org/_images/spirograph.png" alt="" /></p>
+<p><strong>发光线（Glowing Lines）</strong></p>
+<p>下面有一个更加复杂的移植来自W3C组织。
+  <a href="http://www.w3.org/TR/2dcontext/#examples">原始的发光线</a>有些很不错的地方，这使得移植更加具有挑战性。</p>
+<p>
+  <img src="http://qmlbook.org/_images/html_glowlines.png" alt="" /></p>
+<pre tabindex="0"><code>&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+    &lt;title&gt;Pretty Glowing Lines&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;canvas width=&#34;800&#34; height=&#34;450&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var context = document.getElementsByTagName(&#39;canvas&#39;)[0].getContext(&#39;2d&#39;);
+
+// initial start position
+var lastX = context.canvas.width * Math.random();
+var lastY = context.canvas.height * Math.random();
+var hue = 0;
+
+// closure function to draw
+// a random bezier curve with random color with a glow effect
+function line() {
+
+    context.save();
+
+    // scale with factor 0.9 around the center of canvas
+    context.translate(context.canvas.width/2, context.canvas.height/2);
+    context.scale(0.9, 0.9);
+    context.translate(-context.canvas.width/2, -context.canvas.height/2);
+
+    context.beginPath();
+    context.lineWidth = 5 + Math.random() * 10;
+
+    // our start position
+    context.moveTo(lastX, lastY);
+
+    // our new end position
+    lastX = context.canvas.width * Math.random();
+    lastY = context.canvas.height * Math.random();
+
+    // random bezier curve, which ends on lastX, lastY
+    context.bezierCurveTo(context.canvas.width * Math.random(),
+    context.canvas.height * Math.random(),
+    context.canvas.width * Math.random(),
+    context.canvas.height * Math.random(),
+    lastX, lastY);
+
+    // glow effect
+    hue = hue + 10 * Math.random();
+    context.strokeStyle = &#39;hsl(&#39; + hue + &#39;, 50%, 50%)&#39;;
+    context.shadowColor = &#39;white&#39;;
+    context.shadowBlur = 10;
+    // stroke the curve
+    context.stroke();
+    context.restore();
+}
+
+// call line function every 50msecs
+setInterval(line, 50);
+
+function blank() {
+    // makes the background 10% darker on each call
+    context.fillStyle = &#39;rgba(0,0,0,0.1)&#39;;
+    context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+}
+
+// call blank function every 50msecs
+setInterval(blank, 40);
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>在HTML5中，context2D对象可以随意在画布上绘制。在QML中，只能在onPaint操作中绘制。在HTML5中，通常调用setInterval使用计时器触发线段的绘制或者清屏。由于QML中不同的操作方法，仅仅只是调用这些函数不能实现我们想要的结果，因为我们需要通过onPaint操作来实现。我们也需要修改颜色的格式。让我们看看需要改变哪些东西。</p>
+<p>修改从画布元素开始。为了简单，我们使用画布元素（Canvas）作为我们QML文件的根元素。</p>
+<pre tabindex="0"><code>import QtQuick 2.0
+
+Canvas {
+   id: canvas
+   width: 800; height: 450
+
+   ...
+}
+</code></pre><p>代替直接调用的setInterval函数，我们使用两个计时器来请求重新绘制。一个计时器触发间隔较短，允许我们可以执行一些代码。我们无法告诉绘制函数哪个操作是我想触发的，我们为每个操作定义一个布尔标识，当重新绘制请求时，我们请求一个操作并且触发它。</p>
+<p>下面是线段绘制的代码，清屏操作类似。</p>
+<pre tabindex="0"><code>...
+property bool requestLine: false
+
+Timer {
+    id: lineTimer
+    interval: 40
+    repeat: true
+    triggeredOnStart: true
+    onTriggered: {
+        canvas.requestLine = true
+        canvas.requestPaint()
+    }
+}
+
+Component.onCompleted: {
+    lineTimer.start()
+}
+...
+</code></pre><p>现在我们已经有了告诉onPaint操作中我们需要执行哪个操作的指示。当我们进入onPaint处理每个绘制请求时，我们需要提取画布元素中的初始化变量。</p>
+<pre tabindex="0"><code>Canvas {
+    ...
+    property real hue: 0
+    property real lastX: width * Math.random();
+    property real lastY: height * Math.random();
+    ...
+}
+</code></pre><p>现在我们的绘制函数应该像这样：</p>
+<pre tabindex="0"><code>onPaint: {
+    var context = getContext(&#39;2d&#39;)
+    if(requestLine) {
+        line(context)
+        requestLine = false
+    }
+    if(requestBlank) {
+        blank(context)
+        requestBlank = false
+    }
+}
+</code></pre><p>线段绘制函数提取画布作为一个参数。</p>
+<pre tabindex="0"><code>function line(context) {
+    context.save();
+    context.translate(canvas.width/2, canvas.height/2);
+    context.scale(0.9, 0.9);
+    context.translate(-canvas.width/2, -canvas.height/2);
+    context.beginPath();
+    context.lineWidth = 5 + Math.random() * 10;
+    context.moveTo(lastX, lastY);
+    lastX = canvas.width * Math.random();
+    lastY = canvas.height * Math.random();
+    context.bezierCurveTo(canvas.width * Math.random(),
+        canvas.height * Math.random(),
+        canvas.width * Math.random(),
+        canvas.height * Math.random(),
+        lastX, lastY);
+
+    hue += Math.random()*0.1
+    if(hue &gt; 1.0) {
+        hue -= 1
+    }
+    context.strokeStyle = Qt.hsla(hue, 0.5, 0.5, 1.0);
+    // context.shadowColor = &#39;white&#39;;
+    // context.shadowBlur = 10;
+    context.stroke();
+    context.restore();
+}
+</code></pre><p>最大的变化是使用QML的Qt.rgba()和Qt.hsla()。在QML中需要把变量值适配在0.0到1.0之间。</p>
+<p>同样应用在清屏函数中。</p>
+<pre tabindex="0"><code>function blank(context) {
+    context.fillStyle = Qt.rgba(0,0,0,0.1)
+    context.fillRect(0, 0, canvas.width, canvas.height);
+}
+</code></pre><p>下面是最终结果（目前没有阴影）类似下面这样。</p>
+<p>
+  <img src="http://qmlbook.org/_images/glowlines.png" alt="" /></p>
+<p>查看下面的链接获得更多的信息：</p>
+<ul>
+<li>
+<p>
+  <a href="http://www.w3.org/TR/2dcontext/">W3C HTML Canvas 2D Context Specification</a></p>
+</li>
+<li>
+<p>
+  <a href="https://developer.mozilla.org/en/HTML/Canvas">Mozilla Canvas Documentation</a></p>
+</li>
+<li>
+<p>
+  <a href="http://www.html5canvastutorials.com/">HTML5 Canvas Tutorial</a></p>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#html5画布移植porting-from-html5-canvas">HTML5画布移植（Porting from HTML5 Canvas）</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

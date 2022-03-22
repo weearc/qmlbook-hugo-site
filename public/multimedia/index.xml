@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multimedia on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/</link>
+    <description>Recent content in Multimedia on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/multimedia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/advanced_techniques/</guid>
+      <description>高级用法（Advanced Techniques） #  10.5.1 实现一个播放列表（Implementing a Playlist） #  Qt 5 multimedia接口没有提供播放列表。幸好，它非常容易实现。通过设置模型子项与MediaPlayer元素可以实现它，如下所示。当playstate通过player控制时，Playlist元素负责设置MediaPlayer的source。
+ Playlist { id: playlist mediaPlayer: player items: ListModel { ListElement { source: &amp;#34;trailer_400p.ogg&amp;#34; } ListElement { source: &amp;#34;trailer_400p.ogg&amp;#34; } ListElement { source: &amp;#34;trailer_400p.ogg&amp;#34; } } } MediaPlayer { id: player } Playlist元素的第一部分如下，注意使用setIndex函数来设置source元素的索引值。我们也实现了next与previous函数来操作链表。
+Item { id: root property int index: 0 property MediaPlayer mediaPlayer property ListModel items: ListModel {} function setIndex(i) { console.log(&amp;#34;setting index to: &amp;#34; + i); index = i; if (index &amp;lt; 0 || index &amp;gt;= items.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/capturing_images/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/capturing_images/</guid>
+      <description>捕捉图像（Capturing Images） #  Camera元素一个关键特性就是可以用来拍照。我们将在一个简单的定格动画程序中使用到它。在这章中，你将学习如何显示一个视图查找器，截图和追踪拍摄的图片。
+用户界面如下所示。它由三部分组成，背景是一个视图查找器，右边有一列按钮，底部有一连串拍摄的图片。我们想要拍摄一系列的图片，然后点击Play Sequence按钮。这将回放图片，并创建一个简单的定格电影。
+ 相机的视图查找器部分是在VideoOutput中使用一个简单的Camera元素作为资源。这将给用户显示一个来自相机的流媒体视频。
+ VideoOutput { anchors.fill: parent source: camera } Camera { id: camera } 使用一个水平放置的ListView显示来自ListModel的图片，这个部件叫做imagePaths。在背景中使用一个半透明的Rectangle。
+ ListModel { id: imagePaths } ListView { id: listView anchors.left: parent.left anchors.right: parent.right anchors.bottom: parent.bottom anchors.bottomMargin: 10 height: 100 orientation: ListView.Horizontal spacing: 10 model: imagePaths delegate: Image { source: path; fillMode: Image.PreserveAspectFit; height: 100; } Rectangle { anchors.fill: parent anchors.topMargin: -10 color: &amp;#34;black&amp;#34; opacity: 0.5 } } 为了拍摄图像，你需要知道Camera元素包含了一组子对象用来完成各种工作。使用Camera.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/playing_media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/playing_media/</guid>
+      <description>媒体播放（Playing Media） #  在QML应用程序中，最基本的媒体应用是播放媒体。使用MediaPlayer元素可以完成它，如果源是一个图片或者视频，可以选择结合VideoOutput元素。MediaPlayer元素有一个source属性指向需要播放的媒体。当媒体源被绑定后，简单的调用play函数就可以开始播放。
+如果你想播放一个可视化的媒体，例如图片或者视频等，你需要配置一个VideoOutput元素。MediaPlayer播放通过source属性与视频输出绑定。
+在下面的例子中，给MediaPlayer元素一个视频文件作为source。一个VideoOutput被创建和绑定到媒体播放器上。一旦主要部件完全初始化，例如在Component.onCompleted中，播放器的play函数被调用。
+import QtQuick 2.0 import QtMultimedia 5.0 import QtSystemInfo 5.0 Item { width: 1024 height: 600 MediaPlayer { id: player source: &amp;#34;trailer_400p.ogg&amp;#34; } VideoOutput { anchors.fill: parent source: player } Component.onCompleted: { player.play(); } ScreenSaver { screenSaverEnabled: false; } } // M1&amp;gt;&amp;gt; 除了上面介绍的视频播放，这个例子也包括了一小段代码用于禁止屏幕保护。这将阻止视频被中断。通过设置ScreenSaver元素的screenSaverEnabled属性为false来完成。通过导入QtSystemInfo 5.0可以使用ScreenSaver元素。
+基础操作例如当播放媒体时可以通过MediaPlayer元素的volume属性来控制音量。还有一些其它有用的属性。例如，duration与position属性可以用来创建一个进度条。如果seekable属性为true，当拨动进度条时可以更新position属性。下面这个例子展示了在上面的例子基础上如何添加基础播放。
+ Rectangle { id: progressBar anchors.left: parent.left anchors.right: parent.right anchors.bottom: parent.bottom anchors.margins: 100 height: 30 color: &amp;#34;lightGray&amp;#34; Rectangle { anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/README/</guid>
+      <description>多媒体（Multimedia） #  在QtMultimedia模块中的multimedia元素可以播放和记录媒体资源，例如声音，视频，或者图片。解码和编码的操作由特定的后台完成。例如在Linux上的gstreamer框架，Windows上的DirectShow，和OS X上的QuickTime。 multimedia元素不是QtQuick核心的接口。它的接口通过导入QtMultimedia 5.0来加入，如下所示：
+import QtMultimedia 5.0 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/sounds_effects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/sounds_effects/</guid>
+      <description>声音效果（Sounds Effects） #  当播放声音效果时，从请求播放到真实响应播放的响应时间非常重要。在这种情况下，SoundEffect元素将会派上用场。设置source属性，一个简单调用play函数会直接开始播放。
+当敲击屏幕时，可以使用它来完成音效反馈，如下所示：
+ SoundEffect { id: beep source: &amp;#34;beep.wav&amp;#34; } Rectangle { id: button anchors.centerIn: parent width: 200 height: 100 color: &amp;#34;red&amp;#34; MouseArea { anchors.fill: parent onClicked: beep.play() } } 这个元素也可以用来完成一个配有音效的转换。为了从转换触发，使用ScriptAction元素。
+ SoundEffect { id: swosh source: &amp;#34;swosh.wav&amp;#34; } transitions: [ Transition { ParallelAnimation { ScriptAction { script: swosh.play(); } PropertyAnimation { properties: &amp;#34;rotation&amp;#34;; duration: 200; } } } ] 除了调用play函数，在MediaPlayer中类似属性也可以使用。比如volume和loops。loops可以设置为SoundEffect.Infinite来提供无限重复播放。停止播放调用stop函数。
+注意
+当后台使用PulseAudio时，stop将不会立即停止，但会阻止继续循环。这是由于底层API的限制造成的。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/summary/</guid>
+      <description>总结（Summary） #  Qt的媒体应用程序接口提供了播放和捕捉视频和音频的机制。通过VideoOutput元素，视频源能够在我们的用户界面上显示。通过MediaPlayer元素，可以操作大多数的播放，SoundEffect被用于低延迟的声音。Camera元素被用来截图或者显示一个实时的视频流。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/video_streams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/video_streams/</guid>
+      <description>视频流（Video Streams） #  VideoOutput元素不被限制与MediaPlayer元素绑定使用的。它也可以直接用来加载实时视频资源显示一个流媒体。应用程序使用Camera元素作为资源。来自Camera的视频流给用户提供了一个实时流媒体。
+import QtQuick 2.0 import QtMultimedia 5.0 Item { width: 1024 height: 600 VideoOutput { anchors.fill: parent source: camera } Camera { id: camera } } </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1 @@
+navigator.serviceWorker&&navigator.serviceWorker.register("/qmlbook/sw.js",{scope:"/qmlbook/"})

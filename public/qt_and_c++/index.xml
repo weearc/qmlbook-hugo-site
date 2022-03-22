@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qt_and_c&#43;&#43;s on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/</link>
+    <description>Recent content in Qt_and_c&#43;&#43;s on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/qt_and_c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/</guid>
+      <description>演示程序（A Boilerplate Application） #  理解Qt最好的方法是从一个小的应用程序开始。这个简单的例子叫做“Hello World!”，使用unicode编码将字符串写入到一个文件中。
+#include &amp;lt;QCoreApplication&amp;gt; #include &amp;lt;QString&amp;gt; #include &amp;lt;QFile&amp;gt; #include &amp;lt;QDir&amp;gt; #include &amp;lt;QTextStream&amp;gt; #include &amp;lt;QDebug&amp;gt; int main(int argc, char *argv[]) { QCoreApplication app(argc, argv); // prepare the message QString message(&amp;#34;Hello World!&amp;#34;); // prepare a file in the users home directory named out.txt QFile file(QDir::home().absoluteFilePath(&amp;#34;out.txt&amp;#34;)); // try to open the file in write mode if(!file.open(QIODevice::WriteOnly)) { qWarning() &amp;lt;&amp;lt; &amp;#34;Can not open file with write access&amp;#34;; return -1; } // as we handle text we need to use proper text codecs QTextStream stream(&amp;amp;file); // write message to file via the text stream stream &amp;lt;&amp;lt; message; // do not start the eventloop as this would wait for external IO // app.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/a_simple_model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/a_simple_model/</guid>
+      <description>一个简单的模型（A simple model） #  一个典型的QML C++模型继承自QAbstractListModel ，并且最少需要实现data和rowCount函数。在这个例子中我们将使用由QColor类提供的一系列SVG颜色名称并且使用我们的模型展示它们。数据被存储在QList&amp;lt;QString&amp;gt;数据容器中。
+我们的DataEntryModel基础自QAbstractListModel并且实现了需要强制实现的函数。我们可以在rowCount中忽略父对象索引，这只在树模型中使用。QModelIndex类提供了视图检索数据需要的单元格行和列的信息，视图基于行列和数据角色从模型中拉取数据。QAbstractListModel在QtCore中定义，但是QColor被定义在QtGui中。我们需要附加QtGui依赖。对于QML应用程序，它可以依赖QtGui，但是它通常不依赖QtWidgets。
+#ifndef DATAENTRYMODEL_H #define DATAENTRYMODEL_H #include &amp;lt;QtCore&amp;gt; #include &amp;lt;QtGui&amp;gt; class DataEntryModel : public QAbstractListModel { Q_OBJECT public: explicit DataEntryModel(QObject *parent = 0); ~DataEntryModel(); public: // QAbstractItemModel interface virtual int rowCount(const QModelIndex &amp;amp;parent) const; virtual QVariant data(const QModelIndex &amp;amp;index, int role) const; private: QList&amp;lt;QString&amp;gt; m_data; }; #endif // DATAENTRYMODEL_H 现在你可以使用QML导入命令import org.example 1.0来访问DataEntryModel，和其它QML项使用的方法一样DataEntryModel {}。
+我们在这个例子中使用它来显示一个简单的颜色条目列表。
+import org.example 1.0 ListView { id: view anchors.fill: parent model: DataEntryModel {} delegate: ListDelegate { // use the defined model role &amp;#34;display&amp;#34; text: model.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/</guid>
+      <description>进阶技巧（Advanced Techniques） #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/associative_containers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/associative_containers/</guid>
+      <description>组合容器（Associative Containers） #  映射，字典或者集合是组合容器的例子。它们使用一个键来保存一个值。它们可以快速的查询它们的元素。我们将展示使用最多的组合容器QHash，同时也会展示一些C++11新的特性。
+ QHash&amp;lt;QString, int&amp;gt; hash({{&amp;#34;b&amp;#34;,2},{&amp;#34;c&amp;#34;,3},{&amp;#34;a&amp;#34;,1}}); qDebug() &amp;lt;&amp;lt; hash.keys(); // a,b,c - unordered qDebug() &amp;lt;&amp;lt; hash.values(); // 1,2,3 - unordered but same as order as keys QVERIFY(hash[&amp;#34;a&amp;#34;] == 1); QVERIFY(hash.value(&amp;#34;a&amp;#34;) == 1); QVERIFY(hash.contains(&amp;#34;c&amp;#34;) == true); { // JAVA iterator int sum =0; QHashIterator&amp;lt;QString, int&amp;gt; i(hash); while (i.hasNext()) { i.next(); sum+= i.value(); qDebug() &amp;lt;&amp;lt; i.key() &amp;lt;&amp;lt; &amp;#34; = &amp;#34; &amp;lt;&amp;lt; i.value(); } QVERIFY(sum == 6); } { // STL iterator int sum = 0; QHash&amp;lt;QString, int&amp;gt;::const_iterator i = hash.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/build_systems/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/build_systems/</guid>
+      <description>编译系统（Build Systems） #  在不同的平台上稳定的编译软件是一个复杂的任务。你将会遇到不同环境下的不同编译器，路径和库变量的问题。Qt的目的是防止应用开发者遭遇这些跨平台问题。为了完成这个任务，Qt引进了qmake编译文件生成器。qmake操作以.pro 结尾的项目文件。这个项目文件包含了关于应用程序的说明和需要读取的资源文件。用qmake执行这个项目文件会为你生成一个在unix和mac的Makefile ,如果在windows下使用mingw编译工具链也会生成。否则可能会创建一个visual studio项目或者一个xcode项目。
+在unix下使用Qt编译如下：
+$ edit myproject.pro $ qmake // generates Makefile $ make Qt也允许你使用影子编译。影子编译会在你的源码位置外的路径进行编译。假设我们有一个myproject文件夹，里面有一个myproject.pro文件。如下输入命令：
+$ mkdir build $ cd build $ qmake ../myproject/myproject.pro 我们创建一个编译文件夹并且在这个编译文件中使用qmake指向我们项目文件夹中的项目文件。这将配置makefile使用编译文件夹替代我们的源代码文件夹来存放所有的编译中间件和结果。这允许我们同时为不同的qt版本和编译配置创建不同的编译文件夹并且不会弄乱我们的源代码文件夹。
+当你使用Qt Creator时，它会在后代为你做这些事情，通常你不在需要担心这些步骤。对于比较大的项目，建议使用命令行方式来编译你的Qt项目可以更加深入的了解编译流。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/cmake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/cmake/</guid>
+      <description>CMake #  CMake是由Kitware创造的工具。由于它们的3D可视化软件VTK使得Kitware家喻户晓，当然这也有CMake这个跨平台makefile生成器的功劳。它使用一系列的CMakeLists.txt文件来生成平台指定的makefile。CMake被KDE项目所使用，它与Qt社区有一种特殊的关系。
+CMakeLists.txt文件存储了项目配置。一个简单的hello world使用QtCore的项目如下：
+// ensure cmake version is at least 3.0 cmake_minimum_required(VERSION 3.0) // adds the source and build location to the include path set(CMAKE_INCLUDE_CURRENT_DIR ON) // Qt&amp;#39;s MOC tool shall be automatically invoked set(CMAKE_AUTOMOC ON) // using the Qt5Core module find_package(Qt5Core) // create excutable helloworld using main.cpp add_executable(helloworld main.cpp) // helloworld links against Qt5Core target_link_libraries(helloworld Qt5::Core) 这将使用main.cpp编译一个可执行的helloworld应用程序，并与额外的Qt5Core库链接。编译文件通常会被修改：
+// sets the PROJECT_NAME variable project(helloworld) cmake_minimum_required(VERSION 3.0) set(CMAKE_INCLUDE_CURRENT_DIR ON) set(CMAKE_AUTOMOC ON) find_package(Qt5Core) // creates a SRC_LIST variable with main.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/</guid>
+      <description>Qt通用类（Common Qt Classes） #  类QObject组成了Qt的基础，但是在这个框架里还有很多的类。在我们继续探寻如何扩展QML之前，我们需要先了解一些有用的Qt基础类。
+在这一节中的示例代码需要使用Qt Test库。它提供一种非常好的方法来测试Qt的API并将其存储供以后参考使用。测试库提供的QVERIFY与QCOMPARE函数断言一个正确条件。我们也将使用域来避免名称校验冲突。所以不要对后面的代码有困惑。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/dynamic_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/dynamic_data/</guid>
+      <description>动态数据（Dynamic Data） #  动态数据包含了从模型中插入，移除，清除数据等。QAbstractListModel期望当条目被移除或者插入时有一个明确的行为。这个行为使用一个信号来表示，在操作调用前和调用后调用这个行为。例如向一个模型插入一行数据，你首先需要发送beginInsertRows信号，然后操作数据，最后发送endInsertRows信号。
+我们将在头文件中加入后续的函数。这些使用Q_INVOKABLE函数定义使得可以在QML中调用它们。另一种方法是将它们定义为公共槽函数。
+// inserts a color at the index (0 at begining, count-1 at end) Q_INVOKABLE void insert(int index, const QString&amp;amp; colorValue); // uses insert to insert a color at the end Q_INVOKABLE void append(const QString&amp;amp; colorValue); // removes a color from the index Q_INVOKABLE void remove(int index); // clear the whole model (e.g. reset) Q_INVOKABLE void clear(); 此外，我们定义了count属性来获取模型的大小和一个使用索引值的get方法来获取颜色。这些东西在QML中使用迭代器遍历模型时会用到。
+// gives the size of the model Q_PROPERTY(int count READ count NOTIFY countChanged) // gets a color at the index Q_INVOKABLE QColor get(int index); 实现插入数据首先要检查边界和插入值是否有效。在这之后我们开始插入数据。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/file_io/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/file_io/</guid>
+      <description>文件IO（File IO） #  通常我们都需要从读写文件。QFile是一个QObject对象，但是大多数情况下它被创建在栈上。QFile包含了通知用户数据可读取信号。它可以异步读取大段的数据，直到整个文件读取完成。为了方便它允许使用阻塞的方式读取数据。这种方法通常用于读取小段数据或者小型文件。幸运的是我们在这些例子中都只使用了小型数据。
+除了读取文件内容到内存中可以使用QByteArray，你也可以根据读取数据类型使用QDataStream或者使用QTextStream读取unicode字符串。我们现在来看看如何使用。
+ QStringList data({&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;}); { // write binary files QFile file(&amp;#34;out.bin&amp;#34;); if(file.open(QIODevice::WriteOnly)) { QDataStream stream(&amp;amp;file); stream &amp;lt;&amp;lt; data; } } { // read binary file QFile file(&amp;#34;out.bin&amp;#34;); if(file.open(QIODevice::ReadOnly)) { QDataStream stream(&amp;amp;file); QStringList data2; stream &amp;gt;&amp;gt; data2; QCOMPARE(data, data2); } } { // write text file QFile file(&amp;#34;out.txt&amp;#34;); if(file.open(QIODevice::WriteOnly)) { QTextStream stream(&amp;amp;file); QString sdata = data.join(&amp;#34;,&amp;#34;); stream &amp;lt;&amp;lt; sdata; } } { // read text file QFile file(&amp;#34;out.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/</guid>
+      <description>C++数据模型（Models in C++） #  在QML中的数据模型为链表视图，路径视图和其它需要为模型中的每个子项创建一个代理引用的视图提供数据。视图只创建可是区域内或者缓冲范围内的引用。这使得即使包含成千上万的子项模型仍然可以保持流畅的用户界面。代理扮演了用来渲染模型子项数据的模板。总之：视图使用代理作为模板来渲染模型中的子项。模型为视图提供数据。
+当你不想使用C++时，你可以在QML环境中定义模型，你有多重方法为一个视图提供模型。使用C++操作数据或者使用包含了大型数据的C++模型比在QML环境中达到相同目的更加稳定可靠。但是当你值需要少量数据时，QML模型时非常适合的。
+ListView { // using a integer as model model: 5 delegate: Text { text: &amp;#39;index: &amp;#39; + index } } ListView { // using a JS array as model model: [&amp;#39;A&amp;#39;, &amp;#39;B&amp;#39;, &amp;#39;C&amp;#39;, &amp;#39;D&amp;#39;, &amp;#39;E&amp;#39;] delegate: Text { &amp;#39;Char[&amp;#39;+ index +&amp;#39;]: &amp;#39; + modelData } } ListView { // using a dynamic QML ListModel as model model: ListModel { ListElement { char: &amp;#39;A&amp;#39; } ListElement { char: &amp;#39;B&amp;#39; } ListElement { char: &amp;#39;C&amp;#39; } ListElement { char: &amp;#39;D&amp;#39; } ListElement { char: &amp;#39;E&amp;#39; } } delegate: Text { &amp;#39;Char[&amp;#39;+ index +&amp;#39;]: &amp;#39; + model.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/more_complex_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/more_complex_data/</guid>
+      <description>更复杂的数据（More Complex Data） #  实际工作中使用的模型数据通常比较复杂。所以需要自定义一些角色枚举方便视图通过属性查找数据。例如模型提供颜色数据不仅只是16进制字符串，在QML中也可以是来自HSV颜色模型的色调，饱和度和亮度，以“model.hue”，“model.saturation”和“model.brightness”作为参数。
+#ifndef ROLEENTRYMODEL_H #define ROLEENTRYMODEL_H #include &amp;lt;QtCore&amp;gt; #include &amp;lt;QtGui&amp;gt; class RoleEntryModel : public QAbstractListModel { Q_OBJECT public: // Define the role names to be used enum RoleNames { NameRole = Qt::UserRole, HueRole = Qt::UserRole+2, SaturationRole = Qt::UserRole+3, BrightnessRole = Qt::UserRole+4 }; explicit RoleEntryModel(QObject *parent = 0); ~RoleEntryModel(); // QAbstractItemModel interface public: virtual int rowCount(const QModelIndex &amp;amp;parent) const override; virtual QVariant data(const QModelIndex &amp;amp;index, int role) const override; protected: // return the roles mapping to be used by QML virtual QHash&amp;lt;int, QByteArray&amp;gt; roleNames() const override; private: QList&amp;lt;QColor&amp;gt; m_data; QHash&amp;lt;int, QByteArray&amp;gt; m_roleNames; }; #endif // ROLEENTRYMODEL_H 在头文件中，我们为QML添加了数据角色枚举的映射。当QML尝试访问一个模型中的属性时（例如“model.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/qmake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/qmake/</guid>
+      <description>QMake #  QMake是用来读取项目文件并生成编译文件的工具。项目文件记录了你的项目配置，扩展依赖库和源代码文件。最简单包含一个源代码文件的项目可能像这样：
+// myproject.pro SOURCES += main.cpp 我们编译了一个基于项目文件名称myproject的可执行程序。这个编译将只包含main.cpp源文件。默认情况下我们会为项目添加QtCore和QtGui模块。如果我们的项目是一个QML应用程序，我们需要添加QtQuick和QtQml到这个链表中：
+// myproject.pro QT += qml quick SOURCES += main.cpp 现在编译文件知道与Qt的QtQml和QtQuick模块链接。QMake使用=，+=` and ``-=来指定，添加和移除选项链表中的元素。例如一个只有控制台的编译将不会依赖UI，你需要移除QtGui模块：
+// myproject.pro QT -= gui SOURCES += main.cpp 当你期望编译一个库来替代一个应用程序时，你需要改变编译模板：
+// myproject.pro TEMPLATE = lib QT -= gui HEADERS += utils.h SOURCES += utils.cpp 现在项目将使用utils.h头文件和utils.cpp文件编译为一个没有UI依赖的库。库的格式依赖于你当前编译项目所用的操作系统。
+通常将会有更加复杂的配置并且需要编译个项目配置。qmake提供了subdirs模板。假设我们有一个mylib和一个myapp项目。我们的配置可能如下：
+my.pro mylib/mylib.pro mylib/utils.h mylib/utils.cpp myapp/myapp.pro myapp/main.cpp 我们已经知道了如何使用Mylib.pro和myapp.pro。my.pro作为一个包含项目文件配置如下：
+// my.pro TEMPLATE = subdirs subdirs = mylib \ myapp myapp.depends = mylib 在项目文件中声明包含两个子项目mylib和myapp，myapp依赖于mylib。当你使用qmake为这个项目文件生成编译文件时，将会在每个项目文件对应的文件夹下生成一个编译文件。当你使用my.pro文件的makefile编译时，所有的子项目也会编译。
+有时你需要基于你的配置在不同的平台上做不同的事情。qmake推荐使用域的概念来处理它。当一个配置选项设置为true时使一个域生效。
+例如使用unix指定utils的实现可以像这样：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/qstring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/qstring/</guid>
+      <description>QString #  通常在Qt中文本操作是基于unicode完成的。你需要使用QString类来完成这个事情。它包含了很多好用的功能函数，这与其它流行的框架类似。对于8位的数据你通常需要使用QByteArray类，对于ASCII校验最好使用QLatin1String来暂存。对于一个字符串链你可以使用QList&amp;lt;QString&amp;gt;或者QStringList类（派生自QList&amp;lt;QString&amp;gt;）。
+这里有一些例子介绍了如何使用QString类。QString可以在栈上创建，但是它的数据存储在堆上。分配一个字符串数据到另一个上，不会产生拷贝操作，只是创建了数据的引用。这个操作非常廉价让开发者更专注于代码而不是内存操作。QString使用引用计数的方式来确定何时可以安全的删除数据。这个功能叫做 隐式共享，在Qt的很多类中都用到了它。
+ QString data(&amp;#34;A,B,C,D&amp;#34;); // create a simple string // split it into parts QStringList list = data.split(&amp;#34;,&amp;#34;); // create a new string out of the parts QString out = list.join(&amp;#34;,&amp;#34;); // verify both are the same QVERIFY(data == out); // change the first character to upper case QVERIFY(QString(&amp;#34;A&amp;#34;) == out[0].toUpper()); 这里我们将展示如何将一个字符串转换为数字，将一个数字转换为字符串。也有一些方便的函数用于float或者double和其它类型的转换。只需要在Qt帮助文档中就可以找到这些使用方法。
+ // create some variables int v = 10; int base = 10; // convert an int to a string QString a = QString::number(v, base); // and back using and sets ok to true on success bool ok(false); int v2 = a.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/README/</guid>
+      <description>Qt and C++ #  Qt是QML与JavaScript的C++扩展工具包。有许多语言与Qt绑定，但是由于Qt是由C++开发的，C++的精神贯穿了整个Qt。在这一节中，我们着重从C++的角度介绍Qt，使用C++开发的本地插件来了解如何更好的扩展QML。通过C++，可以扩展和控制提供给QML的执行环境。
+这章将讲解Qt，正如Qt所要求的一样，需要读者有一定的C++基础知识。Qt不依赖于先进的C++特性，我认为Qt风格的C++代码可读性非常高，所以不要担心你的C++方面比较差。
+从C++的角度分析Qt，你会发现Qt通过内省数据的机制实现了许多现代语言的特性。这是通过使用基础类QObject实现的。内省数据，源数据，类运行时的数据维护。原生的C++是不会完成这些事情的。这使得动态查询对象信息，例如它们的属性成为可能。
+Qt使用源对象信息实现了信号与槽的回调绑定。每个信号能够连接任意数量的槽函数或者其它的信号。当一个信号从一个对象实例从发送后，会调用连接信号的槽函数。发送信号的对象不需要知道接收槽对象的任何信息，反之亦然。这一机制可以创建复用性非常高的组件，并减少组件之间的依赖。
+内省特性也用于创建动态语言的绑定，使得QML可以调用暴露的C++对象实例，并且可以从JavaScript中调用C++函数。除了绑定Qt C++, 绑定标准的JavaScript也是一种非常流行的方式，还有Python的绑定，叫做PyQt。
+除了这些核心概念，Qt可以使用C++开发跨平台应用程序。Qt C++在不同的操作系统上提供了一套平台抽象，允许开发者专注于手上的任务，不需要你去了解如何在不同的操作系统上打开一个文件。这意味着你可以在Windows，OS X和Linux重复编译相同的代码，由Qt去解决在不同平台上的适配问题。最终保持本地构建的应用程序与目标平台的窗口风格上看起来一致。随着移动平台的桌面更新，Qt也提供相同的代码在不同的移动平台上编译，例如IOS，Android，Jolla，BlackBerry，Ubuntu Phone，Tizen。
+这样不仅仅是代码可以重用，开发者的技能也可以重用。了解Qt的团队比只专注于单平台特定技能的团队可以接触更多的平台，由于Qt的灵活性，团队可以使用相同的技术创建不同平台的组件。
+ 对于所有平台，Qt提供了一套基本类，例如支持完整unicode编码的字符串，链表容器，向量容器，缓冲容器。它也提供了目标平台的通用主循环抽象和跨平台的线程支持，网络支持。Qt的主旨是为Qt的开发者提供所有必须的功能。对于特定领域的任务，例如本地库接口，Qt也提供了一些帮助类来使得这些操作更加简单。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/sequential_containers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/sequential_containers/</guid>
+      <description>顺序容器（Sequential Containers） #  链表，队列，数组都是顺序容器。最常用的顺序容器是QList类。它是一个模板类，需要一个类型才能被初始化。它也是隐式共享的，数据存放在堆中。所有的容器类应该被创建在栈上。正常情况下你不需要使用new QList&amp;lt;T&amp;gt;()这样的语句，千万不要使用new来初始化一个容器。
+类QList与类QString一样强大，提供了方便的接口来查询数据。下面一个简单的示例展示了如何使用和遍历链表，这里面也使用到了一些C++11的新特性。
+ // Create a simple list of ints using the new C++11 initialization // for this you need to add &amp;#34;CONFIG += c++11&amp;#34; to your pro file. QList&amp;lt;int&amp;gt; list{1,2}; // append another int list &amp;lt;&amp;lt; 3; // We are using scopes to avoid variable name clashes { // iterate through list using Qt for each int sum(0); foreach (int v, list) { sum += v; } QVERIFY(sum == 6); } { // iterate through list using C++ 11 range based loop int sum = 0; for(int v : list) { sum+= v; } QVERIFY(sum == 6); } { // iterate through list using JAVA style iterators int sum = 0; QListIterator&amp;lt;int&amp;gt; i(list); while (i.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/the_qobject/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/the_qobject/</guid>
+      <description>QObject对象（The QObject） #  正如介绍中描述的，QObject是Qt的内省机制。在Qt中它几乎是所有类的基类。值类型除外，例如QColor，QString和QList。
+Qt对象是一个标准的C++对象，但是它具有更多的功能。可以从两个方向来深入探讨：内省和内存管理。内省意味着Qt对象知道它的类名，它与其它类的关系，以及它的方法和属性。内存管理意味着每个Qt对象都可以成为是其它子对象的父对象。父对象拥有子对象，当父对象销毁时，它也会负责销毁它的子对象。
+理解QObject的能力如何影响一个类最好的方法是使用Qt的类来替换一个典型的C++类。如下所示的代表一个普通的类。
+类Person是一个数据类，包含了一个名字和性别属性。Person使用Qt的对象系统来添加一个元信息到c++类中。它允许使用Person对象的用户连接槽函数并且当属性变化时获得通知。
+class Person : public QObject { Q_OBJECT // enabled meta object abilities // property declarations required for QML Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged) Q_PROPERTY(Gender gender READ gender WRITE setGender NOTIFY genderChanged) // enables enum introspections Q_ENUMS(Gender) public: // standard Qt constructor with parent for memory management Person(QObject *parent = 0); enum Gender { Unknown, Male, Female, Other }; QString name() const; Gender gender() const; public slots: // slots can be connected to signals void setName(const QString &amp;amp;); void setGender(Gender); signals: // signals can be emitted void nameChanged(const QString &amp;amp;name); void genderChanged(Gender gender); private: // data members QString m_name; Gender m_gender; }; 构造函数传入父对象到超类中并且初始化成员变量。Qt的值类型类会自动初始化。在这个例子中QString 将会初始化为一个空字符串（QString::isNull()）并且性别成员变量会明确的初始化为未知性别。</description>
+    </item>
+    
+  </channel>
+</rss>

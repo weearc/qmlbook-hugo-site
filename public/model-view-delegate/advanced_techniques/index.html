@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="高级用法（Advanced Techniques） #  6.5.1 路径视图（The PathView） #  路径视图（PathView）非常强大，但也非常复杂，这个视图由QtQuick提供。它创建了一个可以让子项沿着任意路径移动的视图。沿着相同的路径，使用缩放（scale），透明（opacity）等元素可以更加详细的控制过程。
+当使用路径视图（PathView）时，你必须定义一个代理和一个路径。在这些之上，路径视图（PathView）本身也可以自定义一些属性的区间。通常会使用pathItemCount属性，它控制了一次可见的子项总数。preferredHighLightBegin属性控制了高亮区间，preferredHighlightEnd与highlightRangeMode，控制了当前项怎样沿着路径显示。
+在关注高亮区间之前，我们必须先看看路径（path）这个属性。路径（path）属性使用一个路径（path）元素来定义路径视图（PathView）内代理的滚动路径。路径使用startx与starty属性来链接路径（path）元素，例如PathLine,PathQuad和PathCubic。这些元素都使用二维数组来构造路径。
+当路径定义好之后，可以使用PathPercent和PathAttribute元素来进一步设置。它们被放置在路径元素之间，并且为经过它们的路径和代理提供更加细致的控制。PathPercent提供了如何控制每个元素之间覆盖区域部分的路径，然后反过来控制分布在这条路径上的代理元素，它们被按比例的分布播放。
+preferredHightlightBegin与preferredHighlightEnd属性由PathView（路径视图）输入到图片元素中。它们的值在0~1之间。结束值大于等于开始值。例如设置这些属性值为0.5，当前项只会显示当前百分之50的图像在这个路径上。
+在Path中，PathAttribute元素也是被放置在元素之间的，就像PathPercent元素。它们可以让你指定属性的值然后插入的路径中去。这些属性与代理绑定可以用来控制任意的属性。
+ 下面这个例子展示了路径视图（PathView）如何创建一个卡片视图，并且用户可以滑动它。我们使用了一些技巧来完成这个例子。路径由PathLine元素组成。使用PathPercent元素，它确保了中间的元素居中，并且给其它的元素提供了足够的空间。使用PathAttribute元素来控制旋转，大小和深度值（z-value）。
+在这个路径之上（path），需要设置路径视图（PathView）的pathItemCount属性。它控制了路径的浓密度。路径视图的路径（PathView.onPath）使用preferredHighlightBegin与preferredHighlightEnd来控制可见的代理项。
+ PathView { anchors.fill: parent delegate: flipCardDelegate model: 100 path: Path { startX: root.width/2 startY: 0 PathAttribute { name: &#34;itemZ&#34;; value: 0 } PathAttribute { name: &#34;itemAngle&#34;; value: -90.0; } PathAttribute { name: &#34;itemScale&#34;; value: 0.5; } PathLine { x: root.width/2; y: root.height*0.4; } PathPercent { value: 0.48; } PathLine { x: root.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="高级用法（Advanced Techniques） #  6.5.1 路径视图（The PathView） #  路径视图（PathView）非常强大，但也非常复杂，这个视图由QtQuick提供。它创建了一个可以让子项沿着任意路径移动的视图。沿着相同的路径，使用缩放（scale），透明（opacity）等元素可以更加详细的控制过程。
+当使用路径视图（PathView）时，你必须定义一个代理和一个路径。在这些之上，路径视图（PathView）本身也可以自定义一些属性的区间。通常会使用pathItemCount属性，它控制了一次可见的子项总数。preferredHighLightBegin属性控制了高亮区间，preferredHighlightEnd与highlightRangeMode，控制了当前项怎样沿着路径显示。
+在关注高亮区间之前，我们必须先看看路径（path）这个属性。路径（path）属性使用一个路径（path）元素来定义路径视图（PathView）内代理的滚动路径。路径使用startx与starty属性来链接路径（path）元素，例如PathLine,PathQuad和PathCubic。这些元素都使用二维数组来构造路径。
+当路径定义好之后，可以使用PathPercent和PathAttribute元素来进一步设置。它们被放置在路径元素之间，并且为经过它们的路径和代理提供更加细致的控制。PathPercent提供了如何控制每个元素之间覆盖区域部分的路径，然后反过来控制分布在这条路径上的代理元素，它们被按比例的分布播放。
+preferredHightlightBegin与preferredHighlightEnd属性由PathView（路径视图）输入到图片元素中。它们的值在0~1之间。结束值大于等于开始值。例如设置这些属性值为0.5，当前项只会显示当前百分之50的图像在这个路径上。
+在Path中，PathAttribute元素也是被放置在元素之间的，就像PathPercent元素。它们可以让你指定属性的值然后插入的路径中去。这些属性与代理绑定可以用来控制任意的属性。
+ 下面这个例子展示了路径视图（PathView）如何创建一个卡片视图，并且用户可以滑动它。我们使用了一些技巧来完成这个例子。路径由PathLine元素组成。使用PathPercent元素，它确保了中间的元素居中，并且给其它的元素提供了足够的空间。使用PathAttribute元素来控制旋转，大小和深度值（z-value）。
+在这个路径之上（path），需要设置路径视图（PathView）的pathItemCount属性。它控制了路径的浓密度。路径视图的路径（PathView.onPath）使用preferredHighlightBegin与preferredHighlightEnd来控制可见的代理项。
+ PathView { anchors.fill: parent delegate: flipCardDelegate model: 100 path: Path { startX: root.width/2 startY: 0 PathAttribute { name: &#34;itemZ&#34;; value: 0 } PathAttribute { name: &#34;itemAngle&#34;; value: -90.0; } PathAttribute { name: &#34;itemScale&#34;; value: 0.5; } PathLine { x: root.width/2; y: root.height*0.4; } PathPercent { value: 0.48; } PathLine { x: root." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/advanced_techniques/" /><meta property="article:section" content="model-view-delegate" />
+
+
+
+<title>Advanced Techniques | Qml Book</title>
+<link rel="manifest" href="/qmlbook/manifest.json">
+<link rel="icon" href="/qmlbook/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/qmlbook/book.min.97cfda4f5e3c9fa49a2bf8d401f4ddc0eec576c99cdcf6afbec19173200c37db.css" integrity="sha256-l8/aT148n6SaK/jUAfTdwO7Fdsmc3PavvsGRcyAMN9s=" crossorigin="anonymous">
+  <script defer src="/qmlbook/flexsearch.min.js"></script>
+  <script defer src="/qmlbook/en.search.min.7eaa324ae4aad96718321da9bf7ce2963bf997813e848e1e16bcc0e89048af9b.js" integrity="sha256-fqoySuSq2WcYMh2pv3ziljv5l4E&#43;hI4eFrzA6JBIr5s=" crossorigin="anonymous"></script>
+
+  <script defer src="/qmlbook/sw.min.c5fd65d1492edd0e92acb72a8983e44a68ad14c15883246783ed1d96f25e6858.js" integrity="sha256-xf1l0Uku3Q6SrLcqiYPkSmitFMFYgyRng&#43;0dlvJeaFg=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/qmlbook/"><span>Qml Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 id="summary">
+  Summary
+  <a class="anchor" href="#summary">#</a>
+</h1>
+<ul>
+<li>
+  <a href="/qmlbook/README/">Introduction</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/README/">Qt5概述</a>
+<ul>
+<li>
+  <a href="/qmlbook/meet_qt_5/preface/">序</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt5_introduction/">Qt5介绍</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_building_blocks/">Qt构建模块（Qt Building Blocks）</a></li>
+<li>
+  <a href="/qmlbook/meet_qt_5/qt_project/">Qt项目（Qt Project）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/get_start/README/">开始学习（Get Start）</a>
+<ul>
+<li>
+  <a href="/qmlbook/get_start/qt5installing_qt_5_sdk/">安装Qt5软件工具包（Installing Qt 5 SDK）</a></li>
+<li>
+  <a href="/qmlbook/get_start/hello_world/">你好世界（Hello World）</a></li>
+<li>
+  <a href="/qmlbook/get_start/application_types/">应用程序类型（Application Types）</a></li>
+<li>
+  <a href="/qmlbook/get_start/summary/">总结（ Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/README/">Qt Creator集成开发环境（Qt Creator IDE）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_creator_ide/the_user_interface/">用户界面（The User Interface）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/">注册你的Qt工具箱（Registering your Qt Kit）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/managing_projects/">项目管理（Managing Projects）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/using_the_editor/">使用编辑器（Using the Editor）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/locator/">定位器（Locator）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/debugging/">调试（Debugging）</a></li>
+<li>
+  <a href="/qmlbook/qt_creator_ide/shortcuts/">快捷键（Shortcuts）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/quick_starter/README/">QML快速入门（Quick Starter）</a>
+<ul>
+<li>
+  <a href="/qmlbook/quick_starter/qmlqml_syntax/">QML语法（QML Syntax）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/basic_elements/">基本元素（Basic Elements）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/compontents/">组件（Compontents）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/simple_transformations/">简单的转换（Simple Transformations）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/positioning_element/">定位元素（Positioning Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/layout_items/">布局元素（Layout Items）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/input_element/">输入元素（Input Element）</a></li>
+<li>
+  <a href="/qmlbook/quick_starter/advanced_techniques/"> 高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/fluid_elements/README/">动态元素（Fluid Elements）</a>
+<ul>
+<li>
+  <a href="/qmlbook/fluid_elements/animations/">动画（Animations）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/states_and_transitions/">状态与过渡（States and Transitions）</a></li>
+<li>
+  <a href="/qmlbook/fluid_elements/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/model-view-delegate/README/">模型-视图-代理（Model-View-Delegate）</a>
+<ul>
+<li>
+  <a href="/qmlbook/model-view-delegate/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/basic_model/">基础模型（Basic Model）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/dynamic_views/">动态视图（Dynamic Views）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/delegate/">代理（Delegate）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/advanced_techniques/"class=active>高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/model-view-delegate/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/canvas_element/README/">画布元素（Canvas Element）</a>
+<ul>
+<li>
+  <a href="/qmlbook/canvas_element/convenient_api/">便捷的接口（Convenient API）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/gradients/">渐变（Gradients）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/shadows/">阴影（Shadows）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/images/">图片（Images）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/transformation/">转换（Transformation）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/composition_mode/">组合模式（Composition Mode）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/pixels_buffer/">像素缓冲（Pixels Buffer）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/canvas_paint/">画布绘制（Canvas Paint）</a></li>
+<li>
+  <a href="/qmlbook/canvas_element/html5porting_from_html5_canvas/">HTML5画布移植（Porting from HTML5 Canvas）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/particle_simulations/README/">粒子模拟（Particle Simulations）</a>
+<ul>
+<li>
+  <a href="/qmlbook/particle_simulations/concept/">概念（Concept）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/simple_simulation/">简单的模拟（Simple Simulation）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_parameters/">粒子参数（Particle Parameters）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/directed_particle/">粒子方向（Directed Particle）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_painter/">粒子画笔（Particle Painter）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/affecting_particles/">粒子控制（Affecting Particles）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/particle_group/">粒子组（Particle Group）</a></li>
+<li>
+  <a href="/qmlbook/particle_simulations/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/shader_effect/README/">着色器效果（Shader Effect）</a>
+<ul>
+<li>
+  <a href="/qmlbook/shader_effect/openglopengl_shader/">OpenGL着色器（OpenGL Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/shader_elements/">着色器元素（Shader Elements）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/fragement_shader/">片段着色器（Fragement Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/wave_effect/">波浪效果（Wave Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/vertex_shader/">顶点着色器（Vertex Shader）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/curtain_effect/">剧幕效果（Curtain Effect）</a></li>
+<li>
+  <a href="/qmlbook/shader_effect/qtqt_graphicseffect_library/">Qt图像效果库（Qt GraphicsEffect Library）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/multimedia/README/">多媒体（Multimedia）</a>
+<ul>
+<li>
+  <a href="/qmlbook/multimedia/playing_media/">媒体播放（Playing Media）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/sounds_effects/">声音效果（Sounds Effects）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/video_streams/">视频流（Video Streams）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/capturing_images/">捕捉图像（Capturing Images）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/advanced_techniques/">高级用法（Advanced Techniques）</a></li>
+<li>
+  <a href="/qmlbook/multimedia/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/networking/README/">网络（Networking）</a>
+<ul>
+<li>
+  <a href="/qmlbook/networking/httpuiserving_ui_via_http/">通过HTTP服务用户界面（Serving UI via HTTP）</a></li>
+<li>
+  <a href="/qmlbook/networking/templating/">模板（Templating）</a></li>
+<li>
+  <a href="/qmlbook/networking/httphttp_requests/">HTTP请求（HTTP Requests）</a></li>
+<li>
+  <a href="/qmlbook/networking/local_files/">本地文件（Local files）</a></li>
+<li>
+  <a href="/qmlbook/networking/restrest_api/">REST接口（REST API）</a></li>
+<li>
+  <a href="/qmlbook/networking/authentication_using_oauth/">使用开放授权登陆验证（Authentication using OAuth）</a></li>
+<li>
+  <a href="/qmlbook/networking/engine_io/">云服务（Engine IO）</a></li>
+<li>
+  <a href="/qmlbook/networking/web_sockets/">Web Sockets</a></li>
+<li>
+  <a href="/qmlbook/networking/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/storage/README/">存储（Storage）</a>
+<ul>
+<li>
+  <a href="/qmlbook/storage/settings/">配置（Settings）</a></li>
+<li>
+  <a href="/qmlbook/storage/local_storage_-_sql/">本地存储 - SQL（Local Storage - SQL）</a></li>
+<li>
+  <a href="/qmlbook/storage/other_storage_apis/">其它存储接口（Other Storage APIs）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/README/">动态QML（Dynamic QML）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/loading_components_dynamically/">动态加载组件（Loading Components Dynamically）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/connecting_indirectly/">间接连接（Connecting Indirectly）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/binding_indirectly/">间接绑定（Binding Indirectly）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/creating_and_destroying_objects/">创建与销毁对象（Creating and Destroying Objects）</a>
+<ul>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/">动态加载和实例化项（Dynamically Loading and Instantiating Items）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/">从文本中动态实例化项（Dynamically Instantiating Items from Text）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/managing_dynamically_created_elements/">管理动态创建的元素（Managing Dynamically Created Elements）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/dynamic_qml/tracking_dynamic_objects/">跟踪动态对象（Tracking Dynamic Objects）</a></li>
+<li>
+  <a href="/qmlbook/dynamic_qml/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/javascript/README/">JavaScript</a>
+<ul>
+<li>
+  <a href="/qmlbook/javascript/browserhtml_vs_qtquickqml/">浏览器/HTML与QtQuick/QML对比（Browser/HTML vs QtQuick/QML）</a></li>
+<li>
+  <a href="/qmlbook/javascript/the_language/">JavaScript语法（The Language）</a></li>
+<li>
+  <a href="/qmlbook/javascript/js_objects/">JS对象（JS Objects）</a></li>
+<li>
+  <a href="/qmlbook/javascript/creating_a_js_console/">创建JS控制台（Creating a JS Console）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/README/">Qt and C++</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/">演示程序（A Boilerplate Application）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/the_qobject/">Qt对象（The QObject）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/build_systems/">编译系统（Build Systems）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qmake/">QMake</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/cmake/">CMake</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/">Qt通用类（Common Qt Classes）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/qstring/">QString</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/sequential_containers/">顺序容器（Sequential Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/associative_containers/">组合容器（Associative Containers）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/file_io/">文件IO（File IO）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/">C++数据模型（Models in C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/a_simple_model/">一个简单的模型（A simple model）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/more_complex_data/">更复杂的数据（More Complex Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/dynamic_data/">动态数据（Dynamic Data）</a></li>
+<li>
+  <a href="/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/">进阶技巧（Advanced Techniques）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/README/">C++扩展QML（Extending QML with C++）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/">理解QML运行环境（Understanding the QML Run-time）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/">插件内容（Plugin Content）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/">创建插件（Creating the plugin）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/">FileIO实现（FileIO Implementation）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/">使用FileIO（Using FileIO）</a>
+<ul>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/">应用程序窗口（The Application Window）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/">使用动作（Using Actions）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/">格式化表格（Formatting the Table）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/">读取数据（Reading Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/">写入数据（Writing Data）</a></li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/">收尾工作（Finishing Touch）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/extending_qml_with_c&#43;&#43;/summary/">总结（Summary）</a></li>
+</ul>
+</li>
+<li>
+  <a href="/qmlbook/other/README/">其它（Other）</a>
+<ul>
+<li>
+  <a href="/qmlbook/other/assets/">示例源码</a></li>
+<li>
+  <a href="/qmlbook/other/enginsh_to_chinses/">术语英汉对照表</a></li>
+<li>
+  <a href="/qmlbook/other/book_format/">格式定义</a></li>
+<li>
+  <a href="/qmlbook/other/collaboration_correction/">协作校正</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/cwc1987/QmlBook-In-Chinese" target="_blank" rel="noopener">
+        QmlBook In Chinese
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/qmlbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Advanced Techniques</strong>
+
+  <label for="toc-control">
+    
+    <img src="/qmlbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#高级用法advanced-techniques">高级用法（Advanced Techniques）</a>
+      <ul>
+        <li><a href="#651-路径视图the-pathview">6.5.1 路径视图（The PathView）</a></li>
+        <li><a href="#652-xml模型a-model-from-xml">6.5.2 XML模型（A Model from XML）</a></li>
+        <li><a href="#653-链表分段lists-with-sections">6.5.3 链表分段（Lists with Sections）</a></li>
+        <li><a href="#654-性能协调tunning-performance">6.5.4 性能协调（Tunning Performance）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="高级用法advanced-techniques">
+  高级用法（Advanced Techniques）
+  <a class="anchor" href="#%e9%ab%98%e7%ba%a7%e7%94%a8%e6%b3%95advanced-techniques">#</a>
+</h1>
+<h2 id="651-路径视图the-pathview">
+  6.5.1 路径视图（The PathView）
+  <a class="anchor" href="#651-%e8%b7%af%e5%be%84%e8%a7%86%e5%9b%bethe-pathview">#</a>
+</h2>
+<p>路径视图（PathView）非常强大，但也非常复杂，这个视图由QtQuick提供。它创建了一个可以让子项沿着任意路径移动的视图。沿着相同的路径，使用缩放（scale），透明（opacity）等元素可以更加详细的控制过程。</p>
+<p>当使用路径视图（PathView）时，你必须定义一个代理和一个路径。在这些之上，路径视图（PathView）本身也可以自定义一些属性的区间。通常会使用pathItemCount属性，它控制了一次可见的子项总数。preferredHighLightBegin属性控制了高亮区间，preferredHighlightEnd与highlightRangeMode，控制了当前项怎样沿着路径显示。</p>
+<p>在关注高亮区间之前，我们必须先看看路径（path）这个属性。路径（path）属性使用一个路径（path）元素来定义路径视图（PathView）内代理的滚动路径。路径使用startx与starty属性来链接路径（path）元素，例如PathLine,PathQuad和PathCubic。这些元素都使用二维数组来构造路径。</p>
+<p>当路径定义好之后，可以使用PathPercent和PathAttribute元素来进一步设置。它们被放置在路径元素之间，并且为经过它们的路径和代理提供更加细致的控制。PathPercent提供了如何控制每个元素之间覆盖区域部分的路径，然后反过来控制分布在这条路径上的代理元素，它们被按比例的分布播放。</p>
+<p>preferredHightlightBegin与preferredHighlightEnd属性由PathView（路径视图）输入到图片元素中。它们的值在0~1之间。结束值大于等于开始值。例如设置这些属性值为0.5，当前项只会显示当前百分之50的图像在这个路径上。</p>
+<p>在Path中，PathAttribute元素也是被放置在元素之间的，就像PathPercent元素。它们可以让你指定属性的值然后插入的路径中去。这些属性与代理绑定可以用来控制任意的属性。</p>
+<p>
+  <img src="http://qmlbook.org/_images/pathview-coverview.png" alt="" /></p>
+<p>下面这个例子展示了路径视图（PathView）如何创建一个卡片视图，并且用户可以滑动它。我们使用了一些技巧来完成这个例子。路径由PathLine元素组成。使用PathPercent元素，它确保了中间的元素居中，并且给其它的元素提供了足够的空间。使用PathAttribute元素来控制旋转，大小和深度值（z-value）。</p>
+<p>在这个路径之上（path），需要设置路径视图（PathView）的pathItemCount属性。它控制了路径的浓密度。路径视图的路径（PathView.onPath）使用preferredHighlightBegin与preferredHighlightEnd来控制可见的代理项。</p>
+<pre tabindex="0"><code>    PathView {
+        anchors.fill: parent
+
+        delegate: flipCardDelegate
+        model: 100
+
+        path: Path {
+            startX: root.width/2
+            startY: 0
+
+            PathAttribute { name: &#34;itemZ&#34;; value: 0 }
+            PathAttribute { name: &#34;itemAngle&#34;; value: -90.0; }
+            PathAttribute { name: &#34;itemScale&#34;; value: 0.5; }
+            PathLine { x: root.width/2; y: root.height*0.4; }
+            PathPercent { value: 0.48; }
+            PathLine { x: root.width/2; y: root.height*0.5; }
+            PathAttribute { name: &#34;itemAngle&#34;; value: 0.0; }
+            PathAttribute { name: &#34;itemScale&#34;; value: 1.0; }
+            PathAttribute { name: &#34;itemZ&#34;; value: 100 }
+            PathLine { x: root.width/2; y: root.height*0.6; }
+            PathPercent { value: 0.52; }
+            PathLine { x: root.width/2; y: root.height; }
+            PathAttribute { name: &#34;itemAngle&#34;; value: 90.0; }
+            PathAttribute { name: &#34;itemScale&#34;; value: 0.5; }
+            PathAttribute { name: &#34;itemZ&#34;; value: 0 }
+        }
+
+        pathItemCount: 16
+
+        preferredHighlightBegin: 0.5
+        preferredHighlightEnd: 0.5
+    }
+</code></pre><p>代理如下面所示，使用了一些从PathAttribute中链接的属性，itemZ,itemAngle和itemScale。需要注意代理链接的属性只在wrapper中可用。因此，rotxs属性在Rotation元素中定义为可访问值。</p>
+<p>另一个需要注意的是路径视图（PathView）链接的PathView.onPath属性的用法。通常对于这个属性都绑定为可见，这样允许路径视图（PathView）缓冲不可见的元素。这不是通过剪裁处理来实现的，因为路径视图（PathView）的代理比其它的视图，例如链表视图（ListView）或者栅格视图（GridView）放置更加随意。</p>
+<pre tabindex="0"><code>    Component {
+        id: flipCardDelegate
+
+        Item {
+            id: wrapper
+
+            width: 64
+            height: 64
+
+            visible: PathView.onPath
+
+            scale: PathView.itemScale
+            z: PathView.itemZ
+
+            property variant rotX: PathView.itemAngle
+            transform: Rotation { axis { x: 1; y: 0; z: 0 } angle: wrapper.rotX; origin { x: 32; y: 32; } }
+
+            Rectangle {
+                anchors.fill: parent
+                color: &#34;lightGray&#34;
+                border.color: &#34;black&#34;
+                border.width: 3
+            }
+
+            Text {
+                anchors.centerIn: parent
+                text: index
+                font.pixelSize: 30
+            }
+        }
+    }
+</code></pre><p>当在路径视图（PathView）上使用图像转换或者其它更加复杂的元素时，有一个性能优化的技巧是绑定图像元素（Image）的smooth属性与PathView.view.moving属性。这意味着图像在移动时可能不够完美，但是能够比较平滑的转换。当视图在移动时，对于平滑缩放的处理是没有意义的，因为用户根本看不见这个过程。</p>
+<h2 id="652-xml模型a-model-from-xml">
+  6.5.2 XML模型（A Model from XML）
+  <a class="anchor" href="#652-xml%e6%a8%a1%e5%9e%8ba-model-from-xml">#</a>
+</h2>
+<p>由于XML是一种常见的数据格式，QML提供了XmlListModel元素来包装XML数据。这个元素能够获取本地或者网络上的XML数据，然后通过XPath解析这些数据。</p>
+<p>下面这个例子展示了从RSS流中获取图片，源属性（source）引用了一个网络地址，这个数据会自动下载。</p>
+<p>
+  <img src="http://qmlbook.org/_images/xmllistmodel-images.png" alt="" /></p>
+<p>当数据下载完成后，它会被加工作为模型的子项。查询属性（query）是一个XPath代理的基础查询，用来创建模型项。在这个例子中，这个路径是/rss/channel/item，所以，在一个模型子项创建后，每一个子项的标签，都包含了一个频道标签，包含一个RSS标签。</p>
+<p>每一个模型项，一些规则需要被提取，由XmlRole元素来代理。每一个规则都需要一个名称，这样代理才能够通过属性绑定来访问。每个这样的属性的值都通过XPath查询来确定。例如标题属性（title）符合title/string()查询，返回内容中在之间的值。</p>
+<p>图像源属性（imageSource）更加有趣，因为它不仅仅是从XML中提取字符串，也需要加载它。在流数据的支持下，每个子项包含了一个图片。使用XPath的函数substring-after与substring-before，可以提取本地的图片资源。这样imageSource属性就可以直接被作为一个Image元素的source属性使用。</p>
+<pre tabindex="0"><code>import QtQuick 2.0
+import QtQuick.XmlListModel 2.0
+
+Item {
+    width: 300
+    height: 480
+
+    Component {
+        id: imageDelegate
+
+        Item {
+            width: listView.width
+            height: 400
+
+	    Column {
+                Text {
+                    text: title
+                }
+
+                Image {
+                    source: imageSource
+                }
+            }
+        }
+    }
+
+    XmlListModel {
+        id: imageModel
+
+        source: &#34;http://feeds.nationalgeographic.com/ng/photography/photo-of-the-day/&#34;
+        query: &#34;/rss/channel/item&#34;
+
+        XmlRole { name: &#34;title&#34;; query: &#34;title/string()&#34; }
+        XmlRole { name: &#34;imageSource&#34;; query: &#34;substring-before(substring-after(description/string(), &#39;img src=\&#34;&#39;), &#39;\&#34;&#39;)&#34; }
+    }
+
+    ListView {
+        id: listView
+
+        anchors.fill: parent
+
+        model: imageModel
+        delegate: imageDelegate
+    }
+}
+</code></pre><h2 id="653-链表分段lists-with-sections">
+  6.5.3 链表分段（Lists with Sections）
+  <a class="anchor" href="#653-%e9%93%be%e8%a1%a8%e5%88%86%e6%ae%b5lists-with-sections">#</a>
+</h2>
+<p>有时，链表的数据需要划分段。例如使用首字母来划分联系人，或者音乐。使用链表视图可以把平面列表按类别划分。</p>
+<p>
+  <img src="http://qmlbook.org/_images/listview-sections.png" alt="" /></p>
+<p>为了使用分段，section.property与section.criteria必须安装。section.property定义了哪些属性用于内容的划分。在这里，最重要的是知道每一段由哪些连续的元素构成，否则相同的属性名可能出现在几个不同的地方。</p>
+<p>section.criteria能够被设置为ViewSection.FullString或者ViewSection.FirstCharacter。默认下使用第一个值，能够被用于模型中有清晰的分段，例如音乐专辑。第二个是使用一个属性的首字母来分段，这说明任何属性都可以被使用。通常的例子是用于联系人名单的姓。</p>
+<p>当段被定义好后，每个子项能够使用绑定属性ListView.section，ListView.previousSection与ListView.nextSection来访问。使用这些属性，可以检测段的第一个与最后一个子项。</p>
+<p>使用链表视图（ListView）的section.delegate属性可以给段指定代理组件。它能够创建段标题，并且可以在任意子项之前插入这个段代理。使用绑定属性section可以访问当前段的名称。</p>
+<p>下面这个例子使用国际分类展示了分段的一些概念。国籍（nation）作为section.property，段代理组件（section.delegate）使用每个国家作为标题。在每个段中，spacemen模型中的名字使用spaceManDelegate组件来代理显示。</p>
+<pre tabindex="0"><code>import QtQuick 2.0
+
+Rectangle {
+    width: 300
+    height: 290
+
+    color: &#34;white&#34;
+
+    ListView {
+        anchors.fill: parent
+        anchors.margins: 20
+
+        clip: true
+
+        model: spaceMen
+
+        delegate: spaceManDelegate
+
+        section.property: &#34;nation&#34;
+        section.delegate: sectionDelegate
+    }
+
+    Component {
+        id: spaceManDelegate
+
+        Item {
+            width: 260
+            height: 20
+
+            Text {
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: 10
+
+                font.pixelSize: 12
+
+                text: name
+            }
+        }
+    }
+
+    Component {
+        id: sectionDelegate
+
+        Rectangle {
+            width: 260
+            height: 20
+
+            color: &#34;lightGray&#34;
+
+            Text {
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: 10
+
+                font.pixelSize: 12
+                font.bold: true
+
+                text: section
+            }
+        }
+    }
+
+
+    ListModel {
+        id: spaceMen
+
+        ListElement { name: &#34;Abdul Ahad Mohmand&#34;; nation: &#34;Afganistan&#34;; }
+        ListElement { name: &#34;Marcos Pontes&#34;; nation: &#34;Brazil&#34;; }
+        ListElement { name: &#34;Alexandar Panayotov Alexandrov&#34;; nation: &#34;Bulgaria&#34;; }
+        ListElement { name: &#34;Georgi Ivanov&#34;; nation: &#34;Bulgaria&#34;; }
+        ListElement { name: &#34;Roberta Bondar&#34;; nation: &#34;Canada&#34;; }
+        ListElement { name: &#34;Marc Garneau&#34;; nation: &#34;Canada&#34;; }
+        ListElement { name: &#34;Chris Hadfield&#34;; nation: &#34;Canada&#34;; }
+        ListElement { name: &#34;Guy Laliberte&#34;; nation: &#34;Canada&#34;; }
+        ListElement { name: &#34;Steven MacLean&#34;; nation: &#34;Canada&#34;; }
+        ListElement { name: &#34;Julie Payette&#34;; nation: &#34;Canada&#34;; }
+        ListElement { name: &#34;Robert Thirsk&#34;; nation: &#34;Canada&#34;; }
+        ListElement { name: &#34;Bjarni Tryggvason&#34;; nation: &#34;Canada&#34;; }
+        ListElement { name: &#34;Dafydd Williams&#34;; nation: &#34;Canada&#34;; }
+    }
+}
+</code></pre><h2 id="654-性能协调tunning-performance">
+  6.5.4 性能协调（Tunning Performance）
+  <a class="anchor" href="#654-%e6%80%a7%e8%83%bd%e5%8d%8f%e8%b0%83tunning-performance">#</a>
+</h2>
+<p>一个模型视图的性能很大程度上依赖于代理的创建。例如滚动下拉一个链表视图时，代理从外部加入到视图底部，并且从视图顶部移出。如果设置剪裁（clip）属性为false，并且代理项花了很多时间来初始化，用户会感觉到视图滚动体验很差。</p>
+<p>为了优化这个问题，你可以在滚动时使用像素来调整。使用cacheBuffer属性，在上诉情况下的垂直滚动，它将会调整在链表视图的上下需要预先准备好多少像素的代理项，结合异步加载图像元素（Image），例如在它们进入视图之前加载。</p>
+<p>创建更多的代理项将会牺牲一些流畅的体验，并且花更多的时间来初始化每个代理。这并不代表可以解决一些更加复杂的代理项的问题。在每次实例化代理时，它的内容都会被评估和编辑。这需要花费时间，如果它花费了太多的时间，它将会导致一个很差的滚动体验。在一个代理中包含太多的元素也会降低滚动的性能。</p>
+<p>为了补救这个问题，我们推荐使用动态加载元素。当它们需要时，可以初始化这些附加的元素。例如，一个展开代理可能推迟它的详细内容的实例化，直到需要使用它时。每个代理中最好减少JavaScript的数量。将每个代理中复杂的JavaScript调用放在外面来实现。这将会减少每个代理在创建时编译JavaScript。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#高级用法advanced-techniques">高级用法（Advanced Techniques）</a>
+      <ul>
+        <li><a href="#651-路径视图the-pathview">6.5.1 路径视图（The PathView）</a></li>
+        <li><a href="#652-xml模型a-model-from-xml">6.5.2 XML模型（A Model from XML）</a></li>
+        <li><a href="#653-链表分段lists-with-sections">6.5.3 链表分段（Lists with Sections）</a></li>
+        <li><a href="#654-性能协调tunning-performance">6.5.4 性能协调（Tunning Performance）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

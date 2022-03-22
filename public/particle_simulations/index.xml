@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Particle_simulations on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/</link>
+    <description>Recent content in Particle_simulations on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/affecting_particles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/affecting_particles/</guid>
+      <description>粒子控制（Affecting Particles） #  粒子由粒子发射器发出。在粒子发射出后，发射器无法再改变粒子。粒子控制器允许你控制发射后的粒子参数。
+控制器的每个类型使用不同的方法来影响粒子：
+  生命周期（Age）- 修改粒子的生命周期
+  吸引（Attractor）- 吸引粒子朝向指定点
+  摩擦（Friction）- 按当前粒子速度成正比减慢运动
+  重力（Gravity）- 设置一个角度的加速度
+  紊流（Turbulence）- 强制基于噪声图像方式的流动
+  漂移（Wander）- 随机变化的轨迹
+  组目标（GroupGoal）- 改变一组粒子群的状态
+  子粒子（SpriteGoal）- 改变一个子粒子的状态
+  生命周期（Age）
+允许粒子老得更快，lifeLeft属性指定了粒子的有多少的生命周期。
+ Age { anchors.horizontalCenter: parent.horizontalCenter width: 240; height: 120 system: particleSystem advancePosition: true lifeLeft: 1200 once: true Tracer {} } 在这个例子中，当粒子的生命周期达到1200毫秒后，我们将会缩短上方的粒子的生命周期一次。由于我们设置了advancePosition为true，当粒子的生命周期到达1200毫秒后，我们将会再一次在这个位置看到粒子出现。
+ 吸引（Attractor）
+吸引会将粒子朝指定的点上吸引。这个点使用pointX与pointY来指定，它是与吸引区域的几何形状相对的。strength指定了吸引的力度。在我们的例子中，我们让粒子从左向右运动，吸引放在顶部，有一半运动的粒子会穿过吸引区域。控制器只会影响在它们几何形状内的粒子。这种分离让我们可以同步看到正常的流动与受影响的流动。
+ Attractor { anchors.horizontalCenter: parent.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/concept/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/concept/</guid>
+      <description>概念（Concept） #  粒子模拟的核心是粒子系统（ParticleSystem），它控制了共享时间线。一个场景下可以有多个粒子系统，每个都有自己独立的时间线。一个粒子使用发射器元素（Emitter）发射，使用粒子画笔（ParticlePainter）实现可视化，它可以是一张图片，一个QML项或者一个着色项（shader item）。一个发射器元素（Emitter）也提供向量来控制粒子方向。一个粒子被发送后就再也无法控制。粒子模型提供粒子控制器（Affector），它可以控制已发射粒子的参数。
+在一个系统中，粒子可以使用粒子群元素（ParticleGroup）来共享移动时间。默认下，每个例子都属于空（&amp;quot;&amp;quot;）组。
+   粒子系统（ParticleSystem）- 管理发射器之间的共享时间线。
+  发射器（Emitter）- 向系统中发射逻辑粒子。
+  粒子画笔（ParticlePainter）- 实现粒子可视化。
+  方向（Direction）- 已发射粒子的向量空间。
+  粒子组（ParticleGroup）- 每个粒子是一个粒子组的成员。
+  粒子控制器（Affector）- 控制已发射粒子。
+  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/directed_particle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/directed_particle/</guid>
+      <description>粒子方向（Directed Particle） #  我们已经看到了粒子的旋转，但是我们的粒子需要一个轨迹。轨迹由速度或者粒子随机方向的加速度指定，也可以叫做矢量空间。
+有多种可用矢量空间用来定义粒子的速度或加速度：
+  角度方向（AngleDirection）- 使用角度的方向变化。
+  点方向（PointDirection）- 使用x,y组件组成的方向变化。
+  目标方向（TargetDirection）- 朝着目标点的方向变化。
+   让我们在场景下试着用速度方向将粒子从左边移动到右边。
+首先使用角度方向（AngleDirection）。我们使用AngleDirection元素作为我们的发射器（Emitter）的速度属性：
+velocity: AngleDirection { } 粒子的发射将会使用指定的角度属性。角度值在0到360度之间，0度代表指向右边。在我们的例子中，例子将会移动到右边，所以0度已经指向右边方向。粒子的角度变化在+/-15度之间：
+velocity: AngleDirection { angle: 0 angleVariation: 15 } 现在我们已经设置了方向，下面是指定粒子的速度。它由一个梯度值定义，这个梯度值定义了每秒像素的变化。正如我们设置大约640像素，梯度值为100，看起来是一个不错的值。这意味着平均一个6.4秒生命周期的粒子可以穿越我们看到的区域。为了让粒子的穿越看起来更加有趣，我们使用magnitudeVariation来设置梯度值的变化，这个值是我们的梯度值的一半：
+velocity: AngleDirection { ... magnitude: 100 magnitudeVariation: 50 }  下面是完整的源码，平均的生命周期被设置为6..4秒。我们设置发射器的宽度和高度为1个像素，这意味着所有的粒子都从相同的位置发射出去，然后基于我们给定的轨迹运动。
+ Emitter { id: emitter anchors.left: parent.left anchors.verticalCenter: parent.verticalCenter width: 1; height: 1 system: particleSystem lifeSpan: 6400 lifeSpanVariation: 400 size: 32 velocity: AngleDirection { angle: 0 angleVariation: 15 magnitude: 100 magnitudeVariation: 50 } } 那么加速度做些什么？加速度是每个粒子加速度矢量，它会在运动的时间中改变速度矢量。例如我们做一个星星按照弧形运动的轨迹。我们将会改变我们的速度方向为-45度，然后移除变量，可以得到一个更连贯的弧形轨迹：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_group/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_group/</guid>
+      <description>粒子组（Particle Group） #  在本章开始时，我们已经介绍过粒子组了，默认下，粒子都属于空组（&amp;quot;&amp;quot;）。使用GroupGoal控制器可以改变粒子组。为了实现可视化，我们创建了一个烟花示例，火箭进入，在空中爆炸形成壮观的烟火。
+ 这个例子分为两部分。第一部分叫做“发射时间（Launch Time）”连接场景，加入粒子组，第二部分叫做“爆炸烟花（Let there be firework）”，专注于粒子组的变化。
+让我们看看这两部分。
+发射时间（Launch Time）
+首先我们创建一个典型的黑色场景：
+import QtQuick 2.0 import QtQuick.Particles 2.0 Rectangle { id: root width: 480; height: 240 color: &amp;#34;#1F1F1F&amp;#34; property bool tracer: false } tracer使用被用作场景追踪的开关，然后定义我们的粒子系统：
+ParticleSystem { id: particleSystem } 我们添加两种粒子图片画笔（一个用于火箭，一个用于火箭喷射烟雾）：
+ImageParticle { id: smokePainter system: particleSystem groups: [&amp;#39;smoke&amp;#39;] source: &amp;#34;assets/particle.png&amp;#34; alpha: 0.3 entryEffect: ImageParticle.None } ImageParticle { id: rocketPainter system: particleSystem groups: [&amp;#39;rocket&amp;#39;] source: &amp;#34;assets/rocket.png&amp;#34; entryEffect: ImageParticle.None } 你可以看到在这些画笔定义中，它们使用groups属性来定义粒子的归属。只需要定义一个名字，Qt Quick将会隐式的创建这个分组。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_painter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_painter/</guid>
+      <description>粒子画笔（Particle Painter） #  到目前为止我们只使用了基于粒子画笔的图像来实现粒子可视化。Qt也提供了一些其它的粒子画笔：
+  粒子项（ItemParticle）：基于粒子画笔的代理
+  自定义粒子（CustomParticle）：基于粒子画笔的着色器
+  粒子项可以将QML元素项作为粒子发射。你需要制定自己的粒子代理。
+ ItemParticle { id: particle system: particleSystem delegate: itemDelegate } 在这个例子中，我们的代理是一个随机图片（使用Math.random()完成），有着白色边框和随机大小。
+ Component { id: itemDelegate Rectangle { id: container width: 32*Math.ceil(Math.random()*3); height: width color: &amp;#39;white&amp;#39; Image { anchors.fill: parent anchors.margins: 4 source: &amp;#39;assets/fruits&amp;#39;+Math.ceil(Math.random()*10)+&amp;#39;.jpg&amp;#39; } } } 每秒发出四个粒子，每个粒子拥有4秒的生命周期。粒子自动淡入淡出。
+ 对于更多的动态情况，也可以由你自己创建一个子项，让粒子系统来控制它，使用take(item, priority)来完成。粒子系统控制你的粒子就像控制普通的粒子一样。你可以使用give(item)来拿回子项的控制权。你也可以操作子项粒子，甚至可以使用freeze(item)来停止它，使用unfreeze(item)来恢复它。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_parameters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_parameters/</guid>
+      <description>粒子参数（Particle Parameters） #  我们已经知道通过改变发射器的行为就可以改变我们的粒子模拟。粒子画笔被用来绘制每一个粒子。 回到我们之前的粒子中，我们更新一下我们的图片粒子画笔（ImageParticle）。首先我们改变粒子图片为一个小的星形图片：
+ImageParticle { ... source: &amp;#39;assets/star.png&amp;#39; } 粒子使用金色来进行初始化，不同的粒子颜色变化范围为+/- 20%。
+color: &amp;#39;#FFD700&amp;#39; colorVariation: 0.2 为了让场景更加生动，我们需要旋转粒子。每个粒子首先按顺时针旋转15度，不同的粒子在+/-5度之间变化。每个例子会不断的以每秒45度旋转。每个粒子的旋转速度在+/-15度之间变化：
+rotation: 15 rotationVariation: 5 rotationVelocity: 45 rotationVelocityVariation: 15 最后，我们改变粒子的入场效果。 这个效果是粒子产生时的效果，在这个例子中，我们希望使用一个缩放效果：
+entryEffect: ImageParticle.Scale 现在我们可以看到旋转的星星出现在我们的屏幕上。
+ 下面是我们如何改变图片粒子画笔的代码段。
+ ImageParticle { source: &amp;#34;assets/star.png&amp;#34; system: particleSystem color: &amp;#39;#FFD700&amp;#39; colorVariation: 0.2 rotation: 0 rotationVariation: 45 rotationVelocity: 15 rotationVelocityVariation: 15 entryEffect: ImageParticle.Scale } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/README/</guid>
+      <description>粒子模拟（Particle Simulations） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+粒子模拟是计算机图形技术的可视化图形效果。典型的效果有：落叶，火焰，爆炸，流星，云等等。
+它不同于其它图形渲染，粒子是基于模糊来渲染。它的结果在基于像素下是不可预测的。粒子系统的参数描述了随机模拟的边界。传统的渲染技术实现粒子渲染效果很困难。有一个好消息是你可以使用QML元素与粒子系统交互。同时参数也可以看做是属性，这些参数可以使用传统的动画技术来实现动态效果。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/simple_simulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/simple_simulation/</guid>
+      <description>简单的模拟（Simple Simulation） #  让我们从一个简单的模拟开始学习。Qt Quick使用简单的粒子渲染非常简单。下面是我们需要的：
+  绑定所有元素到一个模拟的粒子系统（ParticleSystem）。
+  一个向系统发射粒子的发射器（Emitter）。
+  一个ParticlePainter派生元素，用来实现粒子的可视化。
+  import QtQuick 2.0 import QtQuick.Particles 2.0 Rectangle { id: root width: 480; height: 160 color: &amp;#34;#1f1f1f&amp;#34; ParticleSystem { id: particleSystem } Emitter { id: emitter anchors.centerIn: parent width: 160; height: 80 system: particleSystem emitRate: 10 lifeSpan: 1000 lifeSpanVariation: 500 size: 16 endSize: 32 Tracer { color: &amp;#39;green&amp;#39; } } ImageParticle { source: &amp;#34;assets/particle.png&amp;#34; system: particleSystem } } 例子的运行结果如下所示：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/summary/</guid>
+      <description>总结（Summary） #  粒子是一个非常强大且有趣的方法，用来表达图像现象的一种方式，比如烟， 火花，随机可视元素。Qt5的扩展API非常强大，我们仅仅只使用了一些浅显的。有一些元素我们还没有使用过，比如精灵（spirites），尺寸表（size tables），颜色表（color tables）。粒子看起来非常有趣，它在界面上创建引人注目的东西是非常有潜力的。在一个用户界面中使用非常多的粒子效果将会导致用户对它产生这是一个游戏的印象。粒子的真正力量也是用来创建游戏。</description>
+    </item>
+    
+  </channel>
+</rss>

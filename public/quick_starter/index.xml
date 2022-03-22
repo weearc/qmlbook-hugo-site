@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quick_starters on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/</link>
+    <description>Recent content in Quick_starters on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/quick_starter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/advanced_techniques/</guid>
+      <description>高级用法（Advanced Techniques） #  后续添加。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/basic_elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/basic_elements/</guid>
+      <description>基本元素（Basic Elements） #  元素可以被分为可视化元素与非可视化元素。一个可视化元素（例如矩形框Rectangle）有着几何形状并且可以在屏幕上显示。一个非可视化元素（例如计时器Timer）提供了常用的功能，通常用于操作可视化元素。
+现在我们将专注于几个基础的可视化元素，例如Item（基础元素对象），Rectangle（矩形框），Text（文本），Image（图像）和MouseArea（鼠标区域）。
+4.2.1 基础元素对象（Item Element） #  Item（基础元素对象）是所有可视化元素的基础对象，所有其它的可视化元素都继承自Item。它自身不会有任何绘制操作，但是定义了所有可视化元素共有的属性：
+   Group（分组） Properties（属性）     Geometry（几何属性） x,y（坐标）定义了元素左上角的位置，width，height（长和宽）定义元素的显示范围，z（堆叠次序）定义元素之间的重叠顺序。   Layout handling（布局操作） anchors（锚定），包括左（left），右（right），上（top），下（bottom），水平与垂直居中（vertical center，horizontal center），与margins（间距）一起定义了元素与其它元素之间的位置关系。   Key handlikng（按键操作） 附加属性key（按键）和keyNavigation（按键定位）属性来控制按键操作，处理输入焦点（focus）可用操作。   Transformation（转换） 缩放（scale）和rotate（旋转）转换，通用的x,y,z属性列表转换（transform），旋转基点设置（transformOrigin）。   Visual（可视化） 不透明度（opacity）控制透明度，visible（是否可见）控制元素是否显示，clip（裁剪）用来限制元素边界的绘制，smooth（平滑）用来提高渲染质量。   State definition（状态定义） states（状态列表属性）提供了元素当前所支持的状态列表，当前属性的改变也可以使用transitions（转变）属性列表来定义状态转变动画。    为了更好的理解不同的属性，我们将会在这章中尽量的介绍这些元素的显示效果。请记住这些基本的属性在所有可视化元素中都是可以使用的，并且在这些元素中的工作方式都是相同的。
+注意
+Item（基本元素对象）通常被用来作为其它元素的容器使用，类似HTML语言中的div元素（div element）。
+4.2.2 矩形框元素（Rectangle Element） #  Rectangle（矩形框）是基本元素对象的一个扩展，增加了一个颜色来填充它。它还支持边界的定义，使用border.color（边界颜色），border.width（边界宽度）来自定义边界。你可以使用radius（半径）属性来创建一个圆角矩形。
+ Rectangle { id: rect1 x: 12; y: 12 width: 76; height: 96 color: &amp;#34;lightsteelblue&amp;#34; } Rectangle { id: rect2 x: 112; y: 12 width: 76; height: 96 border.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/compontents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/compontents/</guid>
+      <description>组件（Compontents） #  一个组件是一个可以重复使用的元素，QML提供几种不同的方法来创建组件。但是目前我们只对其中一种方法进行讲解：一个文件就是一个基础组件。一个以文件为基础的组件在文件中创建了一个QML元素，并且将文件以元素类型来命名（例如Button.qml）。你可以像任何其它的QtQuick模块中使用元素一样来使用这个组件。在我们下面的例子中，你将会使用你的代码作为一个Button（按钮）来使用。
+让我们来看看这个例子，我们创建了一个包含文本和鼠标区域的矩形框。它类似于一个简单的按钮，我们的目标就是让它足够简单。
+ Rectangle { // our inlined button ui id: button x: 12; y: 12 width: 116; height: 26 color: &amp;#34;lightsteelblue&amp;#34; border.color: &amp;#34;slategrey&amp;#34; Text { anchors.centerIn: parent text: &amp;#34;Start&amp;#34; } MouseArea { anchors.fill: parent onClicked: { status.text = &amp;#34;Button clicked!&amp;#34; } } } Text { // text changes when button was clicked id: status x: 12; y: 76 width: 116; height: 26 text: &amp;#34;waiting ...&amp;#34; horizontalAlignment: Text.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/input_element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/input_element/</guid>
+      <description>输入元素（Input Element） #  我们已经使用过MouseArea（鼠标区域）作为鼠标输入元素。这里我们将更多的介绍关于键盘输入的一些东西。我们开始介绍文本编辑的元素：TextInput（文本输入）和TextEdit（文本编辑）。
+4.7.1 文本输入（TextInput） #  文本输入允许用户输入一行文本。这个元素支持使用正则表达式验证器来限制输入和输入掩码的模式设置。
+// textinput.qml import QtQuick 2.0 Rectangle { width: 200 height: 80 color: &amp;#34;linen&amp;#34; TextInput { id: input1 x: 8; y: 8 width: 96; height: 20 focus: true text: &amp;#34;Text Input 1&amp;#34; } TextInput { id: input2 x: 8; y: 36 width: 96; height: 20 text: &amp;#34;Text Input 2&amp;#34; } }  用户可以通过点击TextInput来改变焦点。为了支持键盘改变焦点，我们可以使用KeyNavigation（按键向导）这个附加属性。
+// textinput2.qml import QtQuick 2.0 Rectangle { width: 200 height: 80 color: &amp;#34;linen&amp;#34; TextInput { id: input1 x: 8; y: 8 width: 96; height: 20 focus: true text: &amp;#34;Text Input 1&amp;#34; KeyNavigation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/layout_items/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/layout_items/</guid>
+      <description>布局元素（Layout Items） #  QML使用anchors（锚）对元素进行布局。anchoring（锚定）是基础元素对象的基本属性，可以被所有的可视化QML元素使用。一个anchors（锚）就像一个协议，并且比几何变化更加强大。Anchors（锚）是相对关系的表达式，你通常需要与其它元素搭配使用。
+ 一个元素有6条锚定线（top顶，bottom底，left左，right右，horizontalCenter水平中，verticalCenter垂直中）。在文本元素（Text Element）中有一条文本的锚定基线（baseline）。每一条锚定线都有一个偏移（offset）值，在top（顶），bottom（底），left（左），right（右）的锚定线中它们也被称作边距。对于horizontalCenter（水平中）与verticalCenter（垂直中）与baseline（文本基线）中被称作偏移值。
+  元素填充它的父元素。   GreenSquare { BlueSquare { width: 12 anchors.fill: parent anchors.margins: 8 text: &amp;#39;(1)&amp;#39; } } 元素左对齐它的父元素。   GreenSquare { BlueSquare { width: 48 y: 8 anchors.left: parent.left anchors.leftMargin: 8 text: &amp;#39;(2)&amp;#39; } } 元素的左边与它父元素的右边对齐。   GreenSquare { BlueSquare { width: 48 anchors.left: parent.right text: &amp;#39;(3)&amp;#39; } } 元素中间对齐。Blue1与它的父元素水平中间对齐。Blue2与Blue1中间对齐，并且它的顶部对齐Blue1的底部。   GreenSquare { BlueSquare { id: blue1 width: 48; height: 24 y: 8 anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/positioning_element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/positioning_element/</guid>
+      <description>定位元素（Positioning Element） #  有一些QML元素被用于放置元素对象，它们被称作定位器，QtQuick模块提供了Row，Column，Grid，Flow用来作为定位器。你可以在下面的插图中看到它们使用相同内容的显示效果。
+注意
+在我们详细介绍前，我们先介绍一些相关的元素，红色（red），蓝色（blue），绿色（green），高亮（lighter）与黑暗（darker）方块，每一个组件都包含了一个48乘48的着色区域。下面是关于RedSquare（红色方块）的代码：
+// RedSquare.qml import QtQuick 2.0 Rectangle { width: 48 height: 48 color: &amp;#34;#ea7025&amp;#34; border.color: Qt.lighter(color) } 请注意使用了Qt.lighter（color）来指定了基于填充色的边界高亮色。我们将会在后面的例子中使用到这些元素，希望后面的代码能够容易读懂。请记住每一个矩形框的初始化大小都是48乘48像素大小。
+Column（列）元素将它的子对象通过顶部对齐的列方式进行排列。spacing属性用来设置每个元素之间的间隔大小。
+ // column.qml import QtQuick 2.0 DarkSquare { id: root width: 120 height: 240 Column { id: column anchors.centerIn: parent spacing: 8 RedSquare { } GreenSquare { width: 96 } BlueSquare { } } } // M1&amp;lt;&amp;lt; Row（行）元素将它的子对象从左到右，或者从右到左依次排列，排列方式取决于layoutDirection属性。spacing属性用来设置每个元素之间的间隔大小。
+ // row.qml import QtQuick 2.0 BrightSquare { id: root width: 400; height: 120 Row { id: row anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/qmlqml_syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/qmlqml_syntax/</guid>
+      <description>QML语法（QML Syntax） #  QML是一种描述用户界面的声明式语言。它将用户界面分解成一些更小的元素，这些元素能够结合成一个组件。QML语言描述了用户界面元素的形状和行为。用户界面能够使用JavaScript来提供修饰，或者增加更加复杂的逻辑。从这个角度来看它遵循HTML-JavaScript模式，但QML是被设计用来描述用户界面的，而不是文本文档。
+从QML元素的层次结构来理解是最简单的学习方式。子元素从父元素上继承了坐标系统，它的x,y坐标总是相对应于它的父元素坐标系统。
+ 让我们开始用一个简单的QML文件例子来解释这个语法。
+// rectangle.qml import QtQuick 2.0 // The root element is the Rectangle Rectangle { // name this element root id: root // properties: &amp;lt;name&amp;gt;: &amp;lt;value&amp;gt; width: 120; height: 240 // color property color: &amp;#34;#D8D8D8&amp;#34; // Declare a nested element (child of root) Image { id: rocket // reference the parent x: (parent.width - width)/2; y: 40 source: &amp;#39;assets/rocket.png&amp;#39; } // Another child of root Text { // un-named element // reference element by id y: rocket.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/README/</guid>
+      <description>QML快速入门（Quick Starter） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+这章概述了QML语言，Qt5中大量使用了这种声明用户界面的语言。我们将会讨论QML语言，一个树形结构的元素，跟着是一些最基本的元素概述。然后我们会简短的介绍怎样创建我们自己的元素，这些元素被叫做组件，并如何使用属性操作来转换元素。最后我们会介绍如何对元素进行布局，如何向用户提供输入。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/simple_transformations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/simple_transformations/</guid>
+      <description>简单的转换（Simple Transformations） #  转换操作改变了一个对象的几何状态。QML元素对象通常能够被平移，旋转，缩放。下面我们将讲解这些简单的操作和一些更高级的用法。 我们先从一个简单的转换开始。用下面的场景作为我们学习的开始。
+简单的位移是通过改变x,y坐标来完成的。旋转是改变rotation（旋转）属性来完成的，这个值使用角度作为单位（0~360）。缩放是通过改变scale（比例）的属性来完成的，小于1意味着缩小，大于1意味着放大。旋转与缩放不会改变对象的几何形状，对象的x,y（坐标）与width/height（宽/高）也类似。只有绘制指令是被转换的对象。
+在我们展示例子之前我想要介绍一些东西：ClickableImage元素（ClickableImage element），ClickableImage仅仅是一个包含鼠标区域的图像元素。我们遵循一个简单的原则，三次使用相同的代码描述一个用户界面最好可以抽象为一个组件。
+// ClickableImage.qml // Simple image which can be clicked import QtQuick 2.0 Image { id: root signal clicked MouseArea { anchors.fill: parent onClicked: root.clicked() } }  我们使用我们可点击图片元素来显示了三个火箭。当点击时，每个火箭执行一种简单的转换。点击背景将会重置场景。
+// transformation.qml import QtQuick 2.0 Item { // set width based on given background width: bg.width height: bg.height Image { // nice background image id: bg source: &amp;#34;assets/background.png&amp;#34; } MouseArea { id: backgroundClicker // needs to be before the images as order matters // otherwise this mousearea would be before the other elements // and consume the mouse events anchors.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Extending_qml_with_c&#43;&#43;s on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/</link>
+    <description>Recent content in Extending_qml_with_c&#43;&#43;s on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/</guid>
+      <description>创建插件（Creating the plugin） #  Qt Creator包含了一个创建QtQuick 2 QML Extension Plugin向导，我们使用它来创建一个叫做fileio 的插件，这个插件包含了一个从org.example.io中启动的FileIO对象。
+插件类源于QQmlExtensionPlugin，并且实现了registerTypes() 函数。Q_PLUGIN_METADATA是强制标识这个插件作为一个qml扩展插件。除此之外没有其它特殊的地方了。
+#ifndef FILEIO_PLUGIN_H #define FILEIO_PLUGIN_H #include &amp;lt;QQmlExtensionPlugin&amp;gt; class FileioPlugin : public QQmlExtensionPlugin { Q_OBJECT Q_PLUGIN_METADATA(IID &amp;#34;org.qt-project.Qt.QQmlExtensionInterface&amp;#34;) public: void registerTypes(const char *uri); }; #endif // FILEIO_PLUGIN_H 在实现registerTypes中我们使用qmlRegisterType函数注册了我们的FileIO类。
+#include &amp;#34;fileio_plugin.h&amp;#34; #include &amp;#34;fileio.h&amp;#34; #include &amp;lt;qqml.h&amp;gt; void FileioPlugin::registerTypes(const char *uri) { // @uri org.example.io qmlRegisterType&amp;lt;FileIO&amp;gt;(uri, 1, 0, &amp;#34;FileIO&amp;#34;); } 有趣的是我们不能在这里看到模块统一资源标识符（例如org.example.io）。这似乎是从外面设置的。
+看你查找你的项目文件夹是，你会发现一个qmldir文件。这个文件指定了你的qml插件内容或者最好是你插件中关于QML的部分。它看起来应该像这样。
+module org.example.io plugin fileio 模块是统一资源标识符，在统一标识符下插件能够被其它插件获取，并且插件行必须与插件文件名完全相同（在mac下，它将是libfileio_debug.dylib存在于文件系统上，fileio在qmldir中）。这些文件由Qt Creator基于给定的信息创建。模块的标识符在.pro文件中同样可用。用来构建安装文件夹。
+当你在构建文件夹中调用make install时，将会拷贝库文件到Qtqml 文件夹中（在Qt5.4之后mac上这将在~/Qt/5.4/clang_64/qml文件夹中。这个路径依赖Qt按住那个位置，并且使用系统上的编译器）。你将会在org/example/io文件夹中发现库文件。目前包含两个文件。
+libfileio_debug.dylib qmldir 当导入一个叫做org.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/</guid>
+      <description>FileIO实现（FileIO Implementation） #  类FileIO实现很简单。记住编程接口我们想要创建的像这样。
+class FileIO : public QObject { ... Q_PROPERTY(QUrl source READ source WRITE setSource NOTIFY sourceChanged) Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged) ... public: Q_INVOKABLE void read(); Q_INVOKABLE void write(); ... } 我们将保留属性，因为它们是简单的设置者和获取者。
+读取方法在读取模式下打开一个文件并且使用一个文本流读取数据。
+void FileIO::read() { if(m_source.isEmpty()) { return; } QFile file(m_source.toLocalFile()); if(!file.exists()) { qWarning() &amp;lt;&amp;lt; &amp;#34;Does not exits: &amp;#34; &amp;lt;&amp;lt; m_source.toLocalFile(); return; } if(file.open(QIODevice::ReadOnly)) { QTextStream stream(&amp;amp;file); m_text = stream.readAll(); emit textChanged(m_text); } } 当文本变化时，使用emit textChanged(m_text)需要通知其它对象这个变化。否则属性绑定无法工作。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/</guid>
+      <description>收尾工作（Finishing Touch） #  这个应用程序还没有真正的完成。我们想要显示旗帜，并允许用户通过从数据模型中移除城市来修改文档。
+这些旗帜被存放在main.qml文件夹下的flags文件夹中。为了在表格列中显示它们，我们需要定义一个渲染旗帜图片的代理。
+TableViewColumn { delegate: Item { Image { anchors.centerIn: parent source: &amp;#39;flags/&amp;#39; + styleData.value } } role: &amp;#39;flag&amp;#39; title: &amp;#34;Flag&amp;#34; width: 40 } 它将JS数据模型中暴露的flag属性作为styleData.value交给代理。代理调整图片路径，并在路径前面加上&#39;flags/&#39;并显示它。
+对于移除，我们使用相似的技巧来显示一个移除按钮。
+TableViewColumn { delegate: Button { iconSource: &amp;#34;remove.png&amp;#34; onClicked: { var data = view.model data.splice(styleData.row, 1) view.model = data } } width: 40 } 数据移除操作，我们坚持从视图模型上获取数据，然后使用JS的splice函数移除一个条目。这个方法提供给我们的模型来自一个JS数组。splice方法通过移除已有元素，添加新的元素来改变数组内容。
+一个JS数组不如一个Qt模型智能，例如QAbstractItemModel，它无法通知视图行更新或者数据更新。由于视图无法接收到任何更新的通知，它无法更新数据显示。只有在我们将数据重新设置回视图时，视图才会知道有新的数据需要刷新视图内容。使用view.model = data再次设置数据模型可以让视图知道有数据更新。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/</guid>
+      <description>格式化表格（Formatting the Table） #  城市数据的内容应该被现实在一个表格中。我们使用TableView 控制并定义4列：城市，国家，面积，人口。每一列都是典型的TableViewColumn。然后我们添加列的标识并移除要求自定义列代理的操作。
+TableView { id: view anchors.fill: parent TableViewColumn { role: &amp;#39;city&amp;#39; title: &amp;#34;City&amp;#34; width: 120 } TableViewColumn { role: &amp;#39;country&amp;#39; title: &amp;#34;Country&amp;#34; width: 120 } TableViewColumn { role: &amp;#39;area&amp;#39; title: &amp;#34;Area&amp;#34; width: 80 } TableViewColumn { role: &amp;#39;population&amp;#39; title: &amp;#34;Population&amp;#34; width: 80 } } 现在应用程序能够显示一个包含文件菜单的菜单栏和一个包含4个表头的空表格。下一步是我们的FileIO扩展将有用的数据填充到表格中。
+ 文档cities.json是一组城市条目。这里是一个例子。
+[ { &amp;#34;area&amp;#34;: &amp;#34;1928&amp;#34;, &amp;#34;city&amp;#34;: &amp;#34;Shanghai&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;China&amp;#34;, &amp;#34;flag&amp;#34;: &amp;#34;22px-Flag_of_the_People&amp;#39;s_Republic_of_China.svg.png&amp;#34;, &amp;#34;population&amp;#34;: &amp;#34;13831900&amp;#34; }, ... ] 我们任务是允许用户选择文件，读取它，转换它，并将它设置到表格视图中。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/</guid>
+      <description>插件内容（Plugin Content） #  插件是一个已定义接口的库，它只在需要时才被加载。这与一个库在程序启动时被链接和加载不同。在QML场景下，这个接口叫做QQmlExtensionPlugin。我们关心其中的两个方法initializeEngine()和registerTypes()。当插件被加载时，首先会调用initializeEngine()，它允许我们访问引擎将插件对象暴露给根上下文。大多数时候你只会使用到registerTypes()方法。它允许你注册你自定义的QML类型到引擎提供的地址上。
+我们稍微退一步考虑一个潜在的文件IO类型，它允许我们在QML中读取/写入一个小型文本文件。第一次的迭代可能看起来像在嘲笑QML的实现。
+// FileIO.qml (good) QtObject { function write(path, text) {}; function read(path) { return &amp;#34;TEXT&amp;#34;} } 这是一个纯粹的qml可能的实现，C++基于QML编程接口来探索一些编程接口。我们看到我们有一个读取和写入函数。写入函数需要一个路径和一个文本，读取函数需要一个路径，返回一个文本。路径和文本看起来是公共参数，或许我们可以将它们提取作为属性。
+// FileIO.qml (better) QtObject { property url source property string text function write() { // open file and write text }; function read() { // read file and assign to text }; } 当然这看起来更像一个QML编程接口。我们使用属性让我们的环境能够绑定我们的属性并且响应变化。
+在C++中创建这个编程接口我们需要创建类似的一个接口。
+class FileIO : public QObject { ... Q_PROPERTY(QUrl source READ source WRITE setSource NOTIFY sourceChanged) Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged) .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/</guid>
+      <description>读取数据（Reading Data） #  我们让打开动作打开一个文件对话框。当用户已选择一个文件后，在文件对话框上的onAccepted方法被调用。这里我们调用readDocument()函数。readDocument函数将来自文件对话框的地址设置到我们的FileIO对象，并调用read()方法。从FileIO中加载的文本使用JSON.parse()方法解析，并将结果对象作为数据模型直接设置到表格视图上。这样非常方便。
+Action { id: open ... onTriggered: { openDialog.open() } } ... FileDialog { id: openDialog onAccepted: { root.readDocument() } } function readDocument() { io.source = openDialog.fileUrl io.read() view.model = JSON.parse(io.text) } FileIO { id: io } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/README/</guid>
+      <description>C++扩展QML（Extending QML with C++） #  QML执行在受限的空间中，QML作为一种语言提供的功能有时是被限制的。通过C++写的本地函数可以扩展QML运行时的功能。应用程序可以充分利用基础平台的性能和自由度。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/summary/</guid>
+      <description>总结（Summary） #  插件的创建非常简单，但是它可以复用，并且为不同的应用程序扩展类型。使用创建的插件是非常灵活的解决方案。例如你可以只使用qmlscene开始创建UI。打开CityUI项目文件夹，从qmlscene的main.qml开始。我真的鼓励大家使用与qmlscene一起工作的方式写应用程序。对于UI开发者，这将是一个巨大的改变，也是一个好的习惯来保证清晰的分离。
+使用插件有一个缺点，对于简单的应用程序开发增加了难度。你需要为你的应用程序开发插件。如果这是一个问题，你也可以使用与FileIO对象相同的机制使用qmlRegisterType直接注册到你的main.cpp中。QML代码保持一样就可以了。
+通常在大型项目中，你不会像这样使用应用程序。你有一个与qmlscene类似的简单的qml运行环境，并且需要所有本地的功能插件。你的项目使用这些qml扩展插件，也是简单纯粹的qml项目。这为UI的变换提供了最大的灵活性并移除了编译步骤。在编辑完成一个QML文件后，你只需要运行UI。这允许用户界面开发者保持灵活性并迅速的使所有的小修改立刻得到响应。
+插件提供了健壮和清晰的C++后台开发与QML前端开发的分离。当开发QML插件时，通常在QML端有一个想法，并在使用C+=实现前，可以使用QML的样本模型进行API验证。如果API是C++人员写的，通常会犹豫去改变它或者重写它。复制一个QML提供的API通常更加灵活并且初始投资更少。当使用插件切换一个样本模型API和一个真是API时，仅仅只需要改变qml运行环境的导入路径。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/</guid>
+      <description>应用程序窗口（The Application Window） #  使用Qt Creator的QtQuick Application向导创建一个基于QtQuick controls的应用程序。我们将不再使用新的QML格式，这在一本书里面将很难解释，即使新格式使用ui.qml文件将比之前更加容易达到目的。所以你可以移除/删除格式文件。
+一个应用程序窗口基础配置包含了一个工具栏，菜单栏和状态栏。我们只使用菜单栏创建一些典型的菜单条目来打开和保存文档。基础配置的窗口只会显示一个空的窗口。
+import QtQuick 2.4 import QtQuick.Controls 1.3 import QtQuick.Window 2.2 import QtQuick.Dialogs 1.2 ApplicationWindow { id: root title: qsTr(&amp;#34;City UI&amp;#34;) width: 640 height: 480 visible: true } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/</guid>
+      <description>理解QML运行环境（Understanding the QML Run-time） #  当运行QML时，它在一个运行时环境下执行。这个运行时环境是由QtQml模块下的C++代码实现的。它由一个负责执行QML的引擎，持有访问每个组件属性的上下文和实例化的QML元素组件构成。
+#include &amp;lt;QtGui&amp;gt; #include &amp;lt;QtQml&amp;gt; int main(int argc, char **argv) { QGuiApplication app(argc, argv); QUrl source(QStringLiteral(&amp;#34;qrc:/main.qml&amp;#34;)); QQmlApplicationEngine engine; engine.load(source); return app.exec(); } 在这个例子中，QGuiApplication封装了所有与应用程序引用相关的属性（例如应用程序名称，命令行参数，和事件循环管理）。QQmlApplicationEngine分层管理上下文和组件的顺序。它需要加载一个典型的qml文件作为应用程序的开始点。在这个例子中，main.qml包含了以一个窗口和一个文本。
+注意
+通过QmlApplicationEngine加载一个使用简单项作为根类型的main.qml不会在你的屏幕上显示任何东西，它需要一个窗口来管理一个平面的渲染。引擎可以加载不包含任何用户界面的qml代码（例如一个纯粹的对象）。由于它不会默认为你创建一个窗口。qmlcene或者新的qml运行环境将会在内部首先检查main.qml文件是否包含一个窗口作为根项，如果没有包含将会为你创建一个并且设置根项作为新创建窗口的子项。
+import QtQuick 2.4 import QtQuick.Window 2.0 Window { visible: true width: 512 height: 300 Text { anchors.centerIn: parent text: &amp;#34;Hello World!&amp;#34; } } 在QML文件中我们定义我们的依赖是QtQuick和QtQuick.Window。这些定义将会触发在导入的路径中查找这些模块，并在加载成功后由引擎加载需要的插件。新加载的类型将会倍qmldir控制在qml文件中可用。
+当然也可以使用快速创建插件直接向引擎添加我们的自定义类型。这里我们假设我们有一个基于QObject的CurrentTime类。
+QQmlApplicationEngine engine; qmlRegisterType&amp;lt;CurrentTime&amp;gt;(&amp;#34;org.example&amp;#34;, 1, 0, &amp;#34;CurrentTime&amp;#34;); engine.load(source); 现在我们也可可以在我们的qml文件中使用CurrentTime类型。
+import org.example 1.0 CurrentTime { // access properties, functions, signals } 一种更偷懒的方式是通过上下文属性直接设置。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/</guid>
+      <description>使用动作（Using Actions） #  为了更好的使用/复用我们的命令，我们使用QMLAction类型。这将允许我们在后面可以使用相同的动作，也可以用于潜在的工具栏。打开，保存和退出动作是标准动作。打开和保存动作不会包含任何逻辑，我们后面再来添加。菜单栏由一个文件菜单和这三个动作条目组成。此外我们已经准备了一个文件对话框，它可以让我们选择我们的城市文档。对话框在定义时是不可见的，需要使用open()方法来显示它。
+... Action { id: save text: qsTr(&amp;#34;&amp;amp;Save&amp;#34;) shortcut: StandardKey.Save onTriggered: { } } Action { id: open text: qsTr(&amp;#34;&amp;amp;Open&amp;#34;) shortcut: StandardKey.Open onTriggered: {} } Action { id: exit text: qsTr(&amp;#34;E&amp;amp;xit&amp;#34;) onTriggered: Qt.quit(); } menuBar: MenuBar { Menu { title: qsTr(&amp;#34;&amp;amp;File&amp;#34;) MenuItem { action: open } MenuItem { action: save } MenuSeparator { } MenuItem { action: exit } } } ... FileDialog { id: openDialog onAccepted: { } } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/</guid>
+      <description>使用FileIO（Using FileIO） #  现在我们可以使用新创建的文件访问一些简单的数据。这个例子中我们想要读取一个JSON格式下的城市数据并且在表格中显示。我们将使用两个项目，一个是扩展插件项目（叫做fileio），提供读取和写入文件的方法。另外一个项目通过fileio读取/写入文件将数据显示在表格中（CityUI）。这个例子中使用的数据在cities.json文件中。
+ JSON只是文本，它被格式化为可以转换为一个有效的JS对象/数组并返回一个文本。我们使用FileIO读取格式化的JSON数据并使用JSON.parse()将它转换为一个JS对象。数据在后面被用作一个表格视图的数据模型。我们粗略的阅读函数文档就可以获取这些内容。为了保存数据我们将转换回文本格式并使用写入函数保存。
+城市的JSON数据是一个格式化文本文件，包含了一组城市数据条目，每个条目包含了关于城市数据。
+[ { &amp;#34;area&amp;#34;: &amp;#34;1928&amp;#34;, &amp;#34;city&amp;#34;: &amp;#34;Shanghai&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;China&amp;#34;, &amp;#34;flag&amp;#34;: &amp;#34;22px-Flag_of_the_People&amp;#39;s_Republic_of_China.svg.png&amp;#34;, &amp;#34;population&amp;#34;: &amp;#34;13831900&amp;#34; }, ... ] </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/</guid>
+      <description>写入数据（Writing Data） #  我们连接保存动作到saveDocument()函数来保存文档。保存文档函数从视图中取出模型，模型是一个JS对象，并使用JSON.stringify()函数将它转换为一个字符串。将结果字符串设置到FileIO对象的文本属性中，并调用write()来保存数据到磁盘中。在stringify函数上参数null和4将会使用4个空格缩进格式化JSON数据结果。这只是为了保存文档更好阅读。
+Action { id: save ... onTriggered: { saveDocument() } } function saveDocument() { var data = view.model io.text = JSON.stringify(data, null, 4) io.write() } FileIO { id: io } 从根本上说，这个应用程序就是读取，写入和现实一个JSON文档。考虑下如果使用XML格式读取和写入，会花多少时间。使用JSON格式你只需要读取/写入一个文本文件或者发送/接收一个文本缓存。
+ </description>
+    </item>
+    
+  </channel>
+</rss>

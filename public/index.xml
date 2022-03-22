@@ -1,0 +1,1864 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/</link>
+    <description>Recent content on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qml Book</title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/menu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/menu/</guid>
+      <description>Summary #    Introduction  Qt5概述   序  Qt5介绍  Qt构建模块（Qt Building Blocks）  Qt项目（Qt Project）    开始学习（Get Start）   安装Qt5软件工具包（Installing Qt 5 SDK）  你好世界（Hello World）  应用程序类型（Application Types）  总结（ Summary）    Qt Creator集成开发环境（Qt Creator IDE）   用户界面（The User Interface）  注册你的Qt工具箱（Registering your Qt Kit）  项目管理（Managing Projects）  使用编辑器（Using the Editor）  定位器（Locator）  调试（Debugging）  快捷键（Shortcuts）    QML快速入门（Quick Starter）   QML语法（QML Syntax）  基本元素（Basic Elements）  组件（Compontents）  简单的转换（Simple Transformations）  定位元素（Positioning Element）  布局元素（Layout Items）  输入元素（Input Element）  高级用法（Advanced Techniques）    动态元素（Fluid Elements）   动画（Animations）  状态与过渡（States and Transitions）  高级用法（Advanced Techniques）    模型-视图-代理（Model-View-Delegate）   概念（Concept）  基础模型（Basic Model）  动态视图（Dynamic Views）  代理（Delegate）  高级用法（Advanced Techniques）  总结（Summary）    画布元素（Canvas Element）   便捷的接口（Convenient API）  渐变（Gradients）  阴影（Shadows）  图片（Images）  转换（Transformation）  组合模式（Composition Mode）  像素缓冲（Pixels Buffer）  画布绘制（Canvas Paint）  HTML5画布移植（Porting from HTML5 Canvas）    粒子模拟（Particle Simulations）   概念（Concept）  简单的模拟（Simple Simulation）  粒子参数（Particle Parameters）  粒子方向（Directed Particle）  粒子画笔（Particle Painter）  粒子控制（Affecting Particles）  粒子组（Particle Group）  总结（Summary）    着色器效果（Shader Effect）   OpenGL着色器（OpenGL Shader）  着色器元素（Shader Elements）  片段着色器（Fragement Shader）  波浪效果（Wave Effect）  顶点着色器（Vertex Shader）  剧幕效果（Curtain Effect）  Qt图像效果库（Qt GraphicsEffect Library）    多媒体（Multimedia）   媒体播放（Playing Media）  声音效果（Sounds Effects）  视频流（Video Streams）  捕捉图像（Capturing Images）  高级用法（Advanced Techniques）  总结（Summary）    网络（Networking）   通过HTTP服务用户界面（Serving UI via HTTP）  模板（Templating）  HTTP请求（HTTP Requests）  本地文件（Local files）  REST接口（REST API）  使用开放授权登陆验证（Authentication using OAuth）  云服务（Engine IO）  Web Sockets  总结（Summary）    存储（Storage）   配置（Settings）  本地存储 - SQL（Local Storage - SQL）  其它存储接口（Other Storage APIs）    动态QML（Dynamic QML）   动态加载组件（Loading Components Dynamically）   间接连接（Connecting Indirectly）  间接绑定（Binding Indirectly）    创建与销毁对象（Creating and Destroying Objects）   动态加载和实例化项（Dynamically Loading and Instantiating Items）  从文本中动态实例化项（Dynamically Instantiating Items from Text）  管理动态创建的元素（Managing Dynamically Created Elements）    跟踪动态对象（Tracking Dynamic Objects）  总结（Summary）    JavaScript   浏览器/HTML与QtQuick/QML对比（Browser/HTML vs QtQuick/QML）  JavaScript语法（The Language）  JS对象（JS Objects）  创建JS控制台（Creating a JS Console）    Qt and C++   演示程序（A Boilerplate Application）  Qt对象（The QObject）  编译系统（Build Systems）   QMake  CMake    Qt通用类（Common Qt Classes）   QString  顺序容器（Sequential Containers）  组合容器（Associative Containers）  文件IO（File IO）    C++数据模型（Models in C++）   一个简单的模型（A simple model）  更复杂的数据（More Complex Data）  动态数据（Dynamic Data）  进阶技巧（Advanced Techniques）      C++扩展QML（Extending QML with C++）   理解QML运行环境（Understanding the QML Run-time）  插件内容（Plugin Content）  创建插件（Creating the plugin）  FileIO实现（FileIO Implementation）  使用FileIO（Using FileIO）   应用程序窗口（The Application Window）  使用动作（Using Actions）  格式化表格（Formatting the Table）  读取数据（Reading Data）  写入数据（Writing Data）  收尾工作（Finishing Touch）    总结（Summary）    其它（Other）   示例源码  术语英汉对照表  格式定义  协作校正    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/preface/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/preface/</guid>
+      <description>1.1 序 #  Qt历史
+Qt4自2005年发布已为成千上万的应用程序甚至桌面操作系统、移动操作系统提供了稳定、可靠的开发框架。计算机用户的使用模式近年发生了变化，用户正在从传统PC转向笔记本电脑或智能手机。传统PC被越来越多的触摸屏设备取代，计算机的用户体验模型也在跟随改变。在这之前Windows UI占据了我们的世界，但现在我们会花更多的时间使用其它的UI语言开发便携式设备用户界面。
+Qt4的设计用于满足开发者在主流桌面操作系统上有一套表现一致的窗口组件可以使用。如今Qt的使用者面临了新的问题，他们需要提供可触碰交互的用户界面以满足软件界面需求，并在主流桌面操作系统和移动操作系统上实现这些界面。从Qt4.7版本开始引进了Qt Quick，它让Qt的使用者可以用简单的元素对象创建一套界面组件，并通过组合界面组件的方式来完成软件界面需求。
+1.1.1 Qt5与Qt4 #  Qt5是Qt4版本完整的更新。自Qt4.8版本发布，Qt4已经发布了7年，现在这个工具将会更加令人惊奇。
+Qt5主要特性：
+  出色的图形能力：Qt Quick2基于OpenGL(ES)场景实现，重写的图形堆栈让开发者可以轻松实现图形特效。
+  高效的开发模式：使用QML和JavaScript创建用户界面，后端使用C++处理数据。前后端的分离让前端开发人员可以快速迭代并专注于用户界面开发，后端的C++开发人员则专注于软件的稳定性、高性能和扩展能力。
+  跨平台能力：基于Qt平台的统一抽象实现，能够方便地将Qt移植到大多数操作系统平台。Qt5由基础模块和附加模块组成，操作系统开发者只需移植基础模块就可以保证Qt最小运行环境。
+  开源：Qt是由 qt.io主导的开源项目，由社区驱动开发。
+  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/assets/preface/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/assets/preface/</guid>
+      <description>序 #  历史
+Qt4自2005年发布至今，已为成千上万的应用程序，甚至包括台式机操作系统和移动操作系统提供了坚实的基础。计算机用户的使用模式近年来发生了变化，用户正在从传统台式机转向笔记本电脑或智能手机。传统台式机设备被越来越多的触摸屏设备取代，台式机的用户体验模型也在跟随改变。在过去，Window UI占据了我们的世界，但现在我们会花更多的时间在其它的UI语言上用于适配移动端的用户体验。
+Qt4旨在满足开发者可以在主流平台桌面系统上有一套表现一致的用户界面窗口。Qt的用户如今面临的问题也在改变，他们需要提供可触摸交互的用户界面以满足软件客户的用户界面需求，并在主流的桌面系统和移动系统上实现这些界面。Qt4.7开始引进Qt Quick技术，该技术让使用者用简单的元素创建一套用户界面组件，通过组合这些用户界面组件来完成软件用户的界面需求。
+1.1.1 Qt5优势 #  Qt5是Qt4的更新升级，Qt4版本至Qt4.8已经演进了7年，是时候让这个不可思议的工具更加强大了。
+Qt5主要优势如下：
+ 图形处理：Qt Quick2是基于OpenGL(ES)场景实现，重新实现了图形堆栈，并让开发者可以更方便地实现新的图形效果。 生产效率：QML和JavaScript语言是创建用户界面的主要手段，后端则由C++来驱动。JavaScript与C++的分割让前端开发人员可以快速迭代并专注于创建漂亮的用户界面，而后端的C++开发人员则专注于软件的稳定性、高性能和扩展能力。 可移植性：基于Qt跨平台性质，能更方便地将Qt移植到更多的平台上。Qt5提出了基础模块和附加模块的概念，操作系统开发者只需要专注于基础模块的移植就能使Qt正常运行。 开源化：Qt是由Qt-Porject(qt-project.org)主持的开源项目，它的开发由Qt社区驱动的。  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/canvas_paint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/canvas_paint/</guid>
+      <description>画布绘制（Canvas Paint） #  在这个例子中我们将使用画布（Canvas）创建一个简单的绘制程序。
+ 在我们场景的顶部我们使用行定位器排列四个方形的颜色块。一个颜色块是一个简单的矩形，使用鼠标区域来检测点击。
+ Row { id: colorTools anchors { horizontalCenter: parent.horizontalCenter top: parent.top topMargin: 8 } property variant activeSquare: red property color paintColor: &amp;#34;#33B5E5&amp;#34; spacing: 4 Repeater { model: [&amp;#34;#33B5E5&amp;#34;, &amp;#34;#99CC00&amp;#34;, &amp;#34;#FFBB33&amp;#34;, &amp;#34;#FF4444&amp;#34;] ColorSquare { id: red color: modelData active: parent.paintColor == color onClicked: { parent.paintColor = color } } } } 颜色存储在一个数组中，作为绘制颜色使用。当用户点击一个矩形时，矩形内的颜色被设置为colorTools的paintColor属性。
+为了在画布上跟踪鼠标事件，我们使用鼠标区域（MouseArea）覆盖画布元素，并连接点击和移动操作。
+ Canvas { id: canvas anchors { left: parent.left right: parent.right top: colorTools.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/composition_mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/composition_mode/</guid>
+      <description>组合模式（Composition Mode） #  组合允许你绘制一个形状然后与已有的像素点集合混合。画布提供了多种组合模式，使用globalCompositeOperation(mode)来设置。
+  &amp;ldquo;source-over&amp;rdquo;
+  &amp;ldquo;source-in&amp;rdquo;
+  &amp;ldquo;source-out&amp;rdquo;
+  &amp;ldquo;source-atop&amp;rdquo;
+   onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) ctx.globalCompositeOperation = &amp;#34;xor&amp;#34; ctx.fillStyle = &amp;#34;#33a9ff&amp;#34; for(var i=0; i&amp;lt;40; i++) { ctx.beginPath() ctx.arc(Math.random()*400, Math.random()*200, 20, 0, 2*Math.PI) ctx.closePath() ctx.fill() } } 下面这个例子遍历了列表中的组合模式，使用对应的组合模式生成了一个矩形与圆形的组合。
+ property var operation : [ &amp;#39;source-over&amp;#39;, &amp;#39;source-in&amp;#39;, &amp;#39;source-over&amp;#39;, &amp;#39;source-atop&amp;#39;, &amp;#39;destination-over&amp;#39;, &amp;#39;destination-in&amp;#39;, &amp;#39;destination-out&amp;#39;, &amp;#39;destination-atop&amp;#39;, &amp;#39;lighter&amp;#39;, &amp;#39;copy&amp;#39;, &amp;#39;xor&amp;#39;, &amp;#39;qt-clear&amp;#39;, &amp;#39;qt-destination&amp;#39;, &amp;#39;qt-multiply&amp;#39;, &amp;#39;qt-screen&amp;#39;, &amp;#39;qt-overlay&amp;#39;, &amp;#39;qt-darken&amp;#39;, &amp;#39;qt-lighten&amp;#39;, &amp;#39;qt-color-dodge&amp;#39;, &amp;#39;qt-color-burn&amp;#39;, &amp;#39;qt-hard-light&amp;#39;, &amp;#39;qt-soft-light&amp;#39;, &amp;#39;qt-difference&amp;#39;, &amp;#39;qt-exclusion&amp;#39; ] onPaint: { var ctx = getContext(&amp;#39;2d&amp;#39;) for(var i=0; i&amp;lt;operation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/convenient_api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/convenient_api/</guid>
+      <description>便捷的接口（Convenient API） #  在绘制矩形时，我们提供了一个便捷的接口，而不需要调用stroke或者fill来完成。
+// convenient.qml import QtQuick 2.0 Canvas { id: root width: 120; height: 120 onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) ctx.fillStyle = &amp;#39;green&amp;#39; ctx.strokeStyle = &amp;#34;blue&amp;#34; ctx.lineWidth = 4 // draw a filles rectangle ctx.fillRect(20, 20, 80, 80) // cut our an inner rectangle ctx.clearRect(30,30, 60, 60) // stroke a border from top-left to // inner center of the larger rectangle ctx.strokeRect(20,20, 40, 40) } }  注意</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/gradients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/gradients/</guid>
+      <description>渐变（Gradients） #  画布中可以使用颜色填充也可以使用渐变或者图像来填充。
+ onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) var gradient = ctx.createLinearGradient(100,0,100,200) gradient.addColorStop(0, &amp;#34;blue&amp;#34;) gradient.addColorStop(0.5, &amp;#34;lightsteelblue&amp;#34;) ctx.fillStyle = gradient ctx.fillRect(50,50,100,100) } 在这个例子中，渐变色定义在开始点（100,0）到结束点（100,200）。在我们画布中是一个中间垂直的线。渐变色在停止点定义一个颜色，范围从0.0到1.0。这里我们使用一个蓝色作为0.0（100,0），一个高亮刚蓝色作为0.5（100,200）。渐变色的定义比我们想要绘制的矩形更大，所以矩形在它定义的范围内对渐变进行了裁剪。
+ 注意
+渐变色是在画布坐标下定义的，而不是在绘制路径相对坐标下定义的。画布中没有相对坐标的概念。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/html5porting_from_html5_canvas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/html5porting_from_html5_canvas/</guid>
+      <description>HTML5画布移植（Porting from HTML5 Canvas） #     https://developer.mozilla.org/en/Canvas_tutorial/Transformations
+   http://en.wikipedia.org/wiki/Spirograph
+  移植一个HTML5画布图像到QML画布非常简单。在成百上千的例子中，我们选择了一个来移植。
+螺旋图形（Spiro Graph）
+我们使用一个来自Mozila项目的螺旋图形例子来作为我们的基础示例。原始的HTML5代码被作为画布教程发布。
+下面是我们需要修改的代码：
+ Qt Quick要求定义变量使用，所以我们需要添加var的定义：  for (var i=0;i&amp;lt;3;i++) { ... }  修改绘制方法接收Context2D对象：  function draw(ctx) { ... }  由于不同的大小，我们需要对每个螺旋适配转换：  ctx.translate(20+j*50,20+i*50); 最后我们实现onPaint操作。在onPaint中我们请求一个context，并且调用我们的绘制方法。
+ onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;); draw(ctx); } 下面这个结果就是我们使用QML画布移植的螺旋图形。
+ 发光线（Glowing Lines）
+下面有一个更加复杂的移植来自W3C组织。 原始的发光线有些很不错的地方，这使得移植更加具有挑战性。
+ &amp;lt;!DOCTYPE HTML&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Pretty Glowing Lines&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;canvas width=&amp;#34;800&amp;#34; height=&amp;#34;450&amp;#34;&amp;gt;&amp;lt;/canvas&amp;gt; &amp;lt;script&amp;gt; var context = document.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/images/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/images/</guid>
+      <description>图片（Images） #  QML画布支持多种资源的图片绘制。在画布中使用一个图片需要先加载图片资源。在我们的例子中我们使用Component.onCompleted操作来加载图片。
+ onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) // draw an image ctx.drawImage(&amp;#39;assets/ball.png&amp;#39;, 10, 10) // store current context setup ctx.save() ctx.strokeStyle = &amp;#39;red&amp;#39; // create a triangle as clip region ctx.beginPath() ctx.moveTo(10,10) ctx.lineTo(55,10) ctx.lineTo(35,55) ctx.closePath() // translate coordinate system ctx.translate(100,0) ctx.clip() // create clip from triangle path // draw image with clip applied ctx.drawImage(&amp;#39;assets/ball.png&amp;#39;, 10, 10) // draw stroke around path ctx.stroke() // restore previous setup ctx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/pixels_buffer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/pixels_buffer/</guid>
+      <description>像素缓冲（Pixels Buffer） #  当你使用画布时，你可以检索读取画布上的像素数据，或者操作画布上的像素。读取图像数据使用createImageData(sw,sh)或者getImageData(sx,sy,sw,sh)。这两个函数都会返回一个包含宽度（width），高度（height）和数据（data）的图像数据（ImageData）对象。图像数据包含了一维数组像素数据，使用RGBA格式进行检索。每个数据的数据范围在0到255之间。设置画布的像素数据你可以使用putImageData(imagedata,dx,dy)函数来完成。
+另一种检索画布内容的方法是将画布的数据存储进一张图片中。可以使用画布的函数save(path)或者toDataURL(mimeType)来完成，toDataURL(mimeType)会返回一个图片的地址，这个链接可以直接用Image元素来读取。
+import QtQuick 2.0 Rectangle { width: 240; height: 120 Canvas { id: canvas x: 10; y: 10 width: 100; height: 100 property real hue: 0.0 onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) var x = 10 + Math.random(80)*80 var y = 10 + Math.random(80)*80 hue += Math.random()*0.1 if(hue &amp;gt; 1.0) { hue -= 1 } ctx.globalAlpha = 0.7 ctx.fillStyle = Qt.hsla(hue, 0.5, 0.5, 1.0) ctx.beginPath() ctx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/README/</guid>
+      <description>Canvas Element #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+ 在早些时候的Qt4中加入QML时，一些开发者讨论如何在QtQuick中绘制一个圆形。类似圆形的问题，一些开发者也对于其它的形状的支持进行了讨论。在QtQuick中没有圆形，只有矩形。在Qt4中，如果你需要一个除了矩形外的形状，你需要使用图片或者使用你自己写的C++圆形元素。
+Qt5中引进了画布元素（canvas element），允许脚本绘制。画布元素（canvas element）提供了一个依赖于分辨率的位图画布，你可以使用JavaScript脚本来绘制图形，制作游戏或者其它的动态图像。画布元素（canvas element）是基于HTML5的画布元素来完成的。
+画布元素（canvas element）的基本思想是使用一个2D对象来渲染路径。这个2D对象包括了必要的绘图函数，画布元素（canvas element）充当绘制画布。2D对象支持画笔，填充，渐变，文本和绘制路径创建命令。
+让我们看看一个简单的路径绘制的例子：
+import QtQuick 2.0 Canvas { id: root // canvas size width: 200; height: 200 // handler to override for drawing onPaint: { // get context to draw with var ctx = getContext(&amp;#34;2d&amp;#34;) // setup the stroke ctx.lineWidth = 4 ctx.strokeStyle = &amp;#34;blue&amp;#34; // setup the fill ctx.fillStyle = &amp;#34;steelblue&amp;#34; // begin a new path to draw ctx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/shadows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/shadows/</guid>
+      <description>阴影（Shadows） #  注意
+在Qt5的alpha版本中，我们使用阴影遇到了一些问题。
+2D对象的路径可以使用阴影增强显示效果。阴影是一个区域的轮廓线使用偏移量，颜色和模糊来实现的。所以你需要指定一个阴影颜色（shadowColor），阴影X轴偏移值（shadowOffsetX），阴影Y轴偏移值（shadowOffsetY）和阴影模糊（shadowBlur）。这些参数的定义都使用2D context来定义。2D context是唯一的绘制操作接口。
+阴影也可以用来创建发光的效果。在下面的例子中我们使用白色的光创建了一个“Earth”的文本。在一个黑色的背景上可以有更加好的显示效果。
+首先我们绘制黑色背景：
+ // setup a dark background ctx.strokeStyle = &amp;#34;#333&amp;#34; ctx.fillRect(0,0,canvas.width,canvas.height); 然后定义我们的阴影配置：
+ ctx.shadowColor = &amp;#34;blue&amp;#34;; ctx.shadowOffsetX = 2; ctx.shadowOffsetY = 2; // next line crashes // ctx.shadowBlur = 10; 最后我们使用加粗的，80像素宽度的Ubuntu字体来绘制“Earth”文本：
+ ctx.font = &amp;#39;Bold 80px Ubuntu&amp;#39;; ctx.fillStyle = &amp;#34;#33a9ff&amp;#34;; ctx.fillText(&amp;#34;Earth&amp;#34;,30,180); </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/transformation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/transformation/</guid>
+      <description>转换（Transformation） #  画布有多种方式来转换坐标系。这些操作非常类似于QML元素的转换。你可以通过缩放（scale），旋转（rotate），translate（移动）来转换坐标系。与QML元素的转换不同的是，转换原点通常就是画布原点。例如，从中心点放大一个封闭的路径，你需要先将画布原点移动到整个封闭的路径的中心点上。使用这些转换的方法你可以创建一些更加复杂的转换。
+// transform.qml import QtQuick 2.0 Canvas { id: root width: 240; height: 120 onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) ctx.strokeStyle = &amp;#34;blue&amp;#34; ctx.lineWidth = 4 ctx.beginPath() ctx.rect(-20, -20, 40, 40) ctx.translate(120,60) ctx.stroke() // draw path now rotated ctx.strokeStyle = &amp;#34;green&amp;#34; ctx.rotate(Math.PI/4) ctx.stroke() } }  除了移动画布外，也可以使用scale(x,y)来缩放x,y坐标轴。旋转使用rotate(angle)，angle是角度（360度=2*Math.PI）。使用setTransform(m11,m12,m21,m22,dx,dy)来完成矩阵转换。
+警告
+QML画布中的转换与HTML5画布中的机制有些不同。不确定这是不是一个Bug。
+注意
+重置矩阵你可以调用resetTransform()函数来完成，这个函数会将转换矩阵还原为单位矩阵。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/binding_indirectly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/binding_indirectly/</guid>
+      <description>（间接绑定）Binding Indirectly #  与无法直接连接动态创建元素的信号类似，也无法脱离桥接元素（bridge element）与动态创建元素绑定属性。为了绑定任意元素的属性，包括动态创建元素，需要使用绑定元素（Binding element）。
+绑定元素（Bindging element）允许你指定一个目标元素（target element），一个属性用来绑定，一个值用来绑定这个属性。通过使用绑定元素（Binding elelemt），例如，绑定一个动态加载元素（dynamically loaded element）的属性。在这个章节中有个入门实例如下所示。
+ Loader { id: dialLoader anchors.left: parent.left anchors.right: parent.right anchors.top: parent.top anchors.bottom: analogButton.top onLoaded: { binder.target = dialLoader.item; } } Binding { id: binder property: &amp;#34;speed&amp;#34; value: speed } 通常不会设置一个绑定的目标元素，或者不会有一个给定的属性。当绑定激活时使用绑定元素的属性来限制时间。例如，它可以用来限制用户界面的特定模式。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/connecting_indirectly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/connecting_indirectly/</guid>
+      <description>间接连接（Connecting Indirectly） #  动态创建QML元素时，无法使用onSignalName静态配置来连接信号。必须使用连接元素（Connection element）来完成连接信号。它可以连接一个目标元素任意数量的信号。
+通过设置连接元素（Connection element）的目标属性，信号可以像正常的方法连接。也就是使用onSignalName方法。不管怎样，通过改变目标属性可以在不同的时间监控不同的元素。
+ 在上面这个例子中，用户界面由两个可点击区域组成。当其中一个区域点击后，会使用一个闪烁的动画。左边区域的代码段如下所示。在鼠标区域（MouseArea）中，左点击动画（leftClickedAnimation）被触发，导致区域闪烁。
+ Rectangle { id: leftRectangle width: 290 height: 200 color: &amp;#34;green&amp;#34; MouseArea { id: leftMouseArea anchors.fill: parent onClicked: leftClickedAnimation.start(); } Text { anchors.centerIn: parent font.pixelSize: 30 color: &amp;#34;white&amp;#34; text: &amp;#34;Click me!&amp;#34; } } 除了两个可点击区域，还使用了一个连接元素（Connection element）。当状态为激活时会触发第三个动画，即元素的目标。
+ Connections { id: connections onClicked: activeClickedAnimation.start(); } 为了确定鼠标区域的目标，定义了两种状态。注意我们无法使用属性改变元素（PropertyChanges element）来设置目标属性，因为它已经包含了一个目标属性。利用状态改变脚本（StateChangeScript）来完成。
+ states: [ State { name: &amp;#34;left&amp;#34; StateChangeScript { script: connections.target = leftMouseArea } }, State { name: &amp;#34;right&amp;#34; StateChangeScript { script: connections.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/creating_and_destroying_objects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/creating_and_destroying_objects/</guid>
+      <description>创建与销毁对象（Creating and Destroying Objects） #  加载元素使得动态填充用户界面成为可能。但是接口的结构仍然是静态的。通过JavaScript可以更近一步的完成QML元素的动态实例化。
+在我们深入讨论动态创建元素的细节之前，我们需要明白工作的流程。当从一个文件或者网络加载一块QML时，组件已经被创建。组件封装了解释执行的QML代码用来创建项。这意味着一块QML代码和实例化项是分为两个步骤进行的。首先在组件中解释执行QML代码，然后组件被用来实例化创建项对象。
+除了从存储在文件或者服务器上的QML代码创建元素，也可以直接从包含QML代码的文本字符串中创建QML对象。动态创建项也类似的方式再处理一次就可以了。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/dynamically_instantiating_items_from_text/</guid>
+      <description>从文本中动态实例化项（Dynamically Instantiating Items from Text） #  有时，可以很方便的从QML文本字符串中实例化一个对象。别的不说，这比将代码从源文件中分离后拿出来快。为了实现这个功能，需要使用Qt.createQmlObject函数。
+这个函数接受三个参数：qml，parent和filepath。qml参数包含了用来实例化的QML代码字符串。parent参数为新创建的对象提供了一个父对象。filepath参数用于存储创建对象时的错误报告。这个函数的结果返回一个新的对象或者一个NULL。
+警告
+createQmlObject函数通常会立即返回结果。为了成功调用这个函数，所有的依赖调用需要保证已经被加载。这意味着如果函数调用了未加载的组件，这个调用就会失败并且返回null。为了更好的处理这个问题，必须使用createComponent/createObject方法。
+使用Qt.createQmlObject函数创建对象与其它的动态创建对象类似。这说明与其它创建的QML对象一样，也没有id。在下面的例子中，当根元素创建完成后，从内联QML代码中实例化了一个新的矩形元素（Rectangle element）。
+import QtQuick 2.0 Item { id: root width: 1024 height: 600 function createItem() { Qt.createQmlObject(&amp;#34;import QtQuick 2.0; Rectangle { x: 100; y: 100; width: 100; height:100; color: \&amp;#34;blue\&amp;#34; }&amp;#34;, root, &amp;#34;dynamicItem&amp;#34;); } Component.onCompleted: root.createItem(); } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/dynamically_loading_and_instantiating_items/</guid>
+      <description>（动态加载和实例化项）Dynamically Loading and Instantiating Items #  加载一块QML代码时，它首先会被解释执行为一个组件。这一步包含了加载依赖和验证代码。QML的来源可以是本地文件，Qt资源文件，或者一个指定的URL网络地址。这意味着加载时间不确定。例如一个不需要加载任何依赖位于内存（RAM）中的Qt资源文件加载非常快，或者一个需要加载多种依赖位于一个缓慢的服务器中加载需要很长的时间。
+创建一个组件的状态可以用来跟踪它的状态属性。可以使用的状态值包括组件为空（Component.NULL）、组件加载中（Component.Loading）、组件可用（Component.Ready）和组件错误（Component.Error）。从空（NULL）状态到加载中（Loading）再到可用（Ready）通常是一个工作流。在任何一个阶段状态都可以变为错误（Error）。在这种情况下，组件无法被用来创建新的对象实例。Component.errorString()函数用来检索用户可读的错误描述。
+当加载连接缓慢的组件时，可以使用进度（progress）属性。它的范围从0.0意味着为加载任何东西，到1.0表明加载已完成。当组件的状态改变为可用（Ready）时，组件可以用实例化对象。下面的代码演示了如何实现这样的方法，考虑组件变为可用或者创建失败，同时组件加载时间可能会比较慢。
+var component; function createImageObject() { component = Qt.createComponent(&amp;#34;dynamic-image.qml&amp;#34;); if (component.status === Component.Ready || component.status === Component.Error) finishCreation(); else component.statusChanged.connect(finishCreation); } function finishCreation() { if (component.status === Component.Ready) { var image = component.createObject(root, {&amp;#34;x&amp;#34;: 100, &amp;#34;y&amp;#34;: 100}); if (image == null) console.log(&amp;#34;Error creating image&amp;#34;); } else if (component.status === Component.Error) console.log(&amp;#34;Error loading component:&amp;#34;, component.errorString()); } 上面的代码是源文件中的JavaScript代码，来自main QML文件。
+import QtQuick 2.0 import &amp;#34;create-component.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/loading_components_dynamically/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/loading_components_dynamically/</guid>
+      <description>动态加载组件（Loading Components Dynamically） #  动态加载QML不同组成部分最简单的方法是使用加载元素项（Loader element）。它作为一个占位符项用来加载项。项的加载通过资源属性（source property）或者资源组件（sourceCompontent）属性控制。加载元素项通过给定的URL链接加载项，然后实例化一个组件。
+加载元素项（loader）作为一个占位符用于被加载项的加载。它的大小基于被加载项的大小而定，反之亦然。如果加载元素定义了大小，或者通过锚定（anchoring）定义了宽度和高度，被加载项将会被设置为加载元素项的大小。如果加载元素项没有设置大小，它将会根据被加载项的大小而定。
+下面例子演示了使用加载元素项（Loader Element）将两个分离的用户界面部分加载到一个相同的空间。这个主意是我们有一个快速拨号界面，可以是数字界面或模拟界面。如下面插图所示。表盘周围的数字不受被加载项影响。
+  首先，在应用程序中声明一个加载元素项（Loader element）。注意，资源属性（source property）已经被忽略。这是因为资源取决于当前用户界面状态。
+Loader { id: dialLoader anchors.fill: parent } 拨号加载器（dialLoader）的父项的状态属性改变元素驱动根据不同状态加载不同的QML文件。在这个例子中，资源属性（source property）是一个相对文件路径，但是它可以是一个完整的URL链接，通过网络获取加载项。
+ states: [ State { name: &amp;#34;analog&amp;#34; PropertyChanges { target: analogButton; color: &amp;#34;green&amp;#34;; } PropertyChanges { target: dialLoader; source: &amp;#34;Analog.qml&amp;#34;; } }, State { name: &amp;#34;digital&amp;#34; PropertyChanges { target: digitalButton; color: &amp;#34;green&amp;#34;; } PropertyChanges { target: dialLoader; source: &amp;#34;Digital.qml&amp;#34;; } } ] 为了使被加载项更加生动，它的速度属性必须根项的速度属性绑定。不能够使用直接绑定来绑定属性，因为项不是总在加载，并且这会随着时间而改变。需要使用一个东西来替换绑定元素（Binding Element）。绑定目标属性（target property），每次加载元素项改变时会触发已加载完成（onLoaded）信号。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/managing_dynamically_created_elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/managing_dynamically_created_elements/</guid>
+      <description>管理动态创建的元素（Managing Dynamically Created Elements） #  在QML场景下，动态创建的对象可以像其它的对象一样处理。然而，也有一些缺陷需要处理。最重要的是创建环境的概念。
+一个动态创建对象的创建环境是它被创建时的环境。这与它的父对象所在的环境不一定相同。当创建环境被销毁，会影响涉及绑定属性的对象。这意味着在对象的整个生命周期，在代码的一个地方实现动态对象创建是非常重要的。
+动态创建的对象也可以动态销毁。当这样做时，有一个法则：永远不要尝试销毁一个你没有创建的对象。这也包括你已经创建的元素，但不要使用动态机制比如Component.createObject或者createQmlObject。
+对象的销毁依赖于它的析构函数被调用。这个函数接收一个可选参数用于指定这个对象还可以存在多少毫秒后被销毁。这是非常有用的，例如让对象完成一个完整的过渡。
+item = Qt.createQmlObject(...); ... item.destroy(); 注意
+可以从一个对象内部实现销毁，例如创建一个可以自销毁的弹出窗口。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/README/</guid>
+      <description>动态QML（Dynamic QML） #  到现在，我们已经将QML作为一个工具用来构造静态场景和静态场景的导航。根据不同的状态和逻辑规则，一个实时动态的用户界面已经被创建。通过使用QML和JavaScript以更加动态的方式，进一步的扩大灵活性。组件可以在运行时加载和实例化，元素能够被销毁。动态创建的用户界面能够被存储在磁盘上，并且恢复。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/summary/</guid>
+      <description>总结（Summary） #  在这一章中，我们主要讨论了动态创建QML元素。折让我们可以自由的创建QML场景，了解了用户可配置与插件结构。
+动态加载一个QML元素最简单的方法是使用加载元素（Loader element）。它可以作为一个占位符内容被加载。
+使用一种更加动态的方法，Qt.createQmlObject方法可以用于实例化QML字符串。然后这种方法有局限性。最全面的解决方案是动态创建使用Qt.createComponent函数创建组件。然后通过调用组件的createObject函数来创建对象。
+由于绑定与信号连接依赖于对象id，或者访问实例化对象。对于动态创建的对象需要另外一种方法，为了创建绑定，需要使用绑定元素（Binding element），连接元素（Connections element）使得与动态创建对象连接信号成为可能。
+对于动态创建项，最大的挑战是跟踪它们。可以使用链表模型（ListModel）来完成这件事。有了一个模型用来跟踪动态创建项，可以实现序列化和反序列化函数，可以存储和恢复动态创建场景。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/tracking_dynamic_objects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/dynamic_qml/tracking_dynamic_objects/</guid>
+      <description>跟踪动态对象（Tracking Dynamic Objects） #  处理动态对象时，通常需要跟踪已创建的对象。另一个常见的功能是能够存储和恢复动态对象的状态。在我们动态填充时，使用链表模型（ListModel）可以非常方便的处理这些问题。
+在下面的例子中包含了两种元素，火箭和飞机，能够被用户创建和移动。为了控制整个场景动态创建元素，我们使用一个模型来跟踪项。
+待完成
+插图
+模型是一个链表模型（ListModel），用已创建的项进行填充。实例化时跟踪对象引用的资源URL。后者不是需要严格跟踪的对象，但是以后会派上用场。
+import QtQuick 2.0 import &amp;#34;create-object.js&amp;#34; as CreateObject Item { id: root ListModel { id: objectsModel } function addPlanet() { CreateObject.create(&amp;#34;planet.qml&amp;#34;, root, itemAdded); } function addRocket() { CreateObject.create(&amp;#34;rocket.qml&amp;#34;, root, itemAdded); } function itemAdded(obj, source) { objectsModel.append({&amp;#34;obj&amp;#34;: obj, &amp;#34;source&amp;#34;: source}) } 你可以从上面的例子中看到，create-object.js是一种使得JavaScript引进更加简单的、普遍的方法。创建方法使用了三个参数：一个资源URL，一个根元素和一个完成的回调函数。回调需要两个参数：一个新创建的对象引用和一个资源URL。
+这意味着每一次调用addPlanet或者addRocket时，当新建对象被创建完成后悔调用itemAdded函数。后者会将对象的引用和资源URL添加到objectsModel模型中。
+可以在很多方面使用objectsModel。在示例中，clearItems函数依赖它。这个函数证明了两个事情。首先，如何遍历模型和执行一个任务，即调用析构函数来移除每一个项。其次，它强调了模型不会更新已经销毁的对象。此外移除模型项已连接的对象问题，模型项的对象属性设置为null，为了补救这个问题，代码显式的清除了已移除对象的模型项。
+ function clearItems() { while(objectsModel.count &amp;gt; 0) { objectsModel.get(0).obj.destroy(); objectsModel.remove(0); } } 通过设置XmlListModel模型的xml属性可以处理XML文档字符串。代码如下，模型展示了反序列化函数。反序列化函数通过设置dsIndex引用模型的第一个项来启动反序列化，然后调用项的创建。然后回调dsItemAdded设置新创建对象的x,y属性，然后更新索引创建下一个对象。
+ XmlListModel { id: xmlModel query: &amp;#34;/scene/item&amp;#34; XmlRole { name: &amp;#34;source&amp;#34;; query: &amp;#34;source/string()&amp;#34; } XmlRole { name: &amp;#34;x&amp;#34;; query: &amp;#34;x/string()&amp;#34; } XmlRole { name: &amp;#34;y&amp;#34;; query: &amp;#34;y/string()&amp;#34; } } function deserialize() { dsIndex = 0; CreateObject.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/creating_the_plugin/</guid>
+      <description>创建插件（Creating the plugin） #  Qt Creator包含了一个创建QtQuick 2 QML Extension Plugin向导，我们使用它来创建一个叫做fileio 的插件，这个插件包含了一个从org.example.io中启动的FileIO对象。
+插件类源于QQmlExtensionPlugin，并且实现了registerTypes() 函数。Q_PLUGIN_METADATA是强制标识这个插件作为一个qml扩展插件。除此之外没有其它特殊的地方了。
+#ifndef FILEIO_PLUGIN_H #define FILEIO_PLUGIN_H #include &amp;lt;QQmlExtensionPlugin&amp;gt; class FileioPlugin : public QQmlExtensionPlugin { Q_OBJECT Q_PLUGIN_METADATA(IID &amp;#34;org.qt-project.Qt.QQmlExtensionInterface&amp;#34;) public: void registerTypes(const char *uri); }; #endif // FILEIO_PLUGIN_H 在实现registerTypes中我们使用qmlRegisterType函数注册了我们的FileIO类。
+#include &amp;#34;fileio_plugin.h&amp;#34; #include &amp;#34;fileio.h&amp;#34; #include &amp;lt;qqml.h&amp;gt; void FileioPlugin::registerTypes(const char *uri) { // @uri org.example.io qmlRegisterType&amp;lt;FileIO&amp;gt;(uri, 1, 0, &amp;#34;FileIO&amp;#34;); } 有趣的是我们不能在这里看到模块统一资源标识符（例如org.example.io）。这似乎是从外面设置的。
+看你查找你的项目文件夹是，你会发现一个qmldir文件。这个文件指定了你的qml插件内容或者最好是你插件中关于QML的部分。它看起来应该像这样。
+module org.example.io plugin fileio 模块是统一资源标识符，在统一标识符下插件能够被其它插件获取，并且插件行必须与插件文件名完全相同（在mac下，它将是libfileio_debug.dylib存在于文件系统上，fileio在qmldir中）。这些文件由Qt Creator基于给定的信息创建。模块的标识符在.pro文件中同样可用。用来构建安装文件夹。
+当你在构建文件夹中调用make install时，将会拷贝库文件到Qtqml 文件夹中（在Qt5.4之后mac上这将在~/Qt/5.4/clang_64/qml文件夹中。这个路径依赖Qt按住那个位置，并且使用系统上的编译器）。你将会在org/example/io文件夹中发现库文件。目前包含两个文件。
+libfileio_debug.dylib qmldir 当导入一个叫做org.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/fileio_implementation/</guid>
+      <description>FileIO实现（FileIO Implementation） #  类FileIO实现很简单。记住编程接口我们想要创建的像这样。
+class FileIO : public QObject { ... Q_PROPERTY(QUrl source READ source WRITE setSource NOTIFY sourceChanged) Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged) ... public: Q_INVOKABLE void read(); Q_INVOKABLE void write(); ... } 我们将保留属性，因为它们是简单的设置者和获取者。
+读取方法在读取模式下打开一个文件并且使用一个文本流读取数据。
+void FileIO::read() { if(m_source.isEmpty()) { return; } QFile file(m_source.toLocalFile()); if(!file.exists()) { qWarning() &amp;lt;&amp;lt; &amp;#34;Does not exits: &amp;#34; &amp;lt;&amp;lt; m_source.toLocalFile(); return; } if(file.open(QIODevice::ReadOnly)) { QTextStream stream(&amp;amp;file); m_text = stream.readAll(); emit textChanged(m_text); } } 当文本变化时，使用emit textChanged(m_text)需要通知其它对象这个变化。否则属性绑定无法工作。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/finishing_touch/</guid>
+      <description>收尾工作（Finishing Touch） #  这个应用程序还没有真正的完成。我们想要显示旗帜，并允许用户通过从数据模型中移除城市来修改文档。
+这些旗帜被存放在main.qml文件夹下的flags文件夹中。为了在表格列中显示它们，我们需要定义一个渲染旗帜图片的代理。
+TableViewColumn { delegate: Item { Image { anchors.centerIn: parent source: &amp;#39;flags/&amp;#39; + styleData.value } } role: &amp;#39;flag&amp;#39; title: &amp;#34;Flag&amp;#34; width: 40 } 它将JS数据模型中暴露的flag属性作为styleData.value交给代理。代理调整图片路径，并在路径前面加上&#39;flags/&#39;并显示它。
+对于移除，我们使用相似的技巧来显示一个移除按钮。
+TableViewColumn { delegate: Button { iconSource: &amp;#34;remove.png&amp;#34; onClicked: { var data = view.model data.splice(styleData.row, 1) view.model = data } } width: 40 } 数据移除操作，我们坚持从视图模型上获取数据，然后使用JS的splice函数移除一个条目。这个方法提供给我们的模型来自一个JS数组。splice方法通过移除已有元素，添加新的元素来改变数组内容。
+一个JS数组不如一个Qt模型智能，例如QAbstractItemModel，它无法通知视图行更新或者数据更新。由于视图无法接收到任何更新的通知，它无法更新数据显示。只有在我们将数据重新设置回视图时，视图才会知道有新的数据需要刷新视图内容。使用view.model = data再次设置数据模型可以让视图知道有数据更新。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/formatting_the_table/</guid>
+      <description>格式化表格（Formatting the Table） #  城市数据的内容应该被现实在一个表格中。我们使用TableView 控制并定义4列：城市，国家，面积，人口。每一列都是典型的TableViewColumn。然后我们添加列的标识并移除要求自定义列代理的操作。
+TableView { id: view anchors.fill: parent TableViewColumn { role: &amp;#39;city&amp;#39; title: &amp;#34;City&amp;#34; width: 120 } TableViewColumn { role: &amp;#39;country&amp;#39; title: &amp;#34;Country&amp;#34; width: 120 } TableViewColumn { role: &amp;#39;area&amp;#39; title: &amp;#34;Area&amp;#34; width: 80 } TableViewColumn { role: &amp;#39;population&amp;#39; title: &amp;#34;Population&amp;#34; width: 80 } } 现在应用程序能够显示一个包含文件菜单的菜单栏和一个包含4个表头的空表格。下一步是我们的FileIO扩展将有用的数据填充到表格中。
+ 文档cities.json是一组城市条目。这里是一个例子。
+[ { &amp;#34;area&amp;#34;: &amp;#34;1928&amp;#34;, &amp;#34;city&amp;#34;: &amp;#34;Shanghai&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;China&amp;#34;, &amp;#34;flag&amp;#34;: &amp;#34;22px-Flag_of_the_People&amp;#39;s_Republic_of_China.svg.png&amp;#34;, &amp;#34;population&amp;#34;: &amp;#34;13831900&amp;#34; }, ... ] 我们任务是允许用户选择文件，读取它，转换它，并将它设置到表格视图中。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/plugin_content/</guid>
+      <description>插件内容（Plugin Content） #  插件是一个已定义接口的库，它只在需要时才被加载。这与一个库在程序启动时被链接和加载不同。在QML场景下，这个接口叫做QQmlExtensionPlugin。我们关心其中的两个方法initializeEngine()和registerTypes()。当插件被加载时，首先会调用initializeEngine()，它允许我们访问引擎将插件对象暴露给根上下文。大多数时候你只会使用到registerTypes()方法。它允许你注册你自定义的QML类型到引擎提供的地址上。
+我们稍微退一步考虑一个潜在的文件IO类型，它允许我们在QML中读取/写入一个小型文本文件。第一次的迭代可能看起来像在嘲笑QML的实现。
+// FileIO.qml (good) QtObject { function write(path, text) {}; function read(path) { return &amp;#34;TEXT&amp;#34;} } 这是一个纯粹的qml可能的实现，C++基于QML编程接口来探索一些编程接口。我们看到我们有一个读取和写入函数。写入函数需要一个路径和一个文本，读取函数需要一个路径，返回一个文本。路径和文本看起来是公共参数，或许我们可以将它们提取作为属性。
+// FileIO.qml (better) QtObject { property url source property string text function write() { // open file and write text }; function read() { // read file and assign to text }; } 当然这看起来更像一个QML编程接口。我们使用属性让我们的环境能够绑定我们的属性并且响应变化。
+在C++中创建这个编程接口我们需要创建类似的一个接口。
+class FileIO : public QObject { ... Q_PROPERTY(QUrl source READ source WRITE setSource NOTIFY sourceChanged) Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged) .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/reading_data/</guid>
+      <description>读取数据（Reading Data） #  我们让打开动作打开一个文件对话框。当用户已选择一个文件后，在文件对话框上的onAccepted方法被调用。这里我们调用readDocument()函数。readDocument函数将来自文件对话框的地址设置到我们的FileIO对象，并调用read()方法。从FileIO中加载的文本使用JSON.parse()方法解析，并将结果对象作为数据模型直接设置到表格视图上。这样非常方便。
+Action { id: open ... onTriggered: { openDialog.open() } } ... FileDialog { id: openDialog onAccepted: { root.readDocument() } } function readDocument() { io.source = openDialog.fileUrl io.read() view.model = JSON.parse(io.text) } FileIO { id: io } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/README/</guid>
+      <description>C++扩展QML（Extending QML with C++） #  QML执行在受限的空间中，QML作为一种语言提供的功能有时是被限制的。通过C++写的本地函数可以扩展QML运行时的功能。应用程序可以充分利用基础平台的性能和自由度。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/summary/</guid>
+      <description>总结（Summary） #  插件的创建非常简单，但是它可以复用，并且为不同的应用程序扩展类型。使用创建的插件是非常灵活的解决方案。例如你可以只使用qmlscene开始创建UI。打开CityUI项目文件夹，从qmlscene的main.qml开始。我真的鼓励大家使用与qmlscene一起工作的方式写应用程序。对于UI开发者，这将是一个巨大的改变，也是一个好的习惯来保证清晰的分离。
+使用插件有一个缺点，对于简单的应用程序开发增加了难度。你需要为你的应用程序开发插件。如果这是一个问题，你也可以使用与FileIO对象相同的机制使用qmlRegisterType直接注册到你的main.cpp中。QML代码保持一样就可以了。
+通常在大型项目中，你不会像这样使用应用程序。你有一个与qmlscene类似的简单的qml运行环境，并且需要所有本地的功能插件。你的项目使用这些qml扩展插件，也是简单纯粹的qml项目。这为UI的变换提供了最大的灵活性并移除了编译步骤。在编辑完成一个QML文件后，你只需要运行UI。这允许用户界面开发者保持灵活性并迅速的使所有的小修改立刻得到响应。
+插件提供了健壮和清晰的C++后台开发与QML前端开发的分离。当开发QML插件时，通常在QML端有一个想法，并在使用C+=实现前，可以使用QML的样本模型进行API验证。如果API是C++人员写的，通常会犹豫去改变它或者重写它。复制一个QML提供的API通常更加灵活并且初始投资更少。当使用插件切换一个样本模型API和一个真是API时，仅仅只需要改变qml运行环境的导入路径。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/the_application_window/</guid>
+      <description>应用程序窗口（The Application Window） #  使用Qt Creator的QtQuick Application向导创建一个基于QtQuick controls的应用程序。我们将不再使用新的QML格式，这在一本书里面将很难解释，即使新格式使用ui.qml文件将比之前更加容易达到目的。所以你可以移除/删除格式文件。
+一个应用程序窗口基础配置包含了一个工具栏，菜单栏和状态栏。我们只使用菜单栏创建一些典型的菜单条目来打开和保存文档。基础配置的窗口只会显示一个空的窗口。
+import QtQuick 2.4 import QtQuick.Controls 1.3 import QtQuick.Window 2.2 import QtQuick.Dialogs 1.2 ApplicationWindow { id: root title: qsTr(&amp;#34;City UI&amp;#34;) width: 640 height: 480 visible: true } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/understanding_the_qml_run-time/</guid>
+      <description>理解QML运行环境（Understanding the QML Run-time） #  当运行QML时，它在一个运行时环境下执行。这个运行时环境是由QtQml模块下的C++代码实现的。它由一个负责执行QML的引擎，持有访问每个组件属性的上下文和实例化的QML元素组件构成。
+#include &amp;lt;QtGui&amp;gt; #include &amp;lt;QtQml&amp;gt; int main(int argc, char **argv) { QGuiApplication app(argc, argv); QUrl source(QStringLiteral(&amp;#34;qrc:/main.qml&amp;#34;)); QQmlApplicationEngine engine; engine.load(source); return app.exec(); } 在这个例子中，QGuiApplication封装了所有与应用程序引用相关的属性（例如应用程序名称，命令行参数，和事件循环管理）。QQmlApplicationEngine分层管理上下文和组件的顺序。它需要加载一个典型的qml文件作为应用程序的开始点。在这个例子中，main.qml包含了以一个窗口和一个文本。
+注意
+通过QmlApplicationEngine加载一个使用简单项作为根类型的main.qml不会在你的屏幕上显示任何东西，它需要一个窗口来管理一个平面的渲染。引擎可以加载不包含任何用户界面的qml代码（例如一个纯粹的对象）。由于它不会默认为你创建一个窗口。qmlcene或者新的qml运行环境将会在内部首先检查main.qml文件是否包含一个窗口作为根项，如果没有包含将会为你创建一个并且设置根项作为新创建窗口的子项。
+import QtQuick 2.4 import QtQuick.Window 2.0 Window { visible: true width: 512 height: 300 Text { anchors.centerIn: parent text: &amp;#34;Hello World!&amp;#34; } } 在QML文件中我们定义我们的依赖是QtQuick和QtQuick.Window。这些定义将会触发在导入的路径中查找这些模块，并在加载成功后由引擎加载需要的插件。新加载的类型将会倍qmldir控制在qml文件中可用。
+当然也可以使用快速创建插件直接向引擎添加我们的自定义类型。这里我们假设我们有一个基于QObject的CurrentTime类。
+QQmlApplicationEngine engine; qmlRegisterType&amp;lt;CurrentTime&amp;gt;(&amp;#34;org.example&amp;#34;, 1, 0, &amp;#34;CurrentTime&amp;#34;); engine.load(source); 现在我们也可可以在我们的qml文件中使用CurrentTime类型。
+import org.example 1.0 CurrentTime { // access properties, functions, signals } 一种更偷懒的方式是通过上下文属性直接设置。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/using_actions/</guid>
+      <description>使用动作（Using Actions） #  为了更好的使用/复用我们的命令，我们使用QMLAction类型。这将允许我们在后面可以使用相同的动作，也可以用于潜在的工具栏。打开，保存和退出动作是标准动作。打开和保存动作不会包含任何逻辑，我们后面再来添加。菜单栏由一个文件菜单和这三个动作条目组成。此外我们已经准备了一个文件对话框，它可以让我们选择我们的城市文档。对话框在定义时是不可见的，需要使用open()方法来显示它。
+... Action { id: save text: qsTr(&amp;#34;&amp;amp;Save&amp;#34;) shortcut: StandardKey.Save onTriggered: { } } Action { id: open text: qsTr(&amp;#34;&amp;amp;Open&amp;#34;) shortcut: StandardKey.Open onTriggered: {} } Action { id: exit text: qsTr(&amp;#34;E&amp;amp;xit&amp;#34;) onTriggered: Qt.quit(); } menuBar: MenuBar { Menu { title: qsTr(&amp;#34;&amp;amp;File&amp;#34;) MenuItem { action: open } MenuItem { action: save } MenuSeparator { } MenuItem { action: exit } } } ... FileDialog { id: openDialog onAccepted: { } } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/using_fileio/</guid>
+      <description>使用FileIO（Using FileIO） #  现在我们可以使用新创建的文件访问一些简单的数据。这个例子中我们想要读取一个JSON格式下的城市数据并且在表格中显示。我们将使用两个项目，一个是扩展插件项目（叫做fileio），提供读取和写入文件的方法。另外一个项目通过fileio读取/写入文件将数据显示在表格中（CityUI）。这个例子中使用的数据在cities.json文件中。
+ JSON只是文本，它被格式化为可以转换为一个有效的JS对象/数组并返回一个文本。我们使用FileIO读取格式化的JSON数据并使用JSON.parse()将它转换为一个JS对象。数据在后面被用作一个表格视图的数据模型。我们粗略的阅读函数文档就可以获取这些内容。为了保存数据我们将转换回文本格式并使用写入函数保存。
+城市的JSON数据是一个格式化文本文件，包含了一组城市数据条目，每个条目包含了关于城市数据。
+[ { &amp;#34;area&amp;#34;: &amp;#34;1928&amp;#34;, &amp;#34;city&amp;#34;: &amp;#34;Shanghai&amp;#34;, &amp;#34;country&amp;#34;: &amp;#34;China&amp;#34;, &amp;#34;flag&amp;#34;: &amp;#34;22px-Flag_of_the_People&amp;#39;s_Republic_of_China.svg.png&amp;#34;, &amp;#34;population&amp;#34;: &amp;#34;13831900&amp;#34; }, ... ] </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/extending_qml_with_c&#43;&#43;/writing_data/</guid>
+      <description>写入数据（Writing Data） #  我们连接保存动作到saveDocument()函数来保存文档。保存文档函数从视图中取出模型，模型是一个JS对象，并使用JSON.stringify()函数将它转换为一个字符串。将结果字符串设置到FileIO对象的文本属性中，并调用write()来保存数据到磁盘中。在stringify函数上参数null和4将会使用4个空格缩进格式化JSON数据结果。这只是为了保存文档更好阅读。
+Action { id: save ... onTriggered: { saveDocument() } } function saveDocument() { var data = view.model io.text = JSON.stringify(data, null, 4) io.write() } FileIO { id: io } 从根本上说，这个应用程序就是读取，写入和现实一个JSON文档。考虑下如果使用XML格式读取和写入，会花多少时间。使用JSON格式你只需要读取/写入一个文本文件或者发送/接收一个文本缓存。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/advanced_techniques/</guid>
+      <description>高级用法（Advanced Techniques） #  后续添加。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/animations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/animations/</guid>
+      <description>动画（Animations） #  动画被用于属性的改变。一个动画定义了属性值改变的曲线，将一个属性值变化从一个值过渡到另一个值。动画是由一连串的目标属性活动定义的，平缓的曲线算法能够引发一个定义时间内属性的持续变化。所有在QtQuick中的动画都由同一个计时器来控制，因此它们始终都保持同步，这也提高了动画的性能和显示效果。
+注意
+动画控制了属性的改变，也就是值的插入。这是一个基本的概念，QML是基于元素，属性与脚本的。每一个元素都提供了许多的属性，每一个属性都在等待使用动画。在这本书中你将会看到这是一个壮阔的场景，你会发现你自己在看一些动画时欣赏它们的美丽并且肯定自己的创造性想法。然后请记住：动画控制了属性的改变，每个元素都有大量的属性供你任意使用。
+ // animation.qml import QtQuick 2.0 Image { source: &amp;#34;assets/background.png&amp;#34; Image { x: 40; y: 80 source: &amp;#34;assets/rocket.png&amp;#34; NumberAnimation on x { to: 240 duration: 4000 loops: Animation.Infinite } RotationAnimation on rotation { to: 360 duration: 4000 loops: Animation.Infinite } } } 上面这个例子在x坐标和旋转属性上应用了一个简单的动画。每一次动画持续4000毫秒并且永久循环。x轴坐标动画展示了火箭的x坐标逐渐移至240，旋转动画展示了当前角度到360度的旋转。两个动画同时运行，并且在加载用户界面完成后开始。
+现在你可以通过to属性和duration属性来实现动画效果。或者你可以在opacity或者scale上添加动画作为例子，集成这两个参数，你可以实现火箭逐渐消失在太空中，试试吧!
+5.1.1 动画元素（Animation Elements） #  有几种类型的动画，每一种都在特定情况下都有最佳的效果，下面列出了一些常用的动画：
+  PropertyAnimation（属性动画）- 使用属性值改变播放的动画
+  NumberAnimation（数字动画）- 使用数字改变播放的动画
+  ColorAnimation（颜色动画）- 使用颜色改变播放的动画
+  RotationAnimation（旋转动画）- 使用旋转改变播放的动画</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/README/</guid>
+      <description>动态元素（Fluid Elements） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+到目前为止，我们已经介绍了简单的图形元素和怎样布局，怎样操作它们。这一章介绍如何控制属性值的变化，通过动画的方式在一段时间内来改变属性值。这项技术是建立一个现代化的平滑界面的基础，通过使用状态和过渡来扩展你的用户界面。每一种状态定义了属性的改变，与动画联系起来的状态改变称作过渡。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/states_and_transitions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/fluid_elements/states_and_transitions/</guid>
+      <description>状态与过渡（States and Transitions） #  通常我们将用户界面描述为一种状态。一个状态定义了一组属性的改变，并且会在一定的条件下被触发。另外在这些状态转化的过程中可以有一个过渡，定义了这些属性的动画或者一些附加的动作。当进入一个新的状态时，动作也可以被执行。
+5.2.1 状态（States） #  在QML中，使用State元素来定义状态，需要与基础元素对象（Item）的states序列属性连接。状态通过它的状态名来鉴别，由组成它的一系列简单的属性来改变元素。默认的状态在初始化元素属性时定义，并命名为“”（一个空的字符串）。
+ Item { id: root states: [ State { name: &amp;#34;go&amp;#34; PropertyChanges { ... } }, State { name: &amp;#34;stop&amp;#34; PropertyChanges { ... } } ] } 状态的改变由分配一个元素新的状态属性名来完成。
+注意
+另一种切换属性的方法是使用状态元素的when属性。when属性能够被设置为一个表达式的结果，当结果为true时，状态被使用。
+ Item { id: root states: [ ... ] Button { id: goButton ... onClicked: root.state = &amp;#34;go&amp;#34; } }  例如一个交通信号灯有两个信号灯。上面的一个信号灯使用红色，下面的信号灯使用绿色。在这个例子中，两个信号灯不会同时发光。让我们看看状态图。
+ 当系统启动时，它会自动切换到停止模式作为默认状态。停止状态改变了light1为红色并且light2为黑色（关闭）。一个外部的事件能够触发现在的状态变换为“go”状态。在go状态下，我们改变颜色属性，light1变为黑色（关闭），light2变为绿色。
+为了实现这个方案，我们给这两个灯绘制一个用户界面的草图，为了简单起见，我们使用两个包含园边的矩形框，设置园半径为宽度的一半（宽度与高度相同）。
+ Rectangle { id: light1 x: 25; y: 15 width: 100; height: width radius: width/2 color: &amp;#34;black&amp;#34; } Rectangle { id: light2 x: 25; y: 135 width: 100; height: width radius: width/2 color: &amp;#34;black&amp;#34; } 就像在状态图中定义的一样，我们有一个“go”状态和一个“stop”状态，它们将会分别将交通灯改变为红色和绿色。我们设置state属性到stop来确保初始化状态为stop状态。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/application_types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/application_types/</guid>
+      <description>应用程序类型（Application Types） #  这一节贯穿了可能使用Qt5编写的不同类型的应用程序。没有任何建议的选择，只是想告诉读者Qt5通常情况下能做些什么。
+2.3.1 控制台应用程序 #  一个控制台应用程序不需要提供任何人机交互图形界面通常被称作系统服务，或者通过命令行来运行。Qt5附带了一系列现成的组件来帮助你非常有效的创建跨平台的控制台应用程序。例如网络应用程序编程接口或者文件应用程序编程接口，字符串的处理，自Qt5.1发布的高效的命令解析器。由于Qt是基于C++的高级应用程序接口，你能够快速的编程并且程序拥有快速的执行速度。不要认为Qt仅仅只是用户界面工具，它也提供了许多其它的功能。
+字符串处理
+在第一个例子中我们展示了怎样简单的增加两个字符串常量。这不是一个有用的应用程序，但能让你了解本地端C++应用程序没有事件循环时是什么样的。
+// module or class includes #include &amp;lt;QtCore&amp;gt; // text stream is text-codec aware QTextStream cout(stdout, QIODevice::WriteOnly); int main(int argc, char** argv) { // avoid compiler warnings Q_UNUSED(argc) Q_UNUSED(argv) QString s1(&amp;#34;Paris&amp;#34;); QString s2(&amp;#34;London&amp;#34;); // string concatenation QString s = s1 + &amp;#34; &amp;#34; + s2 + &amp;#34;!&amp;#34;; cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; endl; } 容器类
+这个例子在应用程序中增加了一个链表和一个链表迭代器。Qt自带大量方便使用的容器类，并且其中的元素使用相同的应用程序接口模式。
+QString s1(&amp;#34;Hello&amp;#34;); QString s2(&amp;#34;Qt&amp;#34;); QList&amp;lt;QString&amp;gt; list; // stream into containers list &amp;lt;&amp;lt; s1 &amp;lt;&amp;lt; s2; // Java and STL like iterators QListIterator&amp;lt;QString&amp;gt; iter(list); while(iter.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/hello_world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/hello_world/</guid>
+      <description>你好世界（Hello World） #  为了测试你的安装，我们创建一个简单的应用程序hello world.打开Qt Creator并且创建一个Qt Quick UI Project（File-&amp;gt;New File 或者 Project-&amp;gt; Qt Quick Project -&amp;gt; Qt Quick UI）并且给项目取名 HelloWorld。
+注意
+Qt Creator集成开发环境允许你创建不同类型的应用程序。如果没有另外说明，我们都创建Qt Quick UI Project。
+提示
+一个典型的Qt Quick应用程序在运行时解释，与本地插件或者本地代码在运行时解释代码一样。对于才开始的我们不需要关注本地端的解释开发，只需要把注意力集中在Qt5运行时的方面。
+Qt Creator将会为我们创建几个文件。HellWorld.qmlproject文件是项目文件，保存了项目的配置信息。这个文件由Qt Creator管理，我们不需要编辑它。
+另一个文件HelloWorld.qml保存我们应用程序的代码。打开它，并且尝试想想这个应用程序要做什么，然后再继续读下去。
+// HelloWorld.qml import QtQuick 2.0 Rectangle { width: 360 height: 360 Text { anchors.centerIn: parent text: &amp;#34;Hello World&amp;#34; } MouseArea { anchors.fill: parent onClicked: { Qt.quit(); } } } HelloWorld.qml使用QML语言来编写。我们将在下一章更深入的讨论QML语言，现在只需要知道它描述了一系列有层次的用户界面。这个代码指定了显示一个360乘以360像素的一个矩形，矩形中间有一个“Hello World&amp;quot;的文本。鼠标区域覆盖了整个矩形，当用户点击它时，程序就会退出。
+你自己可以运行这个应用程序，点击左边的运行或者从菜单选择select Bulid-&amp;gt;Run。
+如果一切顺利，你将看到下面这个窗口：
+ Qt 5似乎已经可以工作了，我们接着继续。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/qt5installing_qt_5_sdk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/qt5installing_qt_5_sdk/</guid>
+      <description>安装Qt5软件工具包（Installing Qt 5 SDK） #  Qt软件工具包包含了编译桌面或者嵌入式应用程序的工具。最新的版本可以从 Qt-Project下载。我们将使用这种方法开始。
+软件工具包自身包含了一个维护工具允许你更新到最新版本的软件工具包。
+Qt软件工具包非常容易安装，并且附带了一个它自身的快速集成开发环境叫做Qt Creator。这个集成开发环境可以让你高效的使用Qt进行开发，我们推荐给所有的读者使用。在任何情况下Qt都可以通过命令的方式来编译，你可以自由的选择你的代码编辑器。
+当你安装软件工具包时，你最好选择默认的选项确保Qt 5.x可以被使用。然后一切准备就绪。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/README/</guid>
+      <description>开始学习（Get Start） #  这一章介绍了如何使用Qt5进行开发。我们将告诉你如何安装Qt软件开发工具包（Qt SDK）和如何使用Qt Creator集成开发环境（Qt Creator IDE）创建并运行一个简单的hello word应用程序。
+注意
+这章的源代码能够在 assetts folder找到。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/summary/</guid>
+      <description>总结（ Summary） #  我们已经知道了如何安装Qt软件开发工具包，并且知道如何创建我们的应用。我们向你展示和概述了使用Qt开发不同类型的应用程序。展示Qt可以给你的应用程序开发提供的一些功能。我希望你对Qt留下一个好的印象，Qt是一个非常好的用户界面开发工具并且尽可能的提供了一个应用开发者期望的东西。当前你也不必一直锁定使用Qt，你也可以使用其它的库或者自己来扩展Qt。Qt对于不同类型的应用程序开发支持非常丰富：包括控制台程序，经典的桌面用户界面程序和触摸式用户界面程序。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/httpuiserving_ui_via_http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/httpuiserving_ui_via_http/</guid>
+      <description>通过HTTP服务用户界面（Serving UI via HTTP） #  通过HTTP加载一个简单的用户界面，我们需要一个web服务器，它为用户界面文档提供服务。但是首先我们需要有用户界面，我们在项目里创建一个创建了红色矩形框的main.qml。
+// main.qml import QtQuick 2.0 Rectangle { width: 320 height: 320 color: &amp;#39;#ff0000&amp;#39; } 我们加载一段python脚本来提供这个文件：
+$ cd &amp;lt;PROJECT&amp;gt; # python -m SimpleHTTPServer 8080 现在我们可以通过 http://localhost:8000/main.qml来访问，你可以像下面这样测试：
+$ curl http://localhost:8000/main.qml 或者你可以用浏览器来访问。浏览器无法识别QML，并且无法通过文档来渲染。我们需要创建一个可以浏览QML文档的浏览器。为了渲染文档，我们需要指出qmlscene的位置。不幸的是qmlscene只能读取本地文件。我们为了突破这个限制，我们可以使用自己写的qmlscene或者使用QML动态加载。我们选择动态加载的方式。我们选择一个加载元素来加载远程的文档。
+// remote.qml import QtQuick 2.0 Loader { id: root source: &amp;#39;http://localhost:8080/main2.qml&amp;#39; onLoaded: { root.width = item.width root.height = item.height } } 我们现在可以使用qmlscene来加载remote.qml文档。这里仍然有一个小问题。加载器将会调整加载项的大小。我们的qmlscene需要适配大小。可以使用&amp;ndash;resize-to-root选项来运行qmlscene。
+$ qmlscene --resize-to-root remote.qml 按照root元素调整大小，告诉qmlscene按照root元素的大小调它的窗口大小。remote现在从本地服务器加载main.qml，并且可以自动调整加载的用户界面。方便且简单。
+注意
+如果你不想使用一个本地服务器，你可以使用来自GitHub的gist服务。Gist是一个在线剪切板服务，就像PasteBin等等。可以在 https://gist.github.com下使用。我创建了一个简单的gist例子，地址是 https://gist.github.com/jryannel/7983492。这将会返回一个绿色矩形框。由于gist连接提供的是HTML代码，我们需要连接一个/raw来读取原始文件而不是HTML代码。
+// remote.qml import QtQuick 2.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/javascript/browserhtml_vs_qtquickqml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/javascript/browserhtml_vs_qtquickqml/</guid>
+      <description>浏览器/HTML与QtQuick/QML对比（Browser/HTML vs QtQuick/QML） #  浏览器在运行时渲染HTML，执行HTML中相关的JavaScript。现今的web应用中相对于HTML包含了更多的JavaScript。浏览器中JavaScript运行在一些浏览器附加的标准ECMAScript环境。一个典型的浏览器中的JS环境知道访问浏览器窗口的窗口对象。也简单的基于JQuery的DOM选择器来提供CSS选择器。额外使用setTimeout函数在超时时调用函数。除了这些，JS存在于一个标准的JavaScript环境，类似于QML/JS。
+不同的是JS出现在HTML与QML中的方式。在HTML中，你只能在事件操作（event handlers），例如页面加载（page loaded），鼠标点击（mouse pressed）中添加JS。例如通常在页面加载中初始化你的JS，这在QML中与组件加载完成（Component.onCompleted）类似。例如你不能使用JS来绑定属性（至少不是直接绑定，AngularJS增强了DOM树允许这种操作，但这和典型HTML相去甚远）。
+所以在QML中JS是一种更加优秀的语言，并且与QML的渲染树高度集成。使得语言更具有可读性。除了这些，开发过HTML/JS应用程序的人会觉得在QML/JS中开发非常容易上手。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/javascript/creating_a_js_console/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/javascript/creating_a_js_console/</guid>
+      <description>创建JS控制台（Creating a JS Console） #  下面这个小的例子我们将创建一个JS控制台。我们需要一个输入区域允许用户输入表达式，和一个结果输出列表。由于这更像一个桌面应用程序，我们使用QtQuick控制模块。
+注意
+在你下一个项目中包含一个JS控制台可以更好的用来测试。增加Quake-Terminal效果也有助于对你的客户留下更好的印象。为了更好的使用它，你需要评估JS控制台的控制范围，例如当前可见屏幕，核心数据模型，一个单例对象或者其它的东西。
+ 我们在Qt Creator中使用QtQuick controls创建一个Qt Quick UI项目。把这个项目取名为JSConsole。完成引导后，我们已经有了一个基础的应用程序框架，这个框架包含一个应用程序窗口和一个菜单。
+我们使用一个TextFiled来输入文本，使用一个Button来对输入求值。表达式求值结果使用一个机遇链表模型（ListModel）的链表视图（ListView）显示，每一个链表项使用两个标签显示表达式和求值结果。
+// part of JSConsole.qml ApplicationWindow { id: root ... ColumnLayout { anchors.fill: parent anchors.margins: 9 RowLayout { Layout.fillWidth: true TextField { id: input Layout.fillWidth: true focus: true onAccepted: { // call our evaluation function on root root.jsCall(input.text) } } Button { text: qsTr(&amp;#34;Send&amp;#34;) onClicked: { // call our evaluation function on root root.jsCall(input.text) } } } Item { Layout.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/javascript/js_objects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/javascript/js_objects/</guid>
+      <description>JS对象（JS Objects） #  在使用JS工作时，有一些对象和方法会被频繁的使用。下面是它们的一个小的集合。
+ Math.floor(v),Math.ceil(v),Math.round(v) - 从浮点数获取最大，最小和随机整数 Math.random() - 创建一个在0到1之间的随机数 Object.keys(o) - 获取对象的索引值（包括QObject） JSON.parse(s), JSON.stringify(o) - 转换在JS对象和JSON字符串 Number.toFixed(p) - 修正浮点数精度 Date - 日期时间操作  你可以可以在这里找到它们的使用方法：JavaScript reference
+You can find them also at: JavaScript reference
+下面有一些简单的例子演示了如何在QML中使用JS。会给你一些如何在QML中使用JS一些启发。
+打印所有项的键（Print all keys from QML Item）
+Item { id: root Component.onCompleted: { var keys = Object.keys(root); for(var i=0; i&amp;lt;keys.length; i++) { var key = keys[i]; // prints all properties, signals, functions from object console.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/javascript/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/javascript/README/</guid>
+      <description>JavaScript #  JavaScript是web客户端开发的通用语言。基于node js它也开始引导web服务器的开发。因此它使非常适合在声明式QML语言上添加的命令性语言。QML本身作为一个申明式语言用于表达用户界面层次，但是这仅限于表达操作。有时你需要一个方法表达业务，使用JavaScript来完成。
+注意
+在Qt社区有一个开放性的问题是在目前Qt程序中关于混合使用QML/JS/QtC++的正确性。通常建议的混合方式是在你的应用程序中将JS部分限制在最小，将你的业务逻辑部分放在QtC++中，UI逻辑放在QML/JS中。
+这本书趋向这种边界的划分，通常对于一个产品的开发这不一定是正确的混合方式，不是对于所有人都适用。最重要的是根据你的团队技能和个人品味而定。在接受推荐的时候保持你的怀疑。
+下面有一个简短的例子是关于如何在QML中混合适用JS：
+Button { width: 200 height: 300 property bool toggle: false text: &amp;#34;Click twice to exit&amp;#34; // JS function function doToggle() { toggle = !toggle } onTriggered: { // this is JavaScript doToggle(); if(toggle) { Qt.quit() } } } 因此在QML中JavaScript作为一个单独的JS函数，作为一个JS模块可以在很多地方使用，它可以与每一个右边的属性绑定。
+import &amp;#34;util.js&amp;#34; as Util // import a pure JS module Button { width: 200 height: width*2 // JS on the right side of property binding // standalone function (not really useful) function log(msg) { console.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/javascript/the_language/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/javascript/the_language/</guid>
+      <description>JavaScript语法（The Language） #  这章不会对JavaScript作详细的介绍。有其它的书可以参考，请访问 Mozilla Developer Network
+JavaScript表面上是一种非常通用的语言，与许多其它语言没有什么不同：
+function countDown() { for(var i=0; i&amp;lt;10; i++) { console.log(&amp;#39;index: &amp;#39; + i) } } function countDown2() { var i=10; while( i&amp;gt;0 ) { i--; } } 但是注意JS有函数作用域，没有C++中的块作用域（查看 Functions and function scope）。
+语句if &amp;hellip; else，break，continue也可以使用。switch相对于C++中只可以切换整数值，JavaScript可以切换其它类型的值：
+function getAge(name) { // switch over a string switch(name) { case &amp;#34;father&amp;#34;: return 58; case &amp;#34;mother&amp;#34;: return 56; } return unknown; } JS可以将几种值认为是false，如false，0，“”，undefined，null。例如一个函数范围默认值undefined。使用‘===’操作符验证是否为false。‘==’等于操作将会对类型转换做验证。如果条件允许，直接使用等于操作符‘===’可以更快更好的验证一致性（查看 Comparison operators）。
+在JavaScript底层有它自己的实现方式，例如数组：
+function doIt() { var a = [] // empty arrays a.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/qt5_introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/qt5_introduction/</guid>
+      <description>1.2 Qt5介绍 #  1.2.1 Qt Quick #  Qt Quick是Qt5界面开发技术的统称，是以下几种技术的集合：
+  QML - 界面标记语言
+  JavaScript - 动态脚本语言
+  Qt C++ - 跨平台C++封装库
+   QML是与HTML类似的一种标记语言。在QtQuick中将由标签组成的元素封装在大括号中Item{}。这样的设计重新定义了界面的创建方式，对于开发者而言更加简单易读。可以使用JavaScript开发界面功能，也可以使用本地Qt C++函数接口扩展界面功能。简单来说，声明式的UI被称作前端，本地C++部分称作后端，将复杂的计算过程与本地设备操作从界面开发中分离。
+在一个典型的Qt5项目中，前端采用QML/JaveScript开发界面，后端采用Qt C++与系统交互并完成复杂的运算逻辑，将侧重设计的界面开发与功能开发的工作内容分离。通常后端开发者可以使用Qt的单元测试框架完成单元测试后将函数接口提供给前端开发者使用。
+1.2.2 Qt5用户界面开发示例 #  我们将使用QtQuick创建一个简单的界面，这个例子展示了QML语言的一些特性，在例子完成后我们将获得一个可以旋转的风车。 我们开始创建一个空的main.qml文档。QML文件采用.qml作为文件格式后缀。作为一种标记语言（类似HTML）一个QML文档有且只有一个根元素，在这个例子中使用Image元素作为根元素，这个元素的宽度、高度与&amp;quot;images/background.png&amp;quot;图像相同。
+import QtQuick 2.5Image {id: rootsource: &amp;quot;images/background.png&amp;quot;} QML中不限制根元素类型，在上面这段代码中我们设置了Image元素的source属性作为我们的背景图像，它也是我们的根元素。
+ 注意
+每个元素都有属性，比如Image有width和height，也会有其它的属性如source。Image元素的尺寸会自动与source设置的图像匹配。想要自定义Image元素的尺寸必须显式的定义width和height的值。
+大多数标准元素都在QtQuick模块中，通常我们在导入声明中首先包含这个模块。
+id是个特殊的属性，它可以作为一个标识符在当前文档内引用对应的元素。注意：id被定义后无法再改变，在程序执行期间也无法被赋值。使用root作为根元素id仅仅是作者的习惯，这样可以在复杂的QML文档中快速引用最顶层元素。
+我们使用分离的风车竿和风车的图片作为前景元素。
+  风车竿需要放置在背景的水平居中位置，并且竿的底部与背景底部平行。风车需要放置在背景中央位置。
+通常用户界面由不同的类型的元素组成，而不是像这个示例只有图像。
+Image {id: root...Image {id: poleanchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/qt_building_blocks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/qt_building_blocks/</guid>
+      <description>Qt构建模块（Qt Building Blocks） #  Qt5是由大量的模块组成的。一个模块通常情况下是一个库，提供给开发者使用。一些模块是强制性用来支持Qt平台的，它们分成一组叫做Qt基础模块。许多模块是可选的，它们分成一组叫做Qt附加模块，预计大多数得到开发人员将不会使用它们，但是最好知道它们可以对一些通用的问题提供非常有价值的解决方案。
+1.3.1 Qt模块（Qt Modules） #  Qt基础模块是对Qt一台的必要支持。它们使用Qt Quick 2开发Qt 5应用程序的基础。
+核心基础模块
+以下这些是启动QML程序最小的模块集合。
+   模块名 描述     Qt Core 核心的非图形类，供其它模块使用。   Qt GUI 图形用户界面（GUI）组件的基类，包括OpenGL。   Qt Multimedia 音频，视频，电台，摄像头的功能类。   Qt Network 简化方便的网络编程的类。   Qt QML QML类与JavaScript语言的支持。   Qt Quick 可高度动态构建的自定义应用程序用户界面框架。   Qt SQL 集成SQL数据库类。   Qt Test Qt应用程序与库的单元测试类。   Qt WebKit 集成WebKit2的基础实现并且提供了新的QML应用程序接口。在附件模块中查看Qt WebKit Widgets可以获取更多的信息。   Qt WebKit Widgets Widgets	来自Qt4中集成WebKit1的窗口基础类。   Qt Widgets 扩展Qt GUI模块的C++窗口类。     Qt附加模块</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/qt_project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/qt_project/</guid>
+      <description>Qt项目（Qt Project） #  来自qt-project百科：Qt-Project是由Qt社区上对Qt感兴趣的人达成共识的地方。任何人都可以在社区上分享它感兴趣的东西，参与它的开发，并且向Qt的开发做出贡献。
+Qt-Project是一个为Qt未来开发开源部分的组织。它基于使用者的贡献。最大的贡献者是DIGIA，它可以提供Qt的商业授权。 Qt对于公司分为开源方向和商业方向。商业方向的公司不需要遵守开源协议。没有商业方向的许可的公司不能使用Qt，并且它也不允许DIGIA向Qt项目贡献太多的代码。
+在全球有很多公司，他们在不同的平台上使用Qt开发产品，提供咨询。同样也有很多开源项目和开源开发者，它们使用Qt作为它们的开发库。成为这样开发活泼的社区的一部分，并且使用这个很棒的工具盒库让人感觉很好。它能让你成为一个更好的人吗？也许:-)。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/meet_qt_5/README/</guid>
+      <description>Qt5概述 #  教程将介绍使用Qt5.x版本开发应用程序的相关技术。教程更侧重讲解新的Qt Quick开发技巧，在讲解Qt Quick扩展内容时会涉及部分Qt C++内容。
+本章是对Qt5的概述，通过一个Qt5的应用程序示例展示Qt5中一种新的开发模式。此外，本章旨在全面概述Qt5，以及如何与Qt5的开发者取得联系。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/advanced_techniques/</guid>
+      <description>高级用法（Advanced Techniques） #  6.5.1 路径视图（The PathView） #  路径视图（PathView）非常强大，但也非常复杂，这个视图由QtQuick提供。它创建了一个可以让子项沿着任意路径移动的视图。沿着相同的路径，使用缩放（scale），透明（opacity）等元素可以更加详细的控制过程。
+当使用路径视图（PathView）时，你必须定义一个代理和一个路径。在这些之上，路径视图（PathView）本身也可以自定义一些属性的区间。通常会使用pathItemCount属性，它控制了一次可见的子项总数。preferredHighLightBegin属性控制了高亮区间，preferredHighlightEnd与highlightRangeMode，控制了当前项怎样沿着路径显示。
+在关注高亮区间之前，我们必须先看看路径（path）这个属性。路径（path）属性使用一个路径（path）元素来定义路径视图（PathView）内代理的滚动路径。路径使用startx与starty属性来链接路径（path）元素，例如PathLine,PathQuad和PathCubic。这些元素都使用二维数组来构造路径。
+当路径定义好之后，可以使用PathPercent和PathAttribute元素来进一步设置。它们被放置在路径元素之间，并且为经过它们的路径和代理提供更加细致的控制。PathPercent提供了如何控制每个元素之间覆盖区域部分的路径，然后反过来控制分布在这条路径上的代理元素，它们被按比例的分布播放。
+preferredHightlightBegin与preferredHighlightEnd属性由PathView（路径视图）输入到图片元素中。它们的值在0~1之间。结束值大于等于开始值。例如设置这些属性值为0.5，当前项只会显示当前百分之50的图像在这个路径上。
+在Path中，PathAttribute元素也是被放置在元素之间的，就像PathPercent元素。它们可以让你指定属性的值然后插入的路径中去。这些属性与代理绑定可以用来控制任意的属性。
+ 下面这个例子展示了路径视图（PathView）如何创建一个卡片视图，并且用户可以滑动它。我们使用了一些技巧来完成这个例子。路径由PathLine元素组成。使用PathPercent元素，它确保了中间的元素居中，并且给其它的元素提供了足够的空间。使用PathAttribute元素来控制旋转，大小和深度值（z-value）。
+在这个路径之上（path），需要设置路径视图（PathView）的pathItemCount属性。它控制了路径的浓密度。路径视图的路径（PathView.onPath）使用preferredHighlightBegin与preferredHighlightEnd来控制可见的代理项。
+ PathView { anchors.fill: parent delegate: flipCardDelegate model: 100 path: Path { startX: root.width/2 startY: 0 PathAttribute { name: &amp;#34;itemZ&amp;#34;; value: 0 } PathAttribute { name: &amp;#34;itemAngle&amp;#34;; value: -90.0; } PathAttribute { name: &amp;#34;itemScale&amp;#34;; value: 0.5; } PathLine { x: root.width/2; y: root.height*0.4; } PathPercent { value: 0.48; } PathLine { x: root.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/basic_model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/basic_model/</guid>
+      <description>基础模型（Basic Model） #  最基本的分离数据与显示的方法是使用Repeater元素。它被用于实例化一组元素项，并且很容易与一个用于填充用户界面的定位器相结合。
+最基本的实现举例，repeater元素用于实现子元素的标号。每个子元素都拥有一个可以访问的属性index，用于区分不同的子元素。在下面的例子中，一个repeater元素创建了10个子项，子项的数量由model属性控制。对于每个子项Rectangle包含了一个Text元素，你可以将text属性设置为index的值，因此可以看到子项的编号是0~9。
+import QtQuick 2.0 Column { spacing: 2 Repeater { model: 10 Rectangle { width: 100 height: 20 radius: 3 color: &amp;#34;lightBlue&amp;#34; Text { anchors.centerIn: parent text: index } } } }  这是一个不错的编号列表，有时我们想显示一些更复杂的数据。使用一个JavaScript序列来替换整形变量model的值可以达到我们的目的。序列可以使用任何类型的内容，可以是字符串，整数，或者对象。在下面的例子中，使用了一个字符串链表。我们仍然使用index的值作为变量，并且我们也访问modelData中包含的每个元素的数据。
+import QtQuick 2.0 Column { spacing: 2 Repeater { model: [&amp;#34;Enterprise&amp;#34;, &amp;#34;Colombia&amp;#34;, &amp;#34;Challenger&amp;#34;, &amp;#34;Discovery&amp;#34;, &amp;#34;Endeavour&amp;#34;, &amp;#34;Atlantis&amp;#34;] Rectangle { width: 100 height: 20 radius: 3 color: &amp;#34;lightBlue&amp;#34; Text { anchors.centerIn: parent text: index +&amp;#34;: &amp;#34;+modelData } } } }  将数据暴露成一组序列，你可以通过标号迅速的找到你需要的信息。想象一下这个模型的草图，这是一个最简单的模型，也是通常都会使用的模型，ListModel（链表模型）。一个链表模型由许多ListElement（链表元素）组成。在每个链表元素中，可以绑定值到属性上。例如在下面这个例子中，每个元素都提供了一个名字和一个颜色。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/concept/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/concept/</guid>
+      <description>概念（Concept） #  对于开发用户界面，最重要的一方面是保持数据与可视化的分离。例如，一个电话薄可以使用一个垂直文本链表排列或者使用一个网格联系人图片排列。在这两个案例中，数据都是相同的，但是可视化效果却是不同的。这种方法通常被称作model-view（模型-视图）模式。在这种模式中，数据通常被称作model（模型），可视化处理称作view（视图）。
+在QML中，model（模型）与view（视图）都通过delegate（代理）连接起来。功能划分如下，model（模型）提供数据。对于每个数据项，可能有多个值。在上面的电话薄例子中，每个电话薄条目对应一个名字，一个图片和一个号码。显示在view（视图）中的每项数据,都是通过delegate（代理）来实现可视化。view（视图）的任务是排列这些delegate（代理），每个delegate（代理）将model item（模型项）的值显示给用户。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/delegate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/delegate/</guid>
+      <description>代理（Delegate） #  当使用模型与视图来自定义用户界面时，代理在创建显示时扮演了大量的角色。在模型中的每个元素通过代理来实现可视化，用户真实可见的是这些代理元素。
+每个代理访问到索引号或者绑定的属性，一些是来自数据模型，一些来自视图。来自模型的数据将会通过属性传递到代理。来自视图的数据将会通过属性传递视图中与代理相关的状态信息。
+通常使用的视图绑定属性是ListView.isCurrentItem和ListView.view。第一个是一个布尔值，标识这个元素是否是视图当前元素，这个值是只读的，引用自当前视图。通过访问视图，可以创建可复用的代理，这些代理在被包含时会自动匹配视图的大小。在下面这个例子中，每个代理的width（宽度）属性与视图的width（宽度）属性绑定，每个代理的背景颜色color依赖于绑定的属性ListView.isCurrentItem属性。
+import QtQuick 2.0 Rectangle { width: 120 height: 300 color: &amp;#34;white&amp;#34; ListView { anchors.fill: parent anchors.margins: 20 clip: true model: 100 delegate: numberDelegate spacing: 5 focus: true } Component { id: numberDelegate Rectangle { width: ListView.view.width height: 40 color: ListView.isCurrentItem?&amp;#34;gray&amp;#34;:&amp;#34;lightGray&amp;#34; Text { anchors.centerIn: parent font.pixelSize: 10 text: index } } } }  如果在模型中的每个元素与一个动作相关，例如点击作用于一个元素时，这个功能是代理完成的。这是由事件管理分配给视图的，这个操作控制了视图中元素的导航，代理控制了特定元素上的动作。
+最基础的方法是在每个代理中创建一个MouseArea（鼠标区域）并且响应onClicked信号。在后面章节中将会演示这个例子。
+6.4.1 动画添加与移除元素（Animating Added and Removed Items） #  在某些情况下，视图中的显示内容会随着时间而改变。由于模型数据的改变，元素会添加或者移除。在这些情况下，一个比较好的做法是使用可视化队列给用户一个方向的感觉来帮助用户知道哪些数据被加入或者移除。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/dynamic_views/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/dynamic_views/</guid>
+      <description>动态视图（Dynamic Views） #  Repeater元素适合有限的静态数据，但是在真正使用时，模型通常更加复杂和庞大，我们需要一个更加智能的解决方案。QtQuick提供了ListView和GridView元素，这两个都是基于Flickable（可滑动）区域的元素，因此用户可以放入更大的数据。同时，它们限制了同时实例化的代理数量。对于一个大型的模型，这意味着在同一个场景下只会加载有限的元素。
+  这两个元素的用法非常类似，我们由ListView开始，然后会描述GridView的模型起点来进行比较。
+ListView与Repeater元素像素，它使用了一个model，使用delegate来实例化，并且在两个delegate之间能够设置间隔sapcing。下面的列表显示了怎样设置一个简单的链表。
+import QtQuick 2.0 Rectangle { width: 80 height: 300 color: &amp;#34;white&amp;#34; ListView { anchors.fill: parent anchors.margins: 20 clip: true model: 100 delegate: numberDelegate spacing: 5 } Component { id: numberDelegate Rectangle { width: 40 height: 40 color: &amp;#34;lightGreen&amp;#34; Text { anchors.centerIn: parent font.pixelSize: 10 text: index } } } }  如果模型包含的数据比屏幕上显示的更多，ListView元素只会显示部分的链表内容。然后由于QtQuick的默认行为导致的问题，列表视图不会限制被显示的代理项（delegates）只在限制区域内显示。这意味着代理项可以在列表视图外显示，用户可以看见在列表视图外动态的创建和销毁这些代理项（delegates）。为了防止这个问题，ListView通过设置clip属性为true，来激活裁剪功能。下面的图片展示了这个结果，左边是clip属性设置为false的对比。
+ 对于用户，ListView（列表视图）是一个滚动区域。它支持惯性滚动，这意味着它可以快速的翻阅内容。默认模式下，它可以在内容最后继续伸展，然后反弹回去，这个信号告诉用户已经到达内容的末尾。
+视图末尾的行为是由到boundsBehavior属性的控制的。这是一个枚举值，并且可以配置为默认的Flickable.DragAndOvershootBounds，视图可以通过它的边界线来拖拽和翻阅，配置为Flickable.StopAtBounds，视图将不再可以移动到它的边界线之外。配置为Flickable.DragOverBounds，用户可以将视图拖拽到它的边界线外，但是在边界线上翻阅将无效。
+使用snapMode属性可以限制一个视图内元素的停止位置。默认行为下是ListView.NoSnap，允许视图内元素在任何位置停止。将snapMode属性设置为ListView.SnapToItem，视图顶部将会与元素对象的顶部对齐排列。使用ListView.SnapOneItem，当鼠标或者触摸释放时，视图将会停止在第一个可见的元素，这种模式对于浏览页面非常便利。
+6.3.1 方向（Orientation） #  默认的链表视图只提供了一个垂直方向的滚动条，但是水平滚动条也是需要的。链表视图的方向由属性orientation控制。它能够被设置为默认值ListView.Vertical或者ListView.Horizontal。下面是一个水平链表视图。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/README/</guid>
+      <description>模型-视图-代理（Model-View-Delegate） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+在QtQuick中，数据通过model-view（模型-视图）分离。对于每个view（视图），每个数据元素的可视化都分给一个代理（delegate）。QtQuick附带了一组预定义的模型与视图。想要使用这个系统，必须理解这些类，并且知道如何创建合适的代理来获得正确的显示和交互。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/model-view-delegate/summary/</guid>
+      <description>总结（Summary） #  在这个章节中，我们学习了模型，视图与代理。每个数据的入口是模型，视图通过可视化代理来实现数据的可视化。将数据从显示中分离出来。
+一个模型可以是一个整数，提供给代理使用的索引值（index ）。如果JavaScript数组被作为一个模型，模型数据变量（modelData）代表了数组的数据的当前索引。对于更加复杂的情况，每个数据项需要提供多个值，使用链表模型（ListModel）与链表元素（ListElement）是一个更好的解决办法。
+对于静态模型，一个Repeater可以被用作视图。它可以非常方便的使用行（Row），列（Column），栅格（Grid），或者流（Flow）来创建用户界面。对于动态或者大的数据模型，使用ListView或者GridView更加适合。它们会在需要时动态的创建代理，减少在场景下一次显示的元素的数量。
+在视图中的代理可以与数据模型中的属性静态绑定，或者动态绑定。使用视图的onAdd与onRemove信号，可以动态播放的它们的显示与消失。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/advanced_techniques/</guid>
+      <description>高级用法（Advanced Techniques） #  10.5.1 实现一个播放列表（Implementing a Playlist） #  Qt 5 multimedia接口没有提供播放列表。幸好，它非常容易实现。通过设置模型子项与MediaPlayer元素可以实现它，如下所示。当playstate通过player控制时，Playlist元素负责设置MediaPlayer的source。
+ Playlist { id: playlist mediaPlayer: player items: ListModel { ListElement { source: &amp;#34;trailer_400p.ogg&amp;#34; } ListElement { source: &amp;#34;trailer_400p.ogg&amp;#34; } ListElement { source: &amp;#34;trailer_400p.ogg&amp;#34; } } } MediaPlayer { id: player } Playlist元素的第一部分如下，注意使用setIndex函数来设置source元素的索引值。我们也实现了next与previous函数来操作链表。
+Item { id: root property int index: 0 property MediaPlayer mediaPlayer property ListModel items: ListModel {} function setIndex(i) { console.log(&amp;#34;setting index to: &amp;#34; + i); index = i; if (index &amp;lt; 0 || index &amp;gt;= items.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/capturing_images/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/capturing_images/</guid>
+      <description>捕捉图像（Capturing Images） #  Camera元素一个关键特性就是可以用来拍照。我们将在一个简单的定格动画程序中使用到它。在这章中，你将学习如何显示一个视图查找器，截图和追踪拍摄的图片。
+用户界面如下所示。它由三部分组成，背景是一个视图查找器，右边有一列按钮，底部有一连串拍摄的图片。我们想要拍摄一系列的图片，然后点击Play Sequence按钮。这将回放图片，并创建一个简单的定格电影。
+ 相机的视图查找器部分是在VideoOutput中使用一个简单的Camera元素作为资源。这将给用户显示一个来自相机的流媒体视频。
+ VideoOutput { anchors.fill: parent source: camera } Camera { id: camera } 使用一个水平放置的ListView显示来自ListModel的图片，这个部件叫做imagePaths。在背景中使用一个半透明的Rectangle。
+ ListModel { id: imagePaths } ListView { id: listView anchors.left: parent.left anchors.right: parent.right anchors.bottom: parent.bottom anchors.bottomMargin: 10 height: 100 orientation: ListView.Horizontal spacing: 10 model: imagePaths delegate: Image { source: path; fillMode: Image.PreserveAspectFit; height: 100; } Rectangle { anchors.fill: parent anchors.topMargin: -10 color: &amp;#34;black&amp;#34; opacity: 0.5 } } 为了拍摄图像，你需要知道Camera元素包含了一组子对象用来完成各种工作。使用Camera.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/playing_media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/playing_media/</guid>
+      <description>媒体播放（Playing Media） #  在QML应用程序中，最基本的媒体应用是播放媒体。使用MediaPlayer元素可以完成它，如果源是一个图片或者视频，可以选择结合VideoOutput元素。MediaPlayer元素有一个source属性指向需要播放的媒体。当媒体源被绑定后，简单的调用play函数就可以开始播放。
+如果你想播放一个可视化的媒体，例如图片或者视频等，你需要配置一个VideoOutput元素。MediaPlayer播放通过source属性与视频输出绑定。
+在下面的例子中，给MediaPlayer元素一个视频文件作为source。一个VideoOutput被创建和绑定到媒体播放器上。一旦主要部件完全初始化，例如在Component.onCompleted中，播放器的play函数被调用。
+import QtQuick 2.0 import QtMultimedia 5.0 import QtSystemInfo 5.0 Item { width: 1024 height: 600 MediaPlayer { id: player source: &amp;#34;trailer_400p.ogg&amp;#34; } VideoOutput { anchors.fill: parent source: player } Component.onCompleted: { player.play(); } ScreenSaver { screenSaverEnabled: false; } } // M1&amp;gt;&amp;gt; 除了上面介绍的视频播放，这个例子也包括了一小段代码用于禁止屏幕保护。这将阻止视频被中断。通过设置ScreenSaver元素的screenSaverEnabled属性为false来完成。通过导入QtSystemInfo 5.0可以使用ScreenSaver元素。
+基础操作例如当播放媒体时可以通过MediaPlayer元素的volume属性来控制音量。还有一些其它有用的属性。例如，duration与position属性可以用来创建一个进度条。如果seekable属性为true，当拨动进度条时可以更新position属性。下面这个例子展示了在上面的例子基础上如何添加基础播放。
+ Rectangle { id: progressBar anchors.left: parent.left anchors.right: parent.right anchors.bottom: parent.bottom anchors.margins: 100 height: 30 color: &amp;#34;lightGray&amp;#34; Rectangle { anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/README/</guid>
+      <description>多媒体（Multimedia） #  在QtMultimedia模块中的multimedia元素可以播放和记录媒体资源，例如声音，视频，或者图片。解码和编码的操作由特定的后台完成。例如在Linux上的gstreamer框架，Windows上的DirectShow，和OS X上的QuickTime。 multimedia元素不是QtQuick核心的接口。它的接口通过导入QtMultimedia 5.0来加入，如下所示：
+import QtMultimedia 5.0 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/sounds_effects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/sounds_effects/</guid>
+      <description>声音效果（Sounds Effects） #  当播放声音效果时，从请求播放到真实响应播放的响应时间非常重要。在这种情况下，SoundEffect元素将会派上用场。设置source属性，一个简单调用play函数会直接开始播放。
+当敲击屏幕时，可以使用它来完成音效反馈，如下所示：
+ SoundEffect { id: beep source: &amp;#34;beep.wav&amp;#34; } Rectangle { id: button anchors.centerIn: parent width: 200 height: 100 color: &amp;#34;red&amp;#34; MouseArea { anchors.fill: parent onClicked: beep.play() } } 这个元素也可以用来完成一个配有音效的转换。为了从转换触发，使用ScriptAction元素。
+ SoundEffect { id: swosh source: &amp;#34;swosh.wav&amp;#34; } transitions: [ Transition { ParallelAnimation { ScriptAction { script: swosh.play(); } PropertyAnimation { properties: &amp;#34;rotation&amp;#34;; duration: 200; } } } ] 除了调用play函数，在MediaPlayer中类似属性也可以使用。比如volume和loops。loops可以设置为SoundEffect.Infinite来提供无限重复播放。停止播放调用stop函数。
+注意
+当后台使用PulseAudio时，stop将不会立即停止，但会阻止继续循环。这是由于底层API的限制造成的。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/summary/</guid>
+      <description>总结（Summary） #  Qt的媒体应用程序接口提供了播放和捕捉视频和音频的机制。通过VideoOutput元素，视频源能够在我们的用户界面上显示。通过MediaPlayer元素，可以操作大多数的播放，SoundEffect被用于低延迟的声音。Camera元素被用来截图或者显示一个实时的视频流。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/multimedia/video_streams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/multimedia/video_streams/</guid>
+      <description>视频流（Video Streams） #  VideoOutput元素不被限制与MediaPlayer元素绑定使用的。它也可以直接用来加载实时视频资源显示一个流媒体。应用程序使用Camera元素作为资源。来自Camera的视频流给用户提供了一个实时流媒体。
+import QtQuick 2.0 import QtMultimedia 5.0 Item { width: 1024 height: 600 VideoOutput { anchors.fill: parent source: camera } Camera { id: camera } } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/authentication_using_oauth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/authentication_using_oauth/</guid>
+      <description>使用开放授权登陆验证（Authentication using OAuth） #  OAuth是一个开放协议，允许简单的安全验证，是来自web的典型方法，用于移动和桌面应用程序。使用OAuth对通常的web服务的客户端进行身份验证，例如Google，Facebook和Twitter。
+注意
+对于自定义的web服务，你也可以使用典型的HTTP身份验证，例如使用XMLHttpRequest的用户名和密码的获取方法（比如xhr.open(verb,url,true,username,password））。
+Auth目前不是QML/JS的接口，你需要写一些C++代码并且将身份验证导入到QML/JS中。另一个问题是安全的存储访问密码。
+下面这些是我找到的有用的连接：
+   http://oauth.net
+   http://hueniverse.com/oauth/
+   https://github.com/pipacs/o2
+   http://www.johanpaul.com/blog/2011/05/oauth2-explained-with-qt-quick/
+  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/engine_io/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/engine_io/</guid>
+      <description>云服务（Engine IO） #  Engine IO是DIGIA运行的一个web服务。它允许Qt/QML应用程序访问来自Engin.IO的NoSQL存储。这是一个基于云存储对象的Qt/QML接口和一个管理平台。如果你想存储一个QML应用程序的数据到云存储中，它可以提供非常方便的QML/JS的接口。
+查看 EnginIO的文档获得更多的帮助。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/httphttp_requests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/httphttp_requests/</guid>
+      <description>HTTP请求（HTTP Requests） #  从c++方面来看，Qt中完成http请求通常是使用QNetworkRequest和QNetworkReply，然后使用Qt/C++将响应推送到集成的QML。所以我们尝试使用QtQuick的工具给我们的网络信息尾部封装了小段信息，然后推送这些信息。为此我们使用一个帮助对象来构造http请求，和循环响应。它使用java脚本的XMLHttpRequest对象的格式。
+XMLHttpRequest对象允许用户注册一个响应操作函数和一个链接。一个请求能够使用http动作来发送（如get，post，put，delete，等等）。当响应到达时，会调用注册的操作函数。操作函数会被调用多次。每次调用请求的状态都已经改变（例如信息头部已接收，或者响应完成）。
+下面是一个简短的例子：
+function request() { var xhr = new XMLHttpRequest(); xhr.onreadystatechange = function() { if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) { print(&amp;#39;HEADERS_RECEIVED&amp;#39;); } else if(xhr.readyState === XMLHttpRequest.DONE) { print(&amp;#39;DONE&amp;#39;); } } xhr.open(&amp;#34;GET&amp;#34;, &amp;#34;http://example.com&amp;#34;); xhr.send(); } 从一个响应中你可以获取XML格式的数据或者是原始文本。可以遍历XML结果但是通常使用原始文本来匹配JSON格式响应。使用JSON.parse(text）可以JSON文档将转换为JS对象使用。
+... } else if(xhr.readyState === XMLHttpRequest.DONE) { var object = JSON.parse(xhr.responseText.toString()); print(JSON.stringify(object, null, 2)); } 在响应操作中，我们访问原始响应文本并且将它转换为一个javascript对象。JSON对象是一个可以使用的JS对象（在javascript中，一个对象可以是对象或者一个数组）。
+注意
+toString()转换似乎让代码更加稳定。在不使用显式的转换下我有几次都解析错误。不确定是什么问题引起的。
+11.3.1 Flickr调用（Flickr Call） #  让我们看看更加真实的例子。一个典型的例子是使用网络相册服务来取得公共订阅中新上传的图片。我们可以使用 http://api.flicker.com/services/feeds/photos_public.gne链接。不幸的是它默认返回XML流格式的数据，在qml中可以很方便的使用XmlListModel来解析。为了达到只关注JSON数据的目的，我们需要在请求中附加一些参数可以得到JSON响应： http://api.flickr.com/services/feeds/photo_public.gne?format=json&amp;amp;nojsoncallback=1。这将会返回一个没有JSON回调的JSON响应。
+注意 一个JSON回调将JSON响应包装在一个函数调用中。这是一个HTML编程中的快捷方式，使用脚本标记来创建一个JSON请求。响应将触发本地定义的回调函数。在QML中没有JSON回调的工作机制。
+使用curl来查看响应：
+curl &amp;#34;http://api.flickr.com/services/feeds/photos_public.gne?format=json&amp;amp;nojsoncallback=1&amp;amp;tags=munich&amp;#34; 响应如下：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/httpuiserving_ui_via_http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/httpuiserving_ui_via_http/</guid>
+      <description>通过HTTP服务UI（Serving UI via HTTP） #  通过HTTP加载一个简单的用户界面，我们需要一个web服务器，它为UI文件服务。但是首先我们需要有用户界面，我们在项目里创建一个创建了红色矩形框的main.qml。
+// main.qml import QtQuick 2.0 Rectangle { width: 320 height: 320 color: &amp;#39;#ff0000&amp;#39; } 我们加载一段python脚本来提供这个文件：
+$ cd &amp;lt;PROJECT&amp;gt; # python -m SimpleHTTPServer 8080 现在我们可以通过 http://localhost:8000/main.qml来访问，你可以像下面这样测试：
+$ curl http://localhost:8000/main.qml 或者你可以用浏览器来访问。浏览器无法识别QML，并且无法通过文档来渲染。我们需要创建一个可以浏览QML文档的浏览器。为了渲染文档，我们需要指出qmlscene的位置。不幸的是qmlscene只能读取本地文件。我们为了突破这个限制，我们可以使用自己写的qmlscene或者使用QML动态加载。我们选择动态加载的方式。我们选择一个加载元素来加载远程的文档。
+// remote.qml import QtQuick 2.0 Loader { id: root source: &amp;#39;http://localhost:8080/main2.qml&amp;#39; onLoaded: { root.width = item.width root.height = item.height } } 我们现在可以使用qmlscene来加载remote.qml文档。这里仍然有一个小问题。加载器将会调整加载项的大小。我们的qmlscene需要适配大小。可以使用&amp;ndash;resize-to-root选项来运行qmlscene。
+$ qmlscene --resize-to-root remote.qml 按照root元素调整大小，告诉qmlscene按照root元素的大小调它的窗口大小。remote现在从本地服务器加载main.qml，并且可以自动调整加载的用户界面。方便且简单。
+注意
+如果你不想使用一个本地服务器，你可以使用来自GitHub的gist服务。Gist是一个在线剪切板服务，就像PasteBin等等。可以在 https://gist.github.com下使用。我创建了一个简单的gist例子，地址是 https://gist.github.com/jryannel/7983492。这将会返回一个绿色矩形框。由于gist连接提供的是HTML代码，我们需要连接一个/raw来读取原始文件而不是HTML代码。
+// remote.qml import QtQuick 2.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/local_files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/local_files/</guid>
+      <description>本地文件（Local files） #  使用XMLHttpRequest也可以加载本地文件（XML/JSON）。例如加载一个本地名为“colors.json”的文件可以这样使用：
+xhr.open(&amp;#34;GET&amp;#34;, &amp;#34;colors.json&amp;#34;); 我们使用它读取一个颜色表并且使用表格来显示。从QtQuick这边无法修改文件。为了将源数据存储回去，我们需要一个基于HTTP服务器的REST服务支持或者一个用来访问文件的QtQuick扩展。
+import QtQuick 2.0 Rectangle { width: 360 height: 360 color: &amp;#39;#000&amp;#39; GridView { id: view anchors.fill: parent cellWidth: width/4 cellHeight: cellWidth delegate: Rectangle { width: view.cellWidth height: view.cellHeight color: modelData.value } } function request() { var xhr = new XMLHttpRequest(); xhr.onreadystatechange = function() { if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) { print(&amp;#39;HEADERS_RECEIVED&amp;#39;) } else if(xhr.readyState === XMLHttpRequest.DONE) { print(&amp;#39;DONE&amp;#39;); var obj = JSON.parse(xhr.responseText.toString()); view.model = obj.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/README/</guid>
+      <description>网络（Networking） #  Qt5在C++中有丰富的网络相关的类。例如在http协议层上使用请求回答方式的高级封装类如QNetworkRequest，QNetworkReply，QNetworkAccessManageer。也有在TCP/IP或者UDP协议层封装的低级类如QTcpSocket，QTcpServer和QUdpSocket。还有一些额外的类用来管理代理，网络缓冲和系统网络配置。
+这章将不再阐述关于C++网络方面的知识，这章是关于QtQuick与网络的知识。我们应该怎样连接QML/JS用户界面与网络服务，或者如何通过网络服务来为我们用户界面提供服务。已经有很好的教材和示例覆盖了关于Qt/C++的网络编程。然后你只需要阅读这章相关的C++集成来满足你的QtQuick就可以了。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/restrest_api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/restrest_api/</guid>
+      <description>REST接口（REST API） #  为了使用web服务，我们首先需要创建它。我们使用Flask（http://flask.pocoo.org），一个基于python创建简单的颜色web服务的HTTP服务器应用。你也可以使用其它的web服务器，只要它接收和返回JSON数据。通过web服务来管理一组已经命名的颜色。在这个例子中，管理意味着CRUD（创建-读取-更新-删除）。
+在Flask中一个简单的web服务可以写入一个文件。我们使用一个空的服务器.py文件开始，在这个文件中我们创建一些规则并且从额外的JSON文件中加载初始颜色。你可以查看Flask文档获取更多的帮助。
+from flask import Flask, jsonify, request import json colors = json.load(file(&amp;#39;colors.json&amp;#39;, &amp;#39;r&amp;#39;)) app = Flask(__name__) # ... service calls go here if __name__ == &amp;#39;__main__&amp;#39;: app.run(debug = True) 当你运行这个脚本后，它会在http://localhost:5000。
+我们开始添加我们的CRUD（创建，读取，更新，删除）到我们的web服务。
+11.5.1 读取请求（Read Request） #  从web服务读取数据，我们提供GET方法来读取所有的颜色。
+@app.route(&amp;#39;/colors&amp;#39;, methods = [&amp;#39;GET&amp;#39;]) def get_colors(): return jsonify( { &amp;#34;colors&amp;#34; : colors }) 这将会返回‘/colors’下的颜色。我们使用curl来创建一个http请求测试。
+curl -i -GET http://localhost:5000/colors 这将会返回给我们JSON数据的颜色链表。
+11.5.2 读取接口（Read Entry） #  为了通过名字读取颜色，我们提供更加详细的后缀，定位在‘/colors/&amp;lsquo;下。名称是后缀的参数，用来识别一个独立的颜色。
+@app.route(&amp;#39;/colors/&amp;lt;name&amp;gt;&amp;#39;, methods = [&amp;#39;GET&amp;#39;]) def get_color(name): for color in colors: if color[&amp;#34;name&amp;#34;] == name: return jsonify( color ) 我们再次使用curl测试，例如获取一个红色的接口。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/summary/</guid>
+      <description>总结（Summary） #  这章我们讨论了关于QML的网络应用。请记住Qt已在本地端提供了丰富的网络接口可以在QML中使用。但是这一章的我们是想推动QML的网络运用和如何与云服务集成。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/templating/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/templating/</guid>
+      <description>模板（Templating） #  当使用HTML项目时，通常需要使用模板驱动开发。服务器使用模板机制生成代码在服务器端对一个HTML根进行扩展。例如一个照片列表的列表头将使用HTML编码，动态图片链表将会使用模板机制动态生成。通常这也可以使用QML解决，但是仍然有一些问题。
+首先，HTML开发者这样做的原因是为了克服HTML后端的限制。在HTML中没有组件模型，动态机制方面不得不使用这些机制或者在客户端边使用javascript编程。很多的JS框架产生（jQuery，dojo，backbone，angular，&amp;hellip;）可以用来解决这个问题，把更多的逻辑问题放在使用网络服务连接的客户端浏览器。客户端使用一个web服务的接口（例如JSON服务，或者XML数据服务）与服务器通信。这也适用于QML。
+第二个问题是来自QML的组件缓冲。当QML访问一个组件时，缓冲渲染树（render-tree），并且只加载缓冲版本来渲染。磁盘上的修改版本或者远程的修改在没有重新启动客户端时不会被检测到。为了克服这个问题，我们需要跟踪。我们使用URL后缀来加载链接（例如 http://localhost:8080/main.qml#1234），“#1234”就是后缀标识。HTTP服务器总是为相同的文档服务，但是QML将使用完整的链接来保存这个文档，包括链接标识。每次我们访问的这个链接的标识获得改变，QML缓冲无法获得这个信息。这个后缀标识可以是当前时间的毫秒或者一个随机数。
+Loader { source: &amp;#39;http://localhost:8080/main.qml#&amp;#39; + new Date().getTime() } 总之，模板可以实现，但是不推荐，无法完整发挥QML的长处。一个更好的方法是使用web服务提供JSON或者XML数据服务。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/networking/web_sockets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/networking/web_sockets/</guid>
+      <description>Web Sockets #  webSockets不是Qt提供的。将WebSockets加入到Qt/QML中需要花费一些工作。从作者的角度来看WebSockets有巨大的潜力来添加HTTP服务缺少的功能-通知。HTTP给了我们get和post的功能，但是post还不是一个通知。目前客户端轮询服务器来获得应用程序的服务，服务器也需要能通知客户端变化和事件。你可以与QML接口比较：属性，函数，信号。也可以叫做获取/设置/调用和通知。
+QML WebSocket插件将会在Qt5中加入。你可以试试来自qt playground的web sockets插件。为了测试，我们使用一个现有的web socket服务实现了echo server。
+首先确保你使用的Qt5.2.x。
+$ qmake --version ... Using Qt version 5.2.0 ... 然后你需要克隆web socket的代码库，并且编译它。
+$ git clone git@gitorious.org:qtplayground/websockets.git $ cd websockets $ qmake $ make $ make install 现在你可以在qml模块中使用web socket。
+import Qt.WebSockets 1.0 WebSocket { id: socket } 测试你的web socket，我们使用来自 http://websocket.org的echo server 。
+import QtQuick 2.0 import Qt.WebSockets 1.0 Text { width: 480 height: 48 horizontalAlignment: Text.AlignHCenter verticalAlignment: Text.AlignVCenter WebSocket { id: socket url: &amp;#34;ws://echo.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/other/assets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/other/assets/</guid>
+      <description>示例源码 #   Chapter 01 examples (ch01-assets.tgz)
+ Chapter 04 examples (ch04-assets.tgz)
+ Chapter 05 examples (ch05-assets.tgz)
+ Chapter 06 examples (ch06-assets.tgz)
+ Chapter 07 examples (ch07-assets.tgz)
+ Chapter 08 examples (ch08-assets.tgz)
+ Chapter 09 examples (ch09-assets.tgz)
+ Chapter 10 examples (ch10-assets.tgz)
+ Chapter 11 examples (ch11-assets.tgz)
+ Chapter 12 examples (ch12-assets.tgz)
+ Chapter 13 examples (ch13-assets.tgz)
+ Chapter 14 examples (ch14-assets.tgz)
+ Chapter 15 examples (ch15-assets.tgz)
+ Chapter 16 examples (ch16-assets.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/other/book_format/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/other/book_format/</guid>
+      <description>格式定义 #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/other/collaboration_correction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/other/collaboration_correction/</guid>
+      <description>协作校正 #  很多热心的爱好者想要知道如何帮忙校对，这里我再增加一个详细的教程帮助大家。
+注册github账号，下载markdown编辑工具
+首先在github上注册一个账号，然后下载markdown编辑工具，我使用的是GitBook Editor， 点这里下。
+当然你也可以使用其它的markdown编辑工具。
+创建自己的工作分支
+ 登录你的github账号后，进入 我们项目的页面，点击上图右上角的fork，创建自己的工作分支。
+下图是我测试号的工作分支。
+ 下载TortoiseGit，克隆你的工作分支到本地
+下载TortoiseGit工具， 点我下载，你也可以使用其它的工具来克隆你的工作分支。
+下图是使用TortoiseGit工具克隆工作分支的界面截图。
+ 使用gitbook客户端打开项目文件夹，开始校对
+使用gitbook客户端打开项目文件夹，就能开始编译校对，下图是打开项目文件夹的截图。
+ 校对完成后上传到你在github上的工作分支
+校对完成后，首先使用Git Commit-&amp;gt;master上传到本地库，然后使用pull上传到github上。
+下图是上传信息的名字与联系方式的补充。
+ 下图是上传到本地库的界面截图。
+ 上传本地库完成后，点击pull上传到你在github上的工作分支。
+ 确定上传工作分支地址，就是你在github上的工作分支地址。
+ 提交pull rqeuset到我的项目
+ 再次进入你的github工作分支页，点击右边的pull request进入。
+ 点击上图的New pull request绿色按键，进入修改提交。
+ 系统会检测你的工作分支与我们项目的差别，确认提交内容，点击Create pull rqeust绿色按键添加修改内容描述。
+ 完成描述后点击上图的Create pull request绿色按键确认提交。
+下图为我的项目收到新的pull request的请求，我会确认提交内容后合并。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/other/enginsh_to_chinses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/other/enginsh_to_chinses/</guid>
+      <description>术语英汉对照表 #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/other/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/other/README/</guid>
+      <description>其它（Other） #  该章节介绍了一些其它相关的内容，原文内不存在本章节。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/affecting_particles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/affecting_particles/</guid>
+      <description>粒子控制（Affecting Particles） #  粒子由粒子发射器发出。在粒子发射出后，发射器无法再改变粒子。粒子控制器允许你控制发射后的粒子参数。
+控制器的每个类型使用不同的方法来影响粒子：
+  生命周期（Age）- 修改粒子的生命周期
+  吸引（Attractor）- 吸引粒子朝向指定点
+  摩擦（Friction）- 按当前粒子速度成正比减慢运动
+  重力（Gravity）- 设置一个角度的加速度
+  紊流（Turbulence）- 强制基于噪声图像方式的流动
+  漂移（Wander）- 随机变化的轨迹
+  组目标（GroupGoal）- 改变一组粒子群的状态
+  子粒子（SpriteGoal）- 改变一个子粒子的状态
+  生命周期（Age）
+允许粒子老得更快，lifeLeft属性指定了粒子的有多少的生命周期。
+ Age { anchors.horizontalCenter: parent.horizontalCenter width: 240; height: 120 system: particleSystem advancePosition: true lifeLeft: 1200 once: true Tracer {} } 在这个例子中，当粒子的生命周期达到1200毫秒后，我们将会缩短上方的粒子的生命周期一次。由于我们设置了advancePosition为true，当粒子的生命周期到达1200毫秒后，我们将会再一次在这个位置看到粒子出现。
+ 吸引（Attractor）
+吸引会将粒子朝指定的点上吸引。这个点使用pointX与pointY来指定，它是与吸引区域的几何形状相对的。strength指定了吸引的力度。在我们的例子中，我们让粒子从左向右运动，吸引放在顶部，有一半运动的粒子会穿过吸引区域。控制器只会影响在它们几何形状内的粒子。这种分离让我们可以同步看到正常的流动与受影响的流动。
+ Attractor { anchors.horizontalCenter: parent.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/concept/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/concept/</guid>
+      <description>概念（Concept） #  粒子模拟的核心是粒子系统（ParticleSystem），它控制了共享时间线。一个场景下可以有多个粒子系统，每个都有自己独立的时间线。一个粒子使用发射器元素（Emitter）发射，使用粒子画笔（ParticlePainter）实现可视化，它可以是一张图片，一个QML项或者一个着色项（shader item）。一个发射器元素（Emitter）也提供向量来控制粒子方向。一个粒子被发送后就再也无法控制。粒子模型提供粒子控制器（Affector），它可以控制已发射粒子的参数。
+在一个系统中，粒子可以使用粒子群元素（ParticleGroup）来共享移动时间。默认下，每个例子都属于空（&amp;quot;&amp;quot;）组。
+   粒子系统（ParticleSystem）- 管理发射器之间的共享时间线。
+  发射器（Emitter）- 向系统中发射逻辑粒子。
+  粒子画笔（ParticlePainter）- 实现粒子可视化。
+  方向（Direction）- 已发射粒子的向量空间。
+  粒子组（ParticleGroup）- 每个粒子是一个粒子组的成员。
+  粒子控制器（Affector）- 控制已发射粒子。
+  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/directed_particle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/directed_particle/</guid>
+      <description>粒子方向（Directed Particle） #  我们已经看到了粒子的旋转，但是我们的粒子需要一个轨迹。轨迹由速度或者粒子随机方向的加速度指定，也可以叫做矢量空间。
+有多种可用矢量空间用来定义粒子的速度或加速度：
+  角度方向（AngleDirection）- 使用角度的方向变化。
+  点方向（PointDirection）- 使用x,y组件组成的方向变化。
+  目标方向（TargetDirection）- 朝着目标点的方向变化。
+   让我们在场景下试着用速度方向将粒子从左边移动到右边。
+首先使用角度方向（AngleDirection）。我们使用AngleDirection元素作为我们的发射器（Emitter）的速度属性：
+velocity: AngleDirection { } 粒子的发射将会使用指定的角度属性。角度值在0到360度之间，0度代表指向右边。在我们的例子中，例子将会移动到右边，所以0度已经指向右边方向。粒子的角度变化在+/-15度之间：
+velocity: AngleDirection { angle: 0 angleVariation: 15 } 现在我们已经设置了方向，下面是指定粒子的速度。它由一个梯度值定义，这个梯度值定义了每秒像素的变化。正如我们设置大约640像素，梯度值为100，看起来是一个不错的值。这意味着平均一个6.4秒生命周期的粒子可以穿越我们看到的区域。为了让粒子的穿越看起来更加有趣，我们使用magnitudeVariation来设置梯度值的变化，这个值是我们的梯度值的一半：
+velocity: AngleDirection { ... magnitude: 100 magnitudeVariation: 50 }  下面是完整的源码，平均的生命周期被设置为6..4秒。我们设置发射器的宽度和高度为1个像素，这意味着所有的粒子都从相同的位置发射出去，然后基于我们给定的轨迹运动。
+ Emitter { id: emitter anchors.left: parent.left anchors.verticalCenter: parent.verticalCenter width: 1; height: 1 system: particleSystem lifeSpan: 6400 lifeSpanVariation: 400 size: 32 velocity: AngleDirection { angle: 0 angleVariation: 15 magnitude: 100 magnitudeVariation: 50 } } 那么加速度做些什么？加速度是每个粒子加速度矢量，它会在运动的时间中改变速度矢量。例如我们做一个星星按照弧形运动的轨迹。我们将会改变我们的速度方向为-45度，然后移除变量，可以得到一个更连贯的弧形轨迹：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_group/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_group/</guid>
+      <description>粒子组（Particle Group） #  在本章开始时，我们已经介绍过粒子组了，默认下，粒子都属于空组（&amp;quot;&amp;quot;）。使用GroupGoal控制器可以改变粒子组。为了实现可视化，我们创建了一个烟花示例，火箭进入，在空中爆炸形成壮观的烟火。
+ 这个例子分为两部分。第一部分叫做“发射时间（Launch Time）”连接场景，加入粒子组，第二部分叫做“爆炸烟花（Let there be firework）”，专注于粒子组的变化。
+让我们看看这两部分。
+发射时间（Launch Time）
+首先我们创建一个典型的黑色场景：
+import QtQuick 2.0 import QtQuick.Particles 2.0 Rectangle { id: root width: 480; height: 240 color: &amp;#34;#1F1F1F&amp;#34; property bool tracer: false } tracer使用被用作场景追踪的开关，然后定义我们的粒子系统：
+ParticleSystem { id: particleSystem } 我们添加两种粒子图片画笔（一个用于火箭，一个用于火箭喷射烟雾）：
+ImageParticle { id: smokePainter system: particleSystem groups: [&amp;#39;smoke&amp;#39;] source: &amp;#34;assets/particle.png&amp;#34; alpha: 0.3 entryEffect: ImageParticle.None } ImageParticle { id: rocketPainter system: particleSystem groups: [&amp;#39;rocket&amp;#39;] source: &amp;#34;assets/rocket.png&amp;#34; entryEffect: ImageParticle.None } 你可以看到在这些画笔定义中，它们使用groups属性来定义粒子的归属。只需要定义一个名字，Qt Quick将会隐式的创建这个分组。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_painter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_painter/</guid>
+      <description>粒子画笔（Particle Painter） #  到目前为止我们只使用了基于粒子画笔的图像来实现粒子可视化。Qt也提供了一些其它的粒子画笔：
+  粒子项（ItemParticle）：基于粒子画笔的代理
+  自定义粒子（CustomParticle）：基于粒子画笔的着色器
+  粒子项可以将QML元素项作为粒子发射。你需要制定自己的粒子代理。
+ ItemParticle { id: particle system: particleSystem delegate: itemDelegate } 在这个例子中，我们的代理是一个随机图片（使用Math.random()完成），有着白色边框和随机大小。
+ Component { id: itemDelegate Rectangle { id: container width: 32*Math.ceil(Math.random()*3); height: width color: &amp;#39;white&amp;#39; Image { anchors.fill: parent anchors.margins: 4 source: &amp;#39;assets/fruits&amp;#39;+Math.ceil(Math.random()*10)+&amp;#39;.jpg&amp;#39; } } } 每秒发出四个粒子，每个粒子拥有4秒的生命周期。粒子自动淡入淡出。
+ 对于更多的动态情况，也可以由你自己创建一个子项，让粒子系统来控制它，使用take(item, priority)来完成。粒子系统控制你的粒子就像控制普通的粒子一样。你可以使用give(item)来拿回子项的控制权。你也可以操作子项粒子，甚至可以使用freeze(item)来停止它，使用unfreeze(item)来恢复它。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_parameters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/particle_parameters/</guid>
+      <description>粒子参数（Particle Parameters） #  我们已经知道通过改变发射器的行为就可以改变我们的粒子模拟。粒子画笔被用来绘制每一个粒子。 回到我们之前的粒子中，我们更新一下我们的图片粒子画笔（ImageParticle）。首先我们改变粒子图片为一个小的星形图片：
+ImageParticle { ... source: &amp;#39;assets/star.png&amp;#39; } 粒子使用金色来进行初始化，不同的粒子颜色变化范围为+/- 20%。
+color: &amp;#39;#FFD700&amp;#39; colorVariation: 0.2 为了让场景更加生动，我们需要旋转粒子。每个粒子首先按顺时针旋转15度，不同的粒子在+/-5度之间变化。每个例子会不断的以每秒45度旋转。每个粒子的旋转速度在+/-15度之间变化：
+rotation: 15 rotationVariation: 5 rotationVelocity: 45 rotationVelocityVariation: 15 最后，我们改变粒子的入场效果。 这个效果是粒子产生时的效果，在这个例子中，我们希望使用一个缩放效果：
+entryEffect: ImageParticle.Scale 现在我们可以看到旋转的星星出现在我们的屏幕上。
+ 下面是我们如何改变图片粒子画笔的代码段。
+ ImageParticle { source: &amp;#34;assets/star.png&amp;#34; system: particleSystem color: &amp;#39;#FFD700&amp;#39; colorVariation: 0.2 rotation: 0 rotationVariation: 45 rotationVelocity: 15 rotationVelocityVariation: 15 entryEffect: ImageParticle.Scale } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/README/</guid>
+      <description>粒子模拟（Particle Simulations） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+粒子模拟是计算机图形技术的可视化图形效果。典型的效果有：落叶，火焰，爆炸，流星，云等等。
+它不同于其它图形渲染，粒子是基于模糊来渲染。它的结果在基于像素下是不可预测的。粒子系统的参数描述了随机模拟的边界。传统的渲染技术实现粒子渲染效果很困难。有一个好消息是你可以使用QML元素与粒子系统交互。同时参数也可以看做是属性，这些参数可以使用传统的动画技术来实现动态效果。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/simple_simulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/simple_simulation/</guid>
+      <description>简单的模拟（Simple Simulation） #  让我们从一个简单的模拟开始学习。Qt Quick使用简单的粒子渲染非常简单。下面是我们需要的：
+  绑定所有元素到一个模拟的粒子系统（ParticleSystem）。
+  一个向系统发射粒子的发射器（Emitter）。
+  一个ParticlePainter派生元素，用来实现粒子的可视化。
+  import QtQuick 2.0 import QtQuick.Particles 2.0 Rectangle { id: root width: 480; height: 160 color: &amp;#34;#1f1f1f&amp;#34; ParticleSystem { id: particleSystem } Emitter { id: emitter anchors.centerIn: parent width: 160; height: 80 system: particleSystem emitRate: 10 lifeSpan: 1000 lifeSpanVariation: 500 size: 16 endSize: 32 Tracer { color: &amp;#39;green&amp;#39; } } ImageParticle { source: &amp;#34;assets/particle.png&amp;#34; system: particleSystem } } 例子的运行结果如下所示：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/particle_simulations/summary/</guid>
+      <description>总结（Summary） #  粒子是一个非常强大且有趣的方法，用来表达图像现象的一种方式，比如烟， 火花，随机可视元素。Qt5的扩展API非常强大，我们仅仅只使用了一些浅显的。有一些元素我们还没有使用过，比如精灵（spirites），尺寸表（size tables），颜色表（color tables）。粒子看起来非常有趣，它在界面上创建引人注目的东西是非常有潜力的。在一个用户界面中使用非常多的粒子效果将会导致用户对它产生这是一个游戏的印象。粒子的真正力量也是用来创建游戏。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/a_boilerplate_application/</guid>
+      <description>演示程序（A Boilerplate Application） #  理解Qt最好的方法是从一个小的应用程序开始。这个简单的例子叫做“Hello World!”，使用unicode编码将字符串写入到一个文件中。
+#include &amp;lt;QCoreApplication&amp;gt; #include &amp;lt;QString&amp;gt; #include &amp;lt;QFile&amp;gt; #include &amp;lt;QDir&amp;gt; #include &amp;lt;QTextStream&amp;gt; #include &amp;lt;QDebug&amp;gt; int main(int argc, char *argv[]) { QCoreApplication app(argc, argv); // prepare the message QString message(&amp;#34;Hello World!&amp;#34;); // prepare a file in the users home directory named out.txt QFile file(QDir::home().absoluteFilePath(&amp;#34;out.txt&amp;#34;)); // try to open the file in write mode if(!file.open(QIODevice::WriteOnly)) { qWarning() &amp;lt;&amp;lt; &amp;#34;Can not open file with write access&amp;#34;; return -1; } // as we handle text we need to use proper text codecs QTextStream stream(&amp;amp;file); // write message to file via the text stream stream &amp;lt;&amp;lt; message; // do not start the eventloop as this would wait for external IO // app.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/a_simple_model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/a_simple_model/</guid>
+      <description>一个简单的模型（A simple model） #  一个典型的QML C++模型继承自QAbstractListModel ，并且最少需要实现data和rowCount函数。在这个例子中我们将使用由QColor类提供的一系列SVG颜色名称并且使用我们的模型展示它们。数据被存储在QList&amp;lt;QString&amp;gt;数据容器中。
+我们的DataEntryModel基础自QAbstractListModel并且实现了需要强制实现的函数。我们可以在rowCount中忽略父对象索引，这只在树模型中使用。QModelIndex类提供了视图检索数据需要的单元格行和列的信息，视图基于行列和数据角色从模型中拉取数据。QAbstractListModel在QtCore中定义，但是QColor被定义在QtGui中。我们需要附加QtGui依赖。对于QML应用程序，它可以依赖QtGui，但是它通常不依赖QtWidgets。
+#ifndef DATAENTRYMODEL_H #define DATAENTRYMODEL_H #include &amp;lt;QtCore&amp;gt; #include &amp;lt;QtGui&amp;gt; class DataEntryModel : public QAbstractListModel { Q_OBJECT public: explicit DataEntryModel(QObject *parent = 0); ~DataEntryModel(); public: // QAbstractItemModel interface virtual int rowCount(const QModelIndex &amp;amp;parent) const; virtual QVariant data(const QModelIndex &amp;amp;index, int role) const; private: QList&amp;lt;QString&amp;gt; m_data; }; #endif // DATAENTRYMODEL_H 现在你可以使用QML导入命令import org.example 1.0来访问DataEntryModel，和其它QML项使用的方法一样DataEntryModel {}。
+我们在这个例子中使用它来显示一个简单的颜色条目列表。
+import org.example 1.0 ListView { id: view anchors.fill: parent model: DataEntryModel {} delegate: ListDelegate { // use the defined model role &amp;#34;display&amp;#34; text: model.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/advanced_techniques/</guid>
+      <description>进阶技巧（Advanced Techniques） #  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/associative_containers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/associative_containers/</guid>
+      <description>组合容器（Associative Containers） #  映射，字典或者集合是组合容器的例子。它们使用一个键来保存一个值。它们可以快速的查询它们的元素。我们将展示使用最多的组合容器QHash，同时也会展示一些C++11新的特性。
+ QHash&amp;lt;QString, int&amp;gt; hash({{&amp;#34;b&amp;#34;,2},{&amp;#34;c&amp;#34;,3},{&amp;#34;a&amp;#34;,1}}); qDebug() &amp;lt;&amp;lt; hash.keys(); // a,b,c - unordered qDebug() &amp;lt;&amp;lt; hash.values(); // 1,2,3 - unordered but same as order as keys QVERIFY(hash[&amp;#34;a&amp;#34;] == 1); QVERIFY(hash.value(&amp;#34;a&amp;#34;) == 1); QVERIFY(hash.contains(&amp;#34;c&amp;#34;) == true); { // JAVA iterator int sum =0; QHashIterator&amp;lt;QString, int&amp;gt; i(hash); while (i.hasNext()) { i.next(); sum+= i.value(); qDebug() &amp;lt;&amp;lt; i.key() &amp;lt;&amp;lt; &amp;#34; = &amp;#34; &amp;lt;&amp;lt; i.value(); } QVERIFY(sum == 6); } { // STL iterator int sum = 0; QHash&amp;lt;QString, int&amp;gt;::const_iterator i = hash.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/build_systems/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/build_systems/</guid>
+      <description>编译系统（Build Systems） #  在不同的平台上稳定的编译软件是一个复杂的任务。你将会遇到不同环境下的不同编译器，路径和库变量的问题。Qt的目的是防止应用开发者遭遇这些跨平台问题。为了完成这个任务，Qt引进了qmake编译文件生成器。qmake操作以.pro 结尾的项目文件。这个项目文件包含了关于应用程序的说明和需要读取的资源文件。用qmake执行这个项目文件会为你生成一个在unix和mac的Makefile ,如果在windows下使用mingw编译工具链也会生成。否则可能会创建一个visual studio项目或者一个xcode项目。
+在unix下使用Qt编译如下：
+$ edit myproject.pro $ qmake // generates Makefile $ make Qt也允许你使用影子编译。影子编译会在你的源码位置外的路径进行编译。假设我们有一个myproject文件夹，里面有一个myproject.pro文件。如下输入命令：
+$ mkdir build $ cd build $ qmake ../myproject/myproject.pro 我们创建一个编译文件夹并且在这个编译文件中使用qmake指向我们项目文件夹中的项目文件。这将配置makefile使用编译文件夹替代我们的源代码文件夹来存放所有的编译中间件和结果。这允许我们同时为不同的qt版本和编译配置创建不同的编译文件夹并且不会弄乱我们的源代码文件夹。
+当你使用Qt Creator时，它会在后代为你做这些事情，通常你不在需要担心这些步骤。对于比较大的项目，建议使用命令行方式来编译你的Qt项目可以更加深入的了解编译流。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/cmake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/cmake/</guid>
+      <description>CMake #  CMake是由Kitware创造的工具。由于它们的3D可视化软件VTK使得Kitware家喻户晓，当然这也有CMake这个跨平台makefile生成器的功劳。它使用一系列的CMakeLists.txt文件来生成平台指定的makefile。CMake被KDE项目所使用，它与Qt社区有一种特殊的关系。
+CMakeLists.txt文件存储了项目配置。一个简单的hello world使用QtCore的项目如下：
+// ensure cmake version is at least 3.0 cmake_minimum_required(VERSION 3.0) // adds the source and build location to the include path set(CMAKE_INCLUDE_CURRENT_DIR ON) // Qt&amp;#39;s MOC tool shall be automatically invoked set(CMAKE_AUTOMOC ON) // using the Qt5Core module find_package(Qt5Core) // create excutable helloworld using main.cpp add_executable(helloworld main.cpp) // helloworld links against Qt5Core target_link_libraries(helloworld Qt5::Core) 这将使用main.cpp编译一个可执行的helloworld应用程序，并与额外的Qt5Core库链接。编译文件通常会被修改：
+// sets the PROJECT_NAME variable project(helloworld) cmake_minimum_required(VERSION 3.0) set(CMAKE_INCLUDE_CURRENT_DIR ON) set(CMAKE_AUTOMOC ON) find_package(Qt5Core) // creates a SRC_LIST variable with main.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/common_qt_classes/</guid>
+      <description>Qt通用类（Common Qt Classes） #  类QObject组成了Qt的基础，但是在这个框架里还有很多的类。在我们继续探寻如何扩展QML之前，我们需要先了解一些有用的Qt基础类。
+在这一节中的示例代码需要使用Qt Test库。它提供一种非常好的方法来测试Qt的API并将其存储供以后参考使用。测试库提供的QVERIFY与QCOMPARE函数断言一个正确条件。我们也将使用域来避免名称校验冲突。所以不要对后面的代码有困惑。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/dynamic_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/dynamic_data/</guid>
+      <description>动态数据（Dynamic Data） #  动态数据包含了从模型中插入，移除，清除数据等。QAbstractListModel期望当条目被移除或者插入时有一个明确的行为。这个行为使用一个信号来表示，在操作调用前和调用后调用这个行为。例如向一个模型插入一行数据，你首先需要发送beginInsertRows信号，然后操作数据，最后发送endInsertRows信号。
+我们将在头文件中加入后续的函数。这些使用Q_INVOKABLE函数定义使得可以在QML中调用它们。另一种方法是将它们定义为公共槽函数。
+// inserts a color at the index (0 at begining, count-1 at end) Q_INVOKABLE void insert(int index, const QString&amp;amp; colorValue); // uses insert to insert a color at the end Q_INVOKABLE void append(const QString&amp;amp; colorValue); // removes a color from the index Q_INVOKABLE void remove(int index); // clear the whole model (e.g. reset) Q_INVOKABLE void clear(); 此外，我们定义了count属性来获取模型的大小和一个使用索引值的get方法来获取颜色。这些东西在QML中使用迭代器遍历模型时会用到。
+// gives the size of the model Q_PROPERTY(int count READ count NOTIFY countChanged) // gets a color at the index Q_INVOKABLE QColor get(int index); 实现插入数据首先要检查边界和插入值是否有效。在这之后我们开始插入数据。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/file_io/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/file_io/</guid>
+      <description>文件IO（File IO） #  通常我们都需要从读写文件。QFile是一个QObject对象，但是大多数情况下它被创建在栈上。QFile包含了通知用户数据可读取信号。它可以异步读取大段的数据，直到整个文件读取完成。为了方便它允许使用阻塞的方式读取数据。这种方法通常用于读取小段数据或者小型文件。幸运的是我们在这些例子中都只使用了小型数据。
+除了读取文件内容到内存中可以使用QByteArray，你也可以根据读取数据类型使用QDataStream或者使用QTextStream读取unicode字符串。我们现在来看看如何使用。
+ QStringList data({&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;}); { // write binary files QFile file(&amp;#34;out.bin&amp;#34;); if(file.open(QIODevice::WriteOnly)) { QDataStream stream(&amp;amp;file); stream &amp;lt;&amp;lt; data; } } { // read binary file QFile file(&amp;#34;out.bin&amp;#34;); if(file.open(QIODevice::ReadOnly)) { QDataStream stream(&amp;amp;file); QStringList data2; stream &amp;gt;&amp;gt; data2; QCOMPARE(data, data2); } } { // write text file QFile file(&amp;#34;out.txt&amp;#34;); if(file.open(QIODevice::WriteOnly)) { QTextStream stream(&amp;amp;file); QString sdata = data.join(&amp;#34;,&amp;#34;); stream &amp;lt;&amp;lt; sdata; } } { // read text file QFile file(&amp;#34;out.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/models_in_c&#43;&#43;/</guid>
+      <description>C++数据模型（Models in C++） #  在QML中的数据模型为链表视图，路径视图和其它需要为模型中的每个子项创建一个代理引用的视图提供数据。视图只创建可是区域内或者缓冲范围内的引用。这使得即使包含成千上万的子项模型仍然可以保持流畅的用户界面。代理扮演了用来渲染模型子项数据的模板。总之：视图使用代理作为模板来渲染模型中的子项。模型为视图提供数据。
+当你不想使用C++时，你可以在QML环境中定义模型，你有多重方法为一个视图提供模型。使用C++操作数据或者使用包含了大型数据的C++模型比在QML环境中达到相同目的更加稳定可靠。但是当你值需要少量数据时，QML模型时非常适合的。
+ListView { // using a integer as model model: 5 delegate: Text { text: &amp;#39;index: &amp;#39; + index } } ListView { // using a JS array as model model: [&amp;#39;A&amp;#39;, &amp;#39;B&amp;#39;, &amp;#39;C&amp;#39;, &amp;#39;D&amp;#39;, &amp;#39;E&amp;#39;] delegate: Text { &amp;#39;Char[&amp;#39;+ index +&amp;#39;]: &amp;#39; + modelData } } ListView { // using a dynamic QML ListModel as model model: ListModel { ListElement { char: &amp;#39;A&amp;#39; } ListElement { char: &amp;#39;B&amp;#39; } ListElement { char: &amp;#39;C&amp;#39; } ListElement { char: &amp;#39;D&amp;#39; } ListElement { char: &amp;#39;E&amp;#39; } } delegate: Text { &amp;#39;Char[&amp;#39;+ index +&amp;#39;]: &amp;#39; + model.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/more_complex_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/more_complex_data/</guid>
+      <description>更复杂的数据（More Complex Data） #  实际工作中使用的模型数据通常比较复杂。所以需要自定义一些角色枚举方便视图通过属性查找数据。例如模型提供颜色数据不仅只是16进制字符串，在QML中也可以是来自HSV颜色模型的色调，饱和度和亮度，以“model.hue”，“model.saturation”和“model.brightness”作为参数。
+#ifndef ROLEENTRYMODEL_H #define ROLEENTRYMODEL_H #include &amp;lt;QtCore&amp;gt; #include &amp;lt;QtGui&amp;gt; class RoleEntryModel : public QAbstractListModel { Q_OBJECT public: // Define the role names to be used enum RoleNames { NameRole = Qt::UserRole, HueRole = Qt::UserRole+2, SaturationRole = Qt::UserRole+3, BrightnessRole = Qt::UserRole+4 }; explicit RoleEntryModel(QObject *parent = 0); ~RoleEntryModel(); // QAbstractItemModel interface public: virtual int rowCount(const QModelIndex &amp;amp;parent) const override; virtual QVariant data(const QModelIndex &amp;amp;index, int role) const override; protected: // return the roles mapping to be used by QML virtual QHash&amp;lt;int, QByteArray&amp;gt; roleNames() const override; private: QList&amp;lt;QColor&amp;gt; m_data; QHash&amp;lt;int, QByteArray&amp;gt; m_roleNames; }; #endif // ROLEENTRYMODEL_H 在头文件中，我们为QML添加了数据角色枚举的映射。当QML尝试访问一个模型中的属性时（例如“model.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/qmake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/qmake/</guid>
+      <description>QMake #  QMake是用来读取项目文件并生成编译文件的工具。项目文件记录了你的项目配置，扩展依赖库和源代码文件。最简单包含一个源代码文件的项目可能像这样：
+// myproject.pro SOURCES += main.cpp 我们编译了一个基于项目文件名称myproject的可执行程序。这个编译将只包含main.cpp源文件。默认情况下我们会为项目添加QtCore和QtGui模块。如果我们的项目是一个QML应用程序，我们需要添加QtQuick和QtQml到这个链表中：
+// myproject.pro QT += qml quick SOURCES += main.cpp 现在编译文件知道与Qt的QtQml和QtQuick模块链接。QMake使用=，+=` and ``-=来指定，添加和移除选项链表中的元素。例如一个只有控制台的编译将不会依赖UI，你需要移除QtGui模块：
+// myproject.pro QT -= gui SOURCES += main.cpp 当你期望编译一个库来替代一个应用程序时，你需要改变编译模板：
+// myproject.pro TEMPLATE = lib QT -= gui HEADERS += utils.h SOURCES += utils.cpp 现在项目将使用utils.h头文件和utils.cpp文件编译为一个没有UI依赖的库。库的格式依赖于你当前编译项目所用的操作系统。
+通常将会有更加复杂的配置并且需要编译个项目配置。qmake提供了subdirs模板。假设我们有一个mylib和一个myapp项目。我们的配置可能如下：
+my.pro mylib/mylib.pro mylib/utils.h mylib/utils.cpp myapp/myapp.pro myapp/main.cpp 我们已经知道了如何使用Mylib.pro和myapp.pro。my.pro作为一个包含项目文件配置如下：
+// my.pro TEMPLATE = subdirs subdirs = mylib \ myapp myapp.depends = mylib 在项目文件中声明包含两个子项目mylib和myapp，myapp依赖于mylib。当你使用qmake为这个项目文件生成编译文件时，将会在每个项目文件对应的文件夹下生成一个编译文件。当你使用my.pro文件的makefile编译时，所有的子项目也会编译。
+有时你需要基于你的配置在不同的平台上做不同的事情。qmake推荐使用域的概念来处理它。当一个配置选项设置为true时使一个域生效。
+例如使用unix指定utils的实现可以像这样：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/qstring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/qstring/</guid>
+      <description>QString #  通常在Qt中文本操作是基于unicode完成的。你需要使用QString类来完成这个事情。它包含了很多好用的功能函数，这与其它流行的框架类似。对于8位的数据你通常需要使用QByteArray类，对于ASCII校验最好使用QLatin1String来暂存。对于一个字符串链你可以使用QList&amp;lt;QString&amp;gt;或者QStringList类（派生自QList&amp;lt;QString&amp;gt;）。
+这里有一些例子介绍了如何使用QString类。QString可以在栈上创建，但是它的数据存储在堆上。分配一个字符串数据到另一个上，不会产生拷贝操作，只是创建了数据的引用。这个操作非常廉价让开发者更专注于代码而不是内存操作。QString使用引用计数的方式来确定何时可以安全的删除数据。这个功能叫做 隐式共享，在Qt的很多类中都用到了它。
+ QString data(&amp;#34;A,B,C,D&amp;#34;); // create a simple string // split it into parts QStringList list = data.split(&amp;#34;,&amp;#34;); // create a new string out of the parts QString out = list.join(&amp;#34;,&amp;#34;); // verify both are the same QVERIFY(data == out); // change the first character to upper case QVERIFY(QString(&amp;#34;A&amp;#34;) == out[0].toUpper()); 这里我们将展示如何将一个字符串转换为数字，将一个数字转换为字符串。也有一些方便的函数用于float或者double和其它类型的转换。只需要在Qt帮助文档中就可以找到这些使用方法。
+ // create some variables int v = 10; int base = 10; // convert an int to a string QString a = QString::number(v, base); // and back using and sets ok to true on success bool ok(false); int v2 = a.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/README/</guid>
+      <description>Qt and C++ #  Qt是QML与JavaScript的C++扩展工具包。有许多语言与Qt绑定，但是由于Qt是由C++开发的，C++的精神贯穿了整个Qt。在这一节中，我们着重从C++的角度介绍Qt，使用C++开发的本地插件来了解如何更好的扩展QML。通过C++，可以扩展和控制提供给QML的执行环境。
+这章将讲解Qt，正如Qt所要求的一样，需要读者有一定的C++基础知识。Qt不依赖于先进的C++特性，我认为Qt风格的C++代码可读性非常高，所以不要担心你的C++方面比较差。
+从C++的角度分析Qt，你会发现Qt通过内省数据的机制实现了许多现代语言的特性。这是通过使用基础类QObject实现的。内省数据，源数据，类运行时的数据维护。原生的C++是不会完成这些事情的。这使得动态查询对象信息，例如它们的属性成为可能。
+Qt使用源对象信息实现了信号与槽的回调绑定。每个信号能够连接任意数量的槽函数或者其它的信号。当一个信号从一个对象实例从发送后，会调用连接信号的槽函数。发送信号的对象不需要知道接收槽对象的任何信息，反之亦然。这一机制可以创建复用性非常高的组件，并减少组件之间的依赖。
+内省特性也用于创建动态语言的绑定，使得QML可以调用暴露的C++对象实例，并且可以从JavaScript中调用C++函数。除了绑定Qt C++, 绑定标准的JavaScript也是一种非常流行的方式，还有Python的绑定，叫做PyQt。
+除了这些核心概念，Qt可以使用C++开发跨平台应用程序。Qt C++在不同的操作系统上提供了一套平台抽象，允许开发者专注于手上的任务，不需要你去了解如何在不同的操作系统上打开一个文件。这意味着你可以在Windows，OS X和Linux重复编译相同的代码，由Qt去解决在不同平台上的适配问题。最终保持本地构建的应用程序与目标平台的窗口风格上看起来一致。随着移动平台的桌面更新，Qt也提供相同的代码在不同的移动平台上编译，例如IOS，Android，Jolla，BlackBerry，Ubuntu Phone，Tizen。
+这样不仅仅是代码可以重用，开发者的技能也可以重用。了解Qt的团队比只专注于单平台特定技能的团队可以接触更多的平台，由于Qt的灵活性，团队可以使用相同的技术创建不同平台的组件。
+ 对于所有平台，Qt提供了一套基本类，例如支持完整unicode编码的字符串，链表容器，向量容器，缓冲容器。它也提供了目标平台的通用主循环抽象和跨平台的线程支持，网络支持。Qt的主旨是为Qt的开发者提供所有必须的功能。对于特定领域的任务，例如本地库接口，Qt也提供了一些帮助类来使得这些操作更加简单。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/sequential_containers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/sequential_containers/</guid>
+      <description>顺序容器（Sequential Containers） #  链表，队列，数组都是顺序容器。最常用的顺序容器是QList类。它是一个模板类，需要一个类型才能被初始化。它也是隐式共享的，数据存放在堆中。所有的容器类应该被创建在栈上。正常情况下你不需要使用new QList&amp;lt;T&amp;gt;()这样的语句，千万不要使用new来初始化一个容器。
+类QList与类QString一样强大，提供了方便的接口来查询数据。下面一个简单的示例展示了如何使用和遍历链表，这里面也使用到了一些C++11的新特性。
+ // Create a simple list of ints using the new C++11 initialization // for this you need to add &amp;#34;CONFIG += c++11&amp;#34; to your pro file. QList&amp;lt;int&amp;gt; list{1,2}; // append another int list &amp;lt;&amp;lt; 3; // We are using scopes to avoid variable name clashes { // iterate through list using Qt for each int sum(0); foreach (int v, list) { sum += v; } QVERIFY(sum == 6); } { // iterate through list using C++ 11 range based loop int sum = 0; for(int v : list) { sum+= v; } QVERIFY(sum == 6); } { // iterate through list using JAVA style iterators int sum = 0; QListIterator&amp;lt;int&amp;gt; i(list); while (i.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/the_qobject/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_and_c&#43;&#43;/the_qobject/</guid>
+      <description>QObject对象（The QObject） #  正如介绍中描述的，QObject是Qt的内省机制。在Qt中它几乎是所有类的基类。值类型除外，例如QColor，QString和QList。
+Qt对象是一个标准的C++对象，但是它具有更多的功能。可以从两个方向来深入探讨：内省和内存管理。内省意味着Qt对象知道它的类名，它与其它类的关系，以及它的方法和属性。内存管理意味着每个Qt对象都可以成为是其它子对象的父对象。父对象拥有子对象，当父对象销毁时，它也会负责销毁它的子对象。
+理解QObject的能力如何影响一个类最好的方法是使用Qt的类来替换一个典型的C++类。如下所示的代表一个普通的类。
+类Person是一个数据类，包含了一个名字和性别属性。Person使用Qt的对象系统来添加一个元信息到c++类中。它允许使用Person对象的用户连接槽函数并且当属性变化时获得通知。
+class Person : public QObject { Q_OBJECT // enabled meta object abilities // property declarations required for QML Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged) Q_PROPERTY(Gender gender READ gender WRITE setGender NOTIFY genderChanged) // enables enum introspections Q_ENUMS(Gender) public: // standard Qt constructor with parent for memory management Person(QObject *parent = 0); enum Gender { Unknown, Male, Female, Other }; QString name() const; Gender gender() const; public slots: // slots can be connected to signals void setName(const QString &amp;amp;); void setGender(Gender); signals: // signals can be emitted void nameChanged(const QString &amp;amp;name); void genderChanged(Gender gender); private: // data members QString m_name; Gender m_gender; }; 构造函数传入父对象到超类中并且初始化成员变量。Qt的值类型类会自动初始化。在这个例子中QString 将会初始化为一个空字符串（QString::isNull()）并且性别成员变量会明确的初始化为未知性别。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/debugging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/debugging/</guid>
+      <description>调试（Debugging） #  Qt Creator支持C++与QML代码调试。
+注意
+嗯，我才意识到我还没有使用过调试。这是一个好的现象。我需要有人对此提出问题，查看 Qt Creator documentation来获得更多的帮助吧。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/locator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/locator/</guid>
+      <description>定位器（Locator） #  定位器是Qt Creaotor中心的一个组件。它可以让开发者迅速的找到指定代码的位置，或者获得帮助。使用Ctrl+K来打开定位器。
+ 左边底部可以显示弹出一系列的选项。如果你只是想搜索你项目中的一个文件，你只需要给出文件第一个字母提示就可以了。定位器也接收通配符，比如*main.qml也可以查找。你也可以通过前缀搜索来搜索指定内容的类型。
+ 试试它，例如寻找一个QML矩形框的帮助，输入?rectangle。定位器会不停的更新它的建议直到你找到你想要的参考文档。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/managing_projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/managing_projects/</guid>
+      <description>项目管理（Managing Projects） #  Qt Creator在项目中管理你的源代码。你可以使用File-&amp;gt;New File或者Project来创建一个新项目。当你创建一个项目时，你可以选择多种应用程序模板。Qt Creator 能够创建桌面，手机应用程序。这些应用程序使用窗口部件（Widgets）或者QtQuick或者控制台，甚至可以是更加简单的项目。当然也支持HTML5与python的项目。对于一个新手是很难选择的，所以我们为你选择了三种类型的项目。
+  应用程序/QtQuick2.0用户界面：这将会为你创建一个QML/JS的项目，不需要使用任何的C++代码。使用这个你可以迅速的创建一个新的用户界面或者计划创建一个基于本地插件的现代的用户界面应用程序。
+  库/Qt Quick2.0扩展插件：使用这个安装引导能够创建一个你自己的Qt Quick用户界面插件。这个插件被用来扩展Qt Quick的本地元素。
+  其它项目/空的Qt项目：只是一个项目的骨架。如果你想从头使用C++来编写你的应用程序，你可以使用这种方式。你需要知道你在这里能做什么。
+  注意
+在这本书的前面部分我们主要使用QtQuick 2.0用户界面项目。在后面我们会使用空的Qt项目或者类似的项目描述一些C++方面的使用。为了使用我们自己的本地插件来扩展QtQuick，我们将会使用Qt Quick2.0扩展插件安装引导项目。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/qtregistering_your_qt_kit/</guid>
+      <description>注册你的Qt工具箱（Registering your Qt Kit） #  最开始使用Qt Creator时最困难的部分可能是Qt Kit。一个Qt Kit由Qt的版本，编译系统和设备等等其它设置来配置它。它使用唯一标识的工具组合来构建你的项目。一个典型的桌面kit（工具箱）可能包含一个GCC编译程序，一个Qt版本库（比如Qt5.1.1）和一个设备（”桌面“）。在你创建好你的项目后你需要为项目指定一个kit（工具箱）来构建项目。在你创建一个kit（工具箱）之前你需要先安装一个编译程序并注册一个Qt版本。Qt版本的注册由指定qmake的执行路径完成。Qt Creator通过查询qmake的信息来获取Qt的版本标识。
+添加kit（工具箱）与注册Qt版本在Settings-&amp;gt;Bulild &amp;amp; Run entry中完成，在这里你也可以查看有哪些编译程序已经被注册了的。
+注意
+请首先确保你的Qt Creator中已经注册了正确的Qt版本，并且确保一个Kit（工具箱）指定了一个编译程序与Qt版本和设备的组合。你无法离开Kit（工具箱）来构建一个项目。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/README/</guid>
+      <description>Qt Creator集成开发环境（Qt Creator IDE） #  Qt Creator是Qt默认的集成开发环境。它由Qt的开发者们编写提供的。这个集成开发环境能够在大多数的桌面开发平台上使用，例如 Windows/Mac/Linux。我们也已经看到有些用户在嵌入式设备上使用Qt Creator。Qt Creator有着精简的用户界面，可以帮助开发者们高效的完成开发生产。Qt Creator 能够启动你的QtQuick用户界面，也可以用来编译c++代码到你的主机系统或者使用交叉编译到你的设备系统上。
+ 注意
+这章的源代码能够在 assetts folder找到。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/shortcuts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/shortcuts/</guid>
+      <description>快捷键（Shortcuts） #  在好使用的系统中和专业系统中，快捷键是不同的。作为专业的开发人员，你也许会在你的应用程序上花很多时间，每一个快捷键都能使你的工作效率得到提高。Qt Creator的开发者也这样想，并且在应用程序中加入了许许多多的快捷键。
+我们列出了一些基本的快捷键操作：
+  Ctrl+B - 构建项目
+  Ctrl+R - 运行项目
+  Ctrl+Tab - 切换已打开的文档
+  Ctrl+k - 打开定位器
+  Esc - 返回
+  F2 - 查找对应的符号解释。
+  F4 - 在头文件与源文件之间切换（只对c++代码有效）
+  这些快捷键的定义来自 Qt Creator shortcuts这个文档。
+注意
+你可以使用设置窗口来编辑你的快捷键。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/the_user_interface/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/the_user_interface/</guid>
+      <description>用户界面（The User Interface） #  当你启动Qt Creator时，你可以看到一个欢迎画面。在这里你可以找到怎样在Qt Creator中继续的重要提示，或者你最近使用的项目。你可以看到一个会话列表，你可以看到是一个空的。一个会话是供你参考使用的一堆项目的集合。当你在同时拥有几个客户的大项目时，这个功能非常有用。
+你可以在左边看到模式选择。模式选择包含了你典型的工作步骤。
+  欢迎模式：你目前所在的位置。
+  编辑模式：专注于编码。
+  设计模式：专注于用户界面设计。
+  调试模式：获取当前运行程序的相关信息。
+  项目模式：修改你的项目编译运行配置。
+  分析模式：检查内存泄露并剖析。
+  帮助模式：阅读Qt的帮助文档。
+  在模式选择下面你可以找到项目配置选择与执行/调试。
+ 你应该大多数时间都处于编辑模式的中央面板中的代码编辑器编辑你的代码。当你需要配置你的项目时，你将不时的访问项目模式。当你点击Run（运行）。Qt Creator会先确保充分的构建你的项目后再运行它。
+在最下面的输出窗是错误信息，应用程序信息，编译信息和其它的信息。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/using_the_editor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/qt_creator_ide/using_the_editor/</guid>
+      <description>使用编辑器（Using the Editor） #  当你打开一个项目或者创建一个新的项目后，Qt Creator将会转换到编辑模式下。你应该可以在左边看到你的项目文件，在中央区域看到代码编辑器。左边选中的文件将会被编辑器打开。编辑器提供了语法高亮，代码补全和智能纠错的功能。也提供几种代码重构的命令。当你使用这个编辑器工作时你会觉得它的响应非常的迅速。这感谢与Qt Creaotor的开发者将这个工具做的如此杰出。
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/advanced_techniques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/advanced_techniques/</guid>
+      <description>高级用法（Advanced Techniques） #  后续添加。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/basic_elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/basic_elements/</guid>
+      <description>基本元素（Basic Elements） #  元素可以被分为可视化元素与非可视化元素。一个可视化元素（例如矩形框Rectangle）有着几何形状并且可以在屏幕上显示。一个非可视化元素（例如计时器Timer）提供了常用的功能，通常用于操作可视化元素。
+现在我们将专注于几个基础的可视化元素，例如Item（基础元素对象），Rectangle（矩形框），Text（文本），Image（图像）和MouseArea（鼠标区域）。
+4.2.1 基础元素对象（Item Element） #  Item（基础元素对象）是所有可视化元素的基础对象，所有其它的可视化元素都继承自Item。它自身不会有任何绘制操作，但是定义了所有可视化元素共有的属性：
+   Group（分组） Properties（属性）     Geometry（几何属性） x,y（坐标）定义了元素左上角的位置，width，height（长和宽）定义元素的显示范围，z（堆叠次序）定义元素之间的重叠顺序。   Layout handling（布局操作） anchors（锚定），包括左（left），右（right），上（top），下（bottom），水平与垂直居中（vertical center，horizontal center），与margins（间距）一起定义了元素与其它元素之间的位置关系。   Key handlikng（按键操作） 附加属性key（按键）和keyNavigation（按键定位）属性来控制按键操作，处理输入焦点（focus）可用操作。   Transformation（转换） 缩放（scale）和rotate（旋转）转换，通用的x,y,z属性列表转换（transform），旋转基点设置（transformOrigin）。   Visual（可视化） 不透明度（opacity）控制透明度，visible（是否可见）控制元素是否显示，clip（裁剪）用来限制元素边界的绘制，smooth（平滑）用来提高渲染质量。   State definition（状态定义） states（状态列表属性）提供了元素当前所支持的状态列表，当前属性的改变也可以使用transitions（转变）属性列表来定义状态转变动画。    为了更好的理解不同的属性，我们将会在这章中尽量的介绍这些元素的显示效果。请记住这些基本的属性在所有可视化元素中都是可以使用的，并且在这些元素中的工作方式都是相同的。
+注意
+Item（基本元素对象）通常被用来作为其它元素的容器使用，类似HTML语言中的div元素（div element）。
+4.2.2 矩形框元素（Rectangle Element） #  Rectangle（矩形框）是基本元素对象的一个扩展，增加了一个颜色来填充它。它还支持边界的定义，使用border.color（边界颜色），border.width（边界宽度）来自定义边界。你可以使用radius（半径）属性来创建一个圆角矩形。
+ Rectangle { id: rect1 x: 12; y: 12 width: 76; height: 96 color: &amp;#34;lightsteelblue&amp;#34; } Rectangle { id: rect2 x: 112; y: 12 width: 76; height: 96 border.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/compontents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/compontents/</guid>
+      <description>组件（Compontents） #  一个组件是一个可以重复使用的元素，QML提供几种不同的方法来创建组件。但是目前我们只对其中一种方法进行讲解：一个文件就是一个基础组件。一个以文件为基础的组件在文件中创建了一个QML元素，并且将文件以元素类型来命名（例如Button.qml）。你可以像任何其它的QtQuick模块中使用元素一样来使用这个组件。在我们下面的例子中，你将会使用你的代码作为一个Button（按钮）来使用。
+让我们来看看这个例子，我们创建了一个包含文本和鼠标区域的矩形框。它类似于一个简单的按钮，我们的目标就是让它足够简单。
+ Rectangle { // our inlined button ui id: button x: 12; y: 12 width: 116; height: 26 color: &amp;#34;lightsteelblue&amp;#34; border.color: &amp;#34;slategrey&amp;#34; Text { anchors.centerIn: parent text: &amp;#34;Start&amp;#34; } MouseArea { anchors.fill: parent onClicked: { status.text = &amp;#34;Button clicked!&amp;#34; } } } Text { // text changes when button was clicked id: status x: 12; y: 76 width: 116; height: 26 text: &amp;#34;waiting ...&amp;#34; horizontalAlignment: Text.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/input_element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/input_element/</guid>
+      <description>输入元素（Input Element） #  我们已经使用过MouseArea（鼠标区域）作为鼠标输入元素。这里我们将更多的介绍关于键盘输入的一些东西。我们开始介绍文本编辑的元素：TextInput（文本输入）和TextEdit（文本编辑）。
+4.7.1 文本输入（TextInput） #  文本输入允许用户输入一行文本。这个元素支持使用正则表达式验证器来限制输入和输入掩码的模式设置。
+// textinput.qml import QtQuick 2.0 Rectangle { width: 200 height: 80 color: &amp;#34;linen&amp;#34; TextInput { id: input1 x: 8; y: 8 width: 96; height: 20 focus: true text: &amp;#34;Text Input 1&amp;#34; } TextInput { id: input2 x: 8; y: 36 width: 96; height: 20 text: &amp;#34;Text Input 2&amp;#34; } }  用户可以通过点击TextInput来改变焦点。为了支持键盘改变焦点，我们可以使用KeyNavigation（按键向导）这个附加属性。
+// textinput2.qml import QtQuick 2.0 Rectangle { width: 200 height: 80 color: &amp;#34;linen&amp;#34; TextInput { id: input1 x: 8; y: 8 width: 96; height: 20 focus: true text: &amp;#34;Text Input 1&amp;#34; KeyNavigation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/layout_items/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/layout_items/</guid>
+      <description>布局元素（Layout Items） #  QML使用anchors（锚）对元素进行布局。anchoring（锚定）是基础元素对象的基本属性，可以被所有的可视化QML元素使用。一个anchors（锚）就像一个协议，并且比几何变化更加强大。Anchors（锚）是相对关系的表达式，你通常需要与其它元素搭配使用。
+ 一个元素有6条锚定线（top顶，bottom底，left左，right右，horizontalCenter水平中，verticalCenter垂直中）。在文本元素（Text Element）中有一条文本的锚定基线（baseline）。每一条锚定线都有一个偏移（offset）值，在top（顶），bottom（底），left（左），right（右）的锚定线中它们也被称作边距。对于horizontalCenter（水平中）与verticalCenter（垂直中）与baseline（文本基线）中被称作偏移值。
+  元素填充它的父元素。   GreenSquare { BlueSquare { width: 12 anchors.fill: parent anchors.margins: 8 text: &amp;#39;(1)&amp;#39; } } 元素左对齐它的父元素。   GreenSquare { BlueSquare { width: 48 y: 8 anchors.left: parent.left anchors.leftMargin: 8 text: &amp;#39;(2)&amp;#39; } } 元素的左边与它父元素的右边对齐。   GreenSquare { BlueSquare { width: 48 anchors.left: parent.right text: &amp;#39;(3)&amp;#39; } } 元素中间对齐。Blue1与它的父元素水平中间对齐。Blue2与Blue1中间对齐，并且它的顶部对齐Blue1的底部。   GreenSquare { BlueSquare { id: blue1 width: 48; height: 24 y: 8 anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/positioning_element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/positioning_element/</guid>
+      <description>定位元素（Positioning Element） #  有一些QML元素被用于放置元素对象，它们被称作定位器，QtQuick模块提供了Row，Column，Grid，Flow用来作为定位器。你可以在下面的插图中看到它们使用相同内容的显示效果。
+注意
+在我们详细介绍前，我们先介绍一些相关的元素，红色（red），蓝色（blue），绿色（green），高亮（lighter）与黑暗（darker）方块，每一个组件都包含了一个48乘48的着色区域。下面是关于RedSquare（红色方块）的代码：
+// RedSquare.qml import QtQuick 2.0 Rectangle { width: 48 height: 48 color: &amp;#34;#ea7025&amp;#34; border.color: Qt.lighter(color) } 请注意使用了Qt.lighter（color）来指定了基于填充色的边界高亮色。我们将会在后面的例子中使用到这些元素，希望后面的代码能够容易读懂。请记住每一个矩形框的初始化大小都是48乘48像素大小。
+Column（列）元素将它的子对象通过顶部对齐的列方式进行排列。spacing属性用来设置每个元素之间的间隔大小。
+ // column.qml import QtQuick 2.0 DarkSquare { id: root width: 120 height: 240 Column { id: column anchors.centerIn: parent spacing: 8 RedSquare { } GreenSquare { width: 96 } BlueSquare { } } } // M1&amp;lt;&amp;lt; Row（行）元素将它的子对象从左到右，或者从右到左依次排列，排列方式取决于layoutDirection属性。spacing属性用来设置每个元素之间的间隔大小。
+ // row.qml import QtQuick 2.0 BrightSquare { id: root width: 400; height: 120 Row { id: row anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/qmlqml_syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/qmlqml_syntax/</guid>
+      <description>QML语法（QML Syntax） #  QML是一种描述用户界面的声明式语言。它将用户界面分解成一些更小的元素，这些元素能够结合成一个组件。QML语言描述了用户界面元素的形状和行为。用户界面能够使用JavaScript来提供修饰，或者增加更加复杂的逻辑。从这个角度来看它遵循HTML-JavaScript模式，但QML是被设计用来描述用户界面的，而不是文本文档。
+从QML元素的层次结构来理解是最简单的学习方式。子元素从父元素上继承了坐标系统，它的x,y坐标总是相对应于它的父元素坐标系统。
+ 让我们开始用一个简单的QML文件例子来解释这个语法。
+// rectangle.qml import QtQuick 2.0 // The root element is the Rectangle Rectangle { // name this element root id: root // properties: &amp;lt;name&amp;gt;: &amp;lt;value&amp;gt; width: 120; height: 240 // color property color: &amp;#34;#D8D8D8&amp;#34; // Declare a nested element (child of root) Image { id: rocket // reference the parent x: (parent.width - width)/2; y: 40 source: &amp;#39;assets/rocket.png&amp;#39; } // Another child of root Text { // un-named element // reference element by id y: rocket.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/README/</guid>
+      <description>QML快速入门（Quick Starter） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+这章概述了QML语言，Qt5中大量使用了这种声明用户界面的语言。我们将会讨论QML语言，一个树形结构的元素，跟着是一些最基本的元素概述。然后我们会简短的介绍怎样创建我们自己的元素，这些元素被叫做组件，并如何使用属性操作来转换元素。最后我们会介绍如何对元素进行布局，如何向用户提供输入。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/simple_transformations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/quick_starter/simple_transformations/</guid>
+      <description>简单的转换（Simple Transformations） #  转换操作改变了一个对象的几何状态。QML元素对象通常能够被平移，旋转，缩放。下面我们将讲解这些简单的操作和一些更高级的用法。 我们先从一个简单的转换开始。用下面的场景作为我们学习的开始。
+简单的位移是通过改变x,y坐标来完成的。旋转是改变rotation（旋转）属性来完成的，这个值使用角度作为单位（0~360）。缩放是通过改变scale（比例）的属性来完成的，小于1意味着缩小，大于1意味着放大。旋转与缩放不会改变对象的几何形状，对象的x,y（坐标）与width/height（宽/高）也类似。只有绘制指令是被转换的对象。
+在我们展示例子之前我想要介绍一些东西：ClickableImage元素（ClickableImage element），ClickableImage仅仅是一个包含鼠标区域的图像元素。我们遵循一个简单的原则，三次使用相同的代码描述一个用户界面最好可以抽象为一个组件。
+// ClickableImage.qml // Simple image which can be clicked import QtQuick 2.0 Image { id: root signal clicked MouseArea { anchors.fill: parent onClicked: root.clicked() } }  我们使用我们可点击图片元素来显示了三个火箭。当点击时，每个火箭执行一种简单的转换。点击背景将会重置场景。
+// transformation.qml import QtQuick 2.0 Item { // set width based on given background width: bg.width height: bg.height Image { // nice background image id: bg source: &amp;#34;assets/background.png&amp;#34; } MouseArea { id: backgroundClicker // needs to be before the images as order matters // otherwise this mousearea would be before the other elements // and consume the mouse events anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/README/</guid>
+      <description>《QmlBook》In Chinese #  中文版《QmlBook》，原作地址 QmlBook。
+QML的中文资料一直比较少，希望大家能喜欢。
+在线阅读 #  使用Gitbook制作，可以直接 在线阅读。
+PDF下载 #   点我下载
+ 百度网盘-中文字体修正
+当前阶段 #   QmlBook上发布的课程已完成所有章节的翻译，进入第一次校正阶段，还有很多不通顺或者翻译很生硬的地方。
+很多术语可能不准确，如果有什么错误希望广大Qt爱好者谅解，并及时指出。
+校对贡献 #  排名不分先后
+ DreamerCorey
+ Jakes Lee
+ itviewer
+课程目录 #   初识Qt5（Meet Qt5）  序（Preface) Qt5介绍（Qt5 Introduction） Qt构建模块（Qt Building Blocks） Qt项目（Qt Project）   开始学习（Get Start）  安装Qt5软件工具包（Installing Qt5 SDK） 你好世界（Hello World） 应用程序类型（Application Types） 总结（Summary）   Qt Creator集成开发环境（Qt Creator IDE）  用户界面（The User Interface） 注册你的Qt工具箱（Registering your Qt Kit） 使用编辑器（Managing Projects） 定位器（Locator） 调试（Debugging） 快捷键（Shortcuts）   QML快速入门（Quick Starter）  QML语法（QML Syntax） 基本元素（Basic Elements） 组件（Compontents） 简单的转换（Simple Transformations） 定位元素（Positioning Element） 布局元素（Layout items） 输入元素（Input Element） 高级用法（Advanced Techniques）   动态元素（Fluid Elements）  动画（Animations) 状态与过渡（States and Transitions） 高级用法（Advanced Techniques）   模型-视图-代理（Model-View-Delegate）  概念（Concept） 基础模型（Basic Model） 动态视图（Dynamic Views） 代理（Delegate） 高级用法（Advanced Techniques） 总结（Summary）   画布元素（Canvas Element）  便捷的接口（Convenient API） 渐变（Gradients） 阴影（Shadows） 图片（Images） 转换（Transformation） 组合模式（Composition Mode） 像素缓冲（Pixels Buffer） 画布绘制（Canvas Paint） HTML5画布移植（Porting from HTML5 Canvas）   粒子模拟（Particle Simulations）  概念（Concept） 简单的模拟（Simple Simulation） 粒子参数（Particle Parameters） 粒子方向（Directed Particle） 粒子画笔（Particle Painter） 粒子控制（Affecting Particles） 粒子组（Particle Group） 总结（Summary）   着色器效果（Shader Effect）  OpenGL着色器（OpenGL Shader） 着色器元素（Shader Elements） 片段着色器（Fragment Shader） 波浪效果（Wave Effect） 顶点着色器（Vertex Shader） 剧幕效果（Curtain Effect） Qt图像效果库（Qt GraphicsEffect Library）   多媒体（Multimedia）  媒体播放（Playing Media） 声音效果（Sounds Effects） 视频流（Video Streams） 捕捉图像（Capturing Images） 高级用法（Advanced Techniques） 总结（Summary）   网络（Networking）  通过HTTP服务用户界面（Serving UI via HTTP） 模板（Templating） HTTP请求（HTTP Requests） 本地文件（Local files） REST接口（REST API） 云服务（Engine IO） Web Sockets 总结（Summary）   存储（Stgorage）  配置（Settings） 本地存储-SQL（Local Storage - SQL） 其它存储接口（Other Storage APIs）   动态QML（Dynamic QML）  动态加载组件（Loading Components Dynamically） 创建与销毁对象（Creating and Destorying Objects） 跟踪动态对象（Tracking Dynamic Objects） 总结（Summary）   JavaScript  浏览器/HTML与QtQuick/QML对比（Browser/HTML vs QtQuick/QML） JavaScript语法（The Language） JS对象（JS Objects） 创建JS控制台（Creating a JS Console）   Qt and C++  演示程序（A Boilerplate Application） Qt对象（The QObject） 编译系统（Build Systems） Qt通用类（Common Qt Classes） C++数据模型（Models in C++）   C++扩展QML（Extending QML with C++）  理解QML运行环境（Understanding the QML Run-time） 插件内容（Plugin Content） 创建插件（Creating the plugin） FileIO实现（FileIO Implementation） 使用FileIO（Using FileIO） 总结（Summary）   其它（Other）  示例源码 术语英汉对照表 格式定义 协作校正    原作者 #  感谢原作者Juergen Bocklage-Ryannel和Johan Thelin的分享。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/curtain_effect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/curtain_effect/</guid>
+      <description>剧幕效果（Curtain Effect） #  在最后的自定义效果例子中，我们将带来一个剧幕效果。这个效果是2011年5月Qt实验室发布的着色器效果中的一部分。目前网址已经转到blog.qt.digia.com，不知道还能不能找到。
+ 当时我非常喜欢这些效果，剧幕效果是我最喜爱的一个。我喜欢剧幕打开然后遮挡后面的背景对象。
+我将代码移植适配到Qt5上，这非常简单。同时我做了一些简化让它能够更好的展示。如果你对整个例子有兴趣，可以访问Qt实验室的博客。
+只有一个小组件作为背景，剧幕实际上是一张图片，叫做fabric.jpg，它是ShaderEffect的资源。整个效果使用顶点着色器来摆动剧幕，使用片段着色器提供阴影的效果。下面是一个简单的图片，让你更加容易理解代码。
+ 剧幕的波形阴影通过一个在剧幕宽度上的sin曲线使用7的振幅来计算（7*PI=221.99..）另一个重要的部分是摆动，当剧幕打开或者关闭时，使用动画来播放剧幕的topWidth。bottomWidth使用SpringAnimation来跟随topWidth变化。这样我们就能创建出底部摆动的剧幕效果。计算得到的swing提供了摇摆的强度，用来对顶点的y值进行插值。
+剧幕效果放在CurtainEffect.qml组件中，fabric图像作为纹理资源。在阴影的使用上没有新的东西加入，唯一不同的是在顶点着色器中操作gl_Postion和片段着色器中操作gl_FragColor。
+import QtQuick 2.0 ShaderEffect { anchors.fill: parent mesh: GridMesh { resolution: Qt.size(50, 50) } property real topWidth: open?width:20 property real bottomWidth: topWidth property real amplitude: 0.1 property bool open: false property variant source: effectSource Behavior on bottomWidth { SpringAnimation { easing.type: Easing.OutElastic; velocity: 250; mass: 1.5; spring: 0.5; damping: 0.05 } } Behavior on topWidth { NumberAnimation { duration: 1000 } } ShaderEffectSource { id: effectSource sourceItem: effectImage; hideSource: true } Image { id: effectImage anchors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/fragement_shader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/fragement_shader/</guid>
+      <description>片段着色器（Fragement Shader） #  片段着色器调用每个需要渲染的像素。我们将开发一个红色透镜，它将会增加图片的红色通道的值。
+配置场景（Setting up the scene）
+首先我们配置我们的场景，在区域中央使用一个网格显示我们的源图片（source image）。
+import QtQuick 2.0 Rectangle { width: 480; height: 240 color: &amp;#39;#1e1e1e&amp;#39; Grid { anchors.centerIn: parent spacing: 20 rows: 2; columns: 4 Image { id: sourceImage width: 80; height: width source: &amp;#39;assets/tulips.jpg&amp;#39; } } }  红色着色器（A red Shader）
+下一步我们添加一个着色器，显示一个红色矩形框。由于我们不需要纹理，我们从顶点着色器中移除纹理。
+ vertexShader: &amp;#34; uniform highp mat4 qt_Matrix; attribute highp vec4 qt_Vertex; void main() { gl_Position = qt_Matrix * qt_Vertex; }&amp;#34; fragmentShader: &amp;#34; uniform lowp float qt_Opacity; void main() { gl_FragColor = vec4(1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/openglopengl_shader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/openglopengl_shader/</guid>
+      <description>OpenGL着色器（OpenGL Shader） #  OpenGL的渲染管线分为几个步骤。一个简单的OpenGL渲染管线将包含一个顶点着色器和一个片段着色器。
+ 顶点着色器接收顶点数据，并且在程序最后赋值给gl_Position。然后，顶点将会被裁剪，转换和栅格化后作为像素输出。 片段（像素）进入片段着色器，进一步对片段操作并将结果的颜色赋值给gl_FragColor。顶点着色器调用多边形每个角的点（顶点=3D中的点），负责这些点的3D处理。片段（片度=像素）着色器调用每个像素并决定这个像素的颜色。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/qtqt_graphicseffect_library/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/qtqt_graphicseffect_library/</guid>
+      <description>Qt图像效果库（Qt GraphicsEffect Library） #  图像效果库是一个着色器效果的集合，是由Qt开发者提供制作的。它是一个很好的工具，你可以将它应用在你的程序中，它也是一个学习如何创建着色器的例子。
+图像效果库附带了一个手动测试平台，这个工具可以帮助你测试发现不同的效果 测试工具在$QTDIR/qtgraphicaleffects/tests/manual/testbed下。
+ 效果库包含了大约20种效果，下面是效果列表和一些简短的描述。
+   种类 效果 描述     混合（Blend） 混合（Blend） 使用混合模式合并两个资源项   颜色（Color） 亮度与对比度（BrightnessContrast） 调整亮度与对比度    着色（Colorize） 设置HSL颜色空间颜色    颜色叠加（ColorOverlay） 应用一个颜色层    降低饱和度（Desaturate） 减少颜色饱和度    伽马调整（GammaAdjust） 调整发光度    色调饱和度（HueSaturation） 调整HSL颜色空间颜色    色阶调整（LevelAdjust） 调整RGB颜色空间颜色   渐变（Gradient） 圆锥渐变（ConicalGradient） 绘制一个圆锥渐变    线性渐变（LinearGradient） 绘制一个线性渐变    射线渐变（RadialGradient） 绘制一个射线渐变   失真（Distortion） 置换（Displace） 按照指定的置换源移动源项的像素   阴影（Drop Shadow） 阴影 （DropShadow） 绘制一个阴影    内阴影（InnerShadow） 绘制一个内阴影   模糊 （Blur） 快速模糊（FastBlur） 应用一个快速模糊效果    高斯模糊（GaussianBlur） 应用一个高质量模糊效果    蒙版模糊（MaskedBlur） 应用一个多种强度的模糊效果    递归模糊（RecursiveBlur） 重复模糊，提供一个更强的模糊效果   运动模糊（Motion Blur） 方向模糊（DirectionalBlur） 应用一个方向的运动模糊效果    放射模糊（RadialBlur） 应用一个放射运动模糊效果    变焦模糊（ZoomBlur） 应用一个变焦运动模糊效果   发光（Glow） 发光（Glow） 绘制一个外发光效果    矩形发光（RectangularGlow） 绘制一个矩形外发光效果   蒙版（Mask） 透明蒙版（OpacityMask） 使用一个源项遮挡另一个源项    阈值蒙版（ThresholdMask） 使用一个阈值，一个源项遮挡另一个源项    下面是一个使用快速模糊效果的例子：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/README/</guid>
+      <description>着色器效果（Shader Effect） #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+   http://labs.qt.nokia.com/2012/02/02/qt-graphical-effects-in-qt-labs/
+   http://labs.qt.nokia.com/2011/05/03/qml-shadereffectitem-on-qgraphicsview/
+   http://qt-project.org/doc/qt-4.8/declarative-shadereffects.html
+   http://www.opengl.org/registry/doc/GLSLangSpec.4.20.6.clean.pdf
+   http://www.khronos.org/registry/gles/specs/2.0/GLSL_ES_Specification_1.0.17.pdf
+   http://www.lighthouse3d.com/opengl/glsl/
+   http://wiki.delphigl.com/index.php/Tutorial_glsl
+   Qt5Doc qtquick-shaders
+  着色器允许我们利用SceneGraph的接口直接调用在强大的GPU上运行的OpenGL来创建渲染效果。着色器使用ShaderEffect与ShaderEffectSource元素来实现。着色器本身的算法使用OpenGL Shading Language（OpenGL着色语言）来实现。
+实际上这意味着你需要混合使用QML代码与着色器代码。执行时，会将着色器代码发送到GPU，并在GPU上编译执行。QML着色器元素（Shader QML Elements）允许你与OpenGL着色器程序的属性交互。
+让我们首先来看看OpenGL着色器。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/shader_elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/shader_elements/</guid>
+      <description>着色器元素（Shader Elements） #  为了对着色器编程，Qt Quick提供了两个元素。ShaderEffectSource与ShaderEffect。ShaderEffect将会使用自定义的着色器，ShaderEffectSource可以将一个QML元素渲染为一个纹理然后再渲染这个纹理。由于ShaderEffect能够应用自定义的着色器到它的矩形几何形状，并且能够使用在着色器中操作资源。一个资源可以是一个图片，它被作为一个纹理或者着色器资源。
+默认下着色器使用这个资源并且不作任何改变进行渲染。
+import QtQuick 2.0 Rectangle { width: 480; height: 240 color: &amp;#39;#1e1e1e&amp;#39; Row { anchors.centerIn: parent spacing: 20 Image { id: sourceImage width: 80; height: width source: &amp;#39;assets/tulips.jpg&amp;#39; } ShaderEffect { id: effect width: 80; height: width property variant source: sourceImage } ShaderEffect { id: effect2 width: 80; height: width // the source where the effect shall be applied to property variant source: sourceImage // default vertex shader code vertexShader: &amp;#34; uniform highp mat4 qt_Matrix; attribute highp vec4 qt_Vertex; attribute highp vec2 qt_MultiTexCoord0; varying highp vec2 qt_TexCoord0; void main() { qt_TexCoord0 = qt_MultiTexCoord0; gl_Position = qt_Matrix * qt_Vertex; }&amp;#34; // default fragment shader code fragmentShader: &amp;#34; varying highp vec2 qt_TexCoord0; uniform sampler2D source; uniform lowp float qt_Opacity; void main() { gl_FragColor = texture2D(source, qt_TexCoord0) * qt_Opacity; }&amp;#34; } } }  在上边这个例子中，我们在一行中显示了3张图片，第一张是原始图片，第二张使用默认的着色器渲染出来的图片，第三张使用了Qt5源码中默认的顶点与片段着色器的代码进行渲染的图片。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/vertex_shader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/vertex_shader/</guid>
+      <description>顶点着色器（Vertex Shader） #  顶点着色器用来操作ShaderEffect提供的顶点。正常情况下，ShaderEffect有4个顶点（左上top-left，右上top-right，左下bottom-left，右下bottom-right）。每个顶点使用vec4类型记录。为了实现顶点着色器的可视化，我们将编写一个吸收的效果。这个效果通常被用来让一个矩形窗口消失为一个点。
+ 配置场景（Setting up the scene）
+首先我们再一次配置场景。
+import QtQuick 2.0 Rectangle { width: 480; height: 240 color: &amp;#39;#1e1e1e&amp;#39; Image { id: sourceImage width: 160; height: width source: &amp;#34;assets/lighthouse.jpg&amp;#34; visible: false } Rectangle { width: 160; height: width anchors.centerIn: parent color: &amp;#39;#333333&amp;#39; } ShaderEffect { id: genieEffect width: 160; height: width anchors.centerIn: parent property variant source: sourceImage property bool minimized: false MouseArea { anchors.fill: parent onClicked: genieEffect.minimized = !</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/wave_effect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/shader_effect/wave_effect/</guid>
+      <description>波浪效果（Wave Effect） #  在这个更加复杂的例子中，我们使用片段着色器创建一个波浪效果。波浪的形成是基于sin曲线，并且它影响了使用的纹理坐标的颜色。
+import QtQuick 2.0 Rectangle { width: 480; height: 240 color: &amp;#39;#1e1e1e&amp;#39; Row { anchors.centerIn: parent spacing: 20 Image { id: sourceImage width: 160; height: width source: &amp;#34;assets/coastline.jpg&amp;#34; } ShaderEffect { width: 160; height: width property variant source: sourceImage property real frequency: 8 property real amplitude: 0.1 property real time: 0.0 NumberAnimation on time { from: 0; to: Math.PI*2; duration: 1000; loops: Animation.Infinite } fragmentShader: &amp;#34; varying highp vec2 qt_TexCoord0; uniform sampler2D source; uniform lowp float qt_Opacity; uniform highp float frequency; uniform highp float amplitude; uniform highp float time; void main() { highp vec2 pulse = sin(time - frequency * qt_TexCoord0); highp vec2 coord = qt_TexCoord0 + amplitude * vec2(pulse.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/storage/local_storage_-_sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/storage/local_storage_-_sql/</guid>
+      <description>本地存储 - SQL（Local Storage - SQL） #  Qt Quick支持一个与浏览器由区别的本地存储编程接口。需要使用&amp;quot;import QtQuick.LocalStorage 2.0&amp;quot;语句来导入后才能使用这个编程接口。
+通常使用基于给定的数据库名称和版本号使用系统特定位置的唯一文件ID号来存储数据到一个SQLITE数据库中。无法列出或者删除已有的数据库。你可以使用QQmlEngine::offlineStoragePate()来寻找本地存储。
+使用这个编程接口你首选需要创建一个数据库对象，然后在这个数据库上创建数据库事务。每个事务可以包含一个或多个SQL查询。当一个SQL查询在事务中失败后，事务会回滚。
+例如你可以使用本地存储从一个简单的注释表中读取一个文本列：
+import QtQuick 2.2 import QtQuick.LocalStorage 2.0 Item { Component.onCompleted: { var db = LocalStorage.openDatabaseSync(&amp;#34;MyExample&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;Example database&amp;#34;, 10000); db.transaction( function(tx) { var result = tx.executeSql(&amp;#39;select * from notes&amp;#39;); for(var i = 0; i &amp;lt; result.rows.length; i++) { print(result.rows[i].text); } } }); } } 疯狂的矩形框（Crazy Rectangle） #  假设我们想要存储一个矩形在场景中的位置。
+ 下面是我们的基础代码。
+import QtQuick 2.2 Item { width: 400 height: 400 Rectangle { id: crazy objectName: &amp;#39;crazy&amp;#39; width: 100 height: 100 x: 50 y: 50 color: &amp;#34;#53d769&amp;#34; border.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/storage/other_storage_apis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/storage/other_storage_apis/</guid>
+      <description>其它存储接口（Other Storage APIs） #  直接从QML中存储信息，上面的这些方法是主要存储方法。事实上QtQuick最有效的存储方法是使用C++扩展接口调用本地存储系统或者类似Qt云存储使用网络编程接口调用远程存储系统。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/storage/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/storage/README/</guid>
+      <description>存储（Storage） #  本章将介绍在Qt5中使用QtQuick存储数据。QtQuick只提供了有限的方法来直接存储本地数据。在这样的场景下，它更多的扮演了一个浏览者的角色。在大多数项目中，存储数据由C++后端来完成，并需要将这个功能导入到QtQuick前端。QtQucik没有提供类似Qt C++的主机文件系统接口来读取和写入文件。所以后端工程师需要编写一个这样的插件或者使用网络通道与本地服务器通信来提供这些功能。
+每个应用程序都需要持续的存储少量或者大量的信息。可以存储在本地文件系统或者远程服务器上。一些信息将会被结构化、简单化例如程序配置信息，一些信息将会巨大并且复杂例如文档文件，一些信息将会巨大并且结构化需要与某种数据库连接。在这章我们将会讨论如何使用QtQuick通过网络和本地的方式存储数据。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/storage/settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/storage/settings/</guid>
+      <description>Settings #  Qt自身就提供了基于系统方式的应用程序配置（又名选项，偏好）C++类 QSettings。它使用基于当前操作系统的方式存储配置。此外，它支持通用的INI文件格式用来操作跨平台的配置文件。
+在Qt5.2中，配置（Settings）被加入到QML中。编程接口仍然在实验模块中，这意味着接口可能在未来会改变。这里需要注意。
+这里有一个小例子，对一个矩形框配置颜色。每次用户点击窗口生成一个新的随机颜色。应用程序关闭后重启你将会看到你最后看到的颜色。 默认的颜色是用来初始化根矩形框的颜色。
+import QtQuick 2.0 import Qt.labs.settings 1.0 Rectangle { id: root width: 320; height: 240 color: &amp;#39;#000000&amp;#39; Settings { id: settings property alias color: root.color } MousArea { anchors.fill: parent onClicked: root.color = Qt.hsla(Math.random(), 0.5, 0.5, 1.0); } } 每次颜色值的变化都被存储在配置中。这可能不是我们需要的。只有在要求使用标准属性的时候才存储配置。
+Rectangle { id: root color: settings.color Settings { id: settings property color color: &amp;#39;#000000&amp;#39; } function storeSettings() { // executed maybe on destruction settings.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Get_starts on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/</link>
+    <description>Recent content in Get_starts on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/get_start/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/application_types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/application_types/</guid>
+      <description>应用程序类型（Application Types） #  这一节贯穿了可能使用Qt5编写的不同类型的应用程序。没有任何建议的选择，只是想告诉读者Qt5通常情况下能做些什么。
+2.3.1 控制台应用程序 #  一个控制台应用程序不需要提供任何人机交互图形界面通常被称作系统服务，或者通过命令行来运行。Qt5附带了一系列现成的组件来帮助你非常有效的创建跨平台的控制台应用程序。例如网络应用程序编程接口或者文件应用程序编程接口，字符串的处理，自Qt5.1发布的高效的命令解析器。由于Qt是基于C++的高级应用程序接口，你能够快速的编程并且程序拥有快速的执行速度。不要认为Qt仅仅只是用户界面工具，它也提供了许多其它的功能。
+字符串处理
+在第一个例子中我们展示了怎样简单的增加两个字符串常量。这不是一个有用的应用程序，但能让你了解本地端C++应用程序没有事件循环时是什么样的。
+// module or class includes #include &amp;lt;QtCore&amp;gt; // text stream is text-codec aware QTextStream cout(stdout, QIODevice::WriteOnly); int main(int argc, char** argv) { // avoid compiler warnings Q_UNUSED(argc) Q_UNUSED(argv) QString s1(&amp;#34;Paris&amp;#34;); QString s2(&amp;#34;London&amp;#34;); // string concatenation QString s = s1 + &amp;#34; &amp;#34; + s2 + &amp;#34;!&amp;#34;; cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; endl; } 容器类
+这个例子在应用程序中增加了一个链表和一个链表迭代器。Qt自带大量方便使用的容器类，并且其中的元素使用相同的应用程序接口模式。
+QString s1(&amp;#34;Hello&amp;#34;); QString s2(&amp;#34;Qt&amp;#34;); QList&amp;lt;QString&amp;gt; list; // stream into containers list &amp;lt;&amp;lt; s1 &amp;lt;&amp;lt; s2; // Java and STL like iterators QListIterator&amp;lt;QString&amp;gt; iter(list); while(iter.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/hello_world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/hello_world/</guid>
+      <description>你好世界（Hello World） #  为了测试你的安装，我们创建一个简单的应用程序hello world.打开Qt Creator并且创建一个Qt Quick UI Project（File-&amp;gt;New File 或者 Project-&amp;gt; Qt Quick Project -&amp;gt; Qt Quick UI）并且给项目取名 HelloWorld。
+注意
+Qt Creator集成开发环境允许你创建不同类型的应用程序。如果没有另外说明，我们都创建Qt Quick UI Project。
+提示
+一个典型的Qt Quick应用程序在运行时解释，与本地插件或者本地代码在运行时解释代码一样。对于才开始的我们不需要关注本地端的解释开发，只需要把注意力集中在Qt5运行时的方面。
+Qt Creator将会为我们创建几个文件。HellWorld.qmlproject文件是项目文件，保存了项目的配置信息。这个文件由Qt Creator管理，我们不需要编辑它。
+另一个文件HelloWorld.qml保存我们应用程序的代码。打开它，并且尝试想想这个应用程序要做什么，然后再继续读下去。
+// HelloWorld.qml import QtQuick 2.0 Rectangle { width: 360 height: 360 Text { anchors.centerIn: parent text: &amp;#34;Hello World&amp;#34; } MouseArea { anchors.fill: parent onClicked: { Qt.quit(); } } } HelloWorld.qml使用QML语言来编写。我们将在下一章更深入的讨论QML语言，现在只需要知道它描述了一系列有层次的用户界面。这个代码指定了显示一个360乘以360像素的一个矩形，矩形中间有一个“Hello World&amp;quot;的文本。鼠标区域覆盖了整个矩形，当用户点击它时，程序就会退出。
+你自己可以运行这个应用程序，点击左边的运行或者从菜单选择select Bulid-&amp;gt;Run。
+如果一切顺利，你将看到下面这个窗口：
+ Qt 5似乎已经可以工作了，我们接着继续。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/qt5installing_qt_5_sdk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/qt5installing_qt_5_sdk/</guid>
+      <description>安装Qt5软件工具包（Installing Qt 5 SDK） #  Qt软件工具包包含了编译桌面或者嵌入式应用程序的工具。最新的版本可以从 Qt-Project下载。我们将使用这种方法开始。
+软件工具包自身包含了一个维护工具允许你更新到最新版本的软件工具包。
+Qt软件工具包非常容易安装，并且附带了一个它自身的快速集成开发环境叫做Qt Creator。这个集成开发环境可以让你高效的使用Qt进行开发，我们推荐给所有的读者使用。在任何情况下Qt都可以通过命令的方式来编译，你可以自由的选择你的代码编辑器。
+当你安装软件工具包时，你最好选择默认的选项确保Qt 5.x可以被使用。然后一切准备就绪。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/README/</guid>
+      <description>开始学习（Get Start） #  这一章介绍了如何使用Qt5进行开发。我们将告诉你如何安装Qt软件开发工具包（Qt SDK）和如何使用Qt Creator集成开发环境（Qt Creator IDE）创建并运行一个简单的hello word应用程序。
+注意
+这章的源代码能够在 assetts folder找到。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/get_start/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/get_start/summary/</guid>
+      <description>总结（ Summary） #  我们已经知道了如何安装Qt软件开发工具包，并且知道如何创建我们的应用。我们向你展示和概述了使用Qt开发不同类型的应用程序。展示Qt可以给你的应用程序开发提供的一些功能。我希望你对Qt留下一个好的印象，Qt是一个非常好的用户界面开发工具并且尽可能的提供了一个应用开发者期望的东西。当前你也不必一直锁定使用Qt，你也可以使用其它的库或者自己来扩展Qt。Qt对于不同类型的应用程序开发支持非常丰富：包括控制台程序，经典的桌面用户界面程序和触摸式用户界面程序。</description>
+    </item>
+    
+  </channel>
+</rss>

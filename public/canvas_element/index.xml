@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Canvas_elements on Qml Book</title>
+    <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/</link>
+    <description>Recent content in Canvas_elements on Qml Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mirrors.cqu.edu.cn/qmlbook/canvas_element/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/canvas_paint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/canvas_paint/</guid>
+      <description>画布绘制（Canvas Paint） #  在这个例子中我们将使用画布（Canvas）创建一个简单的绘制程序。
+ 在我们场景的顶部我们使用行定位器排列四个方形的颜色块。一个颜色块是一个简单的矩形，使用鼠标区域来检测点击。
+ Row { id: colorTools anchors { horizontalCenter: parent.horizontalCenter top: parent.top topMargin: 8 } property variant activeSquare: red property color paintColor: &amp;#34;#33B5E5&amp;#34; spacing: 4 Repeater { model: [&amp;#34;#33B5E5&amp;#34;, &amp;#34;#99CC00&amp;#34;, &amp;#34;#FFBB33&amp;#34;, &amp;#34;#FF4444&amp;#34;] ColorSquare { id: red color: modelData active: parent.paintColor == color onClicked: { parent.paintColor = color } } } } 颜色存储在一个数组中，作为绘制颜色使用。当用户点击一个矩形时，矩形内的颜色被设置为colorTools的paintColor属性。
+为了在画布上跟踪鼠标事件，我们使用鼠标区域（MouseArea）覆盖画布元素，并连接点击和移动操作。
+ Canvas { id: canvas anchors { left: parent.left right: parent.right top: colorTools.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/composition_mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/composition_mode/</guid>
+      <description>组合模式（Composition Mode） #  组合允许你绘制一个形状然后与已有的像素点集合混合。画布提供了多种组合模式，使用globalCompositeOperation(mode)来设置。
+  &amp;ldquo;source-over&amp;rdquo;
+  &amp;ldquo;source-in&amp;rdquo;
+  &amp;ldquo;source-out&amp;rdquo;
+  &amp;ldquo;source-atop&amp;rdquo;
+   onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) ctx.globalCompositeOperation = &amp;#34;xor&amp;#34; ctx.fillStyle = &amp;#34;#33a9ff&amp;#34; for(var i=0; i&amp;lt;40; i++) { ctx.beginPath() ctx.arc(Math.random()*400, Math.random()*200, 20, 0, 2*Math.PI) ctx.closePath() ctx.fill() } } 下面这个例子遍历了列表中的组合模式，使用对应的组合模式生成了一个矩形与圆形的组合。
+ property var operation : [ &amp;#39;source-over&amp;#39;, &amp;#39;source-in&amp;#39;, &amp;#39;source-over&amp;#39;, &amp;#39;source-atop&amp;#39;, &amp;#39;destination-over&amp;#39;, &amp;#39;destination-in&amp;#39;, &amp;#39;destination-out&amp;#39;, &amp;#39;destination-atop&amp;#39;, &amp;#39;lighter&amp;#39;, &amp;#39;copy&amp;#39;, &amp;#39;xor&amp;#39;, &amp;#39;qt-clear&amp;#39;, &amp;#39;qt-destination&amp;#39;, &amp;#39;qt-multiply&amp;#39;, &amp;#39;qt-screen&amp;#39;, &amp;#39;qt-overlay&amp;#39;, &amp;#39;qt-darken&amp;#39;, &amp;#39;qt-lighten&amp;#39;, &amp;#39;qt-color-dodge&amp;#39;, &amp;#39;qt-color-burn&amp;#39;, &amp;#39;qt-hard-light&amp;#39;, &amp;#39;qt-soft-light&amp;#39;, &amp;#39;qt-difference&amp;#39;, &amp;#39;qt-exclusion&amp;#39; ] onPaint: { var ctx = getContext(&amp;#39;2d&amp;#39;) for(var i=0; i&amp;lt;operation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/convenient_api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/convenient_api/</guid>
+      <description>便捷的接口（Convenient API） #  在绘制矩形时，我们提供了一个便捷的接口，而不需要调用stroke或者fill来完成。
+// convenient.qml import QtQuick 2.0 Canvas { id: root width: 120; height: 120 onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) ctx.fillStyle = &amp;#39;green&amp;#39; ctx.strokeStyle = &amp;#34;blue&amp;#34; ctx.lineWidth = 4 // draw a filles rectangle ctx.fillRect(20, 20, 80, 80) // cut our an inner rectangle ctx.clearRect(30,30, 60, 60) // stroke a border from top-left to // inner center of the larger rectangle ctx.strokeRect(20,20, 40, 40) } }  注意</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/gradients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/gradients/</guid>
+      <description>渐变（Gradients） #  画布中可以使用颜色填充也可以使用渐变或者图像来填充。
+ onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) var gradient = ctx.createLinearGradient(100,0,100,200) gradient.addColorStop(0, &amp;#34;blue&amp;#34;) gradient.addColorStop(0.5, &amp;#34;lightsteelblue&amp;#34;) ctx.fillStyle = gradient ctx.fillRect(50,50,100,100) } 在这个例子中，渐变色定义在开始点（100,0）到结束点（100,200）。在我们画布中是一个中间垂直的线。渐变色在停止点定义一个颜色，范围从0.0到1.0。这里我们使用一个蓝色作为0.0（100,0），一个高亮刚蓝色作为0.5（100,200）。渐变色的定义比我们想要绘制的矩形更大，所以矩形在它定义的范围内对渐变进行了裁剪。
+ 注意
+渐变色是在画布坐标下定义的，而不是在绘制路径相对坐标下定义的。画布中没有相对坐标的概念。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/html5porting_from_html5_canvas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/html5porting_from_html5_canvas/</guid>
+      <description>HTML5画布移植（Porting from HTML5 Canvas） #     https://developer.mozilla.org/en/Canvas_tutorial/Transformations
+   http://en.wikipedia.org/wiki/Spirograph
+  移植一个HTML5画布图像到QML画布非常简单。在成百上千的例子中，我们选择了一个来移植。
+螺旋图形（Spiro Graph）
+我们使用一个来自Mozila项目的螺旋图形例子来作为我们的基础示例。原始的HTML5代码被作为画布教程发布。
+下面是我们需要修改的代码：
+ Qt Quick要求定义变量使用，所以我们需要添加var的定义：  for (var i=0;i&amp;lt;3;i++) { ... }  修改绘制方法接收Context2D对象：  function draw(ctx) { ... }  由于不同的大小，我们需要对每个螺旋适配转换：  ctx.translate(20+j*50,20+i*50); 最后我们实现onPaint操作。在onPaint中我们请求一个context，并且调用我们的绘制方法。
+ onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;); draw(ctx); } 下面这个结果就是我们使用QML画布移植的螺旋图形。
+ 发光线（Glowing Lines）
+下面有一个更加复杂的移植来自W3C组织。 原始的发光线有些很不错的地方，这使得移植更加具有挑战性。
+ &amp;lt;!DOCTYPE HTML&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Pretty Glowing Lines&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;canvas width=&amp;#34;800&amp;#34; height=&amp;#34;450&amp;#34;&amp;gt;&amp;lt;/canvas&amp;gt; &amp;lt;script&amp;gt; var context = document.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/images/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/images/</guid>
+      <description>图片（Images） #  QML画布支持多种资源的图片绘制。在画布中使用一个图片需要先加载图片资源。在我们的例子中我们使用Component.onCompleted操作来加载图片。
+ onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) // draw an image ctx.drawImage(&amp;#39;assets/ball.png&amp;#39;, 10, 10) // store current context setup ctx.save() ctx.strokeStyle = &amp;#39;red&amp;#39; // create a triangle as clip region ctx.beginPath() ctx.moveTo(10,10) ctx.lineTo(55,10) ctx.lineTo(35,55) ctx.closePath() // translate coordinate system ctx.translate(100,0) ctx.clip() // create clip from triangle path // draw image with clip applied ctx.drawImage(&amp;#39;assets/ball.png&amp;#39;, 10, 10) // draw stroke around path ctx.stroke() // restore previous setup ctx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/pixels_buffer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/pixels_buffer/</guid>
+      <description>像素缓冲（Pixels Buffer） #  当你使用画布时，你可以检索读取画布上的像素数据，或者操作画布上的像素。读取图像数据使用createImageData(sw,sh)或者getImageData(sx,sy,sw,sh)。这两个函数都会返回一个包含宽度（width），高度（height）和数据（data）的图像数据（ImageData）对象。图像数据包含了一维数组像素数据，使用RGBA格式进行检索。每个数据的数据范围在0到255之间。设置画布的像素数据你可以使用putImageData(imagedata,dx,dy)函数来完成。
+另一种检索画布内容的方法是将画布的数据存储进一张图片中。可以使用画布的函数save(path)或者toDataURL(mimeType)来完成，toDataURL(mimeType)会返回一个图片的地址，这个链接可以直接用Image元素来读取。
+import QtQuick 2.0 Rectangle { width: 240; height: 120 Canvas { id: canvas x: 10; y: 10 width: 100; height: 100 property real hue: 0.0 onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) var x = 10 + Math.random(80)*80 var y = 10 + Math.random(80)*80 hue += Math.random()*0.1 if(hue &amp;gt; 1.0) { hue -= 1 } ctx.globalAlpha = 0.7 ctx.fillStyle = Qt.hsla(hue, 0.5, 0.5, 1.0) ctx.beginPath() ctx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/README/</guid>
+      <description>Canvas Element #  注意
+最后一次构建：2014年1月20日下午18:00。
+这章的源代码能够在 assetts folder找到。
+ 在早些时候的Qt4中加入QML时，一些开发者讨论如何在QtQuick中绘制一个圆形。类似圆形的问题，一些开发者也对于其它的形状的支持进行了讨论。在QtQuick中没有圆形，只有矩形。在Qt4中，如果你需要一个除了矩形外的形状，你需要使用图片或者使用你自己写的C++圆形元素。
+Qt5中引进了画布元素（canvas element），允许脚本绘制。画布元素（canvas element）提供了一个依赖于分辨率的位图画布，你可以使用JavaScript脚本来绘制图形，制作游戏或者其它的动态图像。画布元素（canvas element）是基于HTML5的画布元素来完成的。
+画布元素（canvas element）的基本思想是使用一个2D对象来渲染路径。这个2D对象包括了必要的绘图函数，画布元素（canvas element）充当绘制画布。2D对象支持画笔，填充，渐变，文本和绘制路径创建命令。
+让我们看看一个简单的路径绘制的例子：
+import QtQuick 2.0 Canvas { id: root // canvas size width: 200; height: 200 // handler to override for drawing onPaint: { // get context to draw with var ctx = getContext(&amp;#34;2d&amp;#34;) // setup the stroke ctx.lineWidth = 4 ctx.strokeStyle = &amp;#34;blue&amp;#34; // setup the fill ctx.fillStyle = &amp;#34;steelblue&amp;#34; // begin a new path to draw ctx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/shadows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/shadows/</guid>
+      <description>阴影（Shadows） #  注意
+在Qt5的alpha版本中，我们使用阴影遇到了一些问题。
+2D对象的路径可以使用阴影增强显示效果。阴影是一个区域的轮廓线使用偏移量，颜色和模糊来实现的。所以你需要指定一个阴影颜色（shadowColor），阴影X轴偏移值（shadowOffsetX），阴影Y轴偏移值（shadowOffsetY）和阴影模糊（shadowBlur）。这些参数的定义都使用2D context来定义。2D context是唯一的绘制操作接口。
+阴影也可以用来创建发光的效果。在下面的例子中我们使用白色的光创建了一个“Earth”的文本。在一个黑色的背景上可以有更加好的显示效果。
+首先我们绘制黑色背景：
+ // setup a dark background ctx.strokeStyle = &amp;#34;#333&amp;#34; ctx.fillRect(0,0,canvas.width,canvas.height); 然后定义我们的阴影配置：
+ ctx.shadowColor = &amp;#34;blue&amp;#34;; ctx.shadowOffsetX = 2; ctx.shadowOffsetY = 2; // next line crashes // ctx.shadowBlur = 10; 最后我们使用加粗的，80像素宽度的Ubuntu字体来绘制“Earth”文本：
+ ctx.font = &amp;#39;Bold 80px Ubuntu&amp;#39;; ctx.fillStyle = &amp;#34;#33a9ff&amp;#34;; ctx.fillText(&amp;#34;Earth&amp;#34;,30,180); </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/transformation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mirrors.cqu.edu.cn/qmlbook/canvas_element/transformation/</guid>
+      <description>转换（Transformation） #  画布有多种方式来转换坐标系。这些操作非常类似于QML元素的转换。你可以通过缩放（scale），旋转（rotate），translate（移动）来转换坐标系。与QML元素的转换不同的是，转换原点通常就是画布原点。例如，从中心点放大一个封闭的路径，你需要先将画布原点移动到整个封闭的路径的中心点上。使用这些转换的方法你可以创建一些更加复杂的转换。
+// transform.qml import QtQuick 2.0 Canvas { id: root width: 240; height: 120 onPaint: { var ctx = getContext(&amp;#34;2d&amp;#34;) ctx.strokeStyle = &amp;#34;blue&amp;#34; ctx.lineWidth = 4 ctx.beginPath() ctx.rect(-20, -20, 40, 40) ctx.translate(120,60) ctx.stroke() // draw path now rotated ctx.strokeStyle = &amp;#34;green&amp;#34; ctx.rotate(Math.PI/4) ctx.stroke() } }  除了移动画布外，也可以使用scale(x,y)来缩放x,y坐标轴。旋转使用rotate(angle)，angle是角度（360度=2*Math.PI）。使用setTransform(m11,m12,m21,m22,dx,dy)来完成矩阵转换。
+警告
+QML画布中的转换与HTML5画布中的机制有些不同。不确定这是不是一个Bug。
+注意
+重置矩阵你可以调用resetTransform()函数来完成，这个函数会将转换矩阵还原为单位矩阵。</description>
+    </item>
+    
+  </channel>
+</rss>
